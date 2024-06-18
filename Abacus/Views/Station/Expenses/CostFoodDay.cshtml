@@ -1,0 +1,196 @@
+﻿@using Abacus.DAL;
+@using Abacus.Models;
+
+@{
+    ViewBag.Title = "Δαπάνες τροφείου";
+    Layout = "~/Views/Shared/_StationLayout.cshtml";
+}
+
+<style>
+    .k-grid {
+        font-size: 11px;
+    }
+    .k-calendar {
+        font-size: 12px;
+    }
+</style>
+
+
+@Html.AntiForgeryToken()
+<div class="page-header" style="margin:5px 20px 5px 20px">
+    <span style="margin:5px 20px 5px 20px;font-family:'Segoe UI';font-size:large;text-shadow:1px 1px #000000">
+        <font style="color:#494949;float:left;font-family:'Segoe UI'">Ημερήσιες δαπάνες διαιτολόγιου</font>
+    </span>
+    <span style="margin:5px 5px 5px 5px;float:right;font-family:'Segoe UI';font-size:14px">@Html.ActionLink("Επιστροφή", "Index", "Station", null, new { @class = "btn btn-warning", style = "font-size:14px" })</span>
+    <button class="btn btn-info" style="margin:5px 5px 5px 5px;float:right;font-family:'Segoe UI';font-size:14px" onclick="RefreshGrid()">Ανανέωση</button>
+</div>
+
+<div class="body-content" style="margin:5px 20px 5px 20px;font-size:14px;background-color:dimgray;padding:4px 4px 4px 4px;min-height:38px">
+    <span style="margin-left:10px;float:left;font-family:'Segoe UI';">
+        <label style="font-size:14px;font-weight:bold;color:white">Σχολικό έτος : </label>
+        @(Html.Kendo().DropDownList()
+            .Name("ddlschoolyear")
+            .DataTextField("ΣΧΟΛΙΚΟ_ΕΤΟΣ")
+            .DataValueField("SCHOOLYEAR_ID")
+            .HtmlAttributes(new { style = "width:140px;font-size:14px;font-weight:bold" })
+            .OptionLabel("Επιλογή...")
+            .AutoBind(true)
+            .Enable(true)
+            .DataSource(source => { source.Read(read => { read.Action("GetSchoolYears", "Station"); }).ServerFiltering(true); })
+        )
+    </span>
+    <label id="dayOfWeek" style="margin-left:10px;margin-right:5px;font-size:15px;font-weight:bold;color:white;font-family:'Segoe UI'"></label>
+    @(Html.Kendo().DatePicker()
+        .Name("datepicker")
+        .Value(DateTime.Today)
+        .Enable(true)
+        .HtmlAttributes(new { style = "width:120px;font-size:14px;font-weight:bold", type = "text" })
+        .Events(e =>
+        {
+            e.Change("dpchange");
+        })
+    )
+    <label id="info" style="margin-left:15px;margin-right:5px;font-size:13px;font-weight:normal;color:white;font-style:italic;font-family:'Segoe UI'">
+        Καταχωρούνται οι τελικές τιμές ανά μονάδα (με το Φ.Π.Α. και όποια έκπτωση)
+    </label>
+    <button class="btn btn-default" style="margin:0px 5px 0px 5px;float:right;font-family:'Segoe UI';font-size:13px" onclick="costDayPrint()">Εκτύπωση κοστολόγιου</button>
+</div>
+
+<div class="body-content" style="margin:10px 20px 5px 20px;font-size:small">
+        @(Html.Kendo().Grid<CostFeedingViewModel>()
+        .Name("Child")
+        .AutoBind(false)
+        .HtmlAttributes(new { style = "display:block;font-size:12px" })
+        .Navigatable()
+        .Groupable()
+        .Filterable()
+        .Editable(editable => editable.Mode(GridEditMode.InLine).CreateAt(GridInsertRowPosition.Top).DisplayDeleteConfirmation(false))
+        .Sortable(sortable => sortable.AllowUnsort(true).SortMode(GridSortMode.MultipleColumn))
+        .Pageable(pageable => pageable
+        .Refresh(true)
+        .PageSizes(true)
+        .ButtonCount(5))
+        .Scrollable(scr => scr.Height(380))
+        .Columns(columns =>
+        {
+            columns.ForeignKey(f => f.ΚΑΤΗΓΟΡΙΑ, (IEnumerable<ΠΡΟΙΟΝ_ΚΑΤΗΓΟΡΙΑ>)ViewData["categories"], "ΚΑΤΗΓΟΡΙΑ_ΚΩΔ", "ΚΑΤΗΓΟΡΙΑ").Width(40).EditorTemplateName("CategoryFoodId");
+            columns.ForeignKey(f => f.ΠΡΟΙΟΝ, (IEnumerable<sqlPRODUCT_SELECTOR>)ViewData["products_units"], "ΠΡΟΙΟΝ_ΚΩΔ", "ΠΡΟΙΟΝ_ΜΟΝΑΔΑ").Width(80).EditorTemplateName("CategoryProductId2");
+            columns.Bound(c => c.ΠΟΣΟΤΗΤΑ).Width(15).Groupable(false).Filterable(false);
+            columns.Bound(c => c.ΤΙΜΗ_ΜΟΝΑΔΑ).Width(15).Groupable(false).Filterable(false);
+            columns.Bound(c => c.ΣΥΝΟΛΟ).Width(20).Filterable(false).Groupable(false)
+                .ClientFooterTemplate("Ολικό: #= kendo.toString(sum, '0.00 €') #")
+                .ClientGroupFooterTemplate("Σύνολο: #= kendo.toString(sum, '0.00 €') #");
+            columns.Command(command => { command.Edit(); command.Destroy(); }).Width(40);
+        })
+        .ToolBar(toolBar => toolBar.Create())
+        .DataSource(ds => ds
+            .Ajax()
+            .Batch(false)
+            .PageSize(40)
+            .ServerOperation(false)
+            .Model(model =>
+            {
+                model.Id(p => p.ΚΩΔΙΚΟΣ);
+                model.Field(p => p.ΚΑΤΗΓΟΡΙΑ).DefaultValue(0);
+                model.Field(p => p.ΠΡΟΙΟΝ).DefaultValue(0);
+                model.Field(p => p.ΣΥΝΟΛΟ).Editable(false);
+            })
+            .Create(create => create.Action("CostFood_Create", "Station").Data("data"))
+            .Read(read => read.Action("CostFood_Read", "Station").Data("data"))
+            .Update(update => update.Action("CostFood_Update", "Station").Data("data"))
+            .Destroy(destroy => destroy.Action("CostFood_Destroy", "Station"))
+            .Events(events => events.Error("error_handler"))
+            .Aggregates(a =>
+            {
+                a.Add(p => p.ΣΥΝΟΛΟ).Sum();
+            })
+        )
+        )
+</div>
+
+<script id="checkbox-events" type="text/javascript">
+
+    $(document).ready(function () {
+        var curDate = new Date();
+        var weekday = ["Κυριακή", "Δευτέρα", "Τρίτη", "Τετάρτη", "Πέμπτη", "Παρασκευή", "Σάββατο"];
+        var dayName = weekday[curDate.getDay()];
+
+        $("#dayOfWeek").text(dayName).attr('title', dayName);
+    });
+
+</script>
+
+<script id="grid-events" type="text/javascript">
+
+    function costDayPrint() {
+        var datepicker = $("#datepicker").data("kendoDatePicker");
+        selectedDate = datepicker.value();
+
+        if (selectedDate) {
+            window.open('@Url.Action("CostFoodDayPrint", "Station")?theDate=' + kendo.toString(selectedDate, 'dd/MM/yyyy'));
+        }
+        else {
+            MessageBoxAlert("Για να γίνει η εκτύπωση του ημερήσιου κοστολόγιου πρέπει να επιλέξετε ημερομηνία.");
+        }
+    }
+
+    function filterProducts() {
+        var categoryID = $("#ΚΑΤΗΓΟΡΙΑ").data("kendoDropDownList").value();
+        if (categoryID) {
+            return { categoryId: categoryID };
+        }
+        else {
+            return { categoryId: 0 };
+        }
+    }
+
+    function RefreshGrid(e) {
+        var grid = $("#Child").data("kendoGrid");
+        grid.dataSource.read();
+    }
+
+    function dpchange() {
+        var selectedDate = this.value();
+        var syearID = $("#ddlschoolyear").data("kendoDropDownList").value();
+
+        if (!syearID) syearID = 0;
+
+        var weekday = ["Κυριακή", "Δευτέρα", "Τρίτη", "Τετάρτη", "Πέμπτη", "Παρασκευή", "Σάββατο"];
+        var dayName = weekday[selectedDate.getDay()];
+
+        $("#dayOfWeek").text(dayName).attr('title', dayName);
+
+        $("#Child").data("kendoGrid").dataSource.read({ theDate: selectedDate, syearId: syearID });
+        $("#Child").css("display", "block");
+    }
+
+    function data() {
+        var datepicker = $("#datepicker").data("kendoDatePicker");
+        selectedDate = datepicker.value();
+        var syearID = $("#ddlschoolyear").data("kendoDropDownList").value();
+
+        if (!syearID) syearID = 0;
+
+        return {
+            theDate: selectedDate,
+            syearId: syearID
+        }
+    }
+
+    function error_handler(e) {
+        if (e.errors) {
+            var message = "";
+            $.each(e.errors, function (key, value) {
+                if ('errors' in value) {
+                    $.each(value.errors, function () {
+                        message += this + "<br/>";
+                    });
+                }
+            });
+            MessageBoxAlert(message, "Σφάλμα");
+            RefreshGrid(e);
+        }
+    }
+
+</script>
+

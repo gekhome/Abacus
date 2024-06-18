@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parameters>
+  <parameter name="IIS Web Application Name" description="" value="Default Web Site/abacus" tags="IisApp">
+    <parameterEntry kind="ProviderPath" scope="IisApp" match="^E:\\ABACUS\\Abacus\ Code\\Abacus\\obj\\Release\\Package\\PackageTmp$" />
+    <parameterEntry kind="ProviderPath" scope="setAcl" match="^E:\\ABACUS\\Abacus\ Code\\Abacus\\obj\\Release\\Package\\PackageTmp$" />
+  </parameter>
+  <parameter name="Abacus.Properties.Settings.DBConnectionString-Web.config Connection String" description="" value="Data Source=172.30.3.58,1711;Initial Catalog=AbacusDB;Persist Security Info=True;User ID=user;Password=171159;Application Name=EntityFramework" tags="">
+    <parameterEntry kind="XmlFile" scope="E:\\ABACUS\\Abacus\ Code\\Abacus\\obj\\Release\\Package\\PackageTmp\\Web\.config$" match="/configuration/connectionStrings/add[@name='Abacus.Properties.Settings.DBConnectionString']/@connectionString" />
+  </parameter>
+  <parameter name="AbacusDBEntities-Web.config Connection String" description="" value="metadata=res://*/DAL.AbacusEntityModel.csdl|res://*/DAL.AbacusEntityModel.ssdl|res://*/DAL.AbacusEntityModel.msl;provider=System.Data.SqlClient;provider connection string=&quot;Data Source=172.30.3.58,1711;Initial Catalog=AbacusDB;Persist Security Info=True;User ID=user;Password=171159;Application Name=EntityFramework&quot;" tags="">
+    <parameterEntry kind="XmlFile" scope="E:\\ABACUS\\Abacus\ Code\\Abacus\\obj\\Release\\Package\\PackageTmp\\Web\.config$" match="/configuration/connectionStrings/add[@name='AbacusDBEntities']/@connectionString" />
+  </parameter>
+</parameters>

@@ -1,0 +1,2152 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="AbacusDBModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="ACTIVE_SELECTOR">
+    <Key>
+      <PropertyRef Name="ACTIVE_ID" />
+    </Key>
+    <Property Name="ACTIVE_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ACTIVE_TEXT" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="ADMIN_LOGINS">
+    <Key>
+      <PropertyRef Name="LOGIN_ID" />
+    </Key>
+    <Property Name="LOGIN_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="LOGIN_USERNAME" Type="nvarchar" MaxLength="150" />
+    <Property Name="LOGIN_DATETIME" Type="datetime" />
+  </EntityType>
+  <EntityType Name="APP_STATUS">
+    <Key>
+      <PropertyRef Name="STATUS_ID" />
+    </Key>
+    <Property Name="STATUS_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="STATUS_VALUE" Type="bit" />
+  </EntityType>
+  <EntityType Name="BUDGET_DATA">
+    <Key>
+      <PropertyRef Name="BUDGET_ID" />
+    </Key>
+    <Property Name="BUDGET_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="STATION_ID" Type="int" />
+    <Property Name="SCHOOLYEAR_ID" Type="int" />
+    <Property Name="BUDGET_MONTH" Type="int" />
+    <Property Name="CHILDREN_NUM" Type="int" />
+    <Property Name="PERSONNEL_NUM" Type="int" />
+    <Property Name="BUDGET_FOOD" Type="numeric" Precision="10" Scale="2" />
+    <Property Name="BUDGET_CLEAN" Type="numeric" Precision="10" Scale="2" />
+    <Property Name="BUDGET_OTHER" Type="numeric" Precision="10" Scale="2" />
+  </EntityType>
+  <EntityType Name="DOCUPLOADS">
+    <Key>
+      <PropertyRef Name="UPLOAD_ID" />
+    </Key>
+    <Property Name="UPLOAD_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="STATION_ID" Type="int" />
+    <Property Name="SCHOOLYEAR_ID" Type="int" />
+    <Property Name="UPLOAD_DATE" Type="date" />
+    <Property Name="UPLOAD_NAME" Type="nvarchar" MaxLength="50" />
+    <Property Name="UPLOAD_SUMMARY" Type="nvarchar" MaxLength="500" />
+  </EntityType>
+  <EntityType Name="DOCUPLOADS_FILES">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="STATION_USER" Type="nvarchar" MaxLength="50" />
+    <Property Name="SCHOOLYEAR_TEXT" Type="nvarchar" MaxLength="10" />
+    <Property Name="FILENAME" Type="nvarchar" MaxLength="120" />
+    <Property Name="EXTENSION" Type="nvarchar" MaxLength="10" />
+    <Property Name="UPLOAD_ID" Type="int" />
+  </EntityType>
+  <EntityType Name="METABOLES_REPORT">
+    <Key>
+      <PropertyRef Name="RECORD_ID" />
+    </Key>
+    <Property Name="RECORD_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="BNS" Type="int" />
+    <Property Name="EMPLOYEE_ID" Type="int" />
+    <Property Name="SCHOOL_YEAR" Type="int" />
+    <Property Name="METABOLI_YEAR" Type="int" />
+    <Property Name="METABOLI_MONTH" Type="int" />
+    <Property Name="METABOLI_DAYS" Type="int" />
+    <Property Name="METABOLI_TEXT" Type="nvarchar(max)" />
+  </EntityType>
+  <EntityType Name="SYS_LOGINS">
+    <Key>
+      <PropertyRef Name="LOGIN_ID" />
+    </Key>
+    <Property Name="LOGIN_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="LOGIN_USERNAME" Type="nvarchar" MaxLength="50" />
+    <Property Name="LOGIN_DATETIME" Type="datetime" />
+  </EntityType>
+  <EntityType Name="USER_ADMINS">
+    <Key>
+      <PropertyRef Name="USER_ID" />
+    </Key>
+    <Property Name="USER_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="USERNAME" Type="nvarchar" MaxLength="20" />
+    <Property Name="PASSWORD" Type="nvarchar" MaxLength="20" />
+    <Property Name="FULLNAME" Type="nvarchar" MaxLength="120" />
+    <Property Name="ISACTIVE" Type="bit" />
+    <Property Name="CREATEDATE" Type="datetime" />
+  </EntityType>
+  <EntityType Name="USER_PERSONS">
+    <Key>
+      <PropertyRef Name="USER_ID" />
+    </Key>
+    <Property Name="USER_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="USERNAME" Type="nvarchar" MaxLength="20" />
+    <Property Name="PASSWORD" Type="nvarchar" MaxLength="20" />
+    <Property Name="USER_AFM" Type="nvarchar" MaxLength="10" />
+    <Property Name="STATION_ID" Type="int" />
+    <Property Name="CREATEDATE" Type="datetime" />
+  </EntityType>
+  <EntityType Name="USER_STATIONS">
+    <Key>
+      <PropertyRef Name="USER_ID" />
+    </Key>
+    <Property Name="USER_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="USERNAME" Type="nvarchar" MaxLength="50" />
+    <Property Name="PASSWORD" Type="nvarchar" MaxLength="20" />
+    <Property Name="STATION_ID" Type="int" />
+    <Property Name="ISACTIVE" Type="bit" />
+  </EntityType>
+  <EntityType Name="ΓΕΥΜΑΤΑ_ΒΡΕΦΗ">
+    <Key>
+      <PropertyRef Name="ΒΡΕΦΙΚΟ_ΚΩΔ" />
+    </Key>
+    <Property Name="ΒΡΕΦΙΚΟ_ΚΩΔ" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ΒΡΕΦΙΚΟ" Type="nvarchar" MaxLength="255" />
+    <Property Name="ΣΧΟΛΙΟ" Type="nvarchar(max)" />
+    <Property Name="ΒΝΣ" Type="int" />
+  </EntityType>
+  <EntityType Name="ΓΕΥΜΑΤΑ_ΜΕΣΗΜΕΡΙ">
+    <Key>
+      <PropertyRef Name="ΜΕΣΗΜΕΡΙΑΝΟ_ΚΩΔ" />
+    </Key>
+    <Property Name="ΜΕΣΗΜΕΡΙΑΝΟ_ΚΩΔ" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ΜΕΣΗΜΕΡΙΑΝΟ" Type="nvarchar" MaxLength="255" />
+    <Property Name="ΣΧΟΛΙΟ" Type="nvarchar(max)" />
+    <Property Name="ΒΝΣ" Type="int" />
+  </EntityType>
+  <EntityType Name="ΓΕΥΜΑΤΑ_ΠΡΩΙ">
+    <Key>
+      <PropertyRef Name="ΠΡΩΙΝΟ_ΚΩΔ" />
+    </Key>
+    <Property Name="ΠΡΩΙΝΟ_ΚΩΔ" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ΠΡΩΙΝΟ" Type="nvarchar" MaxLength="255" />
+    <Property Name="ΣΧΟΛΙΟ" Type="nvarchar(max)" />
+    <Property Name="ΒΝΣ" Type="int" />
+  </EntityType>
+  <EntityType Name="Δ_ΑΝΤΙΠΡΟΕΔΡΟΙ">
+    <Key>
+      <PropertyRef Name="ΑΝΤΙΠΡΟΕΔΡΟΣ_ΚΩΔ" />
+    </Key>
+    <Property Name="ΑΝΤΙΠΡΟΕΔΡΟΣ_ΚΩΔ" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ΣΧΟΛΙΚΟ_ΕΤΟΣ" Type="int" />
+    <Property Name="ΑΝΤΙΠΡΟΕΔΡΟΣ" Type="nvarchar" MaxLength="255" />
+    <Property Name="ΒΑΘΜΟΣ" Type="nvarchar" MaxLength="50" />
+    <Property Name="ΦΥΛΟ" Type="int" />
+  </EntityType>
+  <EntityType Name="Δ_ΔΙΑΧΕΙΡΙΣΤΕΣ">
+    <Key>
+      <PropertyRef Name="ΔΙΑΧΕΙΡΙΣΤΗΣ_ΚΩΔ" />
+    </Key>
+    <Property Name="ΔΙΑΧΕΙΡΙΣΤΗΣ_ΚΩΔ" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ΟΝΟΜΑΤΕΠΩΝΥΜΟ" Type="nvarchar" MaxLength="255" />
+    <Property Name="ΟΝΟΜΑΤΕΠΩΝΥΜΟ_ΠΛΗΡΕΣ" Type="nvarchar" MaxLength="255" />
+    <Property Name="ΤΗΛΕΦΩΝΟ" Type="nvarchar" MaxLength="255" />
+    <Property Name="ΦΑΞ" Type="nvarchar" MaxLength="255" />
+    <Property Name="ΦΥΛΟ" Type="int" />
+  </EntityType>
+  <EntityType Name="Δ_ΔΙΕΥΘΥΝΤΕΣ">
+    <Key>
+      <PropertyRef Name="ΔΙΕΥΘΥΝΤΗΣ_ΚΩΔ" />
+    </Key>
+    <Property Name="ΔΙΕΥΘΥΝΤΗΣ_ΚΩΔ" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ΣΧΟΛΙΚΟ_ΕΤΟΣ" Type="int" />
+    <Property Name="ΔΙΕΥΘΥΝΤΗΣ" Type="nvarchar" MaxLength="255" />
+    <Property Name="ΦΥΛΟ" Type="int" />
+  </EntityType>
+  <EntityType Name="Δ_ΔΙΕΥΘΥΝΤΕΣ_ΓΕΝΙΚΟΙ">
+    <Key>
+      <PropertyRef Name="ΓΕΝΙΚΟΣ_ΚΩΔ" />
+    </Key>
+    <Property Name="ΓΕΝΙΚΟΣ_ΚΩΔ" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ΣΧΟΛΙΚΟ_ΕΤΟΣ" Type="int" />
+    <Property Name="ΓΕΝΙΚΟΣ" Type="nvarchar" MaxLength="255" />
+    <Property Name="ΦΥΛΟ" Type="int" />
+  </EntityType>
+  <EntityType Name="Δ_ΔΙΟΙΚΗΤΕΣ">
+    <Key>
+      <PropertyRef Name="ΔΙΟΙΚΗΤΗΣ_ΚΩΔ" />
+    </Key>
+    <Property Name="ΔΙΟΙΚΗΤΗΣ_ΚΩΔ" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ΣΧΟΛΙΚΟ_ΕΤΟΣ" Type="int" />
+    <Property Name="ΔΙΟΙΚΗΤΗΣ" Type="nvarchar" MaxLength="255" />
+    <Property Name="ΦΥΛΟ" Type="int" />
+  </EntityType>
+  <EntityType Name="Δ_ΠΡΟΙΣΤΑΜΕΝΟΙ">
+    <Key>
+      <PropertyRef Name="ΠΡΟΙΣΤΑΜΕΝΟΣ_ΚΩΔ" />
+    </Key>
+    <Property Name="ΠΡΟΙΣΤΑΜΕΝΟΣ_ΚΩΔ" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ΣΧΟΛΙΚΟ_ΕΤΟΣ" Type="int" />
+    <Property Name="ΠΡΟΙΣΤΑΜΕΝΟΣ" Type="nvarchar" MaxLength="255" />
+    <Property Name="ΦΥΛΟ" Type="int" />
+  </EntityType>
+  <EntityType Name="ΔΑΠΑΝΕΣ_ΕΙΔΗ">
+    <Key>
+      <PropertyRef Name="ΕΙΔΟΣ_ΚΩΔ" />
+    </Key>
+    <Property Name="ΕΙΔΟΣ_ΚΩΔ" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ΕΙΔΟΣ_ΛΕΚΤΙΚΟ" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="ΔΑΠΑΝΗ_ΑΛΛΗ">
+    <Key>
+      <PropertyRef Name="ΚΩΔΙΚΟΣ" />
+    </Key>
+    <Property Name="ΚΩΔΙΚΟΣ" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ΒΝΣ" Type="int" />
+    <Property Name="ΣΧΟΛ_ΕΤΟΣ" Type="int" />
+    <Property Name="ΗΜΕΡΟΜΗΝΙΑ" Type="date" />
+    <Property Name="ΚΑΤΗΓΟΡΙΑ" Type="int" />
+    <Property Name="ΠΡΟΙΟΝ" Type="int" />
+    <Property Name="ΠΟΣΟΤΗΤΑ" Type="decimal" Precision="10" Scale="3" />
+    <Property Name="ΤΙΜΗ_ΜΟΝΑΔΑ" Type="decimal" Precision="10" Scale="3" />
+    <Property Name="ΣΥΝΟΛΟ" Type="decimal" Precision="10" Scale="3" />
+  </EntityType>
+  <EntityType Name="ΔΑΠΑΝΗ_ΓΕΝΙΚΗ">
+    <Key>
+      <PropertyRef Name="ΚΩΔΙΚΟΣ" />
+    </Key>
+    <Property Name="ΚΩΔΙΚΟΣ" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ΒΝΣ" Type="int" />
+    <Property Name="ΣΧΟΛ_ΕΤΟΣ" Type="int" />
+    <Property Name="ΗΜΕΡΟΜΗΝΙΑ" Type="date" />
+    <Property Name="ΚΑΤΗΓΟΡΙΑ" Type="int" />
+    <Property Name="ΠΕΡΙΓΡΑΦΗ" Type="nvarchar" MaxLength="255" />
+    <Property Name="ΣΥΝΟΛΟ" Type="decimal" Precision="10" Scale="2" />
+  </EntityType>
+  <EntityType Name="ΔΑΠΑΝΗ_ΚΑΘΑΡΙΟΤΗΤΑ">
+    <Key>
+      <PropertyRef Name="ΚΩΔΙΚΟΣ" />
+    </Key>
+    <Property Name="ΚΩΔΙΚΟΣ" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ΒΝΣ" Type="int" />
+    <Property Name="ΣΧΟΛ_ΕΤΟΣ" Type="int" />
+    <Property Name="ΗΜΕΡΟΜΗΝΙΑ" Type="date" />
+    <Property Name="ΚΑΤΗΓΟΡΙΑ" Type="int" />
+    <Property Name="ΠΡΟΙΟΝ" Type="int" />
+    <Property Name="ΠΟΣΟΤΗΤΑ" Type="decimal" Precision="10" Scale="3" />
+    <Property Name="ΤΙΜΗ_ΜΟΝΑΔΑ" Type="decimal" Precision="10" Scale="3" />
+    <Property Name="ΣΥΝΟΛΟ" Type="decimal" Precision="10" Scale="3" />
+  </EntityType>
+  <EntityType Name="ΔΑΠΑΝΗ_ΤΡΟΦΗ">
+    <Key>
+      <PropertyRef Name="ΚΩΔΙΚΟΣ" />
+    </Key>
+    <Property Name="ΚΩΔΙΚΟΣ" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ΒΝΣ" Type="int" />
+    <Property Name="ΣΧΟΛ_ΕΤΟΣ" Type="int" />
+    <Property Name="ΗΜΕΡΟΜΗΝΙΑ" Type="date" />
+    <Property Name="ΚΑΤΗΓΟΡΙΑ" Type="int" />
+    <Property Name="ΠΡΟΙΟΝ" Type="int" />
+    <Property Name="ΠΟΣΟΤΗΤΑ" Type="decimal" Precision="10" Scale="3" />
+    <Property Name="ΤΙΜΗ_ΜΟΝΑΔΑ" Type="decimal" Precision="10" Scale="3" />
+    <Property Name="ΣΥΝΟΛΟ" Type="decimal" Precision="10" Scale="3" />
+  </EntityType>
+  <EntityType Name="ΔΙΑΙΤΟΛΟΓΙΟ_ΗΜΕΡΑ">
+    <Key>
+      <PropertyRef Name="ΔΙΑΙΤΟΛΟΓΙΟ_ΚΩΔ" />
+    </Key>
+    <Property Name="ΔΙΑΙΤΟΛΟΓΙΟ_ΚΩΔ" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ΣΤΑΘΜΟΣ_ΚΩΔ" Type="int" />
+    <Property Name="ΗΜΕΡΟΜΗΝΙΑ" Type="date" />
+    <Property Name="ΓΕΥΜΑ_ΠΡΩΙ" Type="int" />
+    <Property Name="ΓΕΥΜΑ_ΜΕΣΗΜΕΡΙ" Type="int" />
+    <Property Name="ΓΕΥΜΑ_ΒΡΕΦΗ" Type="int" />
+    <Property Name="ΤΡΟΦΙΜΟΙ" Type="int" />
+    <Property Name="ΠΡΟΣΩΠΙΚΟ" Type="int" />
+    <Property Name="ΠΛΗΘΟΣ" Type="int" />
+    <Property Name="ΚΟΣΤΟΣ" Type="numeric" Precision="10" Scale="2" />
+    <Property Name="ΔΑΠΑΝΗ" Type="numeric" Precision="10" Scale="2" />
+  </EntityType>
+  <EntityType Name="ΕΓΓΡΑΦΟ_ΔΙΑΧΕΙΡΙΣΤΗΣ">
+    <Key>
+      <PropertyRef Name="DOCADMIN_ID" />
+    </Key>
+    <Property Name="DOCADMIN_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="DOCSTATION_ID" Type="int" />
+    <Property Name="DOCADMIN_NAME" Type="nvarchar" MaxLength="255" />
+  </EntityType>
+  <EntityType Name="ΕΓΓΡΑΦΟ_ΜΕΤΑΒΟΛΕΣ">
+    <Key>
+      <PropertyRef Name="DOC_ID" />
+    </Key>
+    <Property Name="DOC_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="SCHOOLYEAR_ID" Type="int" />
+    <Property Name="STATION_ID" Type="int" />
+    <Property Name="PERIFERIAKI_ID" Type="int" />
+    <Property Name="ADMIN_ID" Type="int" />
+    <Property Name="DOC_MONTH" Type="int" />
+    <Property Name="DOC_YEAR" Type="int" />
+    <Property Name="DOC_DATE" Type="date" />
+    <Property Name="DOC_PROTOCOL" Type="nvarchar" MaxLength="50" />
+    <Property Name="DOC_SXETIKA" Type="nvarchar" MaxLength="255" />
+    <Property Name="CORRECTION" Type="bit" />
+    <Property Name="CORRECTION_DATE" Type="date" />
+  </EntityType>
+  <EntityType Name="ΕΓΓΡΑΦΟ_ΠΡΟΓΡΑΜΜΑ">
+    <Key>
+      <PropertyRef Name="DOC_ID" />
+    </Key>
+    <Property Name="DOC_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="SCHOOLYEAR_ID" Type="int" />
+    <Property Name="STATION_ID" Type="int" />
+    <Property Name="PERIFERIAKI_ID" Type="int" />
+    <Property Name="ADMIN_ID" Type="int" />
+    <Property Name="DOC_MONTH" Type="int" />
+    <Property Name="DOC_YEAR" Type="int" />
+    <Property Name="DOC_DATE" Type="date" />
+    <Property Name="DOC_PROTOCOL" Type="nvarchar" MaxLength="50" />
+    <Property Name="DOC_SXETIKA" Type="nvarchar" MaxLength="255" />
+    <Property Name="CORRECTION" Type="bit" />
+    <Property Name="CORRECTION_DATE" Type="date" />
+  </EntityType>
+  <EntityType Name="ΕΞΤΡΑ_ΚΑΤΗΓΟΡΙΑ">
+    <Key>
+      <PropertyRef Name="ΚΑΤΗΓΟΡΙΑ_ΚΩΔ" />
+    </Key>
+    <Property Name="ΚΑΤΗΓΟΡΙΑ_ΚΩΔ" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ΚΑΤΗΓΟΡΙΑ" Type="nvarchar" MaxLength="150" />
+    <Property Name="ΔΑΠΑΝΗ_ΚΩΔ" Type="int" />
+  </EntityType>
+  <EntityType Name="ΙΣΟΖΥΓΙΟ_ΜΗΝΑΣ">
+    <Key>
+      <PropertyRef Name="BALANCE_ID" />
+    </Key>
+    <Property Name="BALANCE_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="STATION_ID" Type="int" />
+    <Property Name="SCHOOLYEAR_ID" Type="int" />
+    <Property Name="MONTH_ID" Type="int" />
+    <Property Name="CHILDREN_NUMBER" Type="int" />
+    <Property Name="PERSONNEL_NUMBER" Type="int" />
+    <Property Name="PERSONS_NUMBER" Type="int" />
+    <Property Name="COST_FEED" Type="decimal" Precision="10" Scale="2" />
+    <Property Name="COST_CLEAN" Type="decimal" Precision="10" Scale="2" />
+    <Property Name="COST_OTHER" Type="decimal" Precision="10" Scale="2" />
+    <Property Name="EXPENSE_FEED" Type="decimal" Precision="10" Scale="2" />
+    <Property Name="EXPENSE_CLEAN" Type="decimal" Precision="10" Scale="2" />
+    <Property Name="EXPENSE_OTHER" Type="decimal" Precision="10" Scale="2" />
+    <Property Name="BALANCE_FEED" Type="decimal" Precision="10" Scale="2" />
+    <Property Name="BALANCE_CLEAN" Type="decimal" Precision="10" Scale="2" />
+    <Property Name="BALANCE_OTHER" Type="decimal" Precision="10" Scale="2" />
+    <Property Name="COST_TOTAL" Type="decimal" Precision="10" Scale="2" />
+    <Property Name="EXPENSE_TOTAL" Type="decimal" Precision="10" Scale="2" />
+    <Property Name="BALANCE_TOTAL" Type="decimal" Precision="10" Scale="2" />
+  </EntityType>
+  <EntityType Name="ΠΑΙΔΙΑ">
+    <Key>
+      <PropertyRef Name="CHILD_ID" />
+    </Key>
+    <Property Name="CHILD_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ΒΝΣ" Type="int" />
+    <Property Name="ΑΜ" Type="int" />
+    <Property Name="ΑΜΚΑ" Type="nvarchar" MaxLength="50" />
+    <Property Name="ΕΠΩΝΥΜΟ" Type="nvarchar" MaxLength="50" />
+    <Property Name="ΟΝΟΜΑ" Type="nvarchar" MaxLength="50" />
+    <Property Name="ΦΥΛΟ" Type="int" />
+    <Property Name="ΗΜΝΙΑ_ΓΕΝΝΗΣΗ" Type="date" />
+    <Property Name="ΗΛΙΚΙΑ" Type="nvarchar" MaxLength="50" />
+    <Property Name="AGE" Type="decimal" Precision="10" Scale="2" />
+    <Property Name="ΑΦΜ" Type="nvarchar" MaxLength="10" />
+    <Property Name="ΠΑΤΡΩΝΥΜΟ" Type="nvarchar" MaxLength="150" />
+    <Property Name="ΜΗΤΡΩΝΥΜΟ" Type="nvarchar" MaxLength="150" />
+    <Property Name="ΔΙΕΥΘΥΝΣΗ" Type="nvarchar" MaxLength="255" />
+    <Property Name="ΤΗΛΕΦΩΝΑ" Type="nvarchar" MaxLength="255" />
+    <Property Name="EMAIL" Type="nvarchar" MaxLength="255" />
+    <Property Name="ΕΙΣΟΔΟΣ_ΗΜΝΙΑ" Type="date" />
+    <Property Name="ΕΞΟΔΟΣ_ΗΜΝΙΑ" Type="date" />
+    <Property Name="ΕΝΕΡΓΟΣ" Type="bit" />
+    <Property Name="ΠΑΡΑΤΗΡΗΣΕΙΣ" Type="nvarchar(max)" />
+  </EntityType>
+  <EntityType Name="ΠΑΙΔΙΑ_ΕΓΓΡΑΦΕΣ">
+    <Key>
+      <PropertyRef Name="ΕΓΓΡΑΦΗ_ΚΩΔ" />
+    </Key>
+    <Property Name="ΕΓΓΡΑΦΗ_ΚΩΔ" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ΠΑΙΔΙ_ΚΩΔ" Type="int" />
+    <Property Name="ΒΝΣ" Type="int" />
+    <Property Name="ΣΧΟΛΙΚΟ_ΕΤΟΣ" Type="int" />
+    <Property Name="ΤΜΗΜΑ" Type="int" />
+    <Property Name="ΗΜΝΙΑ_ΕΓΓΡΑΦΗ" Type="date" />
+    <Property Name="ΗΜΝΙΑ_ΠΕΡΑΣ" Type="date" />
+  </EntityType>
+  <EntityType Name="ΠΑΙΔΙΑ_ΠΑΡΟΥΣΙΕΣ">
+    <Key>
+      <PropertyRef Name="PAROUSIA_ID" />
+    </Key>
+    <Property Name="PAROUSIA_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="CHILD_ID" Type="int" />
+    <Property Name="STATION_ID" Type="int" />
+    <Property Name="SCHOOLYEARID" Type="int" />
+    <Property Name="TMIMA_ID" Type="int" />
+    <Property Name="PAROUSIA_MONTH" Type="int" />
+    <Property Name="PAROUSIA_DATE" Type="date" />
+    <Property Name="PRESENCE" Type="bit" />
+  </EntityType>
+  <EntityType Name="ΠΑΡΟΥΣΙΕΣ_ΜΗΝΕΣ">
+    <Key>
+      <PropertyRef Name="ROW_ID" />
+    </Key>
+    <Property Name="ROW_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="CHILD_ID" Type="int" />
+    <Property Name="ΒΝΣ" Type="int" />
+    <Property Name="TMIMA_ID" Type="int" />
+    <Property Name="ΤΜΗΜΑ_ΟΝΟΜΑ" Type="nvarchar" MaxLength="50" />
+    <Property Name="ΑΜ" Type="int" />
+    <Property Name="ΟΝΟΜΑΤΕΠΩΝΥΜΟ" Type="nvarchar" MaxLength="255" />
+    <Property Name="ΠΛΗΘΟΣ" Type="int" />
+    <Property Name="PAROUSIA_MONTH" Type="int" />
+    <Property Name="SCHOOLYEAR_ID" Type="int" />
+    <Property Name="ΣΧΟΛΙΚΟ_ΕΤΟΣ" Type="nvarchar" MaxLength="10" />
+    <Property Name="ΠΑΡΑΤΗΡΗΣΕΙΣ" Type="nvarchar(max)" />
+  </EntityType>
+  <EntityType Name="ΠΡΟΓΡΑΜΜΑ_ΗΜΕΡΑ">
+    <Key>
+      <PropertyRef Name="PROGRAMMA_ID" />
+    </Key>
+    <Property Name="PROGRAMMA_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="STATION_ID" Type="int" />
+    <Property Name="SCHOOLYEARID" Type="int" />
+    <Property Name="PROGRAMMA_DATE" Type="date" />
+    <Property Name="PROGRAMMA_MONTH" Type="int" />
+    <Property Name="HOUR_START" Type="int" />
+    <Property Name="HOUR_END" Type="int" />
+    <Property Name="PERSON_ID" Type="int" />
+  </EntityType>
+  <EntityType Name="ΠΡΟΙΟΝ_ΚΑΤΗΓΟΡΙΑ">
+    <Key>
+      <PropertyRef Name="ΚΑΤΗΓΟΡΙΑ_ΚΩΔ" />
+    </Key>
+    <Property Name="ΚΑΤΗΓΟΡΙΑ_ΚΩΔ" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ΚΑΤΗΓΟΡΙΑ" Type="nvarchar" MaxLength="50" />
+    <Property Name="ΔΑΠΑΝΗ_ΚΩΔ" Type="int" />
+  </EntityType>
+  <EntityType Name="ΠΡΟΙΟΝ_ΜΟΝΑΔΕΣ">
+    <Key>
+      <PropertyRef Name="ΜΟΝΑΔΑ_ΚΩΔ" />
+    </Key>
+    <Property Name="ΜΟΝΑΔΑ_ΚΩΔ" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ΜΟΝΑΔΑ" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="ΠΡΟΙΟΝΤΑ">
+    <Key>
+      <PropertyRef Name="ΠΡΟΙΟΝ_ΚΩΔ" />
+    </Key>
+    <Property Name="ΠΡΟΙΟΝ_ΚΩΔ" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ΠΡΟΙΟΝ_ΛΕΚΤΙΚΟ" Type="nvarchar" MaxLength="255" />
+    <Property Name="ΠΡΟΙΟΝ_ΜΟΝΑΔΑ" Type="int" />
+    <Property Name="ΠΡΟΙΟΝ_ΚΑΤΗΓΟΡΙΑ" Type="int" />
+    <Property Name="ΠΡΟΙΟΝ_ΦΠΑ" Type="int" />
+  </EntityType>
+  <EntityType Name="ΠΡΟΙΟΝΤΑ_ΒΝΣ">
+    <Key>
+      <PropertyRef Name="ΠΡΟΙΟΝ_ΚΩΔ" />
+    </Key>
+    <Property Name="ΠΡΟΙΟΝ_ΚΩΔ" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ΠΡΟΙΟΝ_ΛΕΚΤΙΚΟ" Type="nvarchar" MaxLength="255" />
+    <Property Name="ΠΡΟΙΟΝ_ΜΟΝΑΔΑ" Type="int" />
+    <Property Name="ΠΡΟΙΟΝ_ΚΑΤΗΓΟΡΙΑ" Type="int" />
+    <Property Name="ΠΡΟΙΟΝ_ΦΠΑ" Type="int" />
+    <Property Name="ΒΝΣ" Type="int" />
+  </EntityType>
+  <EntityType Name="ΠΡΟΣΩΠΙΚΟ">
+    <Key>
+      <PropertyRef Name="PERSONNEL_ID" />
+    </Key>
+    <Property Name="PERSONNEL_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ΒΝΣ" Type="int" />
+    <Property Name="ΜΗΤΡΩΟ" Type="int" />
+    <Property Name="ΑΦΜ" Type="nvarchar" MaxLength="10" />
+    <Property Name="ΕΠΩΝΥΜΟ" Type="nvarchar" MaxLength="50" />
+    <Property Name="ΟΝΟΜΑ" Type="nvarchar" MaxLength="50" />
+    <Property Name="ΠΑΤΡΩΝΥΜΟ" Type="nvarchar" MaxLength="150" />
+    <Property Name="ΜΗΤΡΩΝΥΜΟ" Type="nvarchar" MaxLength="150" />
+    <Property Name="ΦΥΛΟ_ΚΩΔ" Type="int" />
+    <Property Name="ΕΤΟΣ_ΓΕΝΝΗΣΗ" Type="int" />
+    <Property Name="ΗΛΙΚΙΑ" Type="int" />
+    <Property Name="ΔΙΕΥΘΥΝΣΗ" Type="nvarchar" MaxLength="255" />
+    <Property Name="ΤΗΛΕΦΩΝΑ" Type="nvarchar" MaxLength="255" />
+    <Property Name="EMAIL" Type="nvarchar" MaxLength="255" />
+    <Property Name="ΚΛΑΔΟΣ" Type="int" />
+    <Property Name="ΕΙΔΙΚΟΤΗΤΑ" Type="int" />
+    <Property Name="ΠΡΟΣΩΠΙΚΟ_ΕΙΔΟΣ" Type="int" />
+    <Property Name="ΒΑΘΜΟΣ" Type="int" />
+    <Property Name="ΑΠΟΦΑΣΗ_ΦΕΚ" Type="nvarchar" MaxLength="255" />
+    <Property Name="ΑΠΟΧΩΡΗΣΕ" Type="bit" />
+    <Property Name="ΑΠΟΧΩΡΗΣΗ_ΑΙΤΙΑ" Type="int" />
+    <Property Name="ΑΠΟΧΩΡΗΣΗ_ΗΜΝΙΑ" Type="date" />
+    <Property Name="ΠΑΡΑΤΗΡΗΣΕΙΣ" Type="nvarchar(max)" />
+  </EntityType>
+  <EntityType Name="ΠΡΟΣΩΠΙΚΟ_ΜΕΤΑΒΟΛΕΣ">
+    <Key>
+      <PropertyRef Name="ΜΕΤΑΒΟΛΗ_ΚΩΔ" />
+    </Key>
+    <Property Name="ΜΕΤΑΒΟΛΗ_ΚΩΔ" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ΒΝΣ" Type="int" />
+    <Property Name="ΥΠΑΛΛΗΛΟΣ_ΚΩΔ" Type="int" />
+    <Property Name="ΗΜΝΙΑ_ΑΠΟ" Type="date" />
+    <Property Name="ΗΜΝΙΑ_ΕΩΣ" Type="date" />
+    <Property Name="ΗΜΕΡΕΣ" Type="int" />
+    <Property Name="ΣΧΟΛΙΚΟ_ΕΤΟΣ" Type="int" />
+    <Property Name="ΜΕΤΑΒΟΛΗ_ΜΗΝΑΣ" Type="int" />
+    <Property Name="ΜΕΤΑΒΟΛΗ_ΕΙΔΟΣ" Type="int" />
+  </EntityType>
+  <EntityType Name="ΣΥΣ_ΑΑ_ΛΑΤΙΝΙΚΟΙ">
+    <Key>
+      <PropertyRef Name="AA_ID" />
+    </Key>
+    <Property Name="AA_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="AA_TEXT" Type="nvarchar" MaxLength="5" />
+  </EntityType>
+  <EntityType Name="ΣΥΣ_ΑΠΟΧΩΡΗΣΕΙΣ">
+    <Key>
+      <PropertyRef Name="ΑΠΟΧΩΡΗΣΗ_ΚΩΔ" />
+    </Key>
+    <Property Name="ΑΠΟΧΩΡΗΣΗ_ΚΩΔ" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ΑΠΟΧΩΡΗΣΗ_ΛΕΚΤΙΚΟ" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="ΣΥΣ_ΒΑΘΜΟΙ">
+    <Key>
+      <PropertyRef Name="ΒΑΘΜΟΣ_ΚΩΔ" />
+    </Key>
+    <Property Name="ΒΑΘΜΟΣ_ΚΩΔ" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ΒΑΘΜΟΣ_ΛΕΚΤΙΚΟ" Type="nvarchar" MaxLength="5" />
+  </EntityType>
+  <EntityType Name="ΣΥΣ_ΔΗΜΟΙ">
+    <Key>
+      <PropertyRef Name="DIMOS_ID" />
+    </Key>
+    <Property Name="DIMOS_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="DIMOS" Type="nvarchar" MaxLength="100" />
+    <Property Name="DIMOS_PERIFERIA" Type="int" />
+  </EntityType>
+  <EntityType Name="ΣΥΣ_ΕΙΔΙΚΟΤΗΤΕΣ">
+    <Key>
+      <PropertyRef Name="EIDIKOTITA_ID" />
+    </Key>
+    <Property Name="EIDIKOTITA_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="EIDIKOTITA_CODE" Type="nvarchar" MaxLength="10" />
+    <Property Name="EIDIKOTITA_TEXT" Type="nvarchar" MaxLength="255" />
+    <Property Name="KLADOS" Type="int" />
+  </EntityType>
+  <EntityType Name="ΣΥΣ_ΕΝΤΥΠΑ">
+    <Key>
+      <PropertyRef Name="DOC_ID" />
+    </Key>
+    <Property Name="DOC_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="DOC_NAME" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="DOC_DESCRIPTION" Type="nvarchar" MaxLength="255" />
+    <Property Name="DOC_CLASS" Type="nvarchar" MaxLength="20" />
+  </EntityType>
+  <EntityType Name="ΣΥΣ_ΕΤΗ">
+    <Key>
+      <PropertyRef Name="ΕΤΟΣ_ΚΩΔ" />
+    </Key>
+    <Property Name="ΕΤΟΣ_ΚΩΔ" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ΕΤΟΣ" Type="int" />
+  </EntityType>
+  <EntityType Name="ΣΥΣ_ΚΛΑΔΟΙ">
+    <Key>
+      <PropertyRef Name="ΚΛΑΔΟΣ_ΚΩΔ" />
+    </Key>
+    <Property Name="ΚΛΑΔΟΣ_ΚΩΔ" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ΚΛΑΔΟΣ" Type="nvarchar" MaxLength="10" />
+    <Property Name="ΜΙΣΘΟΣ" Type="decimal" Precision="18" Scale="2" />
+  </EntityType>
+  <EntityType Name="ΣΥΣ_ΜΕΤΑΒΟΛΕΣ">
+    <Key>
+      <PropertyRef Name="METABOLI_ID" />
+    </Key>
+    <Property Name="METABOLI_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="METABOLI_TEXT" Type="nvarchar" MaxLength="255" />
+  </EntityType>
+  <EntityType Name="ΣΥΣ_ΜΗΝΕΣ">
+    <Key>
+      <PropertyRef Name="ΜΗΝΑΣ_ΚΩΔ" />
+    </Key>
+    <Property Name="ΜΗΝΑΣ_ΚΩΔ" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ΜΗΝΑΣ" Type="nvarchar" MaxLength="50" />
+    <Property Name="ΜΗΝΑΣ_ΠΕΖΑ" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="ΣΥΣ_ΠΕΡΙΦΕΡΕΙΑΚΕΣ">
+    <Key>
+      <PropertyRef Name="ΚΩΔΙΚΟΣ_ΠΕΡΙΦΕΡΕΙΑ" />
+    </Key>
+    <Property Name="ΚΩΔΙΚΟΣ_ΠΕΡΙΦΕΡΕΙΑ" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ΕΠΩΝΥΜΙΑ_ΠΕΡΙΦΕΡΕΙΑ" Type="nvarchar" MaxLength="255" />
+    <Property Name="ΠΕΡΙΦ_ΣΥΝΤΟΜΟΓΡΑΦΙΑ" Type="nvarchar" MaxLength="255" />
+    <Property Name="ΤΑΧ_ΔΙΕΥΘΥΝΣΗ" Type="nvarchar" MaxLength="255" />
+    <Property Name="ΕΔΡΑ" Type="nvarchar" MaxLength="255" />
+    <Property Name="ΤΜΗΜΑ" Type="nvarchar" MaxLength="255" />
+    <Property Name="EMAIL" Type="nvarchar" MaxLength="255" />
+    <Property Name="ΤΗΛΕΦΩΝΑ" Type="nvarchar" MaxLength="255" />
+    <Property Name="FAX" Type="nvarchar" MaxLength="255" />
+  </EntityType>
+  <EntityType Name="ΣΥΣ_ΠΕΡΙΦΕΡΕΙΕΣ">
+    <Key>
+      <PropertyRef Name="PERIFERIA_ID" />
+    </Key>
+    <Property Name="PERIFERIA_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="PERIFERIA_NAME" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="ΣΥΣ_ΠΡΟΣΩΠΙΚΟ">
+    <Key>
+      <PropertyRef Name="PROSOPIKO_ID" />
+    </Key>
+    <Property Name="PROSOPIKO_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="PROSOPIKO_TEXT" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="ΣΥΣ_ΣΤΑΘΜΟΙ">
+    <Key>
+      <PropertyRef Name="ΣΤΑΘΜΟΣ_ΚΩΔ" />
+    </Key>
+    <Property Name="ΣΤΑΘΜΟΣ_ΚΩΔ" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ΕΠΩΝΥΜΙΑ" Type="nvarchar" MaxLength="255" />
+    <Property Name="ΤΑΧ_ΔΙΕΥΘΥΝΣΗ" Type="nvarchar" MaxLength="255" />
+    <Property Name="ΓΡΑΜΜΑΤΕΙΑ" Type="nvarchar" MaxLength="255" />
+    <Property Name="ΤΗΛΕΦΩΝΑ" Type="nvarchar" MaxLength="255" />
+    <Property Name="ΦΑΞ" Type="nvarchar" MaxLength="255" />
+    <Property Name="EMAIL" Type="nvarchar" MaxLength="255" />
+    <Property Name="ΠΕΡΙΦΕΡΕΙΑΚΗ" Type="int" />
+    <Property Name="ΠΕΡΙΦΕΡΕΙΑ" Type="int" />
+    <Property Name="ΥΠΕΥΘΥΝΟΣ" Type="nvarchar" MaxLength="255" />
+    <Property Name="ΥΠΕΥΘΥΝΟΣ_ΦΥΛΟ" Type="int" />
+    <Property Name="ΚΙΝΗΤΟ" Type="nvarchar" MaxLength="255" />
+    <Property Name="ΑΝΑΠΛΗΡΩΤΗΣ" Type="nvarchar" MaxLength="255" />
+    <Property Name="ΑΝΑΠΛΗΡΩΤΗΣ_ΦΥΛΟ" Type="int" />
+    <Property Name="ΔΙΑΧΕΙΡΙΣΤΗΣ" Type="nvarchar" MaxLength="255" />
+    <Property Name="ΔΙΑΧΕΙΡΙΣΤΗΣ_ΦΥΛΟ" Type="int" />
+  </EntityType>
+  <EntityType Name="ΣΥΣ_ΣΧΟΛΙΚΑ_ΕΤΗ">
+    <Key>
+      <PropertyRef Name="SCHOOLYEAR_ID" />
+    </Key>
+    <Property Name="SCHOOLYEAR_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ΣΧΟΛΙΚΟ_ΕΤΟΣ" Type="nvarchar" MaxLength="10" Nullable="false" />
+    <Property Name="ΗΜΝΙΑ_ΕΝΑΡΞΗ" Type="datetime" />
+    <Property Name="ΗΜΝΙΑ_ΛΗΞΗ" Type="datetime" />
+    <Property Name="ΤΡΕΧΟΝ_ΕΤΟΣ" Type="bit" />
+  </EntityType>
+  <EntityType Name="ΣΥΣ_ΦΥΛΑ">
+    <Key>
+      <PropertyRef Name="ΦΥΛΟ_ΚΩΔ" />
+    </Key>
+    <Property Name="ΦΥΛΟ_ΚΩΔ" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ΦΥΛΟ" Type="nvarchar" MaxLength="255" />
+  </EntityType>
+  <EntityType Name="ΣΥΣ_ΩΡΕΣ">
+    <Key>
+      <PropertyRef Name="HOUR_ID" />
+    </Key>
+    <Property Name="HOUR_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="HOUR_TEXT" Type="nvarchar" MaxLength="5" />
+  </EntityType>
+  <EntityType Name="ΤΜΗΜΑ">
+    <Key>
+      <PropertyRef Name="ΤΜΗΜΑ_ΚΩΔ" />
+    </Key>
+    <Property Name="ΤΜΗΜΑ_ΚΩΔ" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ΒΝΣ" Type="int" />
+    <Property Name="ΣΧΟΛΙΚΟ_ΕΤΟΣ" Type="int" />
+    <Property Name="ΚΑΤΗΓΟΡΙΑ" Type="int" />
+    <Property Name="ΑΥΞΩΝ_ΑΡΙΘΜΟΣ" Type="int" />
+    <Property Name="ΧΑΡΑΚΤΗΡΙΣΜΟΣ" Type="nvarchar" MaxLength="10" />
+    <Property Name="ΟΝΟΜΑΣΙΑ" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="ΤΜΗΜΑ_ΚΑΤΗΓΟΡΙΑ">
+    <Key>
+      <PropertyRef Name="CATEGORY_ID" />
+    </Key>
+    <Property Name="CATEGORY_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="CATEGORY_TEXT" Type="nvarchar" MaxLength="50" />
+    <Property Name="AGE_START" Type="decimal" Precision="10" Scale="2" />
+    <Property Name="AGE_END" Type="decimal" Precision="10" Scale="2" />
+  </EntityType>
+  <EntityType Name="ΤΜΗΜΑ_ΠΑΙΔΑΓΩΓΟΣ">
+    <Key>
+      <PropertyRef Name="RECORD_ID" />
+    </Key>
+    <Property Name="RECORD_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ΒΝΣ" Type="int" />
+    <Property Name="ΣΧΟΛΙΚΟ_ΕΤΟΣ" Type="int" />
+    <Property Name="ΤΜΗΜΑ_ΚΩΔ" Type="int" />
+    <Property Name="ΠΑΙΔΑΓΩΓΟΣ_ΚΩΔ" Type="int" />
+  </EntityType>
+  <EntityType Name="ΤΡΟΦΕΙΟ_ΑΤΟΜΟ">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="STATION_ID" Type="int" />
+    <Property Name="SCHOOLYEARID" Type="int" />
+    <Property Name="COST_PERSON" Type="decimal" Precision="10" Scale="4" />
+  </EntityType>
+  <EntityType Name="ΦΠΑ_ΤΙΜΕΣ">
+    <Key>
+      <PropertyRef Name="FPA_ID" />
+    </Key>
+    <Property Name="FPA_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="FPA_VALUE" Type="decimal" Precision="10" Scale="2" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'AbacusDB.dbo.expSTATION_BALANCE_MONTH' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="expSTATION_BALANCE_MONTH">
+    <Key>
+      <PropertyRef Name="ROWID" />
+    </Key>
+    <Property Name="ROWID" Type="int" Nullable="false" />
+    <Property Name="ΒΝΣ" Type="int" />
+    <Property Name="ΕΠΩΝΥΜΙΑ" Type="nvarchar" MaxLength="255" />
+    <Property Name="ΣΧΟΛ_ΕΤΟΣ" Type="int" />
+    <Property Name="ΜΗΝΑΣ_ΑΡΙΘΜΟΣ" Type="int" />
+    <Property Name="ΜΗΝΑΣ" Type="nvarchar" MaxLength="50" />
+    <Property Name="ΠΑΙΔΙΑ_ΔΥΝΑΜΗ" Type="int" />
+    <Property Name="ΠΡΟΣΩΠΙΚΟ_ΔΥΝΑΜΗ" Type="int" />
+    <Property Name="ΠΛΗΘΟΣ_ΑΤΟΜΑ" Type="int" />
+    <Property Name="ΚΟΣΤΟΣ_ΤΡΟΦΕΙΟ" Type="numeric" Precision="10" Scale="2" />
+    <Property Name="ΚΟΣΤΟΣ_ΚΑΘΑΡΙΟΤΗΤΑ" Type="numeric" Precision="10" Scale="2" />
+    <Property Name="ΚΟΣΤΟΣ_ΓΕΝΙΚΕΣ" Type="numeric" Precision="10" Scale="2" />
+    <Property Name="ΔΑΠΑΝΗ_ΤΡΟΦΕΙΟ" Type="decimal" Precision="38" Scale="3" />
+    <Property Name="ΔΑΠΑΝΗ_ΚΑΘΑΡΙΟΤΗΤΑ" Type="decimal" Precision="38" Scale="3" />
+    <Property Name="ΔΑΠΑΝΗ_ΓΕΝΙΚΕΣ" Type="decimal" Precision="38" Scale="2" />
+    <Property Name="ΥΠΟΛΟΙΠΟ_ΤΡΟΦΕΙΟ" Type="numeric" Precision="38" Scale="3" />
+    <Property Name="ΥΠΟΛΟΙΠΟ_ΚΑΘΑΡΙΟΤΗΤΑ" Type="numeric" Precision="38" Scale="3" />
+    <Property Name="ΥΠΟΛΟΙΠΟ_ΓΕΝΙΚΕΣ" Type="numeric" Precision="38" Scale="2" />
+    <Property Name="ΚΟΣΤΟΣ_ΣΥΝΟΛΟ" Type="numeric" Precision="12" Scale="2" />
+    <Property Name="ΔΑΠΑΝΗ_ΣΥΝΟΛΟ" Type="decimal" Precision="38" Scale="2" />
+    <Property Name="ΥΠΟΛΟΙΠΟ_ΣΥΝΟΛΟ" Type="numeric" Precision="38" Scale="2" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'AbacusDB.dbo.repΠΑΡΟΥΣΙΕΣ_ΜΗΝΑΣ' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="repΠΑΡΟΥΣΙΕΣ_ΜΗΝΑΣ">
+    <Key>
+      <PropertyRef Name="CHILD_ID" />
+      <PropertyRef Name="SCHOOLYEAR_ID" />
+      <PropertyRef Name="ΣΧΟΛΙΚΟ_ΕΤΟΣ" />
+    </Key>
+    <Property Name="CHILD_ID" Type="int" Nullable="false" />
+    <Property Name="ΒΝΣ" Type="int" />
+    <Property Name="TMIMA_ID" Type="int" />
+    <Property Name="ΤΜΗΜΑ_ΟΝΟΜΑ" Type="nvarchar" MaxLength="50" />
+    <Property Name="ΑΜ" Type="int" />
+    <Property Name="ΟΝΟΜΑΤΕΠΩΝΥΜΟ" Type="nvarchar" MaxLength="101" />
+    <Property Name="ΠΑΤΡΩΝΥΜΟ" Type="nvarchar" MaxLength="150" />
+    <Property Name="ΠΛΗΘΟΣ" Type="int" />
+    <Property Name="PAROUSIA_MONTH" Type="int" />
+    <Property Name="SCHOOLYEAR_ID" Type="int" Nullable="false" />
+    <Property Name="ΣΧΟΛΙΚΟ_ΕΤΟΣ" Type="nvarchar" MaxLength="10" Nullable="false" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'AbacusDB.dbo.sqlADMIN_LOGINS' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="sqlADMIN_LOGINS">
+    <Key>
+      <PropertyRef Name="LOGIN_ID" />
+    </Key>
+    <Property Name="LOGIN_ID" Type="int" Nullable="false" />
+    <Property Name="ADMIN_NAME" Type="nvarchar" MaxLength="120" />
+    <Property Name="LOGIN_DATETIME" Type="datetime" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'AbacusDB.dbo.sqlCHILD_APOUSIES_DETAIL' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="sqlCHILD_APOUSIES_DETAIL">
+    <Key>
+      <PropertyRef Name="PAROUSIA_ID" />
+      <PropertyRef Name="SCHOOLYEAR_ID" />
+      <PropertyRef Name="ΣΧΟΛΙΚΟ_ΕΤΟΣ" />
+    </Key>
+    <Property Name="PAROUSIA_ID" Type="int" Nullable="false" />
+    <Property Name="CHILD_ID" Type="int" />
+    <Property Name="STATION_ID" Type="int" />
+    <Property Name="TMIMA_ID" Type="int" />
+    <Property Name="PAROUSIA_MONTH" Type="int" />
+    <Property Name="ΜΗΝΑΣ" Type="nvarchar" MaxLength="50" />
+    <Property Name="PAROUSIA_DATE" Type="date" />
+    <Property Name="ΟΝΟΜΑΤΕΠΩΝΥΜΟ" Type="nvarchar" MaxLength="101" />
+    <Property Name="ΤΜΗΜΑ_ΟΝΟΜΑ" Type="nvarchar" MaxLength="50" />
+    <Property Name="SCHOOLYEAR_ID" Type="int" Nullable="false" />
+    <Property Name="ΣΧΟΛΙΚΟ_ΕΤΟΣ" Type="nvarchar" MaxLength="10" Nullable="false" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'AbacusDB.dbo.sqlCHILD_APOUSIES_SUM' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="sqlCHILD_APOUSIES_SUM">
+    <Key>
+      <PropertyRef Name="SCHOOLYEAR_ID" />
+      <PropertyRef Name="ΣΧΟΛΙΚΟ_ΕΤΟΣ" />
+    </Key>
+    <Property Name="CHILD_ID" Type="int" />
+    <Property Name="STATION_ID" Type="int" />
+    <Property Name="TMIMA_ID" Type="int" />
+    <Property Name="PAROUSIA_MONTH" Type="int" />
+    <Property Name="ΜΗΝΑΣ" Type="nvarchar" MaxLength="50" />
+    <Property Name="ΑPOUSIES" Type="int" />
+    <Property Name="ΟΝΟΜΑΤΕΠΩΝΥΜΟ" Type="nvarchar" MaxLength="101" />
+    <Property Name="ΤΜΗΜΑ_ΟΝΟΜΑ" Type="nvarchar" MaxLength="50" />
+    <Property Name="SCHOOLYEAR_ID" Type="int" Nullable="false" />
+    <Property Name="ΣΧΟΛΙΚΟ_ΕΤΟΣ" Type="nvarchar" MaxLength="10" Nullable="false" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'AbacusDB.dbo.sqlCHILD_SELECTOR' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="sqlCHILD_SELECTOR">
+    <Key>
+      <PropertyRef Name="CHILD_ID" />
+    </Key>
+    <Property Name="CHILD_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ΟΝΟΜΑΤΕΠΩΝΥΜΟ" Type="nvarchar" MaxLength="101" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'AbacusDB.dbo.sqlCHILD_TMIMA_SELECTOR' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="sqlCHILD_TMIMA_SELECTOR">
+    <Key>
+      <PropertyRef Name="CHILD_ID" />
+    </Key>
+    <Property Name="CHILD_ID" Type="int" Nullable="false" />
+    <Property Name="ΒΝΣ" Type="int" />
+    <Property Name="ΟΝΟΜΑΤΕΠΩΝΥΜΟ" Type="nvarchar" MaxLength="101" />
+    <Property Name="ΤΜΗΜΑ" Type="int" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'AbacusDB.dbo.sqlCHILDREN_INFO' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="sqlCHILDREN_INFO">
+    <Key>
+      <PropertyRef Name="CHILD_ID" />
+      <PropertyRef Name="ΣΤΑΘΜΟΣ_ΚΩΔ" />
+    </Key>
+    <Property Name="CHILD_ID" Type="int" Nullable="false" />
+    <Property Name="ΒΝΣ" Type="nvarchar" MaxLength="255" />
+    <Property Name="ΑΜ" Type="int" />
+    <Property Name="ΟΝΟΜΑΤΕΠΩΝΥΜΟ" Type="nvarchar" MaxLength="101" />
+    <Property Name="ΦΥΛΟ" Type="nvarchar" MaxLength="255" />
+    <Property Name="ΗΜΝΙΑ_ΓΕΝΝΗΣΗ" Type="date" />
+    <Property Name="ΗΛΙΚΙΑ" Type="nvarchar" MaxLength="50" />
+    <Property Name="ΠΑΤΡΩΝΥΜΟ" Type="nvarchar" MaxLength="150" />
+    <Property Name="ΜΗΤΡΩΝΥΜΟ" Type="nvarchar" MaxLength="150" />
+    <Property Name="ΔΙΕΥΘΥΝΣΗ" Type="nvarchar" MaxLength="255" />
+    <Property Name="ΤΗΛΕΦΩΝΑ" Type="nvarchar" MaxLength="255" />
+    <Property Name="EMAIL" Type="nvarchar" MaxLength="255" />
+    <Property Name="ΠΕΡΙΦΕΡΕΙΑΚΗ" Type="nvarchar" MaxLength="255" />
+    <Property Name="ΣΤΑΘΜΟΣ_ΚΩΔ" Type="int" Nullable="false" />
+    <Property Name="ΕΝΕΡΓΟΣ" Type="bit" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'AbacusDB.dbo.sqlEDUCATOR_TMIMA_INFO' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="sqlEDUCATOR_TMIMA_INFO">
+    <Key>
+      <PropertyRef Name="RECORD_ID" />
+      <PropertyRef Name="ΣΧΟΛΙΚΟ_ΕΤΟΣ" />
+    </Key>
+    <Property Name="RECORD_ID" Type="int" Nullable="false" />
+    <Property Name="ΒΝΣ" Type="int" />
+    <Property Name="ΠΑΙΔΑΓΩΓΟΣ_ΚΩΔ" Type="int" />
+    <Property Name="ΣΧΟΛΙΚΟ_ΕΤΟΣ" Type="nvarchar" MaxLength="10" Nullable="false" />
+    <Property Name="ΤΜΗΜΑ_ΟΝΟΜΑ" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'AbacusDB.dbo.sqlEGRAFES_INFO' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="sqlEGRAFES_INFO">
+    <Key>
+      <PropertyRef Name="ΕΓΓΡΑΦΗ_ΚΩΔ" />
+    </Key>
+    <Property Name="ΕΓΓΡΑΦΗ_ΚΩΔ" Type="int" Nullable="false" />
+    <Property Name="ΠΑΙΔΙ_ΚΩΔ" Type="int" />
+    <Property Name="ΒΝΣ" Type="int" />
+    <Property Name="ΤΜΗΜΑ_ΟΝΟΜΑ" Type="nvarchar" MaxLength="50" />
+    <Property Name="ΗΜΝΙΑ_ΕΓΓΡΑΦΗ" Type="date" />
+    <Property Name="ΗΜΝΙΑ_ΠΕΡΑΣ" Type="date" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'AbacusDB.dbo.sqlPERSONNEL_INFO' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="sqlPERSONNEL_INFO">
+    <Key>
+      <PropertyRef Name="PERSONNEL_ID" />
+      <PropertyRef Name="ΣΤΑΘΜΟΣ_ΚΩΔ" />
+    </Key>
+    <Property Name="PERSONNEL_ID" Type="int" Nullable="false" />
+    <Property Name="ΣΤΑΘΜΟΣ_ΚΩΔ" Type="int" Nullable="false" />
+    <Property Name="ΒΝΣ_ΕΠΩΝΥΜΙΑ" Type="nvarchar" MaxLength="255" />
+    <Property Name="ΜΗΤΡΩΟ" Type="int" />
+    <Property Name="ΑΦΜ" Type="nvarchar" MaxLength="10" />
+    <Property Name="ΟΝΟΜΑΤΕΠΩΝΥΜΟ" Type="nvarchar" MaxLength="101" />
+    <Property Name="ΠΑΤΡΩΝΥΜΟ" Type="nvarchar" MaxLength="150" />
+    <Property Name="ΜΗΤΡΩΝΥΜΟ" Type="nvarchar" MaxLength="150" />
+    <Property Name="ΦΥΛΟ" Type="nvarchar" MaxLength="255" />
+    <Property Name="ΕΤΟΣ_ΓΕΝΝΗΣΗ" Type="int" />
+    <Property Name="ΗΛΙΚΙΑ" Type="int" />
+    <Property Name="ΔΙΕΥΘΥΝΣΗ" Type="nvarchar" MaxLength="255" />
+    <Property Name="ΤΗΛΕΦΩΝΑ" Type="nvarchar" MaxLength="255" />
+    <Property Name="EMAIL" Type="nvarchar" MaxLength="255" />
+    <Property Name="EIDIKOTITA_CODE" Type="nvarchar" MaxLength="10" />
+    <Property Name="EIDIKOTITA_TEXT" Type="nvarchar" MaxLength="255" />
+    <Property Name="PROSOPIKO_TEXT" Type="nvarchar" MaxLength="50" />
+    <Property Name="ΠΕΡΙΦΕΡΕΙΑΚΗ" Type="nvarchar" MaxLength="255" />
+    <Property Name="ΑΠΟΧΩΡΗΣΕ" Type="bit" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'AbacusDB.dbo.sqlPERSONNEL_SELECTOR' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="sqlPERSONNEL_SELECTOR">
+    <Key>
+      <PropertyRef Name="PERSONNEL_ID" />
+    </Key>
+    <Property Name="PERSONNEL_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ΟΝΟΜΑΤΕΠΩΝΥΜΟ" Type="nvarchar" MaxLength="101" />
+    <Property Name="ΠΡΟΣΩΠΙΚΟ_ΕΙΔΟΣ" Type="int" />
+    <Property Name="ΒΝΣ" Type="int" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'AbacusDB.dbo.sqlPRODUCT_LIST' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="sqlPRODUCT_LIST">
+    <Key>
+      <PropertyRef Name="ΠΡΟΙΟΝ_ΚΩΔ" />
+      <PropertyRef Name="ΜΟΝΑΔΑ_ΚΩΔ" />
+      <PropertyRef Name="ΚΑΤΗΓΟΡΙΑ_ΚΩΔ" />
+    </Key>
+    <Property Name="ΒΝΣ" Type="int" />
+    <Property Name="ΠΡΟΙΟΝ_ΚΩΔ" Type="int" Nullable="false" />
+    <Property Name="ΚΑΤΗΓΟΡΙΑ" Type="nvarchar" MaxLength="50" />
+    <Property Name="ΠΡΟΙΟΝ_ΛΕΚΤΙΚΟ" Type="nvarchar" MaxLength="255" />
+    <Property Name="ΜΟΝΑΔΑ" Type="nvarchar" MaxLength="50" />
+    <Property Name="ΜΟΝΑΔΑ_ΚΩΔ" Type="int" Nullable="false" />
+    <Property Name="ΚΑΤΗΓΟΡΙΑ_ΚΩΔ" Type="int" Nullable="false" />
+    <Property Name="ΔΑΠΑΝΗ_ΚΩΔ" Type="int" />
+    <Property Name="ΕΙΔΟΣ_ΛΕΚΤΙΚΟ" Type="nvarchar" MaxLength="50" />
+    <Property Name="ΠΡΟΙΟΝ_ΦΠΑ" Type="int" />
+    <Property Name="FPA_VALUE" Type="decimal" Precision="10" Scale="2" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'AbacusDB.dbo.sqlPRODUCT_SELECTOR' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="sqlPRODUCT_SELECTOR">
+    <Key>
+      <PropertyRef Name="ΠΡΟΙΟΝ_ΚΩΔ" />
+      <PropertyRef Name="ΚΑΤΗΓΟΡΙΑ_ΚΩΔ" />
+    </Key>
+    <Property Name="STATION_ID" Type="int" />
+    <Property Name="ΠΡΟΙΟΝ_ΚΩΔ" Type="int" Nullable="false" />
+    <Property Name="ΠΡΟΙΟΝ_ΜΟΝΑΔΑ" Type="nvarchar" MaxLength="308" />
+    <Property Name="ΚΑΤΗΓΟΡΙΑ_ΚΩΔ" Type="int" Nullable="false" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'AbacusDB.dbo.sqlSTATION_LOGINS' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="sqlSTATION_LOGINS">
+    <Key>
+      <PropertyRef Name="LOGIN_ID" />
+    </Key>
+    <Property Name="LOGIN_ID" Type="int" Nullable="false" />
+    <Property Name="STATION_NAME" Type="nvarchar" MaxLength="255" />
+    <Property Name="LOGIN_DATETIME" Type="datetime" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'AbacusDB.dbo.sqlSTATION_SELECTOR' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="sqlSTATION_SELECTOR">
+    <Key>
+      <PropertyRef Name="ΣΤΑΘΜΟΣ_ΚΩΔ" />
+    </Key>
+    <Property Name="ΣΤΑΘΜΟΣ_ΚΩΔ" Type="int" Nullable="false" />
+    <Property Name="ΕΠΩΝΥΜΙΑ" Type="nvarchar" MaxLength="255" />
+    <Property Name="ΕΠΩΝΥΜΙΑ_ΠΕΡΙΦΕΡΕΙΑ" Type="nvarchar" MaxLength="255" />
+    <Property Name="ΠΕΡΙΦΕΡΕΙΑΚΗ" Type="int" />
+    <Property Name="ΥΠΕΥΘΥΝΟΣ" Type="nvarchar" MaxLength="255" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'AbacusDB.dbo.sqlTMIMA_CHILDREN' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="sqlTMIMA_CHILDREN">
+    <Key>
+      <PropertyRef Name="CHILD_ID" />
+    </Key>
+    <Property Name="CHILD_ID" Type="int" Nullable="false" />
+    <Property Name="ΤΜΗΜΑ" Type="int" />
+    <Property Name="ΒΝΣ" Type="int" />
+    <Property Name="ΑΜ" Type="int" />
+    <Property Name="ΟΝΟΜΑΤΕΠΩΝΥΜΟ" Type="nvarchar" MaxLength="101" />
+    <Property Name="ΦΥΛΟ" Type="nvarchar" MaxLength="255" />
+    <Property Name="ΗΛΙΚΙΑ" Type="nvarchar" MaxLength="50" />
+    <Property Name="ΠΑΤΡΩΝΥΜΟ" Type="nvarchar" MaxLength="150" />
+    <Property Name="ΗΜΝΙΑ_ΕΓΓΡΑΦΗ" Type="date" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'AbacusDB.dbo.sqlTMIMATA_INFO' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="sqlTMIMATA_INFO">
+    <Key>
+      <PropertyRef Name="ΤΜΗΜΑ_ΚΩΔ" />
+      <PropertyRef Name="SCHOOLYEAR_ID" />
+      <PropertyRef Name="ΣΧΟΛΙΚΟ_ΕΤΟΣ" />
+    </Key>
+    <Property Name="ΤΜΗΜΑ_ΚΩΔ" Type="int" Nullable="false" />
+    <Property Name="SCHOOLYEAR_ID" Type="int" Nullable="false" />
+    <Property Name="ΒΝΣ" Type="int" />
+    <Property Name="ΣΧΟΛΙΚΟ_ΕΤΟΣ" Type="nvarchar" MaxLength="10" Nullable="false" />
+    <Property Name="ΤΜΗΜΑ_ΟΝΟΜΑ" Type="nvarchar" MaxLength="50" />
+    <Property Name="ΒΝΣ_ΟΝΟΜΑ" Type="nvarchar" MaxLength="255" />
+    <Property Name="ΠΕΡΙΦΕΡΕΙΑΚΗ" Type="nvarchar" MaxLength="255" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'AbacusDB.dbo.sqlUSER_STATION' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="sqlUSER_STATION">
+    <Key>
+      <PropertyRef Name="USER_ID" />
+    </Key>
+    <Property Name="USER_ID" Type="int" Nullable="false" />
+    <Property Name="USERNAME" Type="nvarchar" MaxLength="50" />
+    <Property Name="PASSWORD" Type="nvarchar" MaxLength="20" />
+    <Property Name="STATION_ID" Type="int" />
+    <Property Name="ΕΠΩΝΥΜΙΑ" Type="nvarchar" MaxLength="255" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'AbacusDB.dbo.sqlΔΑΠΑΝΗ_ΑΛΛΗ' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="sqlΔΑΠΑΝΗ_ΑΛΛΗ">
+    <Key>
+      <PropertyRef Name="ΚΩΔΙΚΟΣ" />
+    </Key>
+    <Property Name="ΚΩΔΙΚΟΣ" Type="int" Nullable="false" />
+    <Property Name="ΒΝΣ" Type="int" />
+    <Property Name="ΕΠΩΝΥΜΙΑ" Type="nvarchar" MaxLength="255" />
+    <Property Name="ΗΜΕΡΟΜΗΝΙΑ" Type="date" />
+    <Property Name="ΚΑΤΗΓΟΡΙΑ" Type="nvarchar" MaxLength="50" />
+    <Property Name="ΠΡΟΙΟΝ_ΜΟΝΑΔΑ" Type="nvarchar" MaxLength="308" />
+    <Property Name="ΠΟΣΟΤΗΤΑ" Type="decimal" Precision="10" Scale="3" />
+    <Property Name="ΤΙΜΗ_ΜΟΝΑΔΑ" Type="decimal" Precision="10" Scale="3" />
+    <Property Name="ΣΥΝΟΛΟ" Type="decimal" Precision="10" Scale="3" />
+    <Property Name="ΣΧΟΛ_ΕΤΟΣ" Type="int" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'AbacusDB.dbo.sqlΔΑΠΑΝΗ_ΓΕΝΙΚΗ' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="sqlΔΑΠΑΝΗ_ΓΕΝΙΚΗ">
+    <Key>
+      <PropertyRef Name="ΚΩΔΙΚΟΣ" />
+      <PropertyRef Name="ΠΟΣΟΤΗΤΑ" />
+      <PropertyRef Name="ΤΙΜΗ_ΜΟΝΑΔΑ" />
+    </Key>
+    <Property Name="ΚΩΔΙΚΟΣ" Type="int" Nullable="false" />
+    <Property Name="ΒΝΣ" Type="int" />
+    <Property Name="ΕΠΩΝΥΜΙΑ" Type="nvarchar" MaxLength="255" />
+    <Property Name="ΗΜΕΡΟΜΗΝΙΑ" Type="date" />
+    <Property Name="ΚΑΤΗΓΟΡΙΑ" Type="nvarchar" MaxLength="150" />
+    <Property Name="ΠΕΡΙΓΡΑΦΗ" Type="nvarchar" MaxLength="255" />
+    <Property Name="ΠΟΣΟΤΗΤΑ" Type="int" Nullable="false" />
+    <Property Name="ΤΙΜΗ_ΜΟΝΑΔΑ" Type="int" Nullable="false" />
+    <Property Name="ΣΥΝΟΛΟ" Type="decimal" Precision="10" Scale="2" />
+    <Property Name="ΣΧΟΛ_ΕΤΟΣ" Type="int" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'AbacusDB.dbo.sqlΔΑΠΑΝΗ_ΓΕΝΙΚΗ_ΟΛΕΣ' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="sqlΔΑΠΑΝΗ_ΓΕΝΙΚΗ_ΟΛΕΣ">
+    <Key>
+      <PropertyRef Name="ROWID" />
+      <PropertyRef Name="ΕΙΔΟΣ" />
+    </Key>
+    <Property Name="ROWID" Type="int" Nullable="false" />
+    <Property Name="ΒΝΣ" Type="int" />
+    <Property Name="ΕΠΩΝΥΜΙΑ" Type="nvarchar" MaxLength="255" />
+    <Property Name="ΣΧΟΛ_ΕΤΟΣ" Type="int" />
+    <Property Name="ΜΗΝΑΣ_ΑΡΙΘΜΟΣ" Type="int" />
+    <Property Name="ΗΜΕΡΟΜΗΝΙΑ" Type="date" />
+    <Property Name="ΚΑΤΗΓΟΡΙΑ" Type="nvarchar" MaxLength="150" />
+    <Property Name="ΠΕΡΙΓΡΑΦΗ" Type="nvarchar" MaxLength="308" />
+    <Property Name="ΣΥΝΟΛΟ" Type="decimal" Precision="11" Scale="3" />
+    <Property Name="ΕΙΔΟΣ" Type="varchar" MaxLength="7" Nullable="false" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'AbacusDB.dbo.sqlΔΑΠΑΝΗ_ΚΑΘΑΡΙΟΤΗΤΑ' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="sqlΔΑΠΑΝΗ_ΚΑΘΑΡΙΟΤΗΤΑ">
+    <Key>
+      <PropertyRef Name="ΚΩΔΙΚΟΣ" />
+    </Key>
+    <Property Name="ΚΩΔΙΚΟΣ" Type="int" Nullable="false" />
+    <Property Name="ΒΝΣ" Type="int" />
+    <Property Name="ΕΠΩΝΥΜΙΑ" Type="nvarchar" MaxLength="255" />
+    <Property Name="ΗΜΕΡΟΜΗΝΙΑ" Type="date" />
+    <Property Name="ΚΑΤΗΓΟΡΙΑ" Type="nvarchar" MaxLength="50" />
+    <Property Name="ΠΡΟΙΟΝ_ΜΟΝΑΔΑ" Type="nvarchar" MaxLength="308" />
+    <Property Name="ΠΟΣΟΤΗΤΑ" Type="decimal" Precision="10" Scale="3" />
+    <Property Name="ΤΙΜΗ_ΜΟΝΑΔΑ" Type="decimal" Precision="10" Scale="3" />
+    <Property Name="ΣΥΝΟΛΟ" Type="decimal" Precision="10" Scale="3" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'AbacusDB.dbo.sqlΔΑΠΑΝΗ_ΤΡΟΦΕΙΟ' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="sqlΔΑΠΑΝΗ_ΤΡΟΦΕΙΟ">
+    <Key>
+      <PropertyRef Name="ΚΩΔΙΚΟΣ" />
+    </Key>
+    <Property Name="ΚΩΔΙΚΟΣ" Type="int" Nullable="false" />
+    <Property Name="ΒΝΣ" Type="int" />
+    <Property Name="ΕΠΩΝΥΜΙΑ" Type="nvarchar" MaxLength="255" />
+    <Property Name="ΗΜΕΡΟΜΗΝΙΑ" Type="date" />
+    <Property Name="ΚΑΤΗΓΟΡΙΑ" Type="nvarchar" MaxLength="50" />
+    <Property Name="ΠΡΟΙΟΝ_ΜΟΝΑΔΑ" Type="nvarchar" MaxLength="308" />
+    <Property Name="ΠΟΣΟΤΗΤΑ" Type="decimal" Precision="10" Scale="3" />
+    <Property Name="ΤΙΜΗ_ΜΟΝΑΔΑ" Type="decimal" Precision="10" Scale="3" />
+    <Property Name="ΣΥΝΟΛΟ" Type="decimal" Precision="10" Scale="3" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'AbacusDB.dbo.sqlΔΙΑΙΤΟΛΟΓΙΟ_ΗΜΕΡΑ' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="sqlΔΙΑΙΤΟΛΟΓΙΟ_ΗΜΕΡΑ">
+    <Key>
+      <PropertyRef Name="ΔΙΑΙΤΟΛΟΓΙΟ_ΚΩΔ" />
+    </Key>
+    <Property Name="ΔΙΑΙΤΟΛΟΓΙΟ_ΚΩΔ" Type="int" Nullable="false" />
+    <Property Name="ΣΤΑΘΜΟΣ_ΚΩΔ" Type="int" />
+    <Property Name="ΗΜΕΡΟΜΗΝΙΑ" Type="date" />
+    <Property Name="DAY_NUM" Type="int" />
+    <Property Name="ΠΡΩΙΝΟ" Type="nvarchar" MaxLength="255" />
+    <Property Name="ΜΕΣΗΜΕΡΙΑΝΟ" Type="nvarchar" MaxLength="255" />
+    <Property Name="ΒΡΕΦΙΚΟ" Type="nvarchar" MaxLength="255" />
+    <Property Name="ΤΡΟΦΙΜΟΙ" Type="int" />
+    <Property Name="ΠΡΟΣΩΠΙΚΟ" Type="int" />
+    <Property Name="ΠΛΗΘΟΣ" Type="int" />
+    <Property Name="ΚΟΣΤΟΣ" Type="numeric" Precision="10" Scale="2" />
+    <Property Name="ΔΑΠΑΝΗ" Type="numeric" Precision="10" Scale="2" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'AbacusDB.dbo.sqlΣΥΝΟΛΟ_ΑΛΛΕΣ_ΗΜΕΡΑ' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="sqlΣΥΝΟΛΟ_ΑΛΛΕΣ_ΗΜΕΡΑ">
+    <Key>
+      <PropertyRef Name="ROWID" />
+      <PropertyRef Name="ΕΙΔΟΣ" />
+    </Key>
+    <Property Name="ROWID" Type="int" Nullable="false" />
+    <Property Name="ΒΝΣ" Type="int" />
+    <Property Name="ΣΧΟΛ_ΕΤΟΣ" Type="int" />
+    <Property Name="ΕΠΩΝΥΜΙΑ" Type="nvarchar" MaxLength="255" />
+    <Property Name="ΗΜΕΡΟΜΗΝΙΑ" Type="date" />
+    <Property Name="ΜΗΝΑΣ_ΑΡΙΘΜΟΣ" Type="int" />
+    <Property Name="ΜΗΝΑΣ" Type="nvarchar" MaxLength="50" />
+    <Property Name="TOTAL_DAY" Type="decimal" Precision="38" Scale="3" />
+    <Property Name="ΕΙΔΟΣ" Type="varchar" MaxLength="7" Nullable="false" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'AbacusDB.dbo.sqlΣΥΝΟΛΟ_ΑΤΟΜΑ_ΤΡΟΦΕΙΟ' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="sqlΣΥΝΟΛΟ_ΑΤΟΜΑ_ΤΡΟΦΕΙΟ">
+    <Key>
+      <PropertyRef Name="ROWID" />
+    </Key>
+    <Property Name="ROWID" Type="int" Nullable="false" />
+    <Property Name="STATION_ID" Type="int" />
+    <Property Name="ΕΠΩΝΥΜΙΑ" Type="nvarchar" MaxLength="255" />
+    <Property Name="SCHOOLYEARID" Type="int" />
+    <Property Name="ΜΗΝΑΣ" Type="int" />
+    <Property Name="ΗΜΕΡΟΜΗΝΙΑ" Type="date" />
+    <Property Name="ΠΑΙΔΙΑ" Type="int" />
+    <Property Name="ΠΡΟΣΩΠΙΚΟ" Type="int" />
+    <Property Name="ΑΤΟΜΑ" Type="int" />
+    <Property Name="ΚΟΣΤΟΣ_ΗΜΕΡΑ" Type="decimal" Precision="21" Scale="4" />
+    <Property Name="ΔΑΠΑΝΗ_ΗΜΕΡΑ" Type="decimal" Precision="38" Scale="3" />
+    <Property Name="ΥΠΟΛΟΙΠΟ" Type="decimal" Precision="38" Scale="3" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'AbacusDB.dbo.sqlΣΥΝΟΛΟ_ΓΕΝΙΚΗ_ΗΜΕΡΑ' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="sqlΣΥΝΟΛΟ_ΓΕΝΙΚΗ_ΗΜΕΡΑ">
+    <Key>
+      <PropertyRef Name="ROWID" />
+    </Key>
+    <Property Name="ROWID" Type="int" Nullable="false" />
+    <Property Name="ΒΝΣ" Type="int" />
+    <Property Name="ΣΧΟΛ_ΕΤΟΣ" Type="int" />
+    <Property Name="ΕΠΩΝΥΜΙΑ" Type="nvarchar" MaxLength="255" />
+    <Property Name="ΗΜΕΡΟΜΗΝΙΑ" Type="date" />
+    <Property Name="ΜΗΝΑΣ" Type="nvarchar" MaxLength="50" />
+    <Property Name="TOTAL_DAY" Type="decimal" Precision="38" Scale="4" />
+    <Property Name="ΜΗΝΑΣ_ΑΡΙΘΜΟΣ" Type="int" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'AbacusDB.dbo.sqlΣΥΝΟΛΟ_ΕΞΤΡΑ_ΗΜΕΡΑ' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="sqlΣΥΝΟΛΟ_ΕΞΤΡΑ_ΗΜΕΡΑ">
+    <Key>
+      <PropertyRef Name="ROWID" />
+    </Key>
+    <Property Name="ROWID" Type="int" Nullable="false" />
+    <Property Name="ΒΝΣ" Type="int" />
+    <Property Name="ΣΧΟΛ_ΕΤΟΣ" Type="int" />
+    <Property Name="ΕΠΩΝΥΜΙΑ" Type="nvarchar" MaxLength="255" />
+    <Property Name="ΗΜΕΡΟΜΗΝΙΑ" Type="date" />
+    <Property Name="ΜΗΝΑΣ" Type="nvarchar" MaxLength="50" />
+    <Property Name="TOTAL_DAY" Type="decimal" Precision="38" Scale="2" />
+    <Property Name="ΜΗΝΑΣ_ΑΡΙΘΜΟΣ" Type="int" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'AbacusDB.dbo.sqlΣΥΝΟΛΟ_ΚΑΘΑΡΙΟΤΗΤΑ_ΗΜΕΡΑ' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="sqlΣΥΝΟΛΟ_ΚΑΘΑΡΙΟΤΗΤΑ_ΗΜΕΡΑ">
+    <Key>
+      <PropertyRef Name="ROWID" />
+    </Key>
+    <Property Name="ROWID" Type="int" Nullable="false" />
+    <Property Name="ΒΝΣ" Type="int" />
+    <Property Name="ΣΧΟΛ_ΕΤΟΣ" Type="int" />
+    <Property Name="ΕΠΩΝΥΜΙΑ" Type="nvarchar" MaxLength="255" />
+    <Property Name="ΗΜΕΡΟΜΗΝΙΑ" Type="date" />
+    <Property Name="ΜΗΝΑΣ" Type="nvarchar" MaxLength="50" />
+    <Property Name="TOTAL_DAY" Type="decimal" Precision="38" Scale="4" />
+    <Property Name="ΜΗΝΑΣ_ΑΡΙΘΜΟΣ" Type="int" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'AbacusDB.dbo.srcABSENCE_DAYS' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="srcABSENCE_DAYS">
+    <Key>
+      <PropertyRef Name="ROWID" />
+    </Key>
+    <Property Name="ROWID" Type="int" Nullable="false" />
+    <Property Name="ΒΝΣ" Type="int" />
+    <Property Name="ΥΠΑΛΛΗΛΟΣ_ΚΩΔ" Type="int" />
+    <Property Name="ΣΧΟΛΙΚΟ_ΕΤΟΣ" Type="int" />
+    <Property Name="ΜΕΤΑΒΟΛΗ_ΜΗΝΑΣ" Type="int" />
+    <Property Name="ΜΕΡΕΣ_ΑΠΟΥΣΙΑ" Type="int" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'AbacusDB.dbo.srcMETABOLES_REPORT' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="srcMETABOLES_REPORT">
+    <Key>
+      <PropertyRef Name="ΜΕΤΑΒΟΛΗ_ΚΩΔ" />
+    </Key>
+    <Property Name="ΜΕΤΑΒΟΛΗ_ΚΩΔ" Type="int" Nullable="false" />
+    <Property Name="ΒΝΣ" Type="int" />
+    <Property Name="ΥΠΑΛΛΗΛΟΣ_ΚΩΔ" Type="int" />
+    <Property Name="ΗΜΝΙΑ_ΑΠΟ" Type="date" />
+    <Property Name="ΗΜΝΙΑ_ΕΩΣ" Type="date" />
+    <Property Name="ΗΜΕΡΕΣ" Type="int" />
+    <Property Name="ΣΧΟΛΙΚΟ_ΕΤΟΣ" Type="int" />
+    <Property Name="ΕΤΟΣ" Type="int" />
+    <Property Name="ΜΕΤΑΒΟΛΗ_ΜΗΝΑΣ" Type="int" />
+    <Property Name="METABOLI_TEXT" Type="nvarchar" MaxLength="255" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'AbacusDB.dbo.srcPERSONNEL_DATA' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="srcPERSONNEL_DATA">
+    <Key>
+      <PropertyRef Name="PERSONNEL_ID" />
+    </Key>
+    <Property Name="PERSONNEL_ID" Type="int" Nullable="false" />
+    <Property Name="ΒΝΣ" Type="int" />
+    <Property Name="ΒΝΣ_ΕΠΩΝΥΜΙΑ" Type="nvarchar" MaxLength="255" />
+    <Property Name="ΜΗΤΡΩΟ" Type="int" />
+    <Property Name="ΟΝΟΜΑΤΕΠΩΝΥΜΟ" Type="nvarchar" MaxLength="101" />
+    <Property Name="ΚΛΑΔΟΣ_ΚΩΔΙΚΟΣ" Type="nvarchar" MaxLength="10" />
+    <Property Name="ΒΑΘΜΟΣ_ΛΕΚΤΙΚΟ" Type="nvarchar" MaxLength="5" />
+    <Property Name="ΑΠΟΦΑΣΗ_ΦΕΚ" Type="nvarchar" MaxLength="255" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'AbacusDB.dbo.sum_STATION_PERSONS_ALL' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="sum_STATION_PERSONS_ALL">
+    <Key>
+      <PropertyRef Name="ROWID" />
+    </Key>
+    <Property Name="ROWID" Type="int" Nullable="false" />
+    <Property Name="ΒΝΣ" Type="int" />
+    <Property Name="ΣΧΟΛΙΚΟ_ΕΤΟΣ" Type="int" />
+    <Property Name="ΠΑΙΔΙΑ_ΔΥΝΑΜΗ" Type="int" />
+    <Property Name="ΠΡΟΣΩΠΙΚΟ_ΔΥΝΑΜΗ" Type="int" />
+    <Property Name="ΠΛΗΘΟΣ_ΑΤΟΜΑ" Type="int" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'AbacusDB.dbo.sumEXPENSE_MONTH_CLEAN' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="sumEXPENSE_MONTH_CLEAN">
+    <Key>
+      <PropertyRef Name="ROWID" />
+    </Key>
+    <Property Name="ROWID" Type="int" Nullable="false" />
+    <Property Name="ΒΝΣ" Type="int" />
+    <Property Name="ΣΧΟΛ_ΕΤΟΣ" Type="int" />
+    <Property Name="ΕΠΩΝΥΜΙΑ" Type="nvarchar" MaxLength="255" />
+    <Property Name="ΜΗΝΑΣ" Type="nvarchar" MaxLength="50" />
+    <Property Name="ΜΗΝΑΣ_ΑΡΙΘΜΟΣ" Type="int" />
+    <Property Name="ΔΑΠΑΝΗ_ΚΑΘΑΡΙΟΤΗΤΑ" Type="decimal" Precision="38" Scale="3" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'AbacusDB.dbo.sumEXPENSE_MONTH_FEED' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="sumEXPENSE_MONTH_FEED">
+    <Key>
+      <PropertyRef Name="ROWID" />
+    </Key>
+    <Property Name="ROWID" Type="int" Nullable="false" />
+    <Property Name="ΒΝΣ" Type="int" />
+    <Property Name="ΣΧΟΛ_ΕΤΟΣ" Type="int" />
+    <Property Name="ΕΠΩΝΥΜΙΑ" Type="nvarchar" MaxLength="255" />
+    <Property Name="ΜΗΝΑΣ" Type="nvarchar" MaxLength="50" />
+    <Property Name="ΜΗΝΑΣ_ΑΡΙΘΜΟΣ" Type="int" />
+    <Property Name="ΔΑΠΑΝΗ_ΤΡΟΦΕΙΟ" Type="decimal" Precision="38" Scale="3" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'AbacusDB.dbo.sumEXPENSE_MONTH_MISC' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="sumEXPENSE_MONTH_MISC">
+    <Key>
+      <PropertyRef Name="ROWID" />
+    </Key>
+    <Property Name="ROWID" Type="int" Nullable="false" />
+    <Property Name="ΒΝΣ" Type="int" />
+    <Property Name="ΣΧΟΛ_ΕΤΟΣ" Type="int" />
+    <Property Name="ΕΠΩΝΥΜΙΑ" Type="nvarchar" MaxLength="255" />
+    <Property Name="ΜΗΝΑΣ" Type="nvarchar" MaxLength="50" />
+    <Property Name="ΜΗΝΑΣ_ΑΡΙΘΜΟΣ" Type="int" />
+    <Property Name="ΔΑΠΑΝΗ_ΓΕΝΙΚΕΣ" Type="decimal" Precision="38" Scale="2" />
+  </EntityType>
+  <Association Name="FK_BUDGET_DATA_ΣΥΣ_ΣΤΑΘΜΟΙ">
+    <End Role="ΣΥΣ_ΣΤΑΘΜΟΙ" Type="Self.ΣΥΣ_ΣΤΑΘΜΟΙ" Multiplicity="0..1" />
+    <End Role="BUDGET_DATA" Type="Self.BUDGET_DATA" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ΣΥΣ_ΣΤΑΘΜΟΙ">
+        <PropertyRef Name="ΣΤΑΘΜΟΣ_ΚΩΔ" />
+      </Principal>
+      <Dependent Role="BUDGET_DATA">
+        <PropertyRef Name="STATION_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_METABOLES_REPORT_ΠΡΟΣΩΠΙΚΟ">
+    <End Role="ΠΡΟΣΩΠΙΚΟ" Type="Self.ΠΡΟΣΩΠΙΚΟ" Multiplicity="0..1" />
+    <End Role="METABOLES_REPORT" Type="Self.METABOLES_REPORT" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ΠΡΟΣΩΠΙΚΟ">
+        <PropertyRef Name="PERSONNEL_ID" />
+      </Principal>
+      <Dependent Role="METABOLES_REPORT">
+        <PropertyRef Name="EMPLOYEE_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_UPLOADS_FILES_UPLOADS">
+    <End Role="DOCUPLOADS" Type="Self.DOCUPLOADS" Multiplicity="0..1" />
+    <End Role="DOCUPLOADS_FILES" Type="Self.DOCUPLOADS_FILES" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="DOCUPLOADS">
+        <PropertyRef Name="UPLOAD_ID" />
+      </Principal>
+      <Dependent Role="DOCUPLOADS_FILES">
+        <PropertyRef Name="UPLOAD_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ΔΑΠΑΝΗ_ΑΛΛΗ_ΠΡΟΙΟΝ_ΚΑΤΗΓΟΡΙΑ">
+    <End Role="ΠΡΟΙΟΝ_ΚΑΤΗΓΟΡΙΑ" Type="Self.ΠΡΟΙΟΝ_ΚΑΤΗΓΟΡΙΑ" Multiplicity="0..1" />
+    <End Role="ΔΑΠΑΝΗ_ΑΛΛΗ" Type="Self.ΔΑΠΑΝΗ_ΑΛΛΗ" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ΠΡΟΙΟΝ_ΚΑΤΗΓΟΡΙΑ">
+        <PropertyRef Name="ΚΑΤΗΓΟΡΙΑ_ΚΩΔ" />
+      </Principal>
+      <Dependent Role="ΔΑΠΑΝΗ_ΑΛΛΗ">
+        <PropertyRef Name="ΚΑΤΗΓΟΡΙΑ" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ΔΑΠΑΝΗ_ΓΕΝΙΚΗ_ΕΞΤΡΑ_ΚΑΤΗΓΟΡΙΑ">
+    <End Role="ΕΞΤΡΑ_ΚΑΤΗΓΟΡΙΑ" Type="Self.ΕΞΤΡΑ_ΚΑΤΗΓΟΡΙΑ" Multiplicity="0..1" />
+    <End Role="ΔΑΠΑΝΗ_ΓΕΝΙΚΗ" Type="Self.ΔΑΠΑΝΗ_ΓΕΝΙΚΗ" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ΕΞΤΡΑ_ΚΑΤΗΓΟΡΙΑ">
+        <PropertyRef Name="ΚΑΤΗΓΟΡΙΑ_ΚΩΔ" />
+      </Principal>
+      <Dependent Role="ΔΑΠΑΝΗ_ΓΕΝΙΚΗ">
+        <PropertyRef Name="ΚΑΤΗΓΟΡΙΑ" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ΔΑΠΑΝΗ_ΚΑΘΑΡΙΟΤΗΤΑ_ΠΡΟΙΟΝ_ΚΑΤΗΓΟΡΙΑ">
+    <End Role="ΠΡΟΙΟΝ_ΚΑΤΗΓΟΡΙΑ" Type="Self.ΠΡΟΙΟΝ_ΚΑΤΗΓΟΡΙΑ" Multiplicity="0..1" />
+    <End Role="ΔΑΠΑΝΗ_ΚΑΘΑΡΙΟΤΗΤΑ" Type="Self.ΔΑΠΑΝΗ_ΚΑΘΑΡΙΟΤΗΤΑ" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ΠΡΟΙΟΝ_ΚΑΤΗΓΟΡΙΑ">
+        <PropertyRef Name="ΚΑΤΗΓΟΡΙΑ_ΚΩΔ" />
+      </Principal>
+      <Dependent Role="ΔΑΠΑΝΗ_ΚΑΘΑΡΙΟΤΗΤΑ">
+        <PropertyRef Name="ΚΑΤΗΓΟΡΙΑ" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ΔΑΠΑΝΗ_ΤΡΟΦΗ_ΠΡΟΙΟΝ_ΚΑΤΗΓΟΡΙΑ">
+    <End Role="ΠΡΟΙΟΝ_ΚΑΤΗΓΟΡΙΑ" Type="Self.ΠΡΟΙΟΝ_ΚΑΤΗΓΟΡΙΑ" Multiplicity="0..1" />
+    <End Role="ΔΑΠΑΝΗ_ΤΡΟΦΗ" Type="Self.ΔΑΠΑΝΗ_ΤΡΟΦΗ" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ΠΡΟΙΟΝ_ΚΑΤΗΓΟΡΙΑ">
+        <PropertyRef Name="ΚΑΤΗΓΟΡΙΑ_ΚΩΔ" />
+      </Principal>
+      <Dependent Role="ΔΑΠΑΝΗ_ΤΡΟΦΗ">
+        <PropertyRef Name="ΚΑΤΗΓΟΡΙΑ" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ΚΟΣΤΟΣ_ΑΤΟΜΟ_ΣΥΣ_ΣΤΑΘΜΟΙ">
+    <End Role="ΣΥΣ_ΣΤΑΘΜΟΙ" Type="Self.ΣΥΣ_ΣΤΑΘΜΟΙ" Multiplicity="0..1" />
+    <End Role="ΤΡΟΦΕΙΟ_ΑΤΟΜΟ" Type="Self.ΤΡΟΦΕΙΟ_ΑΤΟΜΟ" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ΣΥΣ_ΣΤΑΘΜΟΙ">
+        <PropertyRef Name="ΣΤΑΘΜΟΣ_ΚΩΔ" />
+      </Principal>
+      <Dependent Role="ΤΡΟΦΕΙΟ_ΑΤΟΜΟ">
+        <PropertyRef Name="STATION_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ΠΑΙΔΙΑ_ΕΓΓΡΑΦΕΣ_ΠΑΙΔΙΑ">
+    <End Role="ΠΑΙΔΙΑ" Type="Self.ΠΑΙΔΙΑ" Multiplicity="0..1" />
+    <End Role="ΠΑΙΔΙΑ_ΕΓΓΡΑΦΕΣ" Type="Self.ΠΑΙΔΙΑ_ΕΓΓΡΑΦΕΣ" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ΠΑΙΔΙΑ">
+        <PropertyRef Name="CHILD_ID" />
+      </Principal>
+      <Dependent Role="ΠΑΙΔΙΑ_ΕΓΓΡΑΦΕΣ">
+        <PropertyRef Name="ΠΑΙΔΙ_ΚΩΔ" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ΠΑΙΔΙΑ_ΠΑΡΟΥΣΙΕΣ_ΠΑΙΔΙΑ">
+    <End Role="ΠΑΙΔΙΑ" Type="Self.ΠΑΙΔΙΑ" Multiplicity="0..1" />
+    <End Role="ΠΑΙΔΙΑ_ΠΑΡΟΥΣΙΕΣ" Type="Self.ΠΑΙΔΙΑ_ΠΑΡΟΥΣΙΕΣ" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ΠΑΙΔΙΑ">
+        <PropertyRef Name="CHILD_ID" />
+      </Principal>
+      <Dependent Role="ΠΑΙΔΙΑ_ΠΑΡΟΥΣΙΕΣ">
+        <PropertyRef Name="CHILD_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ΠΡΟΓΡΑΜΜΑ_ΗΜΕΡΑ_ΠΡΟΣΩΠΙΚΟ">
+    <End Role="ΠΡΟΣΩΠΙΚΟ" Type="Self.ΠΡΟΣΩΠΙΚΟ" Multiplicity="0..1" />
+    <End Role="ΠΡΟΓΡΑΜΜΑ_ΗΜΕΡΑ" Type="Self.ΠΡΟΓΡΑΜΜΑ_ΗΜΕΡΑ" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ΠΡΟΣΩΠΙΚΟ">
+        <PropertyRef Name="PERSONNEL_ID" />
+      </Principal>
+      <Dependent Role="ΠΡΟΓΡΑΜΜΑ_ΗΜΕΡΑ">
+        <PropertyRef Name="PERSON_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ΠΡΟΙΟΝ_ΚΑΤΗΓΟΡΙΑ_ΔΑΠΑΝΗ_ΕΙΔΟΣ">
+    <End Role="ΔΑΠΑΝΕΣ_ΕΙΔΗ" Type="Self.ΔΑΠΑΝΕΣ_ΕΙΔΗ" Multiplicity="0..1" />
+    <End Role="ΠΡΟΙΟΝ_ΚΑΤΗΓΟΡΙΑ" Type="Self.ΠΡΟΙΟΝ_ΚΑΤΗΓΟΡΙΑ" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ΔΑΠΑΝΕΣ_ΕΙΔΗ">
+        <PropertyRef Name="ΕΙΔΟΣ_ΚΩΔ" />
+      </Principal>
+      <Dependent Role="ΠΡΟΙΟΝ_ΚΑΤΗΓΟΡΙΑ">
+        <PropertyRef Name="ΔΑΠΑΝΗ_ΚΩΔ" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ΠΡΟΙΟΝΤΑ_ΠΡΟΙΟΝ_ΚΑΤΗΓΟΡΙΑ">
+    <End Role="ΠΡΟΙΟΝ_ΚΑΤΗΓΟΡΙΑ" Type="Self.ΠΡΟΙΟΝ_ΚΑΤΗΓΟΡΙΑ" Multiplicity="0..1" />
+    <End Role="ΠΡΟΙΟΝΤΑ" Type="Self.ΠΡΟΙΟΝΤΑ" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ΠΡΟΙΟΝ_ΚΑΤΗΓΟΡΙΑ">
+        <PropertyRef Name="ΚΑΤΗΓΟΡΙΑ_ΚΩΔ" />
+      </Principal>
+      <Dependent Role="ΠΡΟΙΟΝΤΑ">
+        <PropertyRef Name="ΠΡΟΙΟΝ_ΚΑΤΗΓΟΡΙΑ" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ΠΡΟΙΟΝΤΑ_ΠΡΟΙΟΝ_ΜΟΝΑΔΕΣ">
+    <End Role="ΠΡΟΙΟΝ_ΜΟΝΑΔΕΣ" Type="Self.ΠΡΟΙΟΝ_ΜΟΝΑΔΕΣ" Multiplicity="0..1" />
+    <End Role="ΠΡΟΙΟΝΤΑ" Type="Self.ΠΡΟΙΟΝΤΑ" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ΠΡΟΙΟΝ_ΜΟΝΑΔΕΣ">
+        <PropertyRef Name="ΜΟΝΑΔΑ_ΚΩΔ" />
+      </Principal>
+      <Dependent Role="ΠΡΟΙΟΝΤΑ">
+        <PropertyRef Name="ΠΡΟΙΟΝ_ΜΟΝΑΔΑ" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ΠΡΟΣΩΠΙΚΟ_ΜΕΤΑΒΟΛΕΣ_ΠΡΟΣΩΠΙΚΟ">
+    <End Role="ΠΡΟΣΩΠΙΚΟ" Type="Self.ΠΡΟΣΩΠΙΚΟ" Multiplicity="0..1" />
+    <End Role="ΠΡΟΣΩΠΙΚΟ_ΜΕΤΑΒΟΛΕΣ" Type="Self.ΠΡΟΣΩΠΙΚΟ_ΜΕΤΑΒΟΛΕΣ" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ΠΡΟΣΩΠΙΚΟ">
+        <PropertyRef Name="PERSONNEL_ID" />
+      </Principal>
+      <Dependent Role="ΠΡΟΣΩΠΙΚΟ_ΜΕΤΑΒΟΛΕΣ">
+        <PropertyRef Name="ΥΠΑΛΛΗΛΟΣ_ΚΩΔ" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ΣΥΣ_ΔΗΜΟΙ_ΣΥΣ_ΠΕΡΙΦΕΡΕΙΕΣ">
+    <End Role="ΣΥΣ_ΠΕΡΙΦΕΡΕΙΕΣ" Type="Self.ΣΥΣ_ΠΕΡΙΦΕΡΕΙΕΣ" Multiplicity="0..1" />
+    <End Role="ΣΥΣ_ΔΗΜΟΙ" Type="Self.ΣΥΣ_ΔΗΜΟΙ" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ΣΥΣ_ΠΕΡΙΦΕΡΕΙΕΣ">
+        <PropertyRef Name="PERIFERIA_ID" />
+      </Principal>
+      <Dependent Role="ΣΥΣ_ΔΗΜΟΙ">
+        <PropertyRef Name="DIMOS_PERIFERIA" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ΣΥΣ_ΕΙΔΙΚΟΤΗΤΕΣ_ΣΥΣ_ΚΛΑΔΟΙ">
+    <End Role="ΣΥΣ_ΚΛΑΔΟΙ" Type="Self.ΣΥΣ_ΚΛΑΔΟΙ" Multiplicity="0..1" />
+    <End Role="ΣΥΣ_ΕΙΔΙΚΟΤΗΤΕΣ" Type="Self.ΣΥΣ_ΕΙΔΙΚΟΤΗΤΕΣ" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ΣΥΣ_ΚΛΑΔΟΙ">
+        <PropertyRef Name="ΚΛΑΔΟΣ_ΚΩΔ" />
+      </Principal>
+      <Dependent Role="ΣΥΣ_ΕΙΔΙΚΟΤΗΤΕΣ">
+        <PropertyRef Name="KLADOS" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ΣΥΣ_ΣΤΑΘΜΟΙ_ΣΥΣ_ΠΕΡΙΦΕΡΕΙΑΚΕΣ">
+    <End Role="ΣΥΣ_ΠΕΡΙΦΕΡΕΙΑΚΕΣ" Type="Self.ΣΥΣ_ΠΕΡΙΦΕΡΕΙΑΚΕΣ" Multiplicity="0..1" />
+    <End Role="ΣΥΣ_ΣΤΑΘΜΟΙ" Type="Self.ΣΥΣ_ΣΤΑΘΜΟΙ" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ΣΥΣ_ΠΕΡΙΦΕΡΕΙΑΚΕΣ">
+        <PropertyRef Name="ΚΩΔΙΚΟΣ_ΠΕΡΙΦΕΡΕΙΑ" />
+      </Principal>
+      <Dependent Role="ΣΥΣ_ΣΤΑΘΜΟΙ">
+        <PropertyRef Name="ΠΕΡΙΦΕΡΕΙΑΚΗ" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ΤΜΗΜΑ_ΠΑΙΔΑΓΩΓΟΣ_ΠΡΟΣΩΠΙΚΟ">
+    <End Role="ΠΡΟΣΩΠΙΚΟ" Type="Self.ΠΡΟΣΩΠΙΚΟ" Multiplicity="0..1" />
+    <End Role="ΤΜΗΜΑ_ΠΑΙΔΑΓΩΓΟΣ" Type="Self.ΤΜΗΜΑ_ΠΑΙΔΑΓΩΓΟΣ" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ΠΡΟΣΩΠΙΚΟ">
+        <PropertyRef Name="PERSONNEL_ID" />
+      </Principal>
+      <Dependent Role="ΤΜΗΜΑ_ΠΑΙΔΑΓΩΓΟΣ">
+        <PropertyRef Name="ΠΑΙΔΑΓΩΓΟΣ_ΚΩΔ" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ΤΜΗΜΑ_ΣΥΣ_ΣΤΑΘΜΟΙ">
+    <End Role="ΣΥΣ_ΣΤΑΘΜΟΙ" Type="Self.ΣΥΣ_ΣΤΑΘΜΟΙ" Multiplicity="0..1" />
+    <End Role="ΤΜΗΜΑ" Type="Self.ΤΜΗΜΑ" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ΣΥΣ_ΣΤΑΘΜΟΙ">
+        <PropertyRef Name="ΣΤΑΘΜΟΣ_ΚΩΔ" />
+      </Principal>
+      <Dependent Role="ΤΜΗΜΑ">
+        <PropertyRef Name="ΒΝΣ" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ΤΜΗΜΑ_ΤΜΗΜΑ_ΚΑΤΗΓΟΡΙΑ">
+    <End Role="ΤΜΗΜΑ_ΚΑΤΗΓΟΡΙΑ" Type="Self.ΤΜΗΜΑ_ΚΑΤΗΓΟΡΙΑ" Multiplicity="0..1" />
+    <End Role="ΤΜΗΜΑ" Type="Self.ΤΜΗΜΑ" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ΤΜΗΜΑ_ΚΑΤΗΓΟΡΙΑ">
+        <PropertyRef Name="CATEGORY_ID" />
+      </Principal>
+      <Dependent Role="ΤΜΗΜΑ">
+        <PropertyRef Name="ΚΑΤΗΓΟΡΙΑ" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="AbacusDBModelStoreContainer">
+    <EntitySet Name="ACTIVE_SELECTOR" EntityType="Self.ACTIVE_SELECTOR" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ADMIN_LOGINS" EntityType="Self.ADMIN_LOGINS" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="APP_STATUS" EntityType="Self.APP_STATUS" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="BUDGET_DATA" EntityType="Self.BUDGET_DATA" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="DOCUPLOADS" EntityType="Self.DOCUPLOADS" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="DOCUPLOADS_FILES" EntityType="Self.DOCUPLOADS_FILES" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="METABOLES_REPORT" EntityType="Self.METABOLES_REPORT" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="SYS_LOGINS" EntityType="Self.SYS_LOGINS" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="USER_ADMINS" EntityType="Self.USER_ADMINS" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="USER_PERSONS" EntityType="Self.USER_PERSONS" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="USER_STATIONS" EntityType="Self.USER_STATIONS" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ΓΕΥΜΑΤΑ_ΒΡΕΦΗ" EntityType="Self.ΓΕΥΜΑΤΑ_ΒΡΕΦΗ" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ΓΕΥΜΑΤΑ_ΜΕΣΗΜΕΡΙ" EntityType="Self.ΓΕΥΜΑΤΑ_ΜΕΣΗΜΕΡΙ" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ΓΕΥΜΑΤΑ_ΠΡΩΙ" EntityType="Self.ΓΕΥΜΑΤΑ_ΠΡΩΙ" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Δ_ΑΝΤΙΠΡΟΕΔΡΟΙ" EntityType="Self.Δ_ΑΝΤΙΠΡΟΕΔΡΟΙ" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Δ_ΔΙΑΧΕΙΡΙΣΤΕΣ" EntityType="Self.Δ_ΔΙΑΧΕΙΡΙΣΤΕΣ" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Δ_ΔΙΕΥΘΥΝΤΕΣ" EntityType="Self.Δ_ΔΙΕΥΘΥΝΤΕΣ" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Δ_ΔΙΕΥΘΥΝΤΕΣ_ΓΕΝΙΚΟΙ" EntityType="Self.Δ_ΔΙΕΥΘΥΝΤΕΣ_ΓΕΝΙΚΟΙ" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Δ_ΔΙΟΙΚΗΤΕΣ" EntityType="Self.Δ_ΔΙΟΙΚΗΤΕΣ" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Δ_ΠΡΟΙΣΤΑΜΕΝΟΙ" EntityType="Self.Δ_ΠΡΟΙΣΤΑΜΕΝΟΙ" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ΔΑΠΑΝΕΣ_ΕΙΔΗ" EntityType="Self.ΔΑΠΑΝΕΣ_ΕΙΔΗ" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ΔΑΠΑΝΗ_ΑΛΛΗ" EntityType="Self.ΔΑΠΑΝΗ_ΑΛΛΗ" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ΔΑΠΑΝΗ_ΓΕΝΙΚΗ" EntityType="Self.ΔΑΠΑΝΗ_ΓΕΝΙΚΗ" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ΔΑΠΑΝΗ_ΚΑΘΑΡΙΟΤΗΤΑ" EntityType="Self.ΔΑΠΑΝΗ_ΚΑΘΑΡΙΟΤΗΤΑ" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ΔΑΠΑΝΗ_ΤΡΟΦΗ" EntityType="Self.ΔΑΠΑΝΗ_ΤΡΟΦΗ" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ΔΙΑΙΤΟΛΟΓΙΟ_ΗΜΕΡΑ" EntityType="Self.ΔΙΑΙΤΟΛΟΓΙΟ_ΗΜΕΡΑ" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ΕΓΓΡΑΦΟ_ΔΙΑΧΕΙΡΙΣΤΗΣ" EntityType="Self.ΕΓΓΡΑΦΟ_ΔΙΑΧΕΙΡΙΣΤΗΣ" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ΕΓΓΡΑΦΟ_ΜΕΤΑΒΟΛΕΣ" EntityType="Self.ΕΓΓΡΑΦΟ_ΜΕΤΑΒΟΛΕΣ" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ΕΓΓΡΑΦΟ_ΠΡΟΓΡΑΜΜΑ" EntityType="Self.ΕΓΓΡΑΦΟ_ΠΡΟΓΡΑΜΜΑ" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ΕΞΤΡΑ_ΚΑΤΗΓΟΡΙΑ" EntityType="Self.ΕΞΤΡΑ_ΚΑΤΗΓΟΡΙΑ" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ΙΣΟΖΥΓΙΟ_ΜΗΝΑΣ" EntityType="Self.ΙΣΟΖΥΓΙΟ_ΜΗΝΑΣ" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ΠΑΙΔΙΑ" EntityType="Self.ΠΑΙΔΙΑ" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ΠΑΙΔΙΑ_ΕΓΓΡΑΦΕΣ" EntityType="Self.ΠΑΙΔΙΑ_ΕΓΓΡΑΦΕΣ" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ΠΑΙΔΙΑ_ΠΑΡΟΥΣΙΕΣ" EntityType="Self.ΠΑΙΔΙΑ_ΠΑΡΟΥΣΙΕΣ" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ΠΑΡΟΥΣΙΕΣ_ΜΗΝΕΣ" EntityType="Self.ΠΑΡΟΥΣΙΕΣ_ΜΗΝΕΣ" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ΠΡΟΓΡΑΜΜΑ_ΗΜΕΡΑ" EntityType="Self.ΠΡΟΓΡΑΜΜΑ_ΗΜΕΡΑ" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ΠΡΟΙΟΝ_ΚΑΤΗΓΟΡΙΑ" EntityType="Self.ΠΡΟΙΟΝ_ΚΑΤΗΓΟΡΙΑ" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ΠΡΟΙΟΝ_ΜΟΝΑΔΕΣ" EntityType="Self.ΠΡΟΙΟΝ_ΜΟΝΑΔΕΣ" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ΠΡΟΙΟΝΤΑ" EntityType="Self.ΠΡΟΙΟΝΤΑ" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ΠΡΟΙΟΝΤΑ_ΒΝΣ" EntityType="Self.ΠΡΟΙΟΝΤΑ_ΒΝΣ" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ΠΡΟΣΩΠΙΚΟ" EntityType="Self.ΠΡΟΣΩΠΙΚΟ" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ΠΡΟΣΩΠΙΚΟ_ΜΕΤΑΒΟΛΕΣ" EntityType="Self.ΠΡΟΣΩΠΙΚΟ_ΜΕΤΑΒΟΛΕΣ" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ΣΥΣ_ΑΑ_ΛΑΤΙΝΙΚΟΙ" EntityType="Self.ΣΥΣ_ΑΑ_ΛΑΤΙΝΙΚΟΙ" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ΣΥΣ_ΑΠΟΧΩΡΗΣΕΙΣ" EntityType="Self.ΣΥΣ_ΑΠΟΧΩΡΗΣΕΙΣ" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ΣΥΣ_ΒΑΘΜΟΙ" EntityType="Self.ΣΥΣ_ΒΑΘΜΟΙ" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ΣΥΣ_ΔΗΜΟΙ" EntityType="Self.ΣΥΣ_ΔΗΜΟΙ" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ΣΥΣ_ΕΙΔΙΚΟΤΗΤΕΣ" EntityType="Self.ΣΥΣ_ΕΙΔΙΚΟΤΗΤΕΣ" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ΣΥΣ_ΕΝΤΥΠΑ" EntityType="Self.ΣΥΣ_ΕΝΤΥΠΑ" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ΣΥΣ_ΕΤΗ" EntityType="Self.ΣΥΣ_ΕΤΗ" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ΣΥΣ_ΚΛΑΔΟΙ" EntityType="Self.ΣΥΣ_ΚΛΑΔΟΙ" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ΣΥΣ_ΜΕΤΑΒΟΛΕΣ" EntityType="Self.ΣΥΣ_ΜΕΤΑΒΟΛΕΣ" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ΣΥΣ_ΜΗΝΕΣ" EntityType="Self.ΣΥΣ_ΜΗΝΕΣ" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ΣΥΣ_ΠΕΡΙΦΕΡΕΙΑΚΕΣ" EntityType="Self.ΣΥΣ_ΠΕΡΙΦΕΡΕΙΑΚΕΣ" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ΣΥΣ_ΠΕΡΙΦΕΡΕΙΕΣ" EntityType="Self.ΣΥΣ_ΠΕΡΙΦΕΡΕΙΕΣ" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ΣΥΣ_ΠΡΟΣΩΠΙΚΟ" EntityType="Self.ΣΥΣ_ΠΡΟΣΩΠΙΚΟ" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ΣΥΣ_ΣΤΑΘΜΟΙ" EntityType="Self.ΣΥΣ_ΣΤΑΘΜΟΙ" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ΣΥΣ_ΣΧΟΛΙΚΑ_ΕΤΗ" EntityType="Self.ΣΥΣ_ΣΧΟΛΙΚΑ_ΕΤΗ" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ΣΥΣ_ΦΥΛΑ" EntityType="Self.ΣΥΣ_ΦΥΛΑ" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ΣΥΣ_ΩΡΕΣ" EntityType="Self.ΣΥΣ_ΩΡΕΣ" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ΤΜΗΜΑ" EntityType="Self.ΤΜΗΜΑ" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ΤΜΗΜΑ_ΚΑΤΗΓΟΡΙΑ" EntityType="Self.ΤΜΗΜΑ_ΚΑΤΗΓΟΡΙΑ" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ΤΜΗΜΑ_ΠΑΙΔΑΓΩΓΟΣ" EntityType="Self.ΤΜΗΜΑ_ΠΑΙΔΑΓΩΓΟΣ" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ΤΡΟΦΕΙΟ_ΑΤΟΜΟ" EntityType="Self.ΤΡΟΦΕΙΟ_ΑΤΟΜΟ" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ΦΠΑ_ΤΙΜΕΣ" EntityType="Self.ΦΠΑ_ΤΙΜΕΣ" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="expSTATION_BALANCE_MONTH" EntityType="Self.expSTATION_BALANCE_MONTH" store:Type="Views" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [expSTATION_BALANCE_MONTH].[ROWID] AS [ROWID], 
+    [expSTATION_BALANCE_MONTH].[ΒΝΣ] AS [ΒΝΣ], 
+    [expSTATION_BALANCE_MONTH].[ΕΠΩΝΥΜΙΑ] AS [ΕΠΩΝΥΜΙΑ], 
+    [expSTATION_BALANCE_MONTH].[ΣΧΟΛ_ΕΤΟΣ] AS [ΣΧΟΛ_ΕΤΟΣ], 
+    [expSTATION_BALANCE_MONTH].[ΜΗΝΑΣ_ΑΡΙΘΜΟΣ] AS [ΜΗΝΑΣ_ΑΡΙΘΜΟΣ], 
+    [expSTATION_BALANCE_MONTH].[ΜΗΝΑΣ] AS [ΜΗΝΑΣ], 
+    [expSTATION_BALANCE_MONTH].[ΠΑΙΔΙΑ_ΔΥΝΑΜΗ] AS [ΠΑΙΔΙΑ_ΔΥΝΑΜΗ], 
+    [expSTATION_BALANCE_MONTH].[ΠΡΟΣΩΠΙΚΟ_ΔΥΝΑΜΗ] AS [ΠΡΟΣΩΠΙΚΟ_ΔΥΝΑΜΗ], 
+    [expSTATION_BALANCE_MONTH].[ΠΛΗΘΟΣ_ΑΤΟΜΑ] AS [ΠΛΗΘΟΣ_ΑΤΟΜΑ], 
+    [expSTATION_BALANCE_MONTH].[ΚΟΣΤΟΣ_ΤΡΟΦΕΙΟ] AS [ΚΟΣΤΟΣ_ΤΡΟΦΕΙΟ], 
+    [expSTATION_BALANCE_MONTH].[ΚΟΣΤΟΣ_ΚΑΘΑΡΙΟΤΗΤΑ] AS [ΚΟΣΤΟΣ_ΚΑΘΑΡΙΟΤΗΤΑ], 
+    [expSTATION_BALANCE_MONTH].[ΚΟΣΤΟΣ_ΓΕΝΙΚΕΣ] AS [ΚΟΣΤΟΣ_ΓΕΝΙΚΕΣ], 
+    [expSTATION_BALANCE_MONTH].[ΔΑΠΑΝΗ_ΤΡΟΦΕΙΟ] AS [ΔΑΠΑΝΗ_ΤΡΟΦΕΙΟ], 
+    [expSTATION_BALANCE_MONTH].[ΔΑΠΑΝΗ_ΚΑΘΑΡΙΟΤΗΤΑ] AS [ΔΑΠΑΝΗ_ΚΑΘΑΡΙΟΤΗΤΑ], 
+    [expSTATION_BALANCE_MONTH].[ΔΑΠΑΝΗ_ΓΕΝΙΚΕΣ] AS [ΔΑΠΑΝΗ_ΓΕΝΙΚΕΣ], 
+    [expSTATION_BALANCE_MONTH].[ΥΠΟΛΟΙΠΟ_ΤΡΟΦΕΙΟ] AS [ΥΠΟΛΟΙΠΟ_ΤΡΟΦΕΙΟ], 
+    [expSTATION_BALANCE_MONTH].[ΥΠΟΛΟΙΠΟ_ΚΑΘΑΡΙΟΤΗΤΑ] AS [ΥΠΟΛΟΙΠΟ_ΚΑΘΑΡΙΟΤΗΤΑ], 
+    [expSTATION_BALANCE_MONTH].[ΥΠΟΛΟΙΠΟ_ΓΕΝΙΚΕΣ] AS [ΥΠΟΛΟΙΠΟ_ΓΕΝΙΚΕΣ], 
+    [expSTATION_BALANCE_MONTH].[ΚΟΣΤΟΣ_ΣΥΝΟΛΟ] AS [ΚΟΣΤΟΣ_ΣΥΝΟΛΟ], 
+    [expSTATION_BALANCE_MONTH].[ΔΑΠΑΝΗ_ΣΥΝΟΛΟ] AS [ΔΑΠΑΝΗ_ΣΥΝΟΛΟ], 
+    [expSTATION_BALANCE_MONTH].[ΥΠΟΛΟΙΠΟ_ΣΥΝΟΛΟ] AS [ΥΠΟΛΟΙΠΟ_ΣΥΝΟΛΟ]
+    FROM [dbo].[expSTATION_BALANCE_MONTH] AS [expSTATION_BALANCE_MONTH]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="repΠΑΡΟΥΣΙΕΣ_ΜΗΝΑΣ" EntityType="Self.repΠΑΡΟΥΣΙΕΣ_ΜΗΝΑΣ" store:Type="Views" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [repΠΑΡΟΥΣΙΕΣ_ΜΗΝΑΣ].[CHILD_ID] AS [CHILD_ID], 
+    [repΠΑΡΟΥΣΙΕΣ_ΜΗΝΑΣ].[ΒΝΣ] AS [ΒΝΣ], 
+    [repΠΑΡΟΥΣΙΕΣ_ΜΗΝΑΣ].[TMIMA_ID] AS [TMIMA_ID], 
+    [repΠΑΡΟΥΣΙΕΣ_ΜΗΝΑΣ].[ΤΜΗΜΑ_ΟΝΟΜΑ] AS [ΤΜΗΜΑ_ΟΝΟΜΑ], 
+    [repΠΑΡΟΥΣΙΕΣ_ΜΗΝΑΣ].[ΑΜ] AS [ΑΜ], 
+    [repΠΑΡΟΥΣΙΕΣ_ΜΗΝΑΣ].[ΟΝΟΜΑΤΕΠΩΝΥΜΟ] AS [ΟΝΟΜΑΤΕΠΩΝΥΜΟ], 
+    [repΠΑΡΟΥΣΙΕΣ_ΜΗΝΑΣ].[ΠΑΤΡΩΝΥΜΟ] AS [ΠΑΤΡΩΝΥΜΟ], 
+    [repΠΑΡΟΥΣΙΕΣ_ΜΗΝΑΣ].[ΠΛΗΘΟΣ] AS [ΠΛΗΘΟΣ], 
+    [repΠΑΡΟΥΣΙΕΣ_ΜΗΝΑΣ].[PAROUSIA_MONTH] AS [PAROUSIA_MONTH], 
+    [repΠΑΡΟΥΣΙΕΣ_ΜΗΝΑΣ].[SCHOOLYEAR_ID] AS [SCHOOLYEAR_ID], 
+    [repΠΑΡΟΥΣΙΕΣ_ΜΗΝΑΣ].[ΣΧΟΛΙΚΟ_ΕΤΟΣ] AS [ΣΧΟΛΙΚΟ_ΕΤΟΣ]
+    FROM [dbo].[repΠΑΡΟΥΣΙΕΣ_ΜΗΝΑΣ] AS [repΠΑΡΟΥΣΙΕΣ_ΜΗΝΑΣ]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="sqlADMIN_LOGINS" EntityType="Self.sqlADMIN_LOGINS" store:Type="Views" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [sqlADMIN_LOGINS].[LOGIN_ID] AS [LOGIN_ID], 
+    [sqlADMIN_LOGINS].[ADMIN_NAME] AS [ADMIN_NAME], 
+    [sqlADMIN_LOGINS].[LOGIN_DATETIME] AS [LOGIN_DATETIME]
+    FROM [dbo].[sqlADMIN_LOGINS] AS [sqlADMIN_LOGINS]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="sqlCHILD_APOUSIES_DETAIL" EntityType="Self.sqlCHILD_APOUSIES_DETAIL" store:Type="Views" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [sqlCHILD_APOUSIES_DETAIL].[PAROUSIA_ID] AS [PAROUSIA_ID], 
+    [sqlCHILD_APOUSIES_DETAIL].[CHILD_ID] AS [CHILD_ID], 
+    [sqlCHILD_APOUSIES_DETAIL].[STATION_ID] AS [STATION_ID], 
+    [sqlCHILD_APOUSIES_DETAIL].[TMIMA_ID] AS [TMIMA_ID], 
+    [sqlCHILD_APOUSIES_DETAIL].[PAROUSIA_MONTH] AS [PAROUSIA_MONTH], 
+    [sqlCHILD_APOUSIES_DETAIL].[ΜΗΝΑΣ] AS [ΜΗΝΑΣ], 
+    [sqlCHILD_APOUSIES_DETAIL].[PAROUSIA_DATE] AS [PAROUSIA_DATE], 
+    [sqlCHILD_APOUSIES_DETAIL].[ΟΝΟΜΑΤΕΠΩΝΥΜΟ] AS [ΟΝΟΜΑΤΕΠΩΝΥΜΟ], 
+    [sqlCHILD_APOUSIES_DETAIL].[ΤΜΗΜΑ_ΟΝΟΜΑ] AS [ΤΜΗΜΑ_ΟΝΟΜΑ], 
+    [sqlCHILD_APOUSIES_DETAIL].[SCHOOLYEAR_ID] AS [SCHOOLYEAR_ID], 
+    [sqlCHILD_APOUSIES_DETAIL].[ΣΧΟΛΙΚΟ_ΕΤΟΣ] AS [ΣΧΟΛΙΚΟ_ΕΤΟΣ]
+    FROM [dbo].[sqlCHILD_APOUSIES_DETAIL] AS [sqlCHILD_APOUSIES_DETAIL]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="sqlCHILD_APOUSIES_SUM" EntityType="Self.sqlCHILD_APOUSIES_SUM" store:Type="Views" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [sqlCHILD_APOUSIES_SUM].[CHILD_ID] AS [CHILD_ID], 
+    [sqlCHILD_APOUSIES_SUM].[STATION_ID] AS [STATION_ID], 
+    [sqlCHILD_APOUSIES_SUM].[TMIMA_ID] AS [TMIMA_ID], 
+    [sqlCHILD_APOUSIES_SUM].[PAROUSIA_MONTH] AS [PAROUSIA_MONTH], 
+    [sqlCHILD_APOUSIES_SUM].[ΜΗΝΑΣ] AS [ΜΗΝΑΣ], 
+    [sqlCHILD_APOUSIES_SUM].[ΑPOUSIES] AS [ΑPOUSIES], 
+    [sqlCHILD_APOUSIES_SUM].[ΟΝΟΜΑΤΕΠΩΝΥΜΟ] AS [ΟΝΟΜΑΤΕΠΩΝΥΜΟ], 
+    [sqlCHILD_APOUSIES_SUM].[ΤΜΗΜΑ_ΟΝΟΜΑ] AS [ΤΜΗΜΑ_ΟΝΟΜΑ], 
+    [sqlCHILD_APOUSIES_SUM].[SCHOOLYEAR_ID] AS [SCHOOLYEAR_ID], 
+    [sqlCHILD_APOUSIES_SUM].[ΣΧΟΛΙΚΟ_ΕΤΟΣ] AS [ΣΧΟΛΙΚΟ_ΕΤΟΣ]
+    FROM [dbo].[sqlCHILD_APOUSIES_SUM] AS [sqlCHILD_APOUSIES_SUM]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="sqlCHILD_SELECTOR" EntityType="Self.sqlCHILD_SELECTOR" store:Type="Views" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [sqlCHILD_SELECTOR].[CHILD_ID] AS [CHILD_ID], 
+    [sqlCHILD_SELECTOR].[ΟΝΟΜΑΤΕΠΩΝΥΜΟ] AS [ΟΝΟΜΑΤΕΠΩΝΥΜΟ]
+    FROM [dbo].[sqlCHILD_SELECTOR] AS [sqlCHILD_SELECTOR]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="sqlCHILD_TMIMA_SELECTOR" EntityType="Self.sqlCHILD_TMIMA_SELECTOR" store:Type="Views" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [sqlCHILD_TMIMA_SELECTOR].[CHILD_ID] AS [CHILD_ID], 
+    [sqlCHILD_TMIMA_SELECTOR].[ΒΝΣ] AS [ΒΝΣ], 
+    [sqlCHILD_TMIMA_SELECTOR].[ΟΝΟΜΑΤΕΠΩΝΥΜΟ] AS [ΟΝΟΜΑΤΕΠΩΝΥΜΟ], 
+    [sqlCHILD_TMIMA_SELECTOR].[ΤΜΗΜΑ] AS [ΤΜΗΜΑ]
+    FROM [dbo].[sqlCHILD_TMIMA_SELECTOR] AS [sqlCHILD_TMIMA_SELECTOR]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="sqlCHILDREN_INFO" EntityType="Self.sqlCHILDREN_INFO" store:Type="Views" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [sqlCHILDREN_INFO].[CHILD_ID] AS [CHILD_ID], 
+    [sqlCHILDREN_INFO].[ΒΝΣ] AS [ΒΝΣ], 
+    [sqlCHILDREN_INFO].[ΑΜ] AS [ΑΜ], 
+    [sqlCHILDREN_INFO].[ΟΝΟΜΑΤΕΠΩΝΥΜΟ] AS [ΟΝΟΜΑΤΕΠΩΝΥΜΟ], 
+    [sqlCHILDREN_INFO].[ΦΥΛΟ] AS [ΦΥΛΟ], 
+    [sqlCHILDREN_INFO].[ΗΜΝΙΑ_ΓΕΝΝΗΣΗ] AS [ΗΜΝΙΑ_ΓΕΝΝΗΣΗ], 
+    [sqlCHILDREN_INFO].[ΗΛΙΚΙΑ] AS [ΗΛΙΚΙΑ], 
+    [sqlCHILDREN_INFO].[ΠΑΤΡΩΝΥΜΟ] AS [ΠΑΤΡΩΝΥΜΟ], 
+    [sqlCHILDREN_INFO].[ΜΗΤΡΩΝΥΜΟ] AS [ΜΗΤΡΩΝΥΜΟ], 
+    [sqlCHILDREN_INFO].[ΔΙΕΥΘΥΝΣΗ] AS [ΔΙΕΥΘΥΝΣΗ], 
+    [sqlCHILDREN_INFO].[ΤΗΛΕΦΩΝΑ] AS [ΤΗΛΕΦΩΝΑ], 
+    [sqlCHILDREN_INFO].[EMAIL] AS [EMAIL], 
+    [sqlCHILDREN_INFO].[ΠΕΡΙΦΕΡΕΙΑΚΗ] AS [ΠΕΡΙΦΕΡΕΙΑΚΗ], 
+    [sqlCHILDREN_INFO].[ΣΤΑΘΜΟΣ_ΚΩΔ] AS [ΣΤΑΘΜΟΣ_ΚΩΔ], 
+    [sqlCHILDREN_INFO].[ΕΝΕΡΓΟΣ] AS [ΕΝΕΡΓΟΣ]
+    FROM [dbo].[sqlCHILDREN_INFO] AS [sqlCHILDREN_INFO]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="sqlEDUCATOR_TMIMA_INFO" EntityType="Self.sqlEDUCATOR_TMIMA_INFO" store:Type="Views" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [sqlEDUCATOR_TMIMA_INFO].[RECORD_ID] AS [RECORD_ID], 
+    [sqlEDUCATOR_TMIMA_INFO].[ΒΝΣ] AS [ΒΝΣ], 
+    [sqlEDUCATOR_TMIMA_INFO].[ΠΑΙΔΑΓΩΓΟΣ_ΚΩΔ] AS [ΠΑΙΔΑΓΩΓΟΣ_ΚΩΔ], 
+    [sqlEDUCATOR_TMIMA_INFO].[ΣΧΟΛΙΚΟ_ΕΤΟΣ] AS [ΣΧΟΛΙΚΟ_ΕΤΟΣ], 
+    [sqlEDUCATOR_TMIMA_INFO].[ΤΜΗΜΑ_ΟΝΟΜΑ] AS [ΤΜΗΜΑ_ΟΝΟΜΑ]
+    FROM [dbo].[sqlEDUCATOR_TMIMA_INFO] AS [sqlEDUCATOR_TMIMA_INFO]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="sqlEGRAFES_INFO" EntityType="Self.sqlEGRAFES_INFO" store:Type="Views" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [sqlEGRAFES_INFO].[ΕΓΓΡΑΦΗ_ΚΩΔ] AS [ΕΓΓΡΑΦΗ_ΚΩΔ], 
+    [sqlEGRAFES_INFO].[ΠΑΙΔΙ_ΚΩΔ] AS [ΠΑΙΔΙ_ΚΩΔ], 
+    [sqlEGRAFES_INFO].[ΒΝΣ] AS [ΒΝΣ], 
+    [sqlEGRAFES_INFO].[ΤΜΗΜΑ_ΟΝΟΜΑ] AS [ΤΜΗΜΑ_ΟΝΟΜΑ], 
+    [sqlEGRAFES_INFO].[ΗΜΝΙΑ_ΕΓΓΡΑΦΗ] AS [ΗΜΝΙΑ_ΕΓΓΡΑΦΗ], 
+    [sqlEGRAFES_INFO].[ΗΜΝΙΑ_ΠΕΡΑΣ] AS [ΗΜΝΙΑ_ΠΕΡΑΣ]
+    FROM [dbo].[sqlEGRAFES_INFO] AS [sqlEGRAFES_INFO]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="sqlPERSONNEL_INFO" EntityType="Self.sqlPERSONNEL_INFO" store:Type="Views" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [sqlPERSONNEL_INFO].[PERSONNEL_ID] AS [PERSONNEL_ID], 
+    [sqlPERSONNEL_INFO].[ΣΤΑΘΜΟΣ_ΚΩΔ] AS [ΣΤΑΘΜΟΣ_ΚΩΔ], 
+    [sqlPERSONNEL_INFO].[ΒΝΣ_ΕΠΩΝΥΜΙΑ] AS [ΒΝΣ_ΕΠΩΝΥΜΙΑ], 
+    [sqlPERSONNEL_INFO].[ΜΗΤΡΩΟ] AS [ΜΗΤΡΩΟ], 
+    [sqlPERSONNEL_INFO].[ΑΦΜ] AS [ΑΦΜ], 
+    [sqlPERSONNEL_INFO].[ΟΝΟΜΑΤΕΠΩΝΥΜΟ] AS [ΟΝΟΜΑΤΕΠΩΝΥΜΟ], 
+    [sqlPERSONNEL_INFO].[ΠΑΤΡΩΝΥΜΟ] AS [ΠΑΤΡΩΝΥΜΟ], 
+    [sqlPERSONNEL_INFO].[ΜΗΤΡΩΝΥΜΟ] AS [ΜΗΤΡΩΝΥΜΟ], 
+    [sqlPERSONNEL_INFO].[ΦΥΛΟ] AS [ΦΥΛΟ], 
+    [sqlPERSONNEL_INFO].[ΕΤΟΣ_ΓΕΝΝΗΣΗ] AS [ΕΤΟΣ_ΓΕΝΝΗΣΗ], 
+    [sqlPERSONNEL_INFO].[ΗΛΙΚΙΑ] AS [ΗΛΙΚΙΑ], 
+    [sqlPERSONNEL_INFO].[ΔΙΕΥΘΥΝΣΗ] AS [ΔΙΕΥΘΥΝΣΗ], 
+    [sqlPERSONNEL_INFO].[ΤΗΛΕΦΩΝΑ] AS [ΤΗΛΕΦΩΝΑ], 
+    [sqlPERSONNEL_INFO].[EMAIL] AS [EMAIL], 
+    [sqlPERSONNEL_INFO].[EIDIKOTITA_CODE] AS [EIDIKOTITA_CODE], 
+    [sqlPERSONNEL_INFO].[EIDIKOTITA_TEXT] AS [EIDIKOTITA_TEXT], 
+    [sqlPERSONNEL_INFO].[PROSOPIKO_TEXT] AS [PROSOPIKO_TEXT], 
+    [sqlPERSONNEL_INFO].[ΠΕΡΙΦΕΡΕΙΑΚΗ] AS [ΠΕΡΙΦΕΡΕΙΑΚΗ], 
+    [sqlPERSONNEL_INFO].[ΑΠΟΧΩΡΗΣΕ] AS [ΑΠΟΧΩΡΗΣΕ]
+    FROM [dbo].[sqlPERSONNEL_INFO] AS [sqlPERSONNEL_INFO]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="sqlPERSONNEL_SELECTOR" EntityType="Self.sqlPERSONNEL_SELECTOR" store:Type="Views" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [sqlPERSONNEL_SELECTOR].[PERSONNEL_ID] AS [PERSONNEL_ID], 
+    [sqlPERSONNEL_SELECTOR].[ΟΝΟΜΑΤΕΠΩΝΥΜΟ] AS [ΟΝΟΜΑΤΕΠΩΝΥΜΟ], 
+    [sqlPERSONNEL_SELECTOR].[ΠΡΟΣΩΠΙΚΟ_ΕΙΔΟΣ] AS [ΠΡΟΣΩΠΙΚΟ_ΕΙΔΟΣ], 
+    [sqlPERSONNEL_SELECTOR].[ΒΝΣ] AS [ΒΝΣ]
+    FROM [dbo].[sqlPERSONNEL_SELECTOR] AS [sqlPERSONNEL_SELECTOR]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="sqlPRODUCT_LIST" EntityType="Self.sqlPRODUCT_LIST" store:Type="Views" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [sqlPRODUCT_LIST].[ΒΝΣ] AS [ΒΝΣ], 
+    [sqlPRODUCT_LIST].[ΠΡΟΙΟΝ_ΚΩΔ] AS [ΠΡΟΙΟΝ_ΚΩΔ], 
+    [sqlPRODUCT_LIST].[ΚΑΤΗΓΟΡΙΑ] AS [ΚΑΤΗΓΟΡΙΑ], 
+    [sqlPRODUCT_LIST].[ΠΡΟΙΟΝ_ΛΕΚΤΙΚΟ] AS [ΠΡΟΙΟΝ_ΛΕΚΤΙΚΟ], 
+    [sqlPRODUCT_LIST].[ΜΟΝΑΔΑ] AS [ΜΟΝΑΔΑ], 
+    [sqlPRODUCT_LIST].[ΜΟΝΑΔΑ_ΚΩΔ] AS [ΜΟΝΑΔΑ_ΚΩΔ], 
+    [sqlPRODUCT_LIST].[ΚΑΤΗΓΟΡΙΑ_ΚΩΔ] AS [ΚΑΤΗΓΟΡΙΑ_ΚΩΔ], 
+    [sqlPRODUCT_LIST].[ΔΑΠΑΝΗ_ΚΩΔ] AS [ΔΑΠΑΝΗ_ΚΩΔ], 
+    [sqlPRODUCT_LIST].[ΕΙΔΟΣ_ΛΕΚΤΙΚΟ] AS [ΕΙΔΟΣ_ΛΕΚΤΙΚΟ], 
+    [sqlPRODUCT_LIST].[ΠΡΟΙΟΝ_ΦΠΑ] AS [ΠΡΟΙΟΝ_ΦΠΑ], 
+    [sqlPRODUCT_LIST].[FPA_VALUE] AS [FPA_VALUE]
+    FROM [dbo].[sqlPRODUCT_LIST] AS [sqlPRODUCT_LIST]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="sqlPRODUCT_SELECTOR" EntityType="Self.sqlPRODUCT_SELECTOR" store:Type="Views" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [sqlPRODUCT_SELECTOR].[STATION_ID] AS [STATION_ID], 
+    [sqlPRODUCT_SELECTOR].[ΠΡΟΙΟΝ_ΚΩΔ] AS [ΠΡΟΙΟΝ_ΚΩΔ], 
+    [sqlPRODUCT_SELECTOR].[ΠΡΟΙΟΝ_ΜΟΝΑΔΑ] AS [ΠΡΟΙΟΝ_ΜΟΝΑΔΑ], 
+    [sqlPRODUCT_SELECTOR].[ΚΑΤΗΓΟΡΙΑ_ΚΩΔ] AS [ΚΑΤΗΓΟΡΙΑ_ΚΩΔ]
+    FROM [dbo].[sqlPRODUCT_SELECTOR] AS [sqlPRODUCT_SELECTOR]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="sqlSTATION_LOGINS" EntityType="Self.sqlSTATION_LOGINS" store:Type="Views" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [sqlSTATION_LOGINS].[LOGIN_ID] AS [LOGIN_ID], 
+    [sqlSTATION_LOGINS].[STATION_NAME] AS [STATION_NAME], 
+    [sqlSTATION_LOGINS].[LOGIN_DATETIME] AS [LOGIN_DATETIME]
+    FROM [dbo].[sqlSTATION_LOGINS] AS [sqlSTATION_LOGINS]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="sqlSTATION_SELECTOR" EntityType="Self.sqlSTATION_SELECTOR" store:Type="Views" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [sqlSTATION_SELECTOR].[ΣΤΑΘΜΟΣ_ΚΩΔ] AS [ΣΤΑΘΜΟΣ_ΚΩΔ], 
+    [sqlSTATION_SELECTOR].[ΕΠΩΝΥΜΙΑ] AS [ΕΠΩΝΥΜΙΑ], 
+    [sqlSTATION_SELECTOR].[ΕΠΩΝΥΜΙΑ_ΠΕΡΙΦΕΡΕΙΑ] AS [ΕΠΩΝΥΜΙΑ_ΠΕΡΙΦΕΡΕΙΑ], 
+    [sqlSTATION_SELECTOR].[ΠΕΡΙΦΕΡΕΙΑΚΗ] AS [ΠΕΡΙΦΕΡΕΙΑΚΗ], 
+    [sqlSTATION_SELECTOR].[ΥΠΕΥΘΥΝΟΣ] AS [ΥΠΕΥΘΥΝΟΣ]
+    FROM [dbo].[sqlSTATION_SELECTOR] AS [sqlSTATION_SELECTOR]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="sqlTMIMA_CHILDREN" EntityType="Self.sqlTMIMA_CHILDREN" store:Type="Views" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [sqlTMIMA_CHILDREN].[CHILD_ID] AS [CHILD_ID], 
+    [sqlTMIMA_CHILDREN].[ΤΜΗΜΑ] AS [ΤΜΗΜΑ], 
+    [sqlTMIMA_CHILDREN].[ΒΝΣ] AS [ΒΝΣ], 
+    [sqlTMIMA_CHILDREN].[ΑΜ] AS [ΑΜ], 
+    [sqlTMIMA_CHILDREN].[ΟΝΟΜΑΤΕΠΩΝΥΜΟ] AS [ΟΝΟΜΑΤΕΠΩΝΥΜΟ], 
+    [sqlTMIMA_CHILDREN].[ΦΥΛΟ] AS [ΦΥΛΟ], 
+    [sqlTMIMA_CHILDREN].[ΗΛΙΚΙΑ] AS [ΗΛΙΚΙΑ], 
+    [sqlTMIMA_CHILDREN].[ΠΑΤΡΩΝΥΜΟ] AS [ΠΑΤΡΩΝΥΜΟ], 
+    [sqlTMIMA_CHILDREN].[ΗΜΝΙΑ_ΕΓΓΡΑΦΗ] AS [ΗΜΝΙΑ_ΕΓΓΡΑΦΗ]
+    FROM [dbo].[sqlTMIMA_CHILDREN] AS [sqlTMIMA_CHILDREN]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="sqlTMIMATA_INFO" EntityType="Self.sqlTMIMATA_INFO" store:Type="Views" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [sqlTMIMATA_INFO].[ΤΜΗΜΑ_ΚΩΔ] AS [ΤΜΗΜΑ_ΚΩΔ], 
+    [sqlTMIMATA_INFO].[SCHOOLYEAR_ID] AS [SCHOOLYEAR_ID], 
+    [sqlTMIMATA_INFO].[ΒΝΣ] AS [ΒΝΣ], 
+    [sqlTMIMATA_INFO].[ΣΧΟΛΙΚΟ_ΕΤΟΣ] AS [ΣΧΟΛΙΚΟ_ΕΤΟΣ], 
+    [sqlTMIMATA_INFO].[ΤΜΗΜΑ_ΟΝΟΜΑ] AS [ΤΜΗΜΑ_ΟΝΟΜΑ], 
+    [sqlTMIMATA_INFO].[ΒΝΣ_ΟΝΟΜΑ] AS [ΒΝΣ_ΟΝΟΜΑ], 
+    [sqlTMIMATA_INFO].[ΠΕΡΙΦΕΡΕΙΑΚΗ] AS [ΠΕΡΙΦΕΡΕΙΑΚΗ]
+    FROM [dbo].[sqlTMIMATA_INFO] AS [sqlTMIMATA_INFO]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="sqlUSER_STATION" EntityType="Self.sqlUSER_STATION" store:Type="Views" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [sqlUSER_STATION].[USER_ID] AS [USER_ID], 
+    [sqlUSER_STATION].[USERNAME] AS [USERNAME], 
+    [sqlUSER_STATION].[PASSWORD] AS [PASSWORD], 
+    [sqlUSER_STATION].[STATION_ID] AS [STATION_ID], 
+    [sqlUSER_STATION].[ΕΠΩΝΥΜΙΑ] AS [ΕΠΩΝΥΜΙΑ]
+    FROM [dbo].[sqlUSER_STATION] AS [sqlUSER_STATION]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="sqlΔΑΠΑΝΗ_ΑΛΛΗ" EntityType="Self.sqlΔΑΠΑΝΗ_ΑΛΛΗ" store:Type="Views" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [sqlΔΑΠΑΝΗ_ΑΛΛΗ].[ΚΩΔΙΚΟΣ] AS [ΚΩΔΙΚΟΣ], 
+    [sqlΔΑΠΑΝΗ_ΑΛΛΗ].[ΒΝΣ] AS [ΒΝΣ], 
+    [sqlΔΑΠΑΝΗ_ΑΛΛΗ].[ΕΠΩΝΥΜΙΑ] AS [ΕΠΩΝΥΜΙΑ], 
+    [sqlΔΑΠΑΝΗ_ΑΛΛΗ].[ΗΜΕΡΟΜΗΝΙΑ] AS [ΗΜΕΡΟΜΗΝΙΑ], 
+    [sqlΔΑΠΑΝΗ_ΑΛΛΗ].[ΚΑΤΗΓΟΡΙΑ] AS [ΚΑΤΗΓΟΡΙΑ], 
+    [sqlΔΑΠΑΝΗ_ΑΛΛΗ].[ΠΡΟΙΟΝ_ΜΟΝΑΔΑ] AS [ΠΡΟΙΟΝ_ΜΟΝΑΔΑ], 
+    [sqlΔΑΠΑΝΗ_ΑΛΛΗ].[ΠΟΣΟΤΗΤΑ] AS [ΠΟΣΟΤΗΤΑ], 
+    [sqlΔΑΠΑΝΗ_ΑΛΛΗ].[ΤΙΜΗ_ΜΟΝΑΔΑ] AS [ΤΙΜΗ_ΜΟΝΑΔΑ], 
+    [sqlΔΑΠΑΝΗ_ΑΛΛΗ].[ΣΥΝΟΛΟ] AS [ΣΥΝΟΛΟ], 
+    [sqlΔΑΠΑΝΗ_ΑΛΛΗ].[ΣΧΟΛ_ΕΤΟΣ] AS [ΣΧΟΛ_ΕΤΟΣ]
+    FROM [dbo].[sqlΔΑΠΑΝΗ_ΑΛΛΗ] AS [sqlΔΑΠΑΝΗ_ΑΛΛΗ]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="sqlΔΑΠΑΝΗ_ΓΕΝΙΚΗ" EntityType="Self.sqlΔΑΠΑΝΗ_ΓΕΝΙΚΗ" store:Type="Views" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [sqlΔΑΠΑΝΗ_ΓΕΝΙΚΗ].[ΚΩΔΙΚΟΣ] AS [ΚΩΔΙΚΟΣ], 
+    [sqlΔΑΠΑΝΗ_ΓΕΝΙΚΗ].[ΒΝΣ] AS [ΒΝΣ], 
+    [sqlΔΑΠΑΝΗ_ΓΕΝΙΚΗ].[ΕΠΩΝΥΜΙΑ] AS [ΕΠΩΝΥΜΙΑ], 
+    [sqlΔΑΠΑΝΗ_ΓΕΝΙΚΗ].[ΗΜΕΡΟΜΗΝΙΑ] AS [ΗΜΕΡΟΜΗΝΙΑ], 
+    [sqlΔΑΠΑΝΗ_ΓΕΝΙΚΗ].[ΚΑΤΗΓΟΡΙΑ] AS [ΚΑΤΗΓΟΡΙΑ], 
+    [sqlΔΑΠΑΝΗ_ΓΕΝΙΚΗ].[ΠΕΡΙΓΡΑΦΗ] AS [ΠΕΡΙΓΡΑΦΗ], 
+    [sqlΔΑΠΑΝΗ_ΓΕΝΙΚΗ].[ΠΟΣΟΤΗΤΑ] AS [ΠΟΣΟΤΗΤΑ], 
+    [sqlΔΑΠΑΝΗ_ΓΕΝΙΚΗ].[ΤΙΜΗ_ΜΟΝΑΔΑ] AS [ΤΙΜΗ_ΜΟΝΑΔΑ], 
+    [sqlΔΑΠΑΝΗ_ΓΕΝΙΚΗ].[ΣΥΝΟΛΟ] AS [ΣΥΝΟΛΟ], 
+    [sqlΔΑΠΑΝΗ_ΓΕΝΙΚΗ].[ΣΧΟΛ_ΕΤΟΣ] AS [ΣΧΟΛ_ΕΤΟΣ]
+    FROM [dbo].[sqlΔΑΠΑΝΗ_ΓΕΝΙΚΗ] AS [sqlΔΑΠΑΝΗ_ΓΕΝΙΚΗ]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="sqlΔΑΠΑΝΗ_ΓΕΝΙΚΗ_ΟΛΕΣ" EntityType="Self.sqlΔΑΠΑΝΗ_ΓΕΝΙΚΗ_ΟΛΕΣ" store:Type="Views" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [sqlΔΑΠΑΝΗ_ΓΕΝΙΚΗ_ΟΛΕΣ].[ROWID] AS [ROWID], 
+    [sqlΔΑΠΑΝΗ_ΓΕΝΙΚΗ_ΟΛΕΣ].[ΒΝΣ] AS [ΒΝΣ], 
+    [sqlΔΑΠΑΝΗ_ΓΕΝΙΚΗ_ΟΛΕΣ].[ΕΠΩΝΥΜΙΑ] AS [ΕΠΩΝΥΜΙΑ], 
+    [sqlΔΑΠΑΝΗ_ΓΕΝΙΚΗ_ΟΛΕΣ].[ΣΧΟΛ_ΕΤΟΣ] AS [ΣΧΟΛ_ΕΤΟΣ], 
+    [sqlΔΑΠΑΝΗ_ΓΕΝΙΚΗ_ΟΛΕΣ].[ΜΗΝΑΣ_ΑΡΙΘΜΟΣ] AS [ΜΗΝΑΣ_ΑΡΙΘΜΟΣ], 
+    [sqlΔΑΠΑΝΗ_ΓΕΝΙΚΗ_ΟΛΕΣ].[ΗΜΕΡΟΜΗΝΙΑ] AS [ΗΜΕΡΟΜΗΝΙΑ], 
+    [sqlΔΑΠΑΝΗ_ΓΕΝΙΚΗ_ΟΛΕΣ].[ΚΑΤΗΓΟΡΙΑ] AS [ΚΑΤΗΓΟΡΙΑ], 
+    [sqlΔΑΠΑΝΗ_ΓΕΝΙΚΗ_ΟΛΕΣ].[ΠΕΡΙΓΡΑΦΗ] AS [ΠΕΡΙΓΡΑΦΗ], 
+    [sqlΔΑΠΑΝΗ_ΓΕΝΙΚΗ_ΟΛΕΣ].[ΣΥΝΟΛΟ] AS [ΣΥΝΟΛΟ], 
+    [sqlΔΑΠΑΝΗ_ΓΕΝΙΚΗ_ΟΛΕΣ].[ΕΙΔΟΣ] AS [ΕΙΔΟΣ]
+    FROM [dbo].[sqlΔΑΠΑΝΗ_ΓΕΝΙΚΗ_ΟΛΕΣ] AS [sqlΔΑΠΑΝΗ_ΓΕΝΙΚΗ_ΟΛΕΣ]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="sqlΔΑΠΑΝΗ_ΚΑΘΑΡΙΟΤΗΤΑ" EntityType="Self.sqlΔΑΠΑΝΗ_ΚΑΘΑΡΙΟΤΗΤΑ" store:Type="Views" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [sqlΔΑΠΑΝΗ_ΚΑΘΑΡΙΟΤΗΤΑ].[ΚΩΔΙΚΟΣ] AS [ΚΩΔΙΚΟΣ], 
+    [sqlΔΑΠΑΝΗ_ΚΑΘΑΡΙΟΤΗΤΑ].[ΒΝΣ] AS [ΒΝΣ], 
+    [sqlΔΑΠΑΝΗ_ΚΑΘΑΡΙΟΤΗΤΑ].[ΕΠΩΝΥΜΙΑ] AS [ΕΠΩΝΥΜΙΑ], 
+    [sqlΔΑΠΑΝΗ_ΚΑΘΑΡΙΟΤΗΤΑ].[ΗΜΕΡΟΜΗΝΙΑ] AS [ΗΜΕΡΟΜΗΝΙΑ], 
+    [sqlΔΑΠΑΝΗ_ΚΑΘΑΡΙΟΤΗΤΑ].[ΚΑΤΗΓΟΡΙΑ] AS [ΚΑΤΗΓΟΡΙΑ], 
+    [sqlΔΑΠΑΝΗ_ΚΑΘΑΡΙΟΤΗΤΑ].[ΠΡΟΙΟΝ_ΜΟΝΑΔΑ] AS [ΠΡΟΙΟΝ_ΜΟΝΑΔΑ], 
+    [sqlΔΑΠΑΝΗ_ΚΑΘΑΡΙΟΤΗΤΑ].[ΠΟΣΟΤΗΤΑ] AS [ΠΟΣΟΤΗΤΑ], 
+    [sqlΔΑΠΑΝΗ_ΚΑΘΑΡΙΟΤΗΤΑ].[ΤΙΜΗ_ΜΟΝΑΔΑ] AS [ΤΙΜΗ_ΜΟΝΑΔΑ], 
+    [sqlΔΑΠΑΝΗ_ΚΑΘΑΡΙΟΤΗΤΑ].[ΣΥΝΟΛΟ] AS [ΣΥΝΟΛΟ]
+    FROM [dbo].[sqlΔΑΠΑΝΗ_ΚΑΘΑΡΙΟΤΗΤΑ] AS [sqlΔΑΠΑΝΗ_ΚΑΘΑΡΙΟΤΗΤΑ]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="sqlΔΑΠΑΝΗ_ΤΡΟΦΕΙΟ" EntityType="Self.sqlΔΑΠΑΝΗ_ΤΡΟΦΕΙΟ" store:Type="Views" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [sqlΔΑΠΑΝΗ_ΤΡΟΦΕΙΟ].[ΚΩΔΙΚΟΣ] AS [ΚΩΔΙΚΟΣ], 
+    [sqlΔΑΠΑΝΗ_ΤΡΟΦΕΙΟ].[ΒΝΣ] AS [ΒΝΣ], 
+    [sqlΔΑΠΑΝΗ_ΤΡΟΦΕΙΟ].[ΕΠΩΝΥΜΙΑ] AS [ΕΠΩΝΥΜΙΑ], 
+    [sqlΔΑΠΑΝΗ_ΤΡΟΦΕΙΟ].[ΗΜΕΡΟΜΗΝΙΑ] AS [ΗΜΕΡΟΜΗΝΙΑ], 
+    [sqlΔΑΠΑΝΗ_ΤΡΟΦΕΙΟ].[ΚΑΤΗΓΟΡΙΑ] AS [ΚΑΤΗΓΟΡΙΑ], 
+    [sqlΔΑΠΑΝΗ_ΤΡΟΦΕΙΟ].[ΠΡΟΙΟΝ_ΜΟΝΑΔΑ] AS [ΠΡΟΙΟΝ_ΜΟΝΑΔΑ], 
+    [sqlΔΑΠΑΝΗ_ΤΡΟΦΕΙΟ].[ΠΟΣΟΤΗΤΑ] AS [ΠΟΣΟΤΗΤΑ], 
+    [sqlΔΑΠΑΝΗ_ΤΡΟΦΕΙΟ].[ΤΙΜΗ_ΜΟΝΑΔΑ] AS [ΤΙΜΗ_ΜΟΝΑΔΑ], 
+    [sqlΔΑΠΑΝΗ_ΤΡΟΦΕΙΟ].[ΣΥΝΟΛΟ] AS [ΣΥΝΟΛΟ]
+    FROM [dbo].[sqlΔΑΠΑΝΗ_ΤΡΟΦΕΙΟ] AS [sqlΔΑΠΑΝΗ_ΤΡΟΦΕΙΟ]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="sqlΔΙΑΙΤΟΛΟΓΙΟ_ΗΜΕΡΑ" EntityType="Self.sqlΔΙΑΙΤΟΛΟΓΙΟ_ΗΜΕΡΑ" store:Type="Views" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [sqlΔΙΑΙΤΟΛΟΓΙΟ_ΗΜΕΡΑ].[ΔΙΑΙΤΟΛΟΓΙΟ_ΚΩΔ] AS [ΔΙΑΙΤΟΛΟΓΙΟ_ΚΩΔ], 
+    [sqlΔΙΑΙΤΟΛΟΓΙΟ_ΗΜΕΡΑ].[ΣΤΑΘΜΟΣ_ΚΩΔ] AS [ΣΤΑΘΜΟΣ_ΚΩΔ], 
+    [sqlΔΙΑΙΤΟΛΟΓΙΟ_ΗΜΕΡΑ].[ΗΜΕΡΟΜΗΝΙΑ] AS [ΗΜΕΡΟΜΗΝΙΑ], 
+    [sqlΔΙΑΙΤΟΛΟΓΙΟ_ΗΜΕΡΑ].[DAY_NUM] AS [DAY_NUM], 
+    [sqlΔΙΑΙΤΟΛΟΓΙΟ_ΗΜΕΡΑ].[ΠΡΩΙΝΟ] AS [ΠΡΩΙΝΟ], 
+    [sqlΔΙΑΙΤΟΛΟΓΙΟ_ΗΜΕΡΑ].[ΜΕΣΗΜΕΡΙΑΝΟ] AS [ΜΕΣΗΜΕΡΙΑΝΟ], 
+    [sqlΔΙΑΙΤΟΛΟΓΙΟ_ΗΜΕΡΑ].[ΒΡΕΦΙΚΟ] AS [ΒΡΕΦΙΚΟ], 
+    [sqlΔΙΑΙΤΟΛΟΓΙΟ_ΗΜΕΡΑ].[ΤΡΟΦΙΜΟΙ] AS [ΤΡΟΦΙΜΟΙ], 
+    [sqlΔΙΑΙΤΟΛΟΓΙΟ_ΗΜΕΡΑ].[ΠΡΟΣΩΠΙΚΟ] AS [ΠΡΟΣΩΠΙΚΟ], 
+    [sqlΔΙΑΙΤΟΛΟΓΙΟ_ΗΜΕΡΑ].[ΠΛΗΘΟΣ] AS [ΠΛΗΘΟΣ], 
+    [sqlΔΙΑΙΤΟΛΟΓΙΟ_ΗΜΕΡΑ].[ΚΟΣΤΟΣ] AS [ΚΟΣΤΟΣ], 
+    [sqlΔΙΑΙΤΟΛΟΓΙΟ_ΗΜΕΡΑ].[ΔΑΠΑΝΗ] AS [ΔΑΠΑΝΗ]
+    FROM [dbo].[sqlΔΙΑΙΤΟΛΟΓΙΟ_ΗΜΕΡΑ] AS [sqlΔΙΑΙΤΟΛΟΓΙΟ_ΗΜΕΡΑ]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="sqlΣΥΝΟΛΟ_ΑΛΛΕΣ_ΗΜΕΡΑ" EntityType="Self.sqlΣΥΝΟΛΟ_ΑΛΛΕΣ_ΗΜΕΡΑ" store:Type="Views" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [sqlΣΥΝΟΛΟ_ΑΛΛΕΣ_ΗΜΕΡΑ].[ROWID] AS [ROWID], 
+    [sqlΣΥΝΟΛΟ_ΑΛΛΕΣ_ΗΜΕΡΑ].[ΒΝΣ] AS [ΒΝΣ], 
+    [sqlΣΥΝΟΛΟ_ΑΛΛΕΣ_ΗΜΕΡΑ].[ΣΧΟΛ_ΕΤΟΣ] AS [ΣΧΟΛ_ΕΤΟΣ], 
+    [sqlΣΥΝΟΛΟ_ΑΛΛΕΣ_ΗΜΕΡΑ].[ΕΠΩΝΥΜΙΑ] AS [ΕΠΩΝΥΜΙΑ], 
+    [sqlΣΥΝΟΛΟ_ΑΛΛΕΣ_ΗΜΕΡΑ].[ΗΜΕΡΟΜΗΝΙΑ] AS [ΗΜΕΡΟΜΗΝΙΑ], 
+    [sqlΣΥΝΟΛΟ_ΑΛΛΕΣ_ΗΜΕΡΑ].[ΜΗΝΑΣ_ΑΡΙΘΜΟΣ] AS [ΜΗΝΑΣ_ΑΡΙΘΜΟΣ], 
+    [sqlΣΥΝΟΛΟ_ΑΛΛΕΣ_ΗΜΕΡΑ].[ΜΗΝΑΣ] AS [ΜΗΝΑΣ], 
+    [sqlΣΥΝΟΛΟ_ΑΛΛΕΣ_ΗΜΕΡΑ].[TOTAL_DAY] AS [TOTAL_DAY], 
+    [sqlΣΥΝΟΛΟ_ΑΛΛΕΣ_ΗΜΕΡΑ].[ΕΙΔΟΣ] AS [ΕΙΔΟΣ]
+    FROM [dbo].[sqlΣΥΝΟΛΟ_ΑΛΛΕΣ_ΗΜΕΡΑ] AS [sqlΣΥΝΟΛΟ_ΑΛΛΕΣ_ΗΜΕΡΑ]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="sqlΣΥΝΟΛΟ_ΑΤΟΜΑ_ΤΡΟΦΕΙΟ" EntityType="Self.sqlΣΥΝΟΛΟ_ΑΤΟΜΑ_ΤΡΟΦΕΙΟ" store:Type="Views" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [sqlΣΥΝΟΛΟ_ΑΤΟΜΑ_ΤΡΟΦΕΙΟ].[ROWID] AS [ROWID], 
+    [sqlΣΥΝΟΛΟ_ΑΤΟΜΑ_ΤΡΟΦΕΙΟ].[STATION_ID] AS [STATION_ID], 
+    [sqlΣΥΝΟΛΟ_ΑΤΟΜΑ_ΤΡΟΦΕΙΟ].[ΕΠΩΝΥΜΙΑ] AS [ΕΠΩΝΥΜΙΑ], 
+    [sqlΣΥΝΟΛΟ_ΑΤΟΜΑ_ΤΡΟΦΕΙΟ].[SCHOOLYEARID] AS [SCHOOLYEARID], 
+    [sqlΣΥΝΟΛΟ_ΑΤΟΜΑ_ΤΡΟΦΕΙΟ].[ΜΗΝΑΣ] AS [ΜΗΝΑΣ], 
+    [sqlΣΥΝΟΛΟ_ΑΤΟΜΑ_ΤΡΟΦΕΙΟ].[ΗΜΕΡΟΜΗΝΙΑ] AS [ΗΜΕΡΟΜΗΝΙΑ], 
+    [sqlΣΥΝΟΛΟ_ΑΤΟΜΑ_ΤΡΟΦΕΙΟ].[ΠΑΙΔΙΑ] AS [ΠΑΙΔΙΑ], 
+    [sqlΣΥΝΟΛΟ_ΑΤΟΜΑ_ΤΡΟΦΕΙΟ].[ΠΡΟΣΩΠΙΚΟ] AS [ΠΡΟΣΩΠΙΚΟ], 
+    [sqlΣΥΝΟΛΟ_ΑΤΟΜΑ_ΤΡΟΦΕΙΟ].[ΑΤΟΜΑ] AS [ΑΤΟΜΑ], 
+    [sqlΣΥΝΟΛΟ_ΑΤΟΜΑ_ΤΡΟΦΕΙΟ].[ΚΟΣΤΟΣ_ΗΜΕΡΑ] AS [ΚΟΣΤΟΣ_ΗΜΕΡΑ], 
+    [sqlΣΥΝΟΛΟ_ΑΤΟΜΑ_ΤΡΟΦΕΙΟ].[ΔΑΠΑΝΗ_ΗΜΕΡΑ] AS [ΔΑΠΑΝΗ_ΗΜΕΡΑ], 
+    [sqlΣΥΝΟΛΟ_ΑΤΟΜΑ_ΤΡΟΦΕΙΟ].[ΥΠΟΛΟΙΠΟ] AS [ΥΠΟΛΟΙΠΟ]
+    FROM [dbo].[sqlΣΥΝΟΛΟ_ΑΤΟΜΑ_ΤΡΟΦΕΙΟ] AS [sqlΣΥΝΟΛΟ_ΑΤΟΜΑ_ΤΡΟΦΕΙΟ]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="sqlΣΥΝΟΛΟ_ΓΕΝΙΚΗ_ΗΜΕΡΑ" EntityType="Self.sqlΣΥΝΟΛΟ_ΓΕΝΙΚΗ_ΗΜΕΡΑ" store:Type="Views" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [sqlΣΥΝΟΛΟ_ΓΕΝΙΚΗ_ΗΜΕΡΑ].[ROWID] AS [ROWID], 
+    [sqlΣΥΝΟΛΟ_ΓΕΝΙΚΗ_ΗΜΕΡΑ].[ΒΝΣ] AS [ΒΝΣ], 
+    [sqlΣΥΝΟΛΟ_ΓΕΝΙΚΗ_ΗΜΕΡΑ].[ΣΧΟΛ_ΕΤΟΣ] AS [ΣΧΟΛ_ΕΤΟΣ], 
+    [sqlΣΥΝΟΛΟ_ΓΕΝΙΚΗ_ΗΜΕΡΑ].[ΕΠΩΝΥΜΙΑ] AS [ΕΠΩΝΥΜΙΑ], 
+    [sqlΣΥΝΟΛΟ_ΓΕΝΙΚΗ_ΗΜΕΡΑ].[ΗΜΕΡΟΜΗΝΙΑ] AS [ΗΜΕΡΟΜΗΝΙΑ], 
+    [sqlΣΥΝΟΛΟ_ΓΕΝΙΚΗ_ΗΜΕΡΑ].[ΜΗΝΑΣ] AS [ΜΗΝΑΣ], 
+    [sqlΣΥΝΟΛΟ_ΓΕΝΙΚΗ_ΗΜΕΡΑ].[TOTAL_DAY] AS [TOTAL_DAY], 
+    [sqlΣΥΝΟΛΟ_ΓΕΝΙΚΗ_ΗΜΕΡΑ].[ΜΗΝΑΣ_ΑΡΙΘΜΟΣ] AS [ΜΗΝΑΣ_ΑΡΙΘΜΟΣ]
+    FROM [dbo].[sqlΣΥΝΟΛΟ_ΓΕΝΙΚΗ_ΗΜΕΡΑ] AS [sqlΣΥΝΟΛΟ_ΓΕΝΙΚΗ_ΗΜΕΡΑ]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="sqlΣΥΝΟΛΟ_ΕΞΤΡΑ_ΗΜΕΡΑ" EntityType="Self.sqlΣΥΝΟΛΟ_ΕΞΤΡΑ_ΗΜΕΡΑ" store:Type="Views" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [sqlΣΥΝΟΛΟ_ΕΞΤΡΑ_ΗΜΕΡΑ].[ROWID] AS [ROWID], 
+    [sqlΣΥΝΟΛΟ_ΕΞΤΡΑ_ΗΜΕΡΑ].[ΒΝΣ] AS [ΒΝΣ], 
+    [sqlΣΥΝΟΛΟ_ΕΞΤΡΑ_ΗΜΕΡΑ].[ΣΧΟΛ_ΕΤΟΣ] AS [ΣΧΟΛ_ΕΤΟΣ], 
+    [sqlΣΥΝΟΛΟ_ΕΞΤΡΑ_ΗΜΕΡΑ].[ΕΠΩΝΥΜΙΑ] AS [ΕΠΩΝΥΜΙΑ], 
+    [sqlΣΥΝΟΛΟ_ΕΞΤΡΑ_ΗΜΕΡΑ].[ΗΜΕΡΟΜΗΝΙΑ] AS [ΗΜΕΡΟΜΗΝΙΑ], 
+    [sqlΣΥΝΟΛΟ_ΕΞΤΡΑ_ΗΜΕΡΑ].[ΜΗΝΑΣ] AS [ΜΗΝΑΣ], 
+    [sqlΣΥΝΟΛΟ_ΕΞΤΡΑ_ΗΜΕΡΑ].[TOTAL_DAY] AS [TOTAL_DAY], 
+    [sqlΣΥΝΟΛΟ_ΕΞΤΡΑ_ΗΜΕΡΑ].[ΜΗΝΑΣ_ΑΡΙΘΜΟΣ] AS [ΜΗΝΑΣ_ΑΡΙΘΜΟΣ]
+    FROM [dbo].[sqlΣΥΝΟΛΟ_ΕΞΤΡΑ_ΗΜΕΡΑ] AS [sqlΣΥΝΟΛΟ_ΕΞΤΡΑ_ΗΜΕΡΑ]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="sqlΣΥΝΟΛΟ_ΚΑΘΑΡΙΟΤΗΤΑ_ΗΜΕΡΑ" EntityType="Self.sqlΣΥΝΟΛΟ_ΚΑΘΑΡΙΟΤΗΤΑ_ΗΜΕΡΑ" store:Type="Views" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [sqlΣΥΝΟΛΟ_ΚΑΘΑΡΙΟΤΗΤΑ_ΗΜΕΡΑ].[ROWID] AS [ROWID], 
+    [sqlΣΥΝΟΛΟ_ΚΑΘΑΡΙΟΤΗΤΑ_ΗΜΕΡΑ].[ΒΝΣ] AS [ΒΝΣ], 
+    [sqlΣΥΝΟΛΟ_ΚΑΘΑΡΙΟΤΗΤΑ_ΗΜΕΡΑ].[ΣΧΟΛ_ΕΤΟΣ] AS [ΣΧΟΛ_ΕΤΟΣ], 
+    [sqlΣΥΝΟΛΟ_ΚΑΘΑΡΙΟΤΗΤΑ_ΗΜΕΡΑ].[ΕΠΩΝΥΜΙΑ] AS [ΕΠΩΝΥΜΙΑ], 
+    [sqlΣΥΝΟΛΟ_ΚΑΘΑΡΙΟΤΗΤΑ_ΗΜΕΡΑ].[ΗΜΕΡΟΜΗΝΙΑ] AS [ΗΜΕΡΟΜΗΝΙΑ], 
+    [sqlΣΥΝΟΛΟ_ΚΑΘΑΡΙΟΤΗΤΑ_ΗΜΕΡΑ].[ΜΗΝΑΣ] AS [ΜΗΝΑΣ], 
+    [sqlΣΥΝΟΛΟ_ΚΑΘΑΡΙΟΤΗΤΑ_ΗΜΕΡΑ].[TOTAL_DAY] AS [TOTAL_DAY], 
+    [sqlΣΥΝΟΛΟ_ΚΑΘΑΡΙΟΤΗΤΑ_ΗΜΕΡΑ].[ΜΗΝΑΣ_ΑΡΙΘΜΟΣ] AS [ΜΗΝΑΣ_ΑΡΙΘΜΟΣ]
+    FROM [dbo].[sqlΣΥΝΟΛΟ_ΚΑΘΑΡΙΟΤΗΤΑ_ΗΜΕΡΑ] AS [sqlΣΥΝΟΛΟ_ΚΑΘΑΡΙΟΤΗΤΑ_ΗΜΕΡΑ]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="srcABSENCE_DAYS" EntityType="Self.srcABSENCE_DAYS" store:Type="Views" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [srcABSENCE_DAYS].[ROWID] AS [ROWID], 
+    [srcABSENCE_DAYS].[ΒΝΣ] AS [ΒΝΣ], 
+    [srcABSENCE_DAYS].[ΥΠΑΛΛΗΛΟΣ_ΚΩΔ] AS [ΥΠΑΛΛΗΛΟΣ_ΚΩΔ], 
+    [srcABSENCE_DAYS].[ΣΧΟΛΙΚΟ_ΕΤΟΣ] AS [ΣΧΟΛΙΚΟ_ΕΤΟΣ], 
+    [srcABSENCE_DAYS].[ΜΕΤΑΒΟΛΗ_ΜΗΝΑΣ] AS [ΜΕΤΑΒΟΛΗ_ΜΗΝΑΣ], 
+    [srcABSENCE_DAYS].[ΜΕΡΕΣ_ΑΠΟΥΣΙΑ] AS [ΜΕΡΕΣ_ΑΠΟΥΣΙΑ]
+    FROM [dbo].[srcABSENCE_DAYS] AS [srcABSENCE_DAYS]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="srcMETABOLES_REPORT" EntityType="Self.srcMETABOLES_REPORT" store:Type="Views" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [srcMETABOLES_REPORT].[ΜΕΤΑΒΟΛΗ_ΚΩΔ] AS [ΜΕΤΑΒΟΛΗ_ΚΩΔ], 
+    [srcMETABOLES_REPORT].[ΒΝΣ] AS [ΒΝΣ], 
+    [srcMETABOLES_REPORT].[ΥΠΑΛΛΗΛΟΣ_ΚΩΔ] AS [ΥΠΑΛΛΗΛΟΣ_ΚΩΔ], 
+    [srcMETABOLES_REPORT].[ΗΜΝΙΑ_ΑΠΟ] AS [ΗΜΝΙΑ_ΑΠΟ], 
+    [srcMETABOLES_REPORT].[ΗΜΝΙΑ_ΕΩΣ] AS [ΗΜΝΙΑ_ΕΩΣ], 
+    [srcMETABOLES_REPORT].[ΗΜΕΡΕΣ] AS [ΗΜΕΡΕΣ], 
+    [srcMETABOLES_REPORT].[ΣΧΟΛΙΚΟ_ΕΤΟΣ] AS [ΣΧΟΛΙΚΟ_ΕΤΟΣ], 
+    [srcMETABOLES_REPORT].[ΕΤΟΣ] AS [ΕΤΟΣ], 
+    [srcMETABOLES_REPORT].[ΜΕΤΑΒΟΛΗ_ΜΗΝΑΣ] AS [ΜΕΤΑΒΟΛΗ_ΜΗΝΑΣ], 
+    [srcMETABOLES_REPORT].[METABOLI_TEXT] AS [METABOLI_TEXT]
+    FROM [dbo].[srcMETABOLES_REPORT] AS [srcMETABOLES_REPORT]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="srcPERSONNEL_DATA" EntityType="Self.srcPERSONNEL_DATA" store:Type="Views" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [srcPERSONNEL_DATA].[PERSONNEL_ID] AS [PERSONNEL_ID], 
+    [srcPERSONNEL_DATA].[ΒΝΣ] AS [ΒΝΣ], 
+    [srcPERSONNEL_DATA].[ΒΝΣ_ΕΠΩΝΥΜΙΑ] AS [ΒΝΣ_ΕΠΩΝΥΜΙΑ], 
+    [srcPERSONNEL_DATA].[ΜΗΤΡΩΟ] AS [ΜΗΤΡΩΟ], 
+    [srcPERSONNEL_DATA].[ΟΝΟΜΑΤΕΠΩΝΥΜΟ] AS [ΟΝΟΜΑΤΕΠΩΝΥΜΟ], 
+    [srcPERSONNEL_DATA].[ΚΛΑΔΟΣ_ΚΩΔΙΚΟΣ] AS [ΚΛΑΔΟΣ_ΚΩΔΙΚΟΣ], 
+    [srcPERSONNEL_DATA].[ΒΑΘΜΟΣ_ΛΕΚΤΙΚΟ] AS [ΒΑΘΜΟΣ_ΛΕΚΤΙΚΟ], 
+    [srcPERSONNEL_DATA].[ΑΠΟΦΑΣΗ_ΦΕΚ] AS [ΑΠΟΦΑΣΗ_ΦΕΚ]
+    FROM [dbo].[srcPERSONNEL_DATA] AS [srcPERSONNEL_DATA]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="sum_STATION_PERSONS_ALL" EntityType="Self.sum_STATION_PERSONS_ALL" store:Type="Views" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [sum_STATION_PERSONS_ALL].[ROWID] AS [ROWID], 
+    [sum_STATION_PERSONS_ALL].[ΒΝΣ] AS [ΒΝΣ], 
+    [sum_STATION_PERSONS_ALL].[ΣΧΟΛΙΚΟ_ΕΤΟΣ] AS [ΣΧΟΛΙΚΟ_ΕΤΟΣ], 
+    [sum_STATION_PERSONS_ALL].[ΠΑΙΔΙΑ_ΔΥΝΑΜΗ] AS [ΠΑΙΔΙΑ_ΔΥΝΑΜΗ], 
+    [sum_STATION_PERSONS_ALL].[ΠΡΟΣΩΠΙΚΟ_ΔΥΝΑΜΗ] AS [ΠΡΟΣΩΠΙΚΟ_ΔΥΝΑΜΗ], 
+    [sum_STATION_PERSONS_ALL].[ΠΛΗΘΟΣ_ΑΤΟΜΑ] AS [ΠΛΗΘΟΣ_ΑΤΟΜΑ]
+    FROM [dbo].[sum_STATION_PERSONS_ALL] AS [sum_STATION_PERSONS_ALL]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="sumEXPENSE_MONTH_CLEAN" EntityType="Self.sumEXPENSE_MONTH_CLEAN" store:Type="Views" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [sumEXPENSE_MONTH_CLEAN].[ROWID] AS [ROWID], 
+    [sumEXPENSE_MONTH_CLEAN].[ΒΝΣ] AS [ΒΝΣ], 
+    [sumEXPENSE_MONTH_CLEAN].[ΣΧΟΛ_ΕΤΟΣ] AS [ΣΧΟΛ_ΕΤΟΣ], 
+    [sumEXPENSE_MONTH_CLEAN].[ΕΠΩΝΥΜΙΑ] AS [ΕΠΩΝΥΜΙΑ], 
+    [sumEXPENSE_MONTH_CLEAN].[ΜΗΝΑΣ] AS [ΜΗΝΑΣ], 
+    [sumEXPENSE_MONTH_CLEAN].[ΜΗΝΑΣ_ΑΡΙΘΜΟΣ] AS [ΜΗΝΑΣ_ΑΡΙΘΜΟΣ], 
+    [sumEXPENSE_MONTH_CLEAN].[ΔΑΠΑΝΗ_ΚΑΘΑΡΙΟΤΗΤΑ] AS [ΔΑΠΑΝΗ_ΚΑΘΑΡΙΟΤΗΤΑ]
+    FROM [dbo].[sumEXPENSE_MONTH_CLEAN] AS [sumEXPENSE_MONTH_CLEAN]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="sumEXPENSE_MONTH_FEED" EntityType="Self.sumEXPENSE_MONTH_FEED" store:Type="Views" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [sumEXPENSE_MONTH_FEED].[ROWID] AS [ROWID], 
+    [sumEXPENSE_MONTH_FEED].[ΒΝΣ] AS [ΒΝΣ], 
+    [sumEXPENSE_MONTH_FEED].[ΣΧΟΛ_ΕΤΟΣ] AS [ΣΧΟΛ_ΕΤΟΣ], 
+    [sumEXPENSE_MONTH_FEED].[ΕΠΩΝΥΜΙΑ] AS [ΕΠΩΝΥΜΙΑ], 
+    [sumEXPENSE_MONTH_FEED].[ΜΗΝΑΣ] AS [ΜΗΝΑΣ], 
+    [sumEXPENSE_MONTH_FEED].[ΜΗΝΑΣ_ΑΡΙΘΜΟΣ] AS [ΜΗΝΑΣ_ΑΡΙΘΜΟΣ], 
+    [sumEXPENSE_MONTH_FEED].[ΔΑΠΑΝΗ_ΤΡΟΦΕΙΟ] AS [ΔΑΠΑΝΗ_ΤΡΟΦΕΙΟ]
+    FROM [dbo].[sumEXPENSE_MONTH_FEED] AS [sumEXPENSE_MONTH_FEED]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="sumEXPENSE_MONTH_MISC" EntityType="Self.sumEXPENSE_MONTH_MISC" store:Type="Views" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [sumEXPENSE_MONTH_MISC].[ROWID] AS [ROWID], 
+    [sumEXPENSE_MONTH_MISC].[ΒΝΣ] AS [ΒΝΣ], 
+    [sumEXPENSE_MONTH_MISC].[ΣΧΟΛ_ΕΤΟΣ] AS [ΣΧΟΛ_ΕΤΟΣ], 
+    [sumEXPENSE_MONTH_MISC].[ΕΠΩΝΥΜΙΑ] AS [ΕΠΩΝΥΜΙΑ], 
+    [sumEXPENSE_MONTH_MISC].[ΜΗΝΑΣ] AS [ΜΗΝΑΣ], 
+    [sumEXPENSE_MONTH_MISC].[ΜΗΝΑΣ_ΑΡΙΘΜΟΣ] AS [ΜΗΝΑΣ_ΑΡΙΘΜΟΣ], 
+    [sumEXPENSE_MONTH_MISC].[ΔΑΠΑΝΗ_ΓΕΝΙΚΕΣ] AS [ΔΑΠΑΝΗ_ΓΕΝΙΚΕΣ]
+    FROM [dbo].[sumEXPENSE_MONTH_MISC] AS [sumEXPENSE_MONTH_MISC]</DefiningQuery>
+    </EntitySet>
+    <AssociationSet Name="FK_BUDGET_DATA_ΣΥΣ_ΣΤΑΘΜΟΙ" Association="Self.FK_BUDGET_DATA_ΣΥΣ_ΣΤΑΘΜΟΙ">
+      <End Role="ΣΥΣ_ΣΤΑΘΜΟΙ" EntitySet="ΣΥΣ_ΣΤΑΘΜΟΙ" />
+      <End Role="BUDGET_DATA" EntitySet="BUDGET_DATA" />
+    </AssociationSet>
+    <AssociationSet Name="FK_METABOLES_REPORT_ΠΡΟΣΩΠΙΚΟ" Association="Self.FK_METABOLES_REPORT_ΠΡΟΣΩΠΙΚΟ">
+      <End Role="ΠΡΟΣΩΠΙΚΟ" EntitySet="ΠΡΟΣΩΠΙΚΟ" />
+      <End Role="METABOLES_REPORT" EntitySet="METABOLES_REPORT" />
+    </AssociationSet>
+    <AssociationSet Name="FK_UPLOADS_FILES_UPLOADS" Association="Self.FK_UPLOADS_FILES_UPLOADS">
+      <End Role="DOCUPLOADS" EntitySet="DOCUPLOADS" />
+      <End Role="DOCUPLOADS_FILES" EntitySet="DOCUPLOADS_FILES" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ΔΑΠΑΝΗ_ΑΛΛΗ_ΠΡΟΙΟΝ_ΚΑΤΗΓΟΡΙΑ" Association="Self.FK_ΔΑΠΑΝΗ_ΑΛΛΗ_ΠΡΟΙΟΝ_ΚΑΤΗΓΟΡΙΑ">
+      <End Role="ΠΡΟΙΟΝ_ΚΑΤΗΓΟΡΙΑ" EntitySet="ΠΡΟΙΟΝ_ΚΑΤΗΓΟΡΙΑ" />
+      <End Role="ΔΑΠΑΝΗ_ΑΛΛΗ" EntitySet="ΔΑΠΑΝΗ_ΑΛΛΗ" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ΔΑΠΑΝΗ_ΓΕΝΙΚΗ_ΕΞΤΡΑ_ΚΑΤΗΓΟΡΙΑ" Association="Self.FK_ΔΑΠΑΝΗ_ΓΕΝΙΚΗ_ΕΞΤΡΑ_ΚΑΤΗΓΟΡΙΑ">
+      <End Role="ΕΞΤΡΑ_ΚΑΤΗΓΟΡΙΑ" EntitySet="ΕΞΤΡΑ_ΚΑΤΗΓΟΡΙΑ" />
+      <End Role="ΔΑΠΑΝΗ_ΓΕΝΙΚΗ" EntitySet="ΔΑΠΑΝΗ_ΓΕΝΙΚΗ" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ΔΑΠΑΝΗ_ΚΑΘΑΡΙΟΤΗΤΑ_ΠΡΟΙΟΝ_ΚΑΤΗΓΟΡΙΑ" Association="Self.FK_ΔΑΠΑΝΗ_ΚΑΘΑΡΙΟΤΗΤΑ_ΠΡΟΙΟΝ_ΚΑΤΗΓΟΡΙΑ">
+      <End Role="ΠΡΟΙΟΝ_ΚΑΤΗΓΟΡΙΑ" EntitySet="ΠΡΟΙΟΝ_ΚΑΤΗΓΟΡΙΑ" />
+      <End Role="ΔΑΠΑΝΗ_ΚΑΘΑΡΙΟΤΗΤΑ" EntitySet="ΔΑΠΑΝΗ_ΚΑΘΑΡΙΟΤΗΤΑ" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ΔΑΠΑΝΗ_ΤΡΟΦΗ_ΠΡΟΙΟΝ_ΚΑΤΗΓΟΡΙΑ" Association="Self.FK_ΔΑΠΑΝΗ_ΤΡΟΦΗ_ΠΡΟΙΟΝ_ΚΑΤΗΓΟΡΙΑ">
+      <End Role="ΠΡΟΙΟΝ_ΚΑΤΗΓΟΡΙΑ" EntitySet="ΠΡΟΙΟΝ_ΚΑΤΗΓΟΡΙΑ" />
+      <End Role="ΔΑΠΑΝΗ_ΤΡΟΦΗ" EntitySet="ΔΑΠΑΝΗ_ΤΡΟΦΗ" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ΚΟΣΤΟΣ_ΑΤΟΜΟ_ΣΥΣ_ΣΤΑΘΜΟΙ" Association="Self.FK_ΚΟΣΤΟΣ_ΑΤΟΜΟ_ΣΥΣ_ΣΤΑΘΜΟΙ">
+      <End Role="ΣΥΣ_ΣΤΑΘΜΟΙ" EntitySet="ΣΥΣ_ΣΤΑΘΜΟΙ" />
+      <End Role="ΤΡΟΦΕΙΟ_ΑΤΟΜΟ" EntitySet="ΤΡΟΦΕΙΟ_ΑΤΟΜΟ" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ΠΑΙΔΙΑ_ΕΓΓΡΑΦΕΣ_ΠΑΙΔΙΑ" Association="Self.FK_ΠΑΙΔΙΑ_ΕΓΓΡΑΦΕΣ_ΠΑΙΔΙΑ">
+      <End Role="ΠΑΙΔΙΑ" EntitySet="ΠΑΙΔΙΑ" />
+      <End Role="ΠΑΙΔΙΑ_ΕΓΓΡΑΦΕΣ" EntitySet="ΠΑΙΔΙΑ_ΕΓΓΡΑΦΕΣ" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ΠΑΙΔΙΑ_ΠΑΡΟΥΣΙΕΣ_ΠΑΙΔΙΑ" Association="Self.FK_ΠΑΙΔΙΑ_ΠΑΡΟΥΣΙΕΣ_ΠΑΙΔΙΑ">
+      <End Role="ΠΑΙΔΙΑ" EntitySet="ΠΑΙΔΙΑ" />
+      <End Role="ΠΑΙΔΙΑ_ΠΑΡΟΥΣΙΕΣ" EntitySet="ΠΑΙΔΙΑ_ΠΑΡΟΥΣΙΕΣ" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ΠΡΟΓΡΑΜΜΑ_ΗΜΕΡΑ_ΠΡΟΣΩΠΙΚΟ" Association="Self.FK_ΠΡΟΓΡΑΜΜΑ_ΗΜΕΡΑ_ΠΡΟΣΩΠΙΚΟ">
+      <End Role="ΠΡΟΣΩΠΙΚΟ" EntitySet="ΠΡΟΣΩΠΙΚΟ" />
+      <End Role="ΠΡΟΓΡΑΜΜΑ_ΗΜΕΡΑ" EntitySet="ΠΡΟΓΡΑΜΜΑ_ΗΜΕΡΑ" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ΠΡΟΙΟΝ_ΚΑΤΗΓΟΡΙΑ_ΔΑΠΑΝΗ_ΕΙΔΟΣ" Association="Self.FK_ΠΡΟΙΟΝ_ΚΑΤΗΓΟΡΙΑ_ΔΑΠΑΝΗ_ΕΙΔΟΣ">
+      <End Role="ΔΑΠΑΝΕΣ_ΕΙΔΗ" EntitySet="ΔΑΠΑΝΕΣ_ΕΙΔΗ" />
+      <End Role="ΠΡΟΙΟΝ_ΚΑΤΗΓΟΡΙΑ" EntitySet="ΠΡΟΙΟΝ_ΚΑΤΗΓΟΡΙΑ" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ΠΡΟΙΟΝΤΑ_ΠΡΟΙΟΝ_ΚΑΤΗΓΟΡΙΑ" Association="Self.FK_ΠΡΟΙΟΝΤΑ_ΠΡΟΙΟΝ_ΚΑΤΗΓΟΡΙΑ">
+      <End Role="ΠΡΟΙΟΝ_ΚΑΤΗΓΟΡΙΑ" EntitySet="ΠΡΟΙΟΝ_ΚΑΤΗΓΟΡΙΑ" />
+      <End Role="ΠΡΟΙΟΝΤΑ" EntitySet="ΠΡΟΙΟΝΤΑ" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ΠΡΟΙΟΝΤΑ_ΠΡΟΙΟΝ_ΜΟΝΑΔΕΣ" Association="Self.FK_ΠΡΟΙΟΝΤΑ_ΠΡΟΙΟΝ_ΜΟΝΑΔΕΣ">
+      <End Role="ΠΡΟΙΟΝ_ΜΟΝΑΔΕΣ" EntitySet="ΠΡΟΙΟΝ_ΜΟΝΑΔΕΣ" />
+      <End Role="ΠΡΟΙΟΝΤΑ" EntitySet="ΠΡΟΙΟΝΤΑ" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ΠΡΟΣΩΠΙΚΟ_ΜΕΤΑΒΟΛΕΣ_ΠΡΟΣΩΠΙΚΟ" Association="Self.FK_ΠΡΟΣΩΠΙΚΟ_ΜΕΤΑΒΟΛΕΣ_ΠΡΟΣΩΠΙΚΟ">
+      <End Role="ΠΡΟΣΩΠΙΚΟ" EntitySet="ΠΡΟΣΩΠΙΚΟ" />
+      <End Role="ΠΡΟΣΩΠΙΚΟ_ΜΕΤΑΒΟΛΕΣ" EntitySet="ΠΡΟΣΩΠΙΚΟ_ΜΕΤΑΒΟΛΕΣ" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ΣΥΣ_ΔΗΜΟΙ_ΣΥΣ_ΠΕΡΙΦΕΡΕΙΕΣ" Association="Self.FK_ΣΥΣ_ΔΗΜΟΙ_ΣΥΣ_ΠΕΡΙΦΕΡΕΙΕΣ">
+      <End Role="ΣΥΣ_ΠΕΡΙΦΕΡΕΙΕΣ" EntitySet="ΣΥΣ_ΠΕΡΙΦΕΡΕΙΕΣ" />
+      <End Role="ΣΥΣ_ΔΗΜΟΙ" EntitySet="ΣΥΣ_ΔΗΜΟΙ" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ΣΥΣ_ΕΙΔΙΚΟΤΗΤΕΣ_ΣΥΣ_ΚΛΑΔΟΙ" Association="Self.FK_ΣΥΣ_ΕΙΔΙΚΟΤΗΤΕΣ_ΣΥΣ_ΚΛΑΔΟΙ">
+      <End Role="ΣΥΣ_ΚΛΑΔΟΙ" EntitySet="ΣΥΣ_ΚΛΑΔΟΙ" />
+      <End Role="ΣΥΣ_ΕΙΔΙΚΟΤΗΤΕΣ" EntitySet="ΣΥΣ_ΕΙΔΙΚΟΤΗΤΕΣ" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ΣΥΣ_ΣΤΑΘΜΟΙ_ΣΥΣ_ΠΕΡΙΦΕΡΕΙΑΚΕΣ" Association="Self.FK_ΣΥΣ_ΣΤΑΘΜΟΙ_ΣΥΣ_ΠΕΡΙΦΕΡΕΙΑΚΕΣ">
+      <End Role="ΣΥΣ_ΠΕΡΙΦΕΡΕΙΑΚΕΣ" EntitySet="ΣΥΣ_ΠΕΡΙΦΕΡΕΙΑΚΕΣ" />
+      <End Role="ΣΥΣ_ΣΤΑΘΜΟΙ" EntitySet="ΣΥΣ_ΣΤΑΘΜΟΙ" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ΤΜΗΜΑ_ΠΑΙΔΑΓΩΓΟΣ_ΠΡΟΣΩΠΙΚΟ" Association="Self.FK_ΤΜΗΜΑ_ΠΑΙΔΑΓΩΓΟΣ_ΠΡΟΣΩΠΙΚΟ">
+      <End Role="ΠΡΟΣΩΠΙΚΟ" EntitySet="ΠΡΟΣΩΠΙΚΟ" />
+      <End Role="ΤΜΗΜΑ_ΠΑΙΔΑΓΩΓΟΣ" EntitySet="ΤΜΗΜΑ_ΠΑΙΔΑΓΩΓΟΣ" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ΤΜΗΜΑ_ΣΥΣ_ΣΤΑΘΜΟΙ" Association="Self.FK_ΤΜΗΜΑ_ΣΥΣ_ΣΤΑΘΜΟΙ">
+      <End Role="ΣΥΣ_ΣΤΑΘΜΟΙ" EntitySet="ΣΥΣ_ΣΤΑΘΜΟΙ" />
+      <End Role="ΤΜΗΜΑ" EntitySet="ΤΜΗΜΑ" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ΤΜΗΜΑ_ΤΜΗΜΑ_ΚΑΤΗΓΟΡΙΑ" Association="Self.FK_ΤΜΗΜΑ_ΤΜΗΜΑ_ΚΑΤΗΓΟΡΙΑ">
+      <End Role="ΤΜΗΜΑ_ΚΑΤΗΓΟΡΙΑ" EntitySet="ΤΜΗΜΑ_ΚΑΤΗΓΟΡΙΑ" />
+      <End Role="ΤΜΗΜΑ" EntitySet="ΤΜΗΜΑ" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

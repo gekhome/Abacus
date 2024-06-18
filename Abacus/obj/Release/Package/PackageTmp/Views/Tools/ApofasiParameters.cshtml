@@ -1,0 +1,89 @@
+﻿@model IEnumerable<Iris.Models.SysApofasiParametersViewModel>
+@using Iris.DAL;
+@using Iris.Models;
+
+@{
+    ViewBag.Title = "Παράμετροι αποφάσεων";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+@*<style>
+    .k-grid .k-alt {
+        background-color: #e9e9e9; /* specify the alternate background-color */
+    }
+</style>*@
+<style>
+    .k-grid {
+        font-size: 11px;
+    }
+</style>
+
+
+    @Html.AntiForgeryToken()
+    <div class="page-header" style="margin:5px 30px 5px 30px">
+        <span style="margin:5px 30px 5px 30px;font-family:'Segoe UI';font-size:large;text-shadow:1px 1px #000000">
+            <font style="color:#494949;float:left;font-family:'Segoe UI'">Αποφάσεις ΠΥΣ, Υπουργού, Διοικητή</font>
+        </span>
+        <span style="margin:5px 10px 5px 5px;float:right;font-family:'Segoe UI';font-size:16px">@Html.ActionLink("Επιστροφή", "Index", "Admin", null, new { @class = "btn btn-warning", style = "font-size:16px" })</span>
+        <button class="btn btn-info" style="margin:5px 5px 5px 5px;float:right;font-family:'Segoe UI';font-size:16px" onclick="RefreshGrid()">Ανανέωση</button>
+    </div>
+
+    <div class="body-content" style="margin:10px 30px 5px 30px">
+
+        @(Html.Kendo().Grid(Model)
+        .Name("Grid")
+        .Columns(columns =>
+        {
+            columns.ForeignKey(f => f.ΣΧΟΛΙΚΟ_ΕΤΟΣ, (IEnumerable<ΣΥΣ_ΣΧΟΛΙΚΑ_ΕΤΗ>)ViewData["schoolYears"], "SCHOOLYEAR_ID", "ΣΧΟΛΙΚΟ_ΕΤΟΣ").Filterable(false).Width(16);
+            columns.Bound(m => m.ΑΠΟΦΑΣΗ_ΕΓΚΡΙΤΙΚΗ).Width(36)
+                .ClientFooterTemplate("Συνολικό πλήθος: #=count#")
+                .ClientGroupFooterTemplate("Πλήθος: #=count#");
+            columns.Bound(m => m.ΠΥΣ_ΑΡΘΡΟ).Width(20);
+            columns.Bound(m => m.ΑΠΟΦΑΣΗ_ΥΠΟΥΡΓΟΣ).Width(36);
+            columns.Bound(m => m.ΑΠΟΦΑΣΗ_ΔΙΟΙΚΗΤΗΣ).Width(32);
+            columns.Command(command => { command.Edit(); command.Destroy(); }).Width(34);
+        })
+        .ToolBar(toolBar =>
+        {
+            toolBar.Create();
+        })
+        .Filterable()
+        .Editable(editable => editable.Mode(GridEditMode.InLine).CreateAt(GridInsertRowPosition.Top))
+        .Sortable(sortable => sortable.AllowUnsort(true).SortMode(GridSortMode.MultipleColumn))
+        .Scrollable(scr => scr.Height(320))
+        .Pageable(pageable => pageable
+        .Refresh(true)
+        .PageSizes(true)
+        .ButtonCount(5))
+        .DataSource(datasource => datasource
+            .Ajax()
+            .PageSize(20)
+            .ServerOperation(false)
+            .Model(model =>
+            {
+                model.Id(p => p.ID);
+                model.Field(p => p.ΣΧΟΛΙΚΟ_ΕΤΟΣ).DefaultValue(1);
+            })
+            .Create(create => create.Action("ApofasiParameters_Create", "Tools"))
+            .Read(read => read.Action("ApofasiParameters_Read", "Tools"))
+            .Update(update => update.Action("ApofasiParameters_Update", "Tools"))
+            .Destroy(destroy => destroy.Action("ApofasiParameters_Destroy", "Tools"))
+            .Events(events => events.Error("error_handler"))                       
+            .Aggregates(a =>
+            {
+                a.Add(p => p.ΑΠΟΦΑΣΗ_ΕΓΚΡΙΤΙΚΗ).Count();
+            })
+        ) @* datasource*@
+        )
+
+    </div>
+
+<script type="text/javascript">
+
+    function RefreshGrid(e) {
+        var grid = $("#Grid").data("kendoGrid");
+        grid.dataSource.read();
+    }
+
+</script>
+

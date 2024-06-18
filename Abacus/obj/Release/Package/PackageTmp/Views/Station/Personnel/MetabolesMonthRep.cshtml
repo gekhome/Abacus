@@ -1,0 +1,282 @@
+﻿@using Abacus.DAL;
+@using Abacus.Models;
+
+@{
+    ViewBag.Title = "Καταστάσεις μεταβολών";
+    Layout = "~/Views/Shared/_StationLayout.cshtml";
+}
+
+@Html.AntiForgeryToken()
+<div class="page-header" style="margin:5px 30px 5px 30px">
+    <span style="margin:5px 30px 5px 30px;font-family:'Segoe UI';font-size:large;text-shadow:1px 1px #000000">
+        <font style="color:#494949;float:left;font-family:'Segoe UI'">Μηνιαίες καταστάσεις υπηρεσιακών μεταβολών</font>
+    </span>
+    <span style="margin:5px 5px 5px 5px;float:right;font-family:'Segoe UI';font-size:14px">@Html.ActionLink("Επιστροφή", "Index", "Station", null, new { @class = "btn btn-warning", style = "font-size:14px" })</span>
+    <button class="btn btn-info" style="margin:5px 5px 5px 5px;float:right;font-family:'Segoe UI';font-size:14px" onclick="RefreshGrid()">Ανανέωση</button>
+</div>
+
+<div class="body-content" style="margin:10px 30px 5px 30px;background-color:dimgray;padding:2px;min-height:40px">
+    <span style="margin:2px;float:left;font-family:'Segoe UI';">
+        <label style="font-size:13px;font-weight:bold;color:white">Σχολικό έτος : </label>
+        @(Html.Kendo().DropDownList()
+            .Name("ddlSchoolYear")
+            .DataTextField("ΣΧΟΛΙΚΟ_ΕΤΟΣ")
+            .DataValueField("SCHOOLYEAR_ID")
+            .HtmlAttributes(new { style = "width:140px;font-size:13px;font-weight:bold" })
+            .OptionLabel("Επιλογή...")
+            .AutoBind(true)
+            .Enable(true)
+            .DataSource(source => { source.Read(read => { read.Action("GetSchoolYears", "Station"); }).ServerFiltering(true); })
+            .Events(e =>
+            {
+                e.Select("ddlselect_year");
+            })
+        )
+        <label id="month" style="margin-left:10px;margin-right:5px;font-size:13px;font-weight:bold;color:white;font-family:'Segoe UI'">Μήνας</label>
+        @(Html.Kendo().DropDownList()
+        .Name("ddlMonth")
+        .DataTextField("ΜΗΝΑΣ")
+        .DataValueField("ΜΗΝΑΣ_ΚΩΔ")
+        .HtmlAttributes(new { style = "width:150px;font-size:13px;font-weight:bold;margin-top:2px" })
+        .OptionLabel("Επιλογή ...")
+        .AutoBind(true)
+        .Enable(true)
+        .DataSource(source => { source.Read(read => { read.Action("GetMonths", "Station"); }).ServerFiltering(true); })
+        .Events(e =>
+        {
+            e.Select("ddlselect_month");
+        })
+        )
+    </span>
+    <span style="margin-right:5px;float:right;font-family:'Segoe UI';margin-top:2px">
+        <input style="font-family:'Segoe UI';font-size:12px" type="button" onclick="printMetabolesTable()" title="Εκτύπωση του πίνακα μηνιαίων μεταβολών" value="Εκτύπωση" class="btn btn-default" />
+    </span>
+    <span style="margin-right:5px;float:right;font-family:'Segoe UI';margin-top:2px">
+        <input style="font-family:'Segoe UI';font-size:12px" type="button" onclick="destroyMetabolesTable()" title="Διαγραφή του πίνακα μηνιαίων μεταβολών" value="Διαγραφή πίνακα" class="btn btn-default" />
+    </span>
+    <span style="margin-right:5px;float:right;font-family:'Segoe UI';margin-top:2px">
+        <input style="font-family:'Segoe UI';font-size:12px" type="button" onclick="updateMetabolesTable()" title="Ενημέρωση του πίνακα μηνιαίων μεταβολών" value="Ενημέρωση πίνακα" class="btn btn-default" />
+    </span>
+    <span style="margin-right:5px;margin-left:5px;float:right;font-family:'Segoe UI';margin-top:2px">
+        <input style="font-family:'Segoe UI';font-size:12px" type="button" onclick="createMetabolesTable()" title="Δημιουργία του πίνακα μηνιαίων μεταβολών" value="Δημιουργία πίνακα" class="btn btn-default" />
+    </span>
+    <div id="divLoading" style="margin:0px 0px 0px 0px;float:right;font-family:'Segoe UI';z-index: 30001;display:none">
+        <p id="message-icon" style="margin-left:5px;font-size:13px;color:#ffffff">
+            Σε εξέλιξη...<img id="ajax-icon" src="~/Images/other/progress4.gif" style="margin-left:5px;width:36px;height:36px">
+        </p>
+    </div>
+</div>
+
+<div class="body-content" style="margin:5px 30px 5px 30px;font-size:small">
+        @(Html.Kendo().Grid<MetabolesReportViewModel>()
+        .Name("Child")
+        .AutoBind(false)
+        .HtmlAttributes(new { style = "display: block;font-size:11px" })
+        .Navigatable()
+        .Filterable()
+        .Editable(editable => editable.Mode(GridEditMode.InLine).CreateAt(GridInsertRowPosition.Top))
+        .Sortable(sortable => sortable.AllowUnsort(true).SortMode(GridSortMode.MultipleColumn))
+        .Pageable(pageable => pageable
+        .Refresh(true)
+        .PageSizes(true)
+        .ButtonCount(5))
+        .Scrollable(scr => scr.Height(380))
+        .Columns(columns =>
+        {
+            columns.ForeignKey(f => f.EMPLOYEE_ID, (IEnumerable<srcPERSONNEL_DATA>)ViewData["personnel"], "PERSONNEL_ID", "ΟΝΟΜΑΤΕΠΩΝΥΜΟ").Width(35);
+            columns.Bound(c => c.METABOLI_YEAR).Width(14);
+            columns.ForeignKey(f => f.SCHOOL_YEAR, (IEnumerable<ΣΥΣ_ΣΧΟΛΙΚΑ_ΕΤΗ>)ViewData["schoolYears"], "SCHOOLYEAR_ID", "ΣΧΟΛΙΚΟ_ΕΤΟΣ").Width(15);
+            columns.ForeignKey(f => f.METABOLI_MONTH, (IEnumerable<ΣΥΣ_ΜΗΝΕΣ>)ViewData["months"], "ΜΗΝΑΣ_ΚΩΔ", "ΜΗΝΑΣ").Width(16);
+            columns.Bound(c => c.METABOLI_TEXT).Width(70).Filterable(false);
+            columns.Bound(c => c.METABOLI_DAYS).Width(16).Filterable(false);            
+            columns.Command(command => { command.Edit(); command.Destroy(); }).Width(34);
+        })
+        .ToolBar(toolBar =>
+        {
+            toolBar.Create();
+        })
+        .DataSource(ds => ds
+            .Ajax()
+            .Batch(false)
+            .PageSize(40)
+            .ServerOperation(true)
+            .Model(model =>
+            {
+                model.Id(p => p.RECORD_ID);
+                model.Field(p => p.EMPLOYEE_ID).DefaultValue(ViewData["defaultPersonnel"]);
+                model.Field(p => p.SCHOOL_YEAR).DefaultValue(1).Editable(false);
+                model.Field(p => p.METABOLI_MONTH).DefaultValue(1).Editable(false);
+            })
+            .Create(create => create.Action("MetaboliRep_Create", "Station").Data("data"))
+            .Read(read => read.Action("MetaboliRep_Read", "Station").Data("data"))
+            .Update(update => update.Action("MetaboliRep_Update", "Station").Data("data"))
+            .Destroy(destroy => destroy.Action("MetaboliRep_Destroy", "Station"))
+            .Events(events => events.Error("error_handler"))
+        )
+        )
+    </div>
+
+<script type="text/javascript">
+    ///////////////////////////////////////////////////////////////////////
+    /// ΛΕΙΤΟΥΡΓΙΕΣ ΜΗΝΙΑΙΩΝ ΠΙΝΑΚΩΝ ΜΕΤΑΒΟΛΩΝ - 29-08-2019
+    ///////////////////////////////////////////////////////////////////////
+
+    function createMetabolesTable() {
+        var syearID = $("#ddlSchoolYear").data("kendoDropDownList").value();
+        var monthID = $("#ddlMonth").data("kendoDropDownList").value();
+
+        if (syearID && monthID) {
+            $('#divLoading').show();
+            $.ajax({
+                url: '@Url.Action("CreateMetabolesTable", "Station")?schoolyearId=' + syearID + '&monthId=' + monthID,
+                type: 'POST',
+                data: "",
+                contentType: 'application/json; charset=utf-8',
+                success: function (data) {
+                    $('#divLoading').hide();
+                    if (data != "") MessageBoxAlert(data);
+                    $("#Child").data("kendoGrid").dataSource.read();
+                },
+                error: function () {
+                    $('#divLoading').hide();
+                    MessageBoxAlert("Προέκυψε σφάλμα ανάκτησης δεδομένων.");
+                }
+            });
+        }
+        else {
+            MessageBoxAlert("Για να γίνει η δημιουργία του πίνακα μεταβολών πρέπει πρώτα να επιλέξετε σχολικό έτος και μήνα.");
+        }
+    }
+
+    function updateMetabolesTable() {
+        var syearID = $("#ddlSchoolYear").data("kendoDropDownList").value();
+        var monthID = $("#ddlMonth").data("kendoDropDownList").value();
+
+        if (syearID && monthID) {
+            $('#divLoading').show();
+            $.ajax({
+                url: '@Url.Action("UpdateMetabolesTable", "Station")?schoolyearId=' + syearID + '&monthId=' + monthID,
+                type: 'POST',
+                data: "",
+                contentType: 'application/json; charset=utf-8',
+                success: function (data) {
+                    $('#divLoading').hide();
+                    if (data != "") MessageBoxAlert(data);
+                    $("#Child").data("kendoGrid").dataSource.read();
+                },
+                error: function () {
+                    $('#divLoading').hide();
+                    MessageBoxAlert("Προέκυψε σφάλμα ανάκτησης δεδομένων.");
+                }
+            });
+        }
+        else {
+            MessageBoxAlert("Για να γίνει η ενημέρωση του πίνακα μεταβολών πρέπει πρώτα να επιλέξετε σχολικό έτος και μήνα.");
+        }
+    }
+
+    function destroyMetabolesTable() {
+        var syearID = $("#ddlSchoolYear").data("kendoDropDownList").value();
+        var monthID = $("#ddlMonth").data("kendoDropDownList").value();
+
+        if (syearID && monthID) {
+            $('#divLoading').show();
+            $.ajax({
+                url: '@Url.Action("DestroyMetabolesTable", "Station")?schoolyearId=' + syearID + '&monthId=' + monthID,
+                type: 'POST',
+                data: "",
+                contentType: 'application/json; charset=utf-8',
+                success: function (data) {
+                    $('#divLoading').hide();
+                    if (data != "") MessageBoxAlert(data);
+                    $("#Child").data("kendoGrid").dataSource.read();
+                },
+                error: function () {
+                    $('#divLoading').hide();
+                    MessageBoxAlert("Προέκυψε σφάλμα ανάκτησης δεδομένων.");
+                }
+            });
+        }
+        else {
+            MessageBoxAlert("Για να γίνει η διαγραφή του πίνακα μεταβολών πρέπει πρώτα να επιλέξετε σχολικό έτος και μήνα.");
+        }
+    }
+
+    function printMetabolesTable() {
+        var syearID = $("#ddlSchoolYear").data("kendoDropDownList").value();
+        var monthID = $("#ddlMonth").data("kendoDropDownList").value();
+
+        if (syearID && monthID) {
+            window.open('@Url.Action("MetabolesMonthPrint", "Station")?schoolyearId=' + syearID + '&monthId=' + monthID);
+        }
+        else {
+            MessageBoxAlert("Για να γίνει η εκτύπωση του πίνακα μεταβολών πρέπει πρώτα να επιλέξετε σχολικό έτος και μήνα.");
+        }
+    }
+
+</script>
+
+<script type="text/javascript">
+
+    function ddlselect_year(e) {
+        var syearID = null;
+        var dataItem = this.dataItem(e.item.index());
+        var monthID = $("#ddlMonth").data("kendoDropDownList").value();
+
+        if (dataItem) syearID = dataItem.SCHOOLYEAR_ID;
+        if (syearID && monthID) {
+            $("#Child").data("kendoGrid").dataSource.read({ schoolyearId: syearID, monthId: monthID });
+        }
+        else {
+            $("#Child").data("kendoGrid").dataSource.read({ schoolyearId: 0, monthId: 0 });
+        }
+    };
+
+    function ddlselect_month(e) {
+        var monthID = null;
+        var dataItem = this.dataItem(e.item.index());
+        var syearID = $("#ddlSchoolYear").data("kendoDropDownList").value();
+
+        if (dataItem) monthID = dataItem.ΜΗΝΑΣ_ΚΩΔ;
+        if (syearID && monthID) {
+            $("#Child").data("kendoGrid").dataSource.read({ schoolyearId: syearID, monthId: monthID });
+        }
+        else {
+            $("#Child").data("kendoGrid").dataSource.read({ schoolyearId: 0, monthId: 0 });
+        }
+    };
+
+    function data() {
+        var syearID = $("#ddlSchoolYear").data("kendoDropDownList").value();
+        var monthID = $("#ddlMonth").data("kendoDropDownList").value();
+
+        if (syearID && monthID) {
+            return { schoolyearId: syearID, monthId: monthID };
+        }
+        else {
+            return { schoolyearId: 0, monthId: 0 };
+        }
+    }
+
+    function RefreshGrid(e) {
+        var grid = $("#Child").data("kendoGrid");
+        grid.dataSource.read();
+    }
+
+    function error_handler(e) {
+        if (e.errors) {
+            var message = "";
+            $.each(e.errors, function (key, value) {
+                if ('errors' in value) {
+                    $.each(value.errors, function () {
+                        message += this + "<br/>";
+                    });
+                }
+            });
+            MessageBoxAlert(message, "Σφάλμα");
+        }
+        $("#Child").data("kendoGrid").dataSource.read();
+    }
+
+</script>
+

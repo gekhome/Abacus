@@ -1,0 +1,19 @@
+﻿@using System.Collections
+@using Abacus.Models
+@using Abacus.DAL
+@model int
+
+@(Html.Kendo().DropDownListFor(m => m)
+    .AutoBind(true)
+    .DataValueField("METABOLI_ID")
+    .DataTextField("METABOLI_TEXT")
+    .OptionLabel("Επιλογή...")
+    .DataSource(source =>
+    {
+        source.Read(read =>
+        {
+            read.Action("MetabolesTypes_Read", "Admin");
+        });
+    })
+)
+@Html.ValidationMessageFor(m => m)

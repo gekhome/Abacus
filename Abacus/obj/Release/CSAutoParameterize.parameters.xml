@@ -1,0 +1,9 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parameters>
+  <parameter name="Abacus.Properties.Settings.DBConnectionString-Web.config Connection String" description="Abacus.Properties.Settings.DBConnectionString Connection String used in web.config by the application to access the database." defaultValue="Data Source=172.30.3.58,1711;Initial Catalog=AbacusDB;Persist Security Info=True;User ID=user;Password=171159;Application Name=EntityFramework" tags="SqlConnectionString">
+    <parameterEntry kind="XmlFile" scope="E:\\ABACUS\\Abacus\ Code\\Abacus\\obj\\Release\\Package\\PackageTmp\\Web\.config$" match="/configuration/connectionStrings/add[@name='Abacus.Properties.Settings.DBConnectionString']/@connectionString" />
+  </parameter>
+  <parameter name="AbacusDBEntities-Web.config Connection String" description="AbacusDBEntities Connection String used in web.config by the application to access the database." defaultValue="metadata=res://*/DAL.AbacusEntityModel.csdl|res://*/DAL.AbacusEntityModel.ssdl|res://*/DAL.AbacusEntityModel.msl;provider=System.Data.SqlClient;provider connection string=&quot;data source=172.30.3.58,1711;initial catalog=AbacusDB;persist security info=True;user id=user;password=171159;application name=EntityFramework;MultipleActiveResultSets=True&quot;" tags="SqlConnectionString">
+    <parameterEntry kind="XmlFile" scope="E:\\ABACUS\\Abacus\ Code\\Abacus\\obj\\Release\\Package\\PackageTmp\\Web\.config$" match="/configuration/connectionStrings/add[@name='AbacusDBEntities']/@connectionString" />
+  </parameter>
+</parameters>

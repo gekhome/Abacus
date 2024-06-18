@@ -1,0 +1,20 @@
+﻿@using System.Collections
+@using Abacus.Models
+@using Abacus.DAL
+@model int
+
+@(Html.Kendo().DropDownListFor(m => m)
+    .AutoBind(false)
+    .DataValueField("ΒΡΕΦΙΚΟ_ΚΩΔ")
+    .DataTextField("ΒΡΕΦΙΚΟ")
+    .OptionLabel("Επιλογή...")
+    .DataSource(source =>
+    {
+        source.Read(read =>
+        {
+            read.Action("GetMealsBaby", "Admin").Data("filterMealPlans");
+        })
+        .ServerFiltering(true);
+    })
+)
+@Html.ValidationMessageFor(m => m)

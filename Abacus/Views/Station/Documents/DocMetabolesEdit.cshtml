@@ -1,0 +1,199 @@
+﻿@model Abacus.Models.DocMetabolesViewModel
+@using Abacus.DAL;
+@using Abacus.Models;
+
+@{
+    ViewBag.Title = "Φόρμα διαβιβαστικού";
+    Layout = "~/Views/Shared/_LayoutMin.cshtml";
+    int docID = Model.DOC_ID;
+}
+
+<link href="@Url.Content("~/Content/mvcNotify.css")" rel="stylesheet" type="text/css" />
+<script src="@Url.Content("~/Scripts/mvcNotify.js")" type="text/javascript"></script>
+<script type="text/javascript">
+    //Set autoclear of messages. Don't put this into $(document).ready.
+    //mvcNotify.autoClearTimeout = 0; //don't autoclear any types
+    mvcNotify.autoClearTimeout = 10000; //Unit of milliseconds. Requires mvcNotify.typesToAutoClear to be set to something (default behavior).
+    mvcNotify.typesToConsoleLog = "all"; //Log all types to console.
+</script>
+
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title></title>
+    <style>
+        .k-textbox {
+            display: block;
+            width: 100%;
+            height: 34px;
+            padding: 6px 12px;
+            font-size: 14px;
+            line-height: 1.428571429;
+            color: #555555;
+            vertical-align: middle;
+            background-color: #ffffff;
+            border: 1px solid #cccccc;
+            border-radius: 4px;
+            -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+            box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+            -webkit-transition: border-color ease-in-out 0.15s, box-shadow ease-in-out 0.15s;
+            transition: border-color ease-in-out 0.15s, box-shadow ease-in-out 0.15s;
+        }
+
+            .k-textbox:focus {
+                border-color: #66afe9;
+                outline: 0;
+                -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(102, 175, 233, 0.6);
+                box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(102, 175, 233, 0.6);
+            }
+    </style>
+</head>
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+    <div class="page-header" style="margin:5px 60px 5px 60px">
+    </div>
+    <div class="container body-content">
+        <fieldset>
+            <table class="col-md-12" style="border:solid;border-width:thin;margin:20px 40px 20px 20px">
+                <tr>
+                    <th style="background-color:#1D7CAE;padding-left:20px;padding-top:2px;padding-bottom:4px;margin-top:2px;margin-bottom:2px">
+                        <font style="font-family:'Segoe UI';font-size:large;color:white;">Στοιχεία διαβιβαστικού μεταβολών</font>
+                    </th>
+                </tr>
+                <tr>
+                    <td>
+                        <span style="margin:5px 5px 5px 5px;float:right;font-family:'Segoe UI';">
+                            <a class="btn btn-warning" style="font-family:'Segoe UI';font-size:14px" href="#" onclick="javascript:window.close();opener.window.focus();">Κλείσιμο καρτέλας</a>
+                        </span>
+                        <span style="margin:5px 5px 5px 10px;float:right;font-family:'Segoe UI';font-size:14px">
+                            @Html.ActionLink("Εκτύπωση", "DocMetabolesPrint", "Document", new { docId = docID }, new { @class = "btn btn-primary", style = "font-size:14px", target = "_blank" })
+                        </span>
+                        <span style="margin:5px 5px 5px 5px;float:right;font-family:'Segoe UI';font-size:14px">
+                            <input style="font-family:'Segoe UI';font-size:14px" type="submit" value="Αποθήκευση" class="btn btn-info" />
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <div class="col-md-11" style="margin-bottom:5px">
+                            @Html.LabelFor(model => model.SCHOOLYEAR_ID, new { @class = "control-label col-md-3" })
+                            @(Html.Kendo().DropDownListFor(model => model.SCHOOLYEAR_ID)
+                            .Name("SCHOOLYEAR_ID")
+                            .DataTextField("ΣΧΟΛΙΚΟ_ΕΤΟΣ")
+                            .DataValueField("SCHOOLYEAR_ID")
+                            .OptionLabel("Επιλογή...")
+                            .HtmlAttributes(new { style = "width:200px;" })
+                            .AutoBind(true)
+                            .DataSource(source => { source.Read(read => { read.Action("GetSchoolYears", "Document"); }).ServerFiltering(true); })
+                            )
+                            @Html.ValidationMessageFor(model => model.SCHOOLYEAR_ID, "", new { @class = "text-danger" })
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <div class="col-md-11" style="margin-bottom:5px">
+                            @Html.LabelFor(model => model.ADMIN_ID, new { @class = "control-label col-md-3" })
+                            @(Html.Kendo().DropDownListFor(model => model.ADMIN_ID)
+                            .Name("ADMIN_ID")
+                            .DataTextField("DOCADMIN_NAME")
+                            .DataValueField("DOCADMIN_ID")
+                            .OptionLabel("Επιλογή...")
+                            .HtmlAttributes(new { style = "width:300px;" })
+                            .AutoBind(true)
+                            .DataSource(source => { source.Read(read => { read.Action("GetOperators", "Document"); }).ServerFiltering(true); })
+                            )
+                            @Html.ValidationMessageFor(model => model.ADMIN_ID, "", new { @class = "text-danger" })
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <div class="col-md-11" style="margin-bottom:5px">
+                            @Html.LabelFor(model => model.DOC_YEAR, new { @class = "control-label col-md-3" })
+                            @(Html.Kendo().DropDownListFor(model => model.DOC_YEAR)
+                            .Name("DOC_YEAR")
+                            .DataTextField("ΕΤΟΣ")
+                            .DataValueField("ΕΤΟΣ")
+                            .OptionLabel("Επιλογή...")
+                            .HtmlAttributes(new { style = "width:200px;" })
+                            .AutoBind(true)
+                            .DataSource(source => { source.Read(read => { read.Action("GetYears", "Document"); }).ServerFiltering(true); })
+                            )
+                            @Html.ValidationMessageFor(model => model.DOC_YEAR, "", new { @class = "text-danger" })
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <div class="col-md-11" style="margin-bottom:5px">
+                            @Html.LabelFor(model => model.DOC_MONTH, new { @class = "control-label col-md-3" })
+                            @(Html.Kendo().DropDownListFor(model => model.DOC_MONTH)
+                            .Name("DOC_MONTH")
+                            .DataTextField("ΜΗΝΑΣ")
+                            .DataValueField("ΜΗΝΑΣ_ΚΩΔ")
+                            .OptionLabel("Επιλογή...")
+                            .HtmlAttributes(new { style = "width:200px;" })
+                            .AutoBind(true)
+                            .DataSource(source => { source.Read(read => { read.Action("GetMonths", "Document"); }).ServerFiltering(true); })
+                            )
+                            @Html.ValidationMessageFor(model => model.DOC_MONTH, "", new { @class = "text-danger" })
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <div class="col-md-11" style="margin-bottom:5px">
+                            @Html.LabelFor(model => model.DOC_DATE, new { @class = "control-label col-md-3" })
+                            @Html.EditorFor(model => model.DOC_DATE, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.ValidationMessageFor(model => model.DOC_DATE, "", new { @class = "text-danger" })
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <div class="col-md-11" style="margin-bottom:5px">
+                            @Html.LabelFor(model => model.DOC_PROTOCOL, new { @class = "control-label col-md-3" })
+                            @Html.EditorFor(model => model.DOC_PROTOCOL, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.ValidationMessageFor(model => model.DOC_PROTOCOL, "", new { @class = "text-danger" })
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <div class="col-md-11" style="margin-bottom:5px">
+                            @Html.LabelFor(model => model.DOC_SXETIKA, new { @class = "control-label col-md-3" })
+                            @Html.EditorFor(model => model.DOC_SXETIKA, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.ValidationMessageFor(model => model.DOC_SXETIKA, "", new { @class = "text-danger" })
+                            <p></p>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <div class="col-md-11" style="margin-bottom:5px">
+                            @Html.LabelFor(model => model.CORRECTION, new { @class = "control-label col-md-3" })
+                            @Html.EditorFor(model => model.CORRECTION, new { htmlAttributes = new { @class = "form-control", style = "max-width:20px" } })
+                            @Html.ValidationMessageFor(model => model.CORRECTION, "", new { @class = "text-danger" })
+                            <p></p>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <div class="col-md-11" style="margin-bottom:5px">
+                            @Html.LabelFor(model => model.CORRECTION_DATE, new { @class = "control-label col-md-3" })
+                            @Html.EditorFor(model => model.CORRECTION_DATE, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.ValidationMessageFor(model => model.CORRECTION_DATE, "", new { @class = "text-danger" })
+                            <p></p>
+                        </div>
+                    </td>
+                </tr>
+            </table>
+
+        </fieldset>
+    </div>
+}   @* ---  End of BeginForm ----------*@

@@ -1,0 +1,101 @@
+﻿@{
+    ViewBag.Title = "Επικοινωνία";
+}
+
+<h1>@ViewBag.Title.</h1><p></p><p></p><br />
+@*<h2>@ViewBag.Message</h2>*@
+
+@(Html.Kendo().TabStrip()
+    .Name("ContactsTabStrip")
+    .Items(items =>
+    {
+        items.Add()
+            .Text("Τηλέφωνα")
+            .Selected(true)
+            .Content(@<text>
+                <p class="sansserif"></p>
+                <p class="sansserif">
+                    <span class="sansserif">Υποστήριξη εφαρμογής:</span>
+                </p>
+                    <span>210 9989 605 - Αγγελική Αργυροπούλου</span><br />
+                <p></p>
+            </text>)
+            .ContentHtmlAttributes(new { style = "min-height: 200px" });
+        items.Add()
+            .Text("Email")
+            .Content(@<text>
+                <p class="sansserif"></p>
+                <p class="sansserif">
+                    <span class="sansserif">E-mail υποστήριξης:</span>
+                </p>
+                <p></p>
+                <p class="sansserif">
+                    <span><a href="mailto:a.argiropoulou@oaed.gr">a.argiropoulou@oaed.gr (Αγγελική Αργυροπούλου)</a></span><br />
+                </p>
+                <p class="sansserif">
+                    <span><a href="mailto:gkyriakakis@oaed.gr">gkyriakakis@oaed.gr (Γεώργιος Κυριακάκης)</a></span><br />
+                </p>
+            </text>)
+            .ContentHtmlAttributes(new { style = "min-height: 200px" });
+        items.Add()
+            .Text("Διεύθυνση")
+            .Content(@<text>
+                <table>
+                    <tr>
+                        <td width="300">
+                            <p></p><br />
+                            <p class="sansserif" style="text-shadow:1px 1px 2px black; font-size:22px">
+                                Διοίκηση Δ.ΥΠ.Α.
+                            </p>
+                            <p></p><br />
+                            <p class="sansserif" style="text-shadow:1px 1px 2px black; font-size:larger">
+                                Εθνικής Αντιστάσεως 8
+                            </p>
+                            <p class="sansserif" style="text-shadow:1px 1px 2px black; font-size:larger">
+                                Τ.Κ. 17456
+                            </p>
+                            <p class="sansserif" style="text-shadow:1px 1px 2px black; font-size:larger">
+                                ΑΛΙΜΟΣ, ΑΤΤΙΚΗ
+                            </p>
+                        </td>
+                        <td>
+                            <p style="margin:5px">
+                                <img style=" border:1px solid black"src="~/Images/other/oaed-map.jpg" height="400" width="500" />
+                            </p>
+                        </td>
+                    </tr>
+                </table>                
+            </text>)
+            .ContentHtmlAttributes(new { style = "min-height: 200px" });
+    })
+)
+
+<p></p><p></p>
+
+<div>
+    <hr style="background-color:#808080">
+    <table width:100%>
+        <tr>
+            <td width="10%" align="left"><img src="~/images/metro/dypa-logo.png" height="70" width="86" /></td>
+            <td align="center">
+                <font color="#494949" size="3" style="font-weight:600">ΑΥΤΟΤΕΛΕΣ ΤΜΗΜΑ ΒΡΕΦΟΝΗΠΙΑΚΩΝ ΣΤΑΘΜΩΝ</font>
+            </td>
+        </tr>
+        <tr>
+            <td width="10%" align="left"></td>
+            <td align="center">
+                <font color="#494949" size="2">Μελέτη-Ανάπτυξη: Δρ. Γεώργιος Κυριακάκης</font>
+            </td>
+        </tr>
+    </table>
+</div>
+
+
+
+
+
+
+
+
+
+

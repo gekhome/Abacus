@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="f7221c3223e0464883c27eb4d6e747f6" Name="Diagram1" ZoomLevel="86">
+        <EntityTypeShape EntityType="AbacusDBModel.APP_STATUS" Width="1.5" PointX="0.5" PointY="0.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="AbacusDBModel.ΣΥΣ_ΣΧΟΛΙΚΑ_ΕΤΗ" Width="1.75" PointX="2.25" PointY="0.5" />
+        <EntityTypeShape EntityType="AbacusDBModel.USER_ADMINS" Width="1.5" PointX="5.875" PointY="0.5" />
+        <EntityTypeShape EntityType="AbacusDBModel.USER_PERSONS" Width="1.5" PointX="7.5" PointY="0.5" />
+        <EntityTypeShape EntityType="AbacusDBModel.USER_STATIONS" Width="1.5" PointX="4.125" PointY="0.5" />
+        <EntityTypeShape EntityType="AbacusDBModel.ΣΥΣ_ΔΗΜΟΙ" Width="1.5" PointX="11.5" PointY="0.5" />
+        <EntityTypeShape EntityType="AbacusDBModel.ΣΥΣ_ΠΕΡΙΦΕΡΕΙΕΣ" Width="1.625" PointX="9.25" PointY="0.625" />
+        <AssociationConnector Association="AbacusDBModel.FK_ΣΥΣ_ΔΗΜΟΙ_ΣΥΣ_ΠΕΡΙΦΕΡΕΙΕΣ" />
+        <EntityTypeShape EntityType="AbacusDBModel.ΣΥΣ_ΠΕΡΙΦΕΡΕΙΑΚΕΣ" Width="1.875" PointX="13.25" PointY="0.5" />
+        <EntityTypeShape EntityType="AbacusDBModel.ΣΥΣ_ΣΤΑΘΜΟΙ" Width="1.875" PointX="15.5" PointY="0.5" />
+        <AssociationConnector Association="AbacusDBModel.FK_ΣΥΣ_ΣΤΑΘΜΟΙ_ΣΥΣ_ΠΕΡΙΦΕΡΕΙΑΚΕΣ" />
+        <EntityTypeShape EntityType="AbacusDBModel.ΣΥΣ_ΦΥΛΑ" Width="1.5" PointX="0.5" PointY="2.125" />
+        <EntityTypeShape EntityType="AbacusDBModel.sqlSTATION_LOGINS" Width="1.875" PointX="9.875" PointY="2.875" />
+        <EntityTypeShape EntityType="AbacusDBModel.SYS_LOGINS" Width="1.5" PointX="2.25" PointY="2.875" />
+        <EntityTypeShape EntityType="AbacusDBModel.sqlUSER_STATION" Width="1.75" PointX="8" PointY="2.875" />
+        <EntityTypeShape EntityType="AbacusDBModel.ΣΥΣ_ΩΡΕΣ" Width="1.5" PointX="0.5" PointY="3.75" />
+        <EntityTypeShape EntityType="AbacusDBModel.ΣΥΣ_ΚΛΑΔΟΙ" Width="1.5" PointX="4" PointY="2.875" />
+        <EntityTypeShape EntityType="AbacusDBModel.ΣΥΣ_ΕΙΔΙΚΟΤΗΤΕΣ" Width="1.75" PointX="6" PointY="2.875" />
+        <EntityTypeShape EntityType="AbacusDBModel.ΤΜΗΜΑ_ΚΑΤΗΓΟΡΙΑ" Width="2" PointX="20.125" PointY="0.625" />
+        <AssociationConnector Association="AbacusDBModel.FK_ΣΥΣ_ΕΙΔΙΚΟΤΗΤΕΣ_ΣΥΣ_ΚΛΑΔΟΙ" />
+        <EntityTypeShape EntityType="AbacusDBModel.ΤΜΗΜΑ" Width="1.875" PointX="17.875" PointY="0.625" />
+        <AssociationConnector Association="AbacusDBModel.FK_ΤΜΗΜΑ_ΣΥΣ_ΣΤΑΘΜΟΙ" />
+        <AssociationConnector Association="AbacusDBModel.FK_ΤΜΗΜΑ_ΤΜΗΜΑ_ΚΑΤΗΓΟΡΙΑ" />
+        <EntityTypeShape EntityType="AbacusDBModel.sqlSTATION_SELECTOR" Width="1.875" PointX="20.75" PointY="5.375" />
+        <EntityTypeShape EntityType="AbacusDBModel.ΣΥΣ_ΑΑ_ΛΑΤΙΝΙΚΟΙ" Width="1.75" PointX="0.5" PointY="5.375" />
+        <EntityTypeShape EntityType="AbacusDBModel.ΣΥΣ_ΠΡΟΣΩΠΙΚΟ" Width="1.75" PointX="2.5" PointY="5.375" />
+        <EntityTypeShape EntityType="AbacusDBModel.ΠΑΙΔΙΑ_ΕΓΓΡΑΦΕΣ" Width="1.75" PointX="8.25" PointY="5.375" />
+        <EntityTypeShape EntityType="AbacusDBModel.ΣΥΣ_ΜΗΝΕΣ" Width="1.5" PointX="4.5" PointY="5.125" />
+        <EntityTypeShape EntityType="AbacusDBModel.ΤΜΗΜΑ_ΠΑΙΔΑΓΩΓΟΣ" Width="1.875" PointX="12.625" PointY="5.375" />
+        <EntityTypeShape EntityType="AbacusDBModel.ΠΡΟΣΩΠΙΚΟ" Width="1.75" PointX="10.25" PointY="5.375" />
+        <EntityTypeShape EntityType="AbacusDBModel.ΠΑΙΔΙΑ" Width="1.625" PointX="6.25" PointY="5.375" />
+        <AssociationConnector Association="AbacusDBModel.FK_ΠΑΙΔΙΑ_ΕΓΓΡΑΦΕΣ_ΠΑΙΔΙΑ" />
+        <EntityTypeShape EntityType="AbacusDBModel.sqlCHILDREN_INFO" Width="1.75" PointX="14.75" PointY="5.625" />
+        <EntityTypeShape EntityType="AbacusDBModel.sqlEGRAFES_INFO" Width="1.75" PointX="16.625" PointY="5.625" />
+        <EntityTypeShape EntityType="AbacusDBModel.sqlPERSONNEL_INFO" Width="2" PointX="18.5" PointY="5.25" />
+        <EntityTypeShape EntityType="AbacusDBModel.sqlEDUCATOR_TMIMA_INFO" Width="2.375" PointX="0.5" PointY="7" />
+        <EntityTypeShape EntityType="AbacusDBModel.sqlTMIMATA_INFO" Width="1.875" PointX="3.125" PointY="7" />
+        <EntityTypeShape EntityType="AbacusDBModel.sqlPERSONNEL_SELECTOR" Width="2.125" PointX="8" PointY="8.5" />
+        <AssociationConnector Association="AbacusDBModel.FK_ΤΜΗΜΑ_ΠΑΙΔΑΓΩΓΟΣ_ΠΡΟΣΩΠΙΚΟ" />
+        <EntityTypeShape EntityType="AbacusDBModel.ΠΡΟΓΡΑΜΜΑ_ΗΜΕΡΑ" Width="1.875" PointX="12.625" PointY="7.75" />
+        <AssociationConnector Association="AbacusDBModel.FK_ΠΡΟΓΡΑΜΜΑ_ΗΜΕΡΑ_ΠΡΟΣΩΠΙΚΟ" />
+        <EntityTypeShape EntityType="AbacusDBModel.sqlTMIMA_CHILDREN" Width="2.375" PointX="0.5" PointY="9.125" />
+        <EntityTypeShape EntityType="AbacusDBModel.ΠΑΙΔΙΑ_ΠΑΡΟΥΣΙΕΣ" Width="1.875" PointX="3.125" PointY="9.625" />
+        <AssociationConnector Association="AbacusDBModel.FK_ΠΑΙΔΙΑ_ΠΑΡΟΥΣΙΕΣ_ΠΑΙΔΙΑ" />
+        <EntityTypeShape EntityType="AbacusDBModel.sqlCHILD_SELECTOR" Width="2" PointX="5.5" PointY="11.125" />
+        <EntityTypeShape EntityType="AbacusDBModel.sqlCHILD_TMIMA_SELECTOR" Width="2.25" PointX="7.75" PointY="12.25" />
+        <EntityTypeShape EntityType="AbacusDBModel.repΠΑΡΟΥΣΙΕΣ_ΜΗΝΑΣ" Width="2" PointX="14.875" PointY="10.125" />
+        <EntityTypeShape EntityType="AbacusDBModel.ΠΑΡΟΥΣΙΕΣ_ΜΗΝΕΣ" Width="1.875" PointX="3.125" PointY="12.5" />
+        <EntityTypeShape EntityType="AbacusDBModel.sqlCHILD_APOUSIES_DETAIL" Width="2.25" PointX="19.375" PointY="10.125" />
+        <EntityTypeShape EntityType="AbacusDBModel.sqlCHILD_APOUSIES_SUM" Width="2.25" PointX="17" PointY="10.125" />
+        <EntityTypeShape EntityType="AbacusDBModel.ΣΥΣ_ΜΕΤΑΒΟΛΕΣ" Width="1.875" PointX="8.125" PointY="10.625" />
+        <EntityTypeShape EntityType="AbacusDBModel.ΠΡΟΣΩΠΙΚΟ_ΜΕΤΑΒΟΛΕΣ" Width="2.25" PointX="10.25" PointY="12.125" />
+        <AssociationConnector Association="AbacusDBModel.FK_ΠΡΟΣΩΠΙΚΟ_ΜΕΤΑΒΟΛΕΣ_ΠΡΟΣΩΠΙΚΟ" />
+        <EntityTypeShape EntityType="AbacusDBModel.METABOLES_REPORT" Width="1.875" PointX="12.75" PointY="11.125" />
+        <EntityTypeShape EntityType="AbacusDBModel.ΣΥΣ_ΒΑΘΜΟΙ" Width="1.5" PointX="6" PointY="12.75" />
+        <EntityTypeShape EntityType="AbacusDBModel.srcMETABOLES_REPORT" Width="2.125" PointX="15" PointY="13.375" />
+        <EntityTypeShape EntityType="AbacusDBModel.srcPERSONNEL_DATA" Width="1.875" PointX="0.5" PointY="12" />
+        <AssociationConnector Association="AbacusDBModel.FK_METABOLES_REPORT_ΠΡΟΣΩΠΙΚΟ" />
+        <EntityTypeShape EntityType="AbacusDBModel.ΣΥΣ_ΕΤΗ" Width="1.5" PointX="6" PointY="14.375" />
+        <EntityTypeShape EntityType="AbacusDBModel.Δ_ΑΝΤΙΠΡΟΕΔΡΟΙ" Width="1.75" PointX="0.5" PointY="34.375" />
+        <EntityTypeShape EntityType="AbacusDBModel.Δ_ΔΙΑΧΕΙΡΙΣΤΕΣ" Width="2.375" PointX="10.5" PointY="34.375" />
+        <EntityTypeShape EntityType="AbacusDBModel.Δ_ΔΙΕΥΘΥΝΤΕΣ" Width="1.5" PointX="6.625" PointY="34.375" />
+        <EntityTypeShape EntityType="AbacusDBModel.Δ_ΔΙΕΥΘΥΝΤΕΣ_ΓΕΝΙΚΟΙ" Width="2.125" PointX="4.25" PointY="34.375" />
+        <EntityTypeShape EntityType="AbacusDBModel.Δ_ΔΙΟΙΚΗΤΕΣ" Width="1.5" PointX="2.5" PointY="34.375" />
+        <EntityTypeShape EntityType="AbacusDBModel.Δ_ΠΡΟΙΣΤΑΜΕΝΟΙ" Width="1.875" PointX="8.375" PointY="34.375" />
+        <EntityTypeShape EntityType="AbacusDBModel.ΕΓΓΡΑΦΟ_ΔΙΑΧΕΙΡΙΣΤΗΣ" Width="2" PointX="0.5" PointY="14.75" />
+        <EntityTypeShape EntityType="AbacusDBModel.ΕΓΓΡΑΦΟ_ΜΕΤΑΒΟΛΕΣ" Width="2" PointX="0.5" PointY="18" />
+        <EntityTypeShape EntityType="AbacusDBModel.ΕΓΓΡΑΦΟ_ΠΡΟΓΡΑΜΜΑ" Width="2" PointX="2.75" PointY="18" />
+        <EntityTypeShape EntityType="AbacusDBModel.ΣΥΣ_ΕΝΤΥΠΑ" Width="2.125" PointX="15" PointY="16.5" />
+        <EntityTypeShape EntityType="AbacusDBModel.ΣΥΣ_ΑΠΟΧΩΡΗΣΕΙΣ" Width="1.75" PointX="8" PointY="14.375" />
+        <EntityTypeShape EntityType="AbacusDBModel.ΠΡΟΙΟΝ_ΚΑΤΗΓΟΡΙΑ" Width="2" PointX="7.375" PointY="18.5" />
+        <EntityTypeShape EntityType="AbacusDBModel.ΠΡΟΙΟΝ_ΜΟΝΑΔΕΣ" Width="2" PointX="15.125" PointY="18.875" />
+        <EntityTypeShape EntityType="AbacusDBModel.sqlPRODUCT_LIST" Width="1.875" PointX="5.125" PointY="18" />
+        <EntityTypeShape EntityType="AbacusDBModel.sqlPRODUCT_SELECTOR" Width="2.125" PointX="0.5" PointY="21.625" />
+        <EntityTypeShape EntityType="AbacusDBModel.ΤΡΟΦΕΙΟ_ΑΤΟΜΟ" Width="2" PointX="20.125" PointY="2.875" />
+        <AssociationConnector Association="AbacusDBModel.FK_ΚΟΣΤΟΣ_ΑΤΟΜΟ_ΣΥΣ_ΣΤΑΘΜΟΙ" />
+        <EntityTypeShape EntityType="AbacusDBModel.ΔΑΠΑΝΕΣ_ΕΙΔΗ" Width="1.875" PointX="9.875" PointY="18.5" />
+        <AssociationConnector Association="AbacusDBModel.FK_ΠΡΟΙΟΝ_ΚΑΤΗΓΟΡΙΑ_ΔΑΠΑΝΗ_ΕΙΔΟΣ" />
+        <EntityTypeShape EntityType="AbacusDBModel.ΔΑΠΑΝΗ_ΓΕΝΙΚΗ" Width="1.875" PointX="13.125" PointY="21.625" />
+        <EntityTypeShape EntityType="AbacusDBModel.ΕΞΤΡΑ_ΚΑΤΗΓΟΡΙΑ" Width="1.875" PointX="17.375" PointY="18.875" />
+        <EntityTypeShape EntityType="AbacusDBModel.sqlΣΥΝΟΛΟ_ΑΤΟΜΑ_ΤΡΟΦΕΙΟ" Width="2.375" PointX="15.875" PointY="21.125" />
+        <EntityTypeShape EntityType="AbacusDBModel.sqlΔΑΠΑΝΗ_ΓΕΝΙΚΗ" Width="2" PointX="7.75" PointY="25.625" />
+        <EntityTypeShape EntityType="AbacusDBModel.BUDGET_DATA" Width="1.75" PointX="22.75" PointY="0.625" />
+        <AssociationConnector Association="AbacusDBModel.FK_BUDGET_DATA_ΣΥΣ_ΣΤΑΘΜΟΙ" />
+        <EntityTypeShape EntityType="AbacusDBModel.sqlΣΥΝΟΛΟ_ΓΕΝΙΚΗ_ΗΜΕΡΑ" Width="2.25" PointX="12.625" PointY="25" />
+        <EntityTypeShape EntityType="AbacusDBModel.sqlΣΥΝΟΛΟ_ΕΞΤΡΑ_ΗΜΕΡΑ" Width="2.25" PointX="10.25" PointY="25" />
+        <EntityTypeShape EntityType="AbacusDBModel.sqlΣΥΝΟΛΟ_ΚΑΘΑΡΙΟΤΗΤΑ_ΗΜΕΡΑ" Width="2.75" PointX="15.125" PointY="25" />
+        <AssociationConnector Association="AbacusDBModel.FK_ΔΑΠΑΝΗ_ΓΕΝΙΚΗ_ΕΞΤΡΑ_ΚΑΤΗΓΟΡΙΑ" />
+        <EntityTypeShape EntityType="AbacusDBModel.ΦΠΑ_ΤΙΜΕΣ" Width="1.5" PointX="2.875" PointY="21.625" />
+        <EntityTypeShape EntityType="AbacusDBModel.ΙΣΟΖΥΓΙΟ_ΜΗΝΑΣ" Width="1.875" PointX="0.75" PointY="29" />
+        <EntityTypeShape EntityType="AbacusDBModel.ΔΑΠΑΝΗ_ΑΛΛΗ" Width="2" PointX="10.625" PointY="21.5" />
+        <EntityTypeShape EntityType="AbacusDBModel.ΔΑΠΑΝΗ_ΚΑΘΑΡΙΟΤΗΤΑ" Width="2.25" PointX="7.625" PointY="21.5" />
+        <EntityTypeShape EntityType="AbacusDBModel.ΔΑΠΑΝΗ_ΤΡΟΦΗ" Width="1.875" PointX="5.125" PointY="21.5" />
+        <AssociationConnector Association="AbacusDBModel.FK_ΔΑΠΑΝΗ_ΑΛΛΗ_ΠΡΟΙΟΝ_ΚΑΤΗΓΟΡΙΑ" />
+        <AssociationConnector Association="AbacusDBModel.FK_ΔΑΠΑΝΗ_ΚΑΘΑΡΙΟΤΗΤΑ_ΠΡΟΙΟΝ_ΚΑΤΗΓΟΡΙΑ" />
+        <AssociationConnector Association="AbacusDBModel.FK_ΔΑΠΑΝΗ_ΤΡΟΦΗ_ΠΡΟΙΟΝ_ΚΑΤΗΓΟΡΙΑ" />
+        <EntityTypeShape EntityType="AbacusDBModel.sqlΔΑΠΑΝΗ_ΑΛΛΗ" Width="2.125" PointX="5.375" PointY="25.625" />
+        <EntityTypeShape EntityType="AbacusDBModel.sqlΔΑΠΑΝΗ_ΚΑΘΑΡΙΟΤΗΤΑ" Width="2.25" PointX="3" PointY="25.75" />
+        <EntityTypeShape EntityType="AbacusDBModel.sqlΔΑΠΑΝΗ_ΤΡΟΦΕΙΟ" Width="2.125" PointX="0.625" PointY="25.75" />
+        <EntityTypeShape EntityType="AbacusDBModel.sqlΔΑΠΑΝΗ_ΓΕΝΙΚΗ_ΟΛΕΣ" Width="2.25" PointX="10.25" PointY="27.75" />
+        <EntityTypeShape EntityType="AbacusDBModel.sqlΣΥΝΟΛΟ_ΑΛΛΕΣ_ΗΜΕΡΑ" Width="2.25" PointX="12.875" PointY="27.75" />
+        <EntityTypeShape EntityType="AbacusDBModel.expSTATION_BALANCE_MONTH" Width="2.5" PointX="2.75" PointY="29" />
+        <EntityTypeShape EntityType="AbacusDBModel.ΠΡΟΙΟΝΤΑ" Width="2" PointX="12.375" PointY="18.375" />
+        <AssociationConnector Association="AbacusDBModel.FK_ΠΡΟΙΟΝΤΑ_ΠΡΟΙΟΝ_ΚΑΤΗΓΟΡΙΑ" />
+        <AssociationConnector Association="AbacusDBModel.FK_ΠΡΟΙΟΝΤΑ_ΠΡΟΙΟΝ_ΜΟΝΑΔΕΣ" />
+        <EntityTypeShape EntityType="AbacusDBModel.ΠΡΟΙΟΝΤΑ_ΒΝΣ" Width="1.875" PointX="17.625" PointY="16.375" />
+        <EntityTypeShape EntityType="AbacusDBModel.ΔΙΑΙΤΟΛΟΓΙΟ_ΗΜΕΡΑ" Width="2" PointX="8" PointY="29.625" />
+        <EntityTypeShape EntityType="AbacusDBModel.ΓΕΥΜΑΤΑ_ΒΡΕΦΗ" Width="1.875" PointX="14.375" PointY="31" />
+        <EntityTypeShape EntityType="AbacusDBModel.ΓΕΥΜΑΤΑ_ΜΕΣΗΜΕΡΙ" Width="1.875" PointX="12.25" PointY="31" />
+        <EntityTypeShape EntityType="AbacusDBModel.ΓΕΥΜΑΤΑ_ΠΡΩΙ" Width="1.75" PointX="10.25" PointY="31" />
+        <EntityTypeShape EntityType="AbacusDBModel.sqlΔΙΑΙΤΟΛΟΓΙΟ_ΗΜΕΡΑ" Width="2.125" PointX="5.5" PointY="29.5" />
+        <EntityTypeShape EntityType="AbacusDBModel.sqlADMIN_LOGINS" Width="1.875" PointX="23.125" PointY="5.375" />
+        <EntityTypeShape EntityType="AbacusDBModel.ADMIN_LOGINS" Width="1.75" PointX="20.875" PointY="7.75" />
+        <EntityTypeShape EntityType="AbacusDBModel.srcABSENCE_DAYS" Width="2" PointX="17.625" PointY="14" />
+        <EntityTypeShape EntityType="AbacusDBModel.DOCUPLOADS" Width="1.875" PointX="20.375" PointY="14" />
+        <EntityTypeShape EntityType="AbacusDBModel.DOCUPLOADS_FILES" Width="1.875" PointX="20.375" PointY="16.75" />
+        <AssociationConnector Association="AbacusDBModel.FK_UPLOADS_FILES_UPLOADS" />
+        <EntityTypeShape EntityType="AbacusDBModel.ACTIVE_SELECTOR" Width="1.75" PointX="23.125" PointY="7.375" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

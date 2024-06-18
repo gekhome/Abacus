@@ -1,0 +1,152 @@
+﻿@using Abacus.DAL;
+@using Abacus.Models;
+
+@{
+    ViewBag.Title = "Τμήματα ΒΝΣ";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+    @Html.AntiForgeryToken()
+    <div class="page-header" style="margin:5px 30px 5px 30px">
+        <span style="margin:5px 30px 5px 30px;font-family:'Segoe UI';font-size:large;text-shadow:1px 1px #000000">
+            <font style="color:#494949;float:left;font-family:'Segoe UI'">Τμήματα βρεφονηπιακών σταθμών</font>
+        </span>
+        <span style="margin:5px 10px 5px 5px;float:right;font-family:'Segoe UI';font-size:14px">@Html.ActionLink("Επιστροφή", "Index", "Admin", null, new { @class = "btn btn-warning", style = "font-size:14px" })</span>
+        <button class="btn btn-info" style="margin:5px 5px 5px 5px;float:right;font-family:'Segoe UI';font-size:14px" onclick="RefreshGrid()">Ανανέωση</button>
+        @*<span style="margin:5px 5px 5px 10px;float:right;font-family:'Segoe UI';font-size:14px">@Html.ActionLink("Εκτύπωση", "xStationTmimaPrint", "Admin", null, new { @class = "btn btn-primary", style = "font-size:14px", target = "_blank" })</span>*@
+    </div>
+
+<div class="body-content" style="margin:5px 30px 5px 30px;font-size:small">
+        <div class="row" style="margin-right:5px; margin-left:5px; margin-bottom:5px">
+            @(Html.Kendo().Grid<sqlStationSelectorViewModel>()
+            .Name("Master")
+            .Columns(columns =>
+            {
+                columns.Bound(c => c.ΕΠΩΝΥΜΙΑ).Width(40);
+                columns.Bound(c => c.ΕΠΩΝΥΜΙΑ_ΠΕΡΙΦΕΡΕΙΑ).Width(50);
+            })
+            .HtmlAttributes(new { style = "display:block;font-size:13px" })        
+            .Pageable(pageable => pageable
+            .Refresh(true)
+            .PageSizes(true)
+            .ButtonCount(5))
+            .Selectable()
+            .Filterable()
+            .Sortable(sortable => sortable.AllowUnsort(true).SortMode(GridSortMode.MultipleColumn))
+            .Scrollable(scr => scr.Height(200))
+            .DataSource(dataSource => dataSource
+                .Ajax()
+                .PageSize(40)
+                .ServerOperation(false)
+                .Model(model =>
+                {
+                    model.Id(p => p.ΣΤΑΘΜΟΣ_ΚΩΔ);
+                })
+                .Read(read => read.Action("StationSelector_Read", "Tools"))
+            )
+            .Events(events => events.Change("change"))
+            )
+
+            </div>
+        <div class="row" style="margin-right:5px; margin-left:5px; margin-top:10px">
+
+        @(Html.Kendo().Grid<TmimaViewModel>()
+            .Name("Child")
+            .AutoBind(false)
+            .HtmlAttributes(new { style = "display: block;font-size:13px" })
+            .Navigatable()
+            .Groupable()
+            .Filterable()
+            .Editable(editable => editable.Mode(GridEditMode.InLine).CreateAt(GridInsertRowPosition.Top))
+            .Sortable(sortable => sortable.AllowUnsort(true).SortMode(GridSortMode.MultipleColumn))
+            .Pageable(pageable => pageable
+            .Refresh(true)
+            .PageSizes(true)
+            .ButtonCount(10))
+            .Scrollable(scr => scr.Height(300))
+            .Columns(columns =>
+            {
+                columns.ForeignKey(f => f.ΣΧΟΛΙΚΟ_ΕΤΟΣ, (IEnumerable<ΣΥΣ_ΣΧΟΛΙΚΑ_ΕΤΗ>)ViewData["schoolyears"], "SCHOOLYEAR_ID", "ΣΧΟΛΙΚΟ_ΕΤΟΣ").Width(16);
+                columns.ForeignKey(f => f.ΚΑΤΗΓΟΡΙΑ, (IEnumerable<ΤΜΗΜΑ_ΚΑΤΗΓΟΡΙΑ>)ViewData["tmima_categories"], "CATEGORY_ID", "CATEGORY_TEXT").Width(20);
+                columns.ForeignKey(f => f.ΑΥΞΩΝ_ΑΡΙΘΜΟΣ, (IEnumerable<ΣΥΣ_ΑΑ_ΛΑΤΙΝΙΚΟΙ>)ViewData["latin_numbers"], "AA_ID", "AA_TEXT").Width(10).Filterable(false);
+                columns.Bound(c => c.ΧΑΡΑΚΤΗΡΙΣΜΟΣ).Width(20);
+                columns.Bound(c => c.ΟΝΟΜΑΣΙΑ).Width(30);
+                columns.Command(command => { command.Edit(); command.Destroy(); }).Width(34);
+            })
+            .ToolBar(toolBar =>
+            {
+                toolBar.Create();
+            })
+            .DataSource(ds => ds
+                .Ajax()
+                .PageSize(60)
+                .ServerOperation(false)
+                .Model(model =>
+                {
+                    model.Id(p => p.ΤΜΗΜΑ_ΚΩΔ);
+                    model.Field(p => p.ΣΧΟΛΙΚΟ_ΕΤΟΣ).DefaultValue(1);
+                    model.Field(p => p.ΚΑΤΗΓΟΡΙΑ).DefaultValue(1);
+                    model.Field(p => p.ΑΥΞΩΝ_ΑΡΙΘΜΟΣ).DefaultValue(1);
+                    model.Field(p => p.ΟΝΟΜΑΣΙΑ).Editable(false);
+                })
+                //.Group(groups => groups.Add(p => p.ΣΧΟΛΙΚΟ_ΕΤΟΣ))
+                .Create(create => create.Action("Tmima_Create", "Tools").Data("data"))
+                .Read(read => read.Action("Tmima_Read", "Tools").Data("data"))
+                .Update(update => update.Action("Tmima_Update", "Tools").Data("data"))
+                .Destroy(destroy => destroy.Action("Tmima_Destroy", "Tools"))
+                .Events(events => events.Error("error_handler"))                
+            )
+        )
+    </div>
+</div>
+
+    
+<script type="text/javascript">
+
+    function change(e) {
+        var dataItem = this.dataItem(this.select());
+        var stationID = dataItem.ΣΤΑΘΜΟΣ_ΚΩΔ;
+
+        $("#Child").data("kendoGrid").dataSource.read({ stationId: stationID });
+        $("#Child").css("display", "block");
+    }
+
+    function data() {
+        var masterGrid = $("#Master").data("kendoGrid");
+        // get data item for selected row
+        var dataItem = masterGrid.dataItem(masterGrid.select());
+        if (dataItem) {
+            return { stationId: dataItem.ΣΤΑΘΜΟΣ_ΚΩΔ };
+        }
+        else {
+            return { stationId: 0 };
+        }
+    }
+
+    function RefreshGrid(e) {
+        var grid = $("#Child").data("kendoGrid");
+        var dataItem = $("#Master").dataItem($("#Master").select());
+        var stationID = 0;
+        if (dataItem) {
+            stationID = dataItem.ΣΤΑΘΜΟΣ_ΚΩΔ;
+        }
+        grid.dataSource.read({ stationId: stationID });
+    }
+
+    function error_handler(e) {
+        if (e.errors) {
+            var message = "";
+            $.each(e.errors, function (key, value) {
+                if ('errors' in value) {
+                    $.each(value.errors, function () {
+                        message += this + "<br/>";
+                    });
+                }
+            });
+            MessageBoxAlert(message, "Σφάλμα");
+        }
+        $("#Child").data("kendoGrid").dataSource.read();
+    }
+
+</script>
+

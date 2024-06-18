@@ -1,0 +1,40 @@
+﻿
+@{
+    Layout = null;
+}
+
+<head>
+    <meta charset="utf-8" />
+    @*<meta name="viewport" content="width=device-width, initial-scale=1.0">*@
+
+    <!-- General scripts -->
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+    <link href="@Url.Content("~/Content/kendo/2014.2.716/kendo.common.min.css")" rel="stylesheet" type="text/css" />
+    <link href="@Url.Content("~/Content/kendo/2014.2.716/kendo.dataviz.min.css")" rel="stylesheet" type="text/css" />
+    <link href="@Url.Content("~/Content/kendo/2014.2.716/kendo.blueopal.min.css")" rel="stylesheet" type="text/css" />
+    <link href="@Url.Content("~/Content/kendo/2014.2.716/kendo.dataviz.blueopal.min.css")" rel="stylesheet" type="text/css" />
+
+    <link href="@Url.Content("~/Content/Suite.css")" rel="stylesheet" type="text/css" />
+
+    <script src="@Url.Content("~/Scripts/kendo/2014.2.716/jquery.min.js")"></script>
+    <script src="@Url.Content("~/Scripts/kendo/2014.2.716/kendo.all.min.js")"></script>
+    <script src="@Url.Content("~/Scripts/kendo/2014.2.716/kendo.aspnetmvc.min.js")"></script>
+    <script src="@Url.Content("~/Scripts/kendo.modernizr.custom.js")"></script>
+
+    <!-- Clock scripts -->
+    <script src="@Url.Content("~/Clock/coolclock.js")"></script>
+    <script src="@Url.Content("~/Clock/moreskins.js")"></script>
+    <script src="@Url.Content("~/Clock/excanvas.js")"></script>
+
+    <title></title>
+</head>
+    <div>
+        <table>
+            <tr>
+                <td align="left"><img src="~/images/other/shield-cool.png" height="90" width="90" /></td>
+                <td align="center"><h1 class="header">&emsp;&emsp;&emsp;&emsp; A s p i d a</h1></td>
+                <td align="right"><canvas id="clockid" class="CoolClock:swissRail:48:0"></canvas></td>
+            </tr>
+        </table>
+    </div>

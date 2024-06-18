@@ -1,0 +1,319 @@
+﻿@using Abacus.DAL;
+@using Abacus.Models;
+
+
+@{
+    ViewBag.Title = "Διαχειριστές αποφάσεων";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+    @Html.AntiForgeryToken()
+    <div class="page-header" style="margin:5px 30px 5px 30px">
+        <span style="margin:5px 30px 5px 30px;font-family:'Segoe UI';font-size:large;text-shadow:1px 1px #000000">
+            <font style="color:#494949;float:left;font-family:'Segoe UI'">Διοικητικά στελέχη και διαχειριστές αποφάσεων</font>
+        </span>
+        <span style="margin:5px 10px 5px 5px;float:right;font-family:'Segoe UI';font-size:16px">@Html.ActionLink("Επιστροφή", "Index", "Admin", null, new { @class = "btn btn-warning", style = "font-size:16px" })</span>
+        <button class="btn btn-info" style="margin:5px 5px 5px 5px;float:right;font-family:'Segoe UI';font-size:16px" onclick="RefreshGrid()">Ανανέωση</button>
+    </div>
+
+    <div class="body-content" style="margin:10px 30px 5px 30px">
+
+        @(Html.Kendo().Grid<DiaxiristisViewModel>()
+        .Name("grid1")
+        .Columns(columns =>
+        {
+            columns.Bound(c => c.ΟΝΟΜΑΤΕΠΩΝΥΜΟ).Width(30);
+            columns.Bound(c => c.ΟΝΟΜΑΤΕΠΩΝΥΜΟ_ΠΛΗΡΕΣ).Width(36);
+            columns.Bound(c => c.ΤΗΛΕΦΩΝΟ).Width(20);
+            columns.Bound(c => c.ΦΑΞ).Width(18);
+            columns.ForeignKey(m => m.ΦΥΛΟ, (IEnumerable<ΣΥΣ_ΦΥΛΑ>)ViewData["genders"], "ΦΥΛΟ_ΚΩΔ", "ΦΥΛΟ").Width(20);
+            columns.Command(command => { command.Edit(); command.Destroy(); }).Width(36);
+        })
+        .ToolBar(toolBar =>
+        {
+            toolBar.Create();
+        })
+        .Editable(editable => editable.Mode(GridEditMode.InLine))
+        .HtmlAttributes(new { style = "font-size:13px" })
+        .Navigatable()
+        .Pageable()
+        .Filterable()
+        .Scrollable(scr => scr.Height(160))
+        .Pageable(pageable => pageable
+        .Refresh(true)
+        .PageSizes(true)
+        .ButtonCount(5))        
+        .DataSource(dataSource => dataSource
+            .Ajax()
+            .PageSize(20)
+            .ServerOperation(false)
+            .Model(model =>
+            {
+                model.Id(p => p.ΔΙΑΧΕΙΡΙΣΤΗΣ_ΚΩΔ);
+                model.Field(p => p.ΦΥΛΟ).DefaultValue(1);
+            })
+            .Create(create => create.Action("Diaxiristis_Create", "Tools"))
+            .Read(read => read.Action("Diaxiristis_Read", "Tools"))
+            .Update(update => update.Action("Diaxiristis_Update", "Tools"))
+            .Destroy(destroy => destroy.Action("Diaxiristis_Destroy", "Tools"))
+            .Events(events => events.Error("error_handler1"))            
+        )
+        )
+
+        <br /><p></p>
+
+    @Html.Kendo().PanelBar().Name("Panel").Items(items =>
+    {
+    items.Add().Text("Προϊστάμενοι").Selected(false).Expanded(false)
+        .Content(@<text>
+        @(Html.Kendo().Grid<ProistamenosViewModel>()
+        .Name("grid2")
+        .Columns(columns =>
+        {
+            columns.ForeignKey(f => f.ΣΧΟΛΙΚΟ_ΕΤΟΣ, (IEnumerable<ΣΥΣ_ΣΧΟΛΙΚΑ_ΕΤΗ>)ViewData["schoolYears"], "SCHOOLYEAR_ID", "ΣΧΟΛΙΚΟ_ΕΤΟΣ").Width(20);
+            columns.Bound(c => c.ΠΡΟΙΣΤΑΜΕΝΟΣ).Width(30);
+            columns.ForeignKey(m => m.ΦΥΛΟ, (IEnumerable<ΣΥΣ_ΦΥΛΑ>)ViewData["genders"], "ΦΥΛΟ_ΚΩΔ", "ΦΥΛΟ").Width(20);
+            columns.Command(command => { command.Edit(); command.Destroy(); }).Width(30);
+        })
+        .ToolBar(toolBar =>
+        {
+            toolBar.Create();
+        })
+        .Editable(editable => editable.Mode(GridEditMode.InLine))
+        .HtmlAttributes(new { style = "font-size:13px" })
+        .Navigatable()
+        .Pageable()
+        .Filterable()
+        .Scrollable(scr => scr.Height(160))
+        .Pageable(pageable => pageable
+        .Refresh(true)
+        .PageSizes(true)
+        .ButtonCount(5))
+        .DataSource(dataSource => dataSource
+            .Ajax()
+            .PageSize(20)
+            .ServerOperation(false)
+            .Model(model =>
+            {
+                model.Id(p => p.ΠΡΟΙΣΤΑΜΕΝΟΣ_ΚΩΔ);
+                model.Field(p => p.ΦΥΛΟ).DefaultValue(1);
+                model.Field(p => p.ΣΧΟΛΙΚΟ_ΕΤΟΣ).DefaultValue(1);
+            })
+            .Create(create => create.Action("Proistamenos_Create", "Tools"))
+            .Read(read => read.Action("Proistamenos_Read", "Tools"))
+            .Update(update => update.Action("Proistamenos_Update", "Tools"))
+            .Destroy(destroy => destroy.Action("Proistamenos_Destroy", "Tools"))
+        )
+        )
+    </text>);
+    items.Add().Text("Διευθυντές").Selected(false).Expanded(false)
+        .Content(@<text>
+        @(Html.Kendo().Grid<DirectorViewModel>()
+        .Name("grid3")
+        .Columns(columns =>
+        {
+            columns.ForeignKey(f => f.ΣΧΟΛΙΚΟ_ΕΤΟΣ, (IEnumerable<ΣΥΣ_ΣΧΟΛΙΚΑ_ΕΤΗ>)ViewData["schoolYears"], "SCHOOLYEAR_ID", "ΣΧΟΛΙΚΟ_ΕΤΟΣ").Width(20);
+            columns.Bound(c => c.ΔΙΕΥΘΥΝΤΗΣ).Width(30);
+            columns.ForeignKey(m => m.ΦΥΛΟ, (IEnumerable<ΣΥΣ_ΦΥΛΑ>)ViewData["genders"], "ΦΥΛΟ_ΚΩΔ", "ΦΥΛΟ").Width(20);
+            columns.Command(command => { command.Edit(); command.Destroy(); }).Width(30);
+        })
+        .ToolBar(toolBar =>
+        {
+            toolBar.Create();
+        })
+        .Editable(editable => editable.Mode(GridEditMode.InLine))
+        .HtmlAttributes(new { style = "font-size:13px" })
+        .Navigatable()
+        .Pageable()
+        .Filterable()
+        .Scrollable(scr => scr.Height(160))
+        .Pageable(pageable => pageable
+        .Refresh(true)
+        .PageSizes(true)
+        .ButtonCount(5))
+        .DataSource(dataSource => dataSource
+            .Ajax()
+            .PageSize(20)
+            .ServerOperation(false)
+            .Model(model =>
+            {
+                model.Id(p => p.ΔΙΕΥΘΥΝΤΗΣ_ΚΩΔ);
+                model.Field(p => p.ΦΥΛΟ).DefaultValue(1);
+                model.Field(p => p.ΣΧΟΛΙΚΟ_ΕΤΟΣ).DefaultValue(1);               
+            })
+            .Create(create => create.Action("Director_Create", "Tools"))
+            .Read(read => read.Action("Director_Read", "Tools"))
+            .Update(update => update.Action("Director_Update", "Tools"))
+            .Destroy(destroy => destroy.Action("Director_Destroy", "Tools"))
+        )
+        )
+    </text>);
+    items.Add().Text("Γενικοί Διευθυντές").Selected(false).Expanded(false)
+        .Content(@<text>
+        @(Html.Kendo().Grid<DirectorGeneralViewModel>()
+        .Name("grid4")
+        .Columns(columns =>
+        {
+            columns.ForeignKey(f => f.ΣΧΟΛΙΚΟ_ΕΤΟΣ, (IEnumerable<ΣΥΣ_ΣΧΟΛΙΚΑ_ΕΤΗ>)ViewData["schoolYears"], "SCHOOLYEAR_ID", "ΣΧΟΛΙΚΟ_ΕΤΟΣ").Width(20);
+            columns.Bound(c => c.ΓΕΝΙΚΟΣ).Width(30);
+            columns.ForeignKey(m => m.ΦΥΛΟ, (IEnumerable<ΣΥΣ_ΦΥΛΑ>)ViewData["genders"], "ΦΥΛΟ_ΚΩΔ", "ΦΥΛΟ").Width(20);
+            columns.Command(command => { command.Edit(); command.Destroy(); }).Width(30);
+        })
+        .ToolBar(toolBar =>
+        {
+            toolBar.Create();
+        })
+        .Editable(editable => editable.Mode(GridEditMode.InLine))
+        .HtmlAttributes(new { style = "font-size:13px" })
+        .Navigatable()
+        .Pageable()
+        .Filterable()
+        .Scrollable(scr => scr.Height(160))
+        .Pageable(pageable => pageable
+        .Refresh(true)
+        .PageSizes(true)
+        .ButtonCount(5))
+        .DataSource(dataSource => dataSource
+            .Ajax()
+            .PageSize(20)
+            .ServerOperation(false)
+            .Model(model =>
+            {
+                model.Id(p => p.ΓΕΝΙΚΟΣ_ΚΩΔ);
+                model.Field(p => p.ΦΥΛΟ).DefaultValue(1);
+                model.Field(p => p.ΣΧΟΛΙΚΟ_ΕΤΟΣ).DefaultValue(1);                
+            })
+            .Create(create => create.Action("Genikos_Create", "Tools"))
+            .Read(read => read.Action("Genikos_Read", "Tools"))
+            .Update(update => update.Action("Genikos_Update", "Tools"))
+            .Destroy(destroy => destroy.Action("Genikos_Destroy", "Tools"))
+        )
+        )
+    </text>);
+    items.Add().Text("Αντιπρόεδροι - α.α Υποδιοικητές").Selected(false).Expanded(false)
+        .Content(@<text>
+        @(Html.Kendo().Grid<AntiproedrosViewModel>()
+        .Name("grid5")
+        .Columns(columns =>
+        {
+            columns.ForeignKey(f => f.ΣΧΟΛΙΚΟ_ΕΤΟΣ, (IEnumerable<ΣΥΣ_ΣΧΟΛΙΚΑ_ΕΤΗ>)ViewData["schoolYears"], "SCHOOLYEAR_ID", "ΣΧΟΛΙΚΟ_ΕΤΟΣ").Width(20);
+            columns.Bound(c => c.ΑΝΤΙΠΡΟΕΔΡΟΣ).Width(30);
+            columns.Bound(c => c.ΒΑΘΜΟΣ).Width(30);
+            columns.ForeignKey(m => m.ΦΥΛΟ, (IEnumerable<ΣΥΣ_ΦΥΛΑ>)ViewData["genders"], "ΦΥΛΟ_ΚΩΔ", "ΦΥΛΟ").Width(20);
+            columns.Command(command => { command.Edit(); command.Destroy(); }).Width(30);
+        })
+        .ToolBar(toolBar =>
+        {
+            toolBar.Create();
+        })
+        .Editable(editable => editable.Mode(GridEditMode.InLine))
+        .HtmlAttributes(new { style = "font-size:13px" })
+        .Navigatable()
+        .Pageable()
+        .Filterable()
+        .Scrollable(scr => scr.Height(160))
+        .Pageable(pageable => pageable
+        .Refresh(true)
+        .PageSizes(true)
+        .ButtonCount(5))
+        .DataSource(dataSource => dataSource
+            .Ajax()
+            .PageSize(20)
+            .ServerOperation(false)
+            .Model(model =>
+            {
+                model.Id(p => p.ΑΝΤΙΠΡΟΕΔΡΟΣ_ΚΩΔ);
+                model.Field(p => p.ΦΥΛΟ).DefaultValue(1);
+                model.Field(p => p.ΣΧΟΛΙΚΟ_ΕΤΟΣ).DefaultValue(1);               
+            })
+            .Create(create => create.Action("Antiproedros_Create", "Tools"))
+            .Read(read => read.Action("Antiproedros_Read", "Tools"))
+            .Update(update => update.Action("Antiproedros_Update", "Tools"))
+            .Destroy(destroy => destroy.Action("Antiproedros_Destroy", "Tools"))
+        )
+        )
+    </text>);
+    items.Add().Text("Διοικητές - Υποδιοικητές").Selected(false).Expanded(false)
+        .Content(@<text>
+        @(Html.Kendo().Grid<DioikitisViewModel>()
+        .Name("grid6")
+        .Columns(columns =>
+        {
+            columns.ForeignKey(f => f.ΣΧΟΛΙΚΟ_ΕΤΟΣ, (IEnumerable<ΣΥΣ_ΣΧΟΛΙΚΑ_ΕΤΗ>)ViewData["schoolYears"], "SCHOOLYEAR_ID", "ΣΧΟΛΙΚΟ_ΕΤΟΣ").Width(20);
+            columns.Bound(c => c.ΔΙΟΙΚΗΤΗΣ).Width(30);
+            columns.ForeignKey(m => m.ΦΥΛΟ, (IEnumerable<ΣΥΣ_ΦΥΛΑ>)ViewData["genders"], "ΦΥΛΟ_ΚΩΔ", "ΦΥΛΟ").Width(20);
+            columns.Command(command => { command.Edit(); command.Destroy(); }).Width(30);
+        })
+        .ToolBar(toolBar =>
+        {
+            toolBar.Create();
+        })
+        .Editable(editable => editable.Mode(GridEditMode.InLine))
+        .HtmlAttributes(new { style = "font-size:13px" })
+        .Navigatable()
+        .Pageable()
+        .Filterable()
+        .Scrollable(scr => scr.Height(160))
+        .Pageable(pageable => pageable
+        .Refresh(true)
+        .PageSizes(true)
+        .ButtonCount(5))
+        .DataSource(dataSource => dataSource
+            .Ajax()
+            .PageSize(20)
+            .ServerOperation(false)
+            .Model(model =>
+            {
+                model.Id(p => p.ΔΙΟΙΚΗΤΗΣ_ΚΩΔ);
+                model.Field(p => p.ΦΥΛΟ).DefaultValue(1);
+                model.Field(p => p.ΣΧΟΛΙΚΟ_ΕΤΟΣ).DefaultValue(1);                
+            })
+            .Create(create => create.Action("Dioikitis_Create", "Tools"))
+            .Read(read => read.Action("Dioikitis_Read", "Tools"))
+            .Update(update => update.Action("Dioikitis_Update", "Tools"))
+            .Destroy(destroy => destroy.Action("Dioikitis_Destroy", "Tools"))
+        )
+        )
+    </text>);
+    }).ExpandMode(PanelBarExpandMode.Multiple)
+
+    </div>
+
+<script type="text/javascript">
+
+    function error_handler1(e) {
+        if (e.errors) {
+            var message = "";
+            $.each(e.errors, function (key, value) {
+                if ('errors' in value) {
+                    $.each(value.errors, function () {
+                        message += this + "<br/>";
+                    });
+                }
+            });
+            MessageBoxAlert(message, "Σφάλμα");
+            RefreshGrid1(e);
+        }
+    }
+
+    function RefreshGrid1(e) {
+        var grid1 = $("#grid1").data("kendoGrid");
+        grid1.dataSource.read();
+    }
+
+    function RefreshGrid(e) {
+        var grid1 = $("#grid1").data("kendoGrid");
+        grid1.dataSource.read();
+        var grid2 = $("#grid2").data("kendoGrid");
+        grid2.dataSource.read();
+        var grid3 = $("#grid3").data("kendoGrid");
+        grid3.dataSource.read();
+        var grid4 = $("#grid4").data("kendoGrid");
+        grid4.dataSource.read();
+        var grid5 = $("#grid5").data("kendoGrid");
+        grid5.dataSource.read();
+        var grid6 = $("#grid6").data("kendoGrid");
+        grid6.dataSource.read();
+    }
+
+</script>

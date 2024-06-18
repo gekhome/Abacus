@@ -1,0 +1,1303 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="AbacusDBModelStoreContainer" CdmEntityContainer="AbacusDBEntities">
+    <EntitySetMapping Name="APP_STATUS">
+      <EntityTypeMapping TypeName="AbacusDBModel.APP_STATUS">
+        <MappingFragment StoreEntitySet="APP_STATUS">
+          <ScalarProperty Name="STATUS_ID" ColumnName="STATUS_ID" />
+          <ScalarProperty Name="STATUS_VALUE" ColumnName="STATUS_VALUE" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ΣΥΣ_ΣΧΟΛΙΚΑ_ΕΤΗ">
+      <EntityTypeMapping TypeName="AbacusDBModel.ΣΥΣ_ΣΧΟΛΙΚΑ_ΕΤΗ">
+        <MappingFragment StoreEntitySet="ΣΥΣ_ΣΧΟΛΙΚΑ_ΕΤΗ">
+          <ScalarProperty Name="ΤΡΕΧΟΝ_ΕΤΟΣ" ColumnName="ΤΡΕΧΟΝ_ΕΤΟΣ" />
+          <ScalarProperty Name="ΗΜΝΙΑ_ΛΗΞΗ" ColumnName="ΗΜΝΙΑ_ΛΗΞΗ" />
+          <ScalarProperty Name="ΗΜΝΙΑ_ΕΝΑΡΞΗ" ColumnName="ΗΜΝΙΑ_ΕΝΑΡΞΗ" />
+          <ScalarProperty Name="ΣΧΟΛΙΚΟ_ΕΤΟΣ" ColumnName="ΣΧΟΛΙΚΟ_ΕΤΟΣ" />
+          <ScalarProperty Name="SCHOOLYEAR_ID" ColumnName="SCHOOLYEAR_ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="USER_ADMINS">
+      <EntityTypeMapping TypeName="AbacusDBModel.USER_ADMINS">
+        <MappingFragment StoreEntitySet="USER_ADMINS">
+          <ScalarProperty Name="CREATEDATE" ColumnName="CREATEDATE" />
+          <ScalarProperty Name="ISACTIVE" ColumnName="ISACTIVE" />
+          <ScalarProperty Name="FULLNAME" ColumnName="FULLNAME" />
+          <ScalarProperty Name="PASSWORD" ColumnName="PASSWORD" />
+          <ScalarProperty Name="USERNAME" ColumnName="USERNAME" />
+          <ScalarProperty Name="USER_ID" ColumnName="USER_ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="USER_PERSONS">
+      <EntityTypeMapping TypeName="AbacusDBModel.USER_PERSONS">
+        <MappingFragment StoreEntitySet="USER_PERSONS">
+          <ScalarProperty Name="CREATEDATE" ColumnName="CREATEDATE" />
+          <ScalarProperty Name="STATION_ID" ColumnName="STATION_ID" />
+          <ScalarProperty Name="USER_AFM" ColumnName="USER_AFM" />
+          <ScalarProperty Name="PASSWORD" ColumnName="PASSWORD" />
+          <ScalarProperty Name="USERNAME" ColumnName="USERNAME" />
+          <ScalarProperty Name="USER_ID" ColumnName="USER_ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="USER_STATIONS">
+      <EntityTypeMapping TypeName="AbacusDBModel.USER_STATIONS">
+        <MappingFragment StoreEntitySet="USER_STATIONS">
+          <ScalarProperty Name="ISACTIVE" ColumnName="ISACTIVE" />
+          <ScalarProperty Name="STATION_ID" ColumnName="STATION_ID" />
+          <ScalarProperty Name="PASSWORD" ColumnName="PASSWORD" />
+          <ScalarProperty Name="USERNAME" ColumnName="USERNAME" />
+          <ScalarProperty Name="USER_ID" ColumnName="USER_ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ΣΥΣ_ΔΗΜΟΙ">
+      <EntityTypeMapping TypeName="AbacusDBModel.ΣΥΣ_ΔΗΜΟΙ">
+        <MappingFragment StoreEntitySet="ΣΥΣ_ΔΗΜΟΙ">
+          <ScalarProperty Name="DIMOS_PERIFERIA" ColumnName="DIMOS_PERIFERIA" />
+          <ScalarProperty Name="DIMOS" ColumnName="DIMOS" />
+          <ScalarProperty Name="DIMOS_ID" ColumnName="DIMOS_ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ΣΥΣ_ΠΕΡΙΦΕΡΕΙΕΣ">
+      <EntityTypeMapping TypeName="AbacusDBModel.ΣΥΣ_ΠΕΡΙΦΕΡΕΙΕΣ">
+        <MappingFragment StoreEntitySet="ΣΥΣ_ΠΕΡΙΦΕΡΕΙΕΣ">
+          <ScalarProperty Name="PERIFERIA_NAME" ColumnName="PERIFERIA_NAME" />
+          <ScalarProperty Name="PERIFERIA_ID" ColumnName="PERIFERIA_ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ΣΥΣ_ΠΕΡΙΦΕΡΕΙΑΚΕΣ">
+      <EntityTypeMapping TypeName="AbacusDBModel.ΣΥΣ_ΠΕΡΙΦΕΡΕΙΑΚΕΣ">
+        <MappingFragment StoreEntitySet="ΣΥΣ_ΠΕΡΙΦΕΡΕΙΑΚΕΣ">
+          <ScalarProperty Name="ΤΜΗΜΑ" ColumnName="ΤΜΗΜΑ" />
+          <ScalarProperty Name="ΕΔΡΑ" ColumnName="ΕΔΡΑ" />
+          <ScalarProperty Name="EMAIL" ColumnName="EMAIL" />
+          <ScalarProperty Name="FAX" ColumnName="FAX" />
+          <ScalarProperty Name="ΤΗΛΕΦΩΝΑ" ColumnName="ΤΗΛΕΦΩΝΑ" />
+          <ScalarProperty Name="ΤΑΧ_ΔΙΕΥΘΥΝΣΗ" ColumnName="ΤΑΧ_ΔΙΕΥΘΥΝΣΗ" />
+          <ScalarProperty Name="ΠΕΡΙΦ_ΣΥΝΤΟΜΟΓΡΑΦΙΑ" ColumnName="ΠΕΡΙΦ_ΣΥΝΤΟΜΟΓΡΑΦΙΑ" />
+          <ScalarProperty Name="ΕΠΩΝΥΜΙΑ_ΠΕΡΙΦΕΡΕΙΑ" ColumnName="ΕΠΩΝΥΜΙΑ_ΠΕΡΙΦΕΡΕΙΑ" />
+          <ScalarProperty Name="ΚΩΔΙΚΟΣ_ΠΕΡΙΦΕΡΕΙΑ" ColumnName="ΚΩΔΙΚΟΣ_ΠΕΡΙΦΕΡΕΙΑ" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ΣΥΣ_ΣΤΑΘΜΟΙ">
+      <EntityTypeMapping TypeName="AbacusDBModel.ΣΥΣ_ΣΤΑΘΜΟΙ">
+        <MappingFragment StoreEntitySet="ΣΥΣ_ΣΤΑΘΜΟΙ">
+          <ScalarProperty Name="ΔΙΑΧΕΙΡΙΣΤΗΣ_ΦΥΛΟ" ColumnName="ΔΙΑΧΕΙΡΙΣΤΗΣ_ΦΥΛΟ" />
+          <ScalarProperty Name="ΔΙΑΧΕΙΡΙΣΤΗΣ" ColumnName="ΔΙΑΧΕΙΡΙΣΤΗΣ" />
+          <ScalarProperty Name="ΑΝΑΠΛΗΡΩΤΗΣ_ΦΥΛΟ" ColumnName="ΑΝΑΠΛΗΡΩΤΗΣ_ΦΥΛΟ" />
+          <ScalarProperty Name="ΑΝΑΠΛΗΡΩΤΗΣ" ColumnName="ΑΝΑΠΛΗΡΩΤΗΣ" />
+          <ScalarProperty Name="ΚΙΝΗΤΟ" ColumnName="ΚΙΝΗΤΟ" />
+          <ScalarProperty Name="ΥΠΕΥΘΥΝΟΣ_ΦΥΛΟ" ColumnName="ΥΠΕΥΘΥΝΟΣ_ΦΥΛΟ" />
+          <ScalarProperty Name="ΥΠΕΥΘΥΝΟΣ" ColumnName="ΥΠΕΥΘΥΝΟΣ" />
+          <ScalarProperty Name="ΠΕΡΙΦΕΡΕΙΑ" ColumnName="ΠΕΡΙΦΕΡΕΙΑ" />
+          <ScalarProperty Name="ΠΕΡΙΦΕΡΕΙΑΚΗ" ColumnName="ΠΕΡΙΦΕΡΕΙΑΚΗ" />
+          <ScalarProperty Name="EMAIL" ColumnName="EMAIL" />
+          <ScalarProperty Name="ΦΑΞ" ColumnName="ΦΑΞ" />
+          <ScalarProperty Name="ΤΗΛΕΦΩΝΑ" ColumnName="ΤΗΛΕΦΩΝΑ" />
+          <ScalarProperty Name="ΓΡΑΜΜΑΤΕΙΑ" ColumnName="ΓΡΑΜΜΑΤΕΙΑ" />
+          <ScalarProperty Name="ΤΑΧ_ΔΙΕΥΘΥΝΣΗ" ColumnName="ΤΑΧ_ΔΙΕΥΘΥΝΣΗ" />
+          <ScalarProperty Name="ΕΠΩΝΥΜΙΑ" ColumnName="ΕΠΩΝΥΜΙΑ" />
+          <ScalarProperty Name="ΣΤΑΘΜΟΣ_ΚΩΔ" ColumnName="ΣΤΑΘΜΟΣ_ΚΩΔ" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ΣΥΣ_ΦΥΛΑ">
+      <EntityTypeMapping TypeName="AbacusDBModel.ΣΥΣ_ΦΥΛΑ">
+        <MappingFragment StoreEntitySet="ΣΥΣ_ΦΥΛΑ">
+          <ScalarProperty Name="ΦΥΛΟ" ColumnName="ΦΥΛΟ" />
+          <ScalarProperty Name="ΦΥΛΟ_ΚΩΔ" ColumnName="ΦΥΛΟ_ΚΩΔ" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="sqlSTATION_LOGINS">
+      <EntityTypeMapping TypeName="AbacusDBModel.sqlSTATION_LOGINS">
+        <MappingFragment StoreEntitySet="sqlSTATION_LOGINS">
+          <ScalarProperty Name="LOGIN_DATETIME" ColumnName="LOGIN_DATETIME" />
+          <ScalarProperty Name="STATION_NAME" ColumnName="STATION_NAME" />
+          <ScalarProperty Name="LOGIN_ID" ColumnName="LOGIN_ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="SYS_LOGINS">
+      <EntityTypeMapping TypeName="AbacusDBModel.SYS_LOGINS">
+        <MappingFragment StoreEntitySet="SYS_LOGINS">
+          <ScalarProperty Name="LOGIN_DATETIME" ColumnName="LOGIN_DATETIME" />
+          <ScalarProperty Name="LOGIN_USERNAME" ColumnName="LOGIN_USERNAME" />
+          <ScalarProperty Name="LOGIN_ID" ColumnName="LOGIN_ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="sqlUSER_STATION">
+      <EntityTypeMapping TypeName="AbacusDBModel.sqlUSER_STATION">
+        <MappingFragment StoreEntitySet="sqlUSER_STATION">
+          <ScalarProperty Name="ΕΠΩΝΥΜΙΑ" ColumnName="ΕΠΩΝΥΜΙΑ" />
+          <ScalarProperty Name="STATION_ID" ColumnName="STATION_ID" />
+          <ScalarProperty Name="PASSWORD" ColumnName="PASSWORD" />
+          <ScalarProperty Name="USERNAME" ColumnName="USERNAME" />
+          <ScalarProperty Name="USER_ID" ColumnName="USER_ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ΣΥΣ_ΩΡΕΣ">
+      <EntityTypeMapping TypeName="AbacusDBModel.ΣΥΣ_ΩΡΕΣ">
+        <MappingFragment StoreEntitySet="ΣΥΣ_ΩΡΕΣ">
+          <ScalarProperty Name="HOUR_TEXT" ColumnName="HOUR_TEXT" />
+          <ScalarProperty Name="HOUR_ID" ColumnName="HOUR_ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ΣΥΣ_ΚΛΑΔΟΙ">
+      <EntityTypeMapping TypeName="AbacusDBModel.ΣΥΣ_ΚΛΑΔΟΙ">
+        <MappingFragment StoreEntitySet="ΣΥΣ_ΚΛΑΔΟΙ">
+          <ScalarProperty Name="ΜΙΣΘΟΣ" ColumnName="ΜΙΣΘΟΣ" />
+          <ScalarProperty Name="ΚΛΑΔΟΣ" ColumnName="ΚΛΑΔΟΣ" />
+          <ScalarProperty Name="ΚΛΑΔΟΣ_ΚΩΔ" ColumnName="ΚΛΑΔΟΣ_ΚΩΔ" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ΣΥΣ_ΕΙΔΙΚΟΤΗΤΕΣ">
+      <EntityTypeMapping TypeName="AbacusDBModel.ΣΥΣ_ΕΙΔΙΚΟΤΗΤΕΣ">
+        <MappingFragment StoreEntitySet="ΣΥΣ_ΕΙΔΙΚΟΤΗΤΕΣ">
+          <ScalarProperty Name="EIDIKOTITA_CODE" ColumnName="EIDIKOTITA_CODE" />
+          <ScalarProperty Name="KLADOS" ColumnName="KLADOS" />
+          <ScalarProperty Name="EIDIKOTITA_TEXT" ColumnName="EIDIKOTITA_TEXT" />
+          <ScalarProperty Name="EIDIKOTITA_ID" ColumnName="EIDIKOTITA_ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ΤΜΗΜΑ_ΚΑΤΗΓΟΡΙΑ">
+      <EntityTypeMapping TypeName="AbacusDBModel.ΤΜΗΜΑ_ΚΑΤΗΓΟΡΙΑ">
+        <MappingFragment StoreEntitySet="ΤΜΗΜΑ_ΚΑΤΗΓΟΡΙΑ">
+          <ScalarProperty Name="AGE_END" ColumnName="AGE_END" />
+          <ScalarProperty Name="AGE_START" ColumnName="AGE_START" />
+          <ScalarProperty Name="CATEGORY_TEXT" ColumnName="CATEGORY_TEXT" />
+          <ScalarProperty Name="CATEGORY_ID" ColumnName="CATEGORY_ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ΤΜΗΜΑ">
+      <EntityTypeMapping TypeName="AbacusDBModel.ΤΜΗΜΑ">
+        <MappingFragment StoreEntitySet="ΤΜΗΜΑ">
+          <ScalarProperty Name="ΟΝΟΜΑΣΙΑ" ColumnName="ΟΝΟΜΑΣΙΑ" />
+          <ScalarProperty Name="ΧΑΡΑΚΤΗΡΙΣΜΟΣ" ColumnName="ΧΑΡΑΚΤΗΡΙΣΜΟΣ" />
+          <ScalarProperty Name="ΑΥΞΩΝ_ΑΡΙΘΜΟΣ" ColumnName="ΑΥΞΩΝ_ΑΡΙΘΜΟΣ" />
+          <ScalarProperty Name="ΚΑΤΗΓΟΡΙΑ" ColumnName="ΚΑΤΗΓΟΡΙΑ" />
+          <ScalarProperty Name="ΣΧΟΛΙΚΟ_ΕΤΟΣ" ColumnName="ΣΧΟΛΙΚΟ_ΕΤΟΣ" />
+          <ScalarProperty Name="ΒΝΣ" ColumnName="ΒΝΣ" />
+          <ScalarProperty Name="ΤΜΗΜΑ_ΚΩΔ" ColumnName="ΤΜΗΜΑ_ΚΩΔ" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="sqlSTATION_SELECTOR">
+      <EntityTypeMapping TypeName="AbacusDBModel.sqlSTATION_SELECTOR">
+        <MappingFragment StoreEntitySet="sqlSTATION_SELECTOR">
+          <ScalarProperty Name="ΥΠΕΥΘΥΝΟΣ" ColumnName="ΥΠΕΥΘΥΝΟΣ" />
+          <ScalarProperty Name="ΠΕΡΙΦΕΡΕΙΑΚΗ" ColumnName="ΠΕΡΙΦΕΡΕΙΑΚΗ" />
+          <ScalarProperty Name="ΕΠΩΝΥΜΙΑ_ΠΕΡΙΦΕΡΕΙΑ" ColumnName="ΕΠΩΝΥΜΙΑ_ΠΕΡΙΦΕΡΕΙΑ" />
+          <ScalarProperty Name="ΕΠΩΝΥΜΙΑ" ColumnName="ΕΠΩΝΥΜΙΑ" />
+          <ScalarProperty Name="ΣΤΑΘΜΟΣ_ΚΩΔ" ColumnName="ΣΤΑΘΜΟΣ_ΚΩΔ" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ΣΥΣ_ΑΑ_ΛΑΤΙΝΙΚΟΙ">
+      <EntityTypeMapping TypeName="AbacusDBModel.ΣΥΣ_ΑΑ_ΛΑΤΙΝΙΚΟΙ">
+        <MappingFragment StoreEntitySet="ΣΥΣ_ΑΑ_ΛΑΤΙΝΙΚΟΙ">
+          <ScalarProperty Name="AA_TEXT" ColumnName="AA_TEXT" />
+          <ScalarProperty Name="AA_ID" ColumnName="AA_ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ΣΥΣ_ΠΡΟΣΩΠΙΚΟ">
+      <EntityTypeMapping TypeName="AbacusDBModel.ΣΥΣ_ΠΡΟΣΩΠΙΚΟ">
+        <MappingFragment StoreEntitySet="ΣΥΣ_ΠΡΟΣΩΠΙΚΟ">
+          <ScalarProperty Name="PROSOPIKO_TEXT" ColumnName="PROSOPIKO_TEXT" />
+          <ScalarProperty Name="PROSOPIKO_ID" ColumnName="PROSOPIKO_ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ΠΑΙΔΙΑ_ΕΓΓΡΑΦΕΣ">
+      <EntityTypeMapping TypeName="AbacusDBModel.ΠΑΙΔΙΑ_ΕΓΓΡΑΦΕΣ">
+        <MappingFragment StoreEntitySet="ΠΑΙΔΙΑ_ΕΓΓΡΑΦΕΣ">
+          <ScalarProperty Name="ΣΧΟΛΙΚΟ_ΕΤΟΣ" ColumnName="ΣΧΟΛΙΚΟ_ΕΤΟΣ" />
+          <ScalarProperty Name="ΗΜΝΙΑ_ΠΕΡΑΣ" ColumnName="ΗΜΝΙΑ_ΠΕΡΑΣ" />
+          <ScalarProperty Name="ΗΜΝΙΑ_ΕΓΓΡΑΦΗ" ColumnName="ΗΜΝΙΑ_ΕΓΓΡΑΦΗ" />
+          <ScalarProperty Name="ΤΜΗΜΑ" ColumnName="ΤΜΗΜΑ" />
+          <ScalarProperty Name="ΒΝΣ" ColumnName="ΒΝΣ" />
+          <ScalarProperty Name="ΠΑΙΔΙ_ΚΩΔ" ColumnName="ΠΑΙΔΙ_ΚΩΔ" />
+          <ScalarProperty Name="ΕΓΓΡΑΦΗ_ΚΩΔ" ColumnName="ΕΓΓΡΑΦΗ_ΚΩΔ" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ΣΥΣ_ΜΗΝΕΣ">
+      <EntityTypeMapping TypeName="AbacusDBModel.ΣΥΣ_ΜΗΝΕΣ">
+        <MappingFragment StoreEntitySet="ΣΥΣ_ΜΗΝΕΣ">
+          <ScalarProperty Name="ΜΗΝΑΣ_ΠΕΖΑ" ColumnName="ΜΗΝΑΣ_ΠΕΖΑ" />
+          <ScalarProperty Name="ΜΗΝΑΣ" ColumnName="ΜΗΝΑΣ" />
+          <ScalarProperty Name="ΜΗΝΑΣ_ΚΩΔ" ColumnName="ΜΗΝΑΣ_ΚΩΔ" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ΤΜΗΜΑ_ΠΑΙΔΑΓΩΓΟΣ">
+      <EntityTypeMapping TypeName="AbacusDBModel.ΤΜΗΜΑ_ΠΑΙΔΑΓΩΓΟΣ">
+        <MappingFragment StoreEntitySet="ΤΜΗΜΑ_ΠΑΙΔΑΓΩΓΟΣ">
+          <ScalarProperty Name="ΣΧΟΛΙΚΟ_ΕΤΟΣ" ColumnName="ΣΧΟΛΙΚΟ_ΕΤΟΣ" />
+          <ScalarProperty Name="ΠΑΙΔΑΓΩΓΟΣ_ΚΩΔ" ColumnName="ΠΑΙΔΑΓΩΓΟΣ_ΚΩΔ" />
+          <ScalarProperty Name="ΤΜΗΜΑ_ΚΩΔ" ColumnName="ΤΜΗΜΑ_ΚΩΔ" />
+          <ScalarProperty Name="ΒΝΣ" ColumnName="ΒΝΣ" />
+          <ScalarProperty Name="RECORD_ID" ColumnName="RECORD_ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ΠΡΟΣΩΠΙΚΟ">
+      <EntityTypeMapping TypeName="AbacusDBModel.ΠΡΟΣΩΠΙΚΟ">
+        <MappingFragment StoreEntitySet="ΠΡΟΣΩΠΙΚΟ">
+          <ScalarProperty Name="ΑΠΟΧΩΡΗΣΗ_ΗΜΝΙΑ" ColumnName="ΑΠΟΧΩΡΗΣΗ_ΗΜΝΙΑ" />
+          <ScalarProperty Name="ΑΠΟΧΩΡΗΣΗ_ΑΙΤΙΑ" ColumnName="ΑΠΟΧΩΡΗΣΗ_ΑΙΤΙΑ" />
+          <ScalarProperty Name="ΑΠΟΧΩΡΗΣΕ" ColumnName="ΑΠΟΧΩΡΗΣΕ" />
+          <ScalarProperty Name="ΒΑΘΜΟΣ" ColumnName="ΒΑΘΜΟΣ" />
+          <ScalarProperty Name="ΑΠΟΦΑΣΗ_ΦΕΚ" ColumnName="ΑΠΟΦΑΣΗ_ΦΕΚ" />
+          <ScalarProperty Name="ΦΥΛΟ_ΚΩΔ" ColumnName="ΦΥΛΟ_ΚΩΔ" />
+          <ScalarProperty Name="ΠΑΡΑΤΗΡΗΣΕΙΣ" ColumnName="ΠΑΡΑΤΗΡΗΣΕΙΣ" />
+          <ScalarProperty Name="ΠΡΟΣΩΠΙΚΟ_ΕΙΔΟΣ" ColumnName="ΠΡΟΣΩΠΙΚΟ_ΕΙΔΟΣ" />
+          <ScalarProperty Name="ΕΙΔΙΚΟΤΗΤΑ" ColumnName="ΕΙΔΙΚΟΤΗΤΑ" />
+          <ScalarProperty Name="ΚΛΑΔΟΣ" ColumnName="ΚΛΑΔΟΣ" />
+          <ScalarProperty Name="EMAIL" ColumnName="EMAIL" />
+          <ScalarProperty Name="ΤΗΛΕΦΩΝΑ" ColumnName="ΤΗΛΕΦΩΝΑ" />
+          <ScalarProperty Name="ΔΙΕΥΘΥΝΣΗ" ColumnName="ΔΙΕΥΘΥΝΣΗ" />
+          <ScalarProperty Name="ΗΛΙΚΙΑ" ColumnName="ΗΛΙΚΙΑ" />
+          <ScalarProperty Name="ΕΤΟΣ_ΓΕΝΝΗΣΗ" ColumnName="ΕΤΟΣ_ΓΕΝΝΗΣΗ" />
+          <ScalarProperty Name="ΜΗΤΡΩΝΥΜΟ" ColumnName="ΜΗΤΡΩΝΥΜΟ" />
+          <ScalarProperty Name="ΠΑΤΡΩΝΥΜΟ" ColumnName="ΠΑΤΡΩΝΥΜΟ" />
+          <ScalarProperty Name="ΟΝΟΜΑ" ColumnName="ΟΝΟΜΑ" />
+          <ScalarProperty Name="ΕΠΩΝΥΜΟ" ColumnName="ΕΠΩΝΥΜΟ" />
+          <ScalarProperty Name="ΑΦΜ" ColumnName="ΑΦΜ" />
+          <ScalarProperty Name="ΜΗΤΡΩΟ" ColumnName="ΜΗΤΡΩΟ" />
+          <ScalarProperty Name="ΒΝΣ" ColumnName="ΒΝΣ" />
+          <ScalarProperty Name="PERSONNEL_ID" ColumnName="PERSONNEL_ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ΠΑΙΔΙΑ">
+      <EntityTypeMapping TypeName="AbacusDBModel.ΠΑΙΔΙΑ">
+        <MappingFragment StoreEntitySet="ΠΑΙΔΙΑ">
+          <ScalarProperty Name="AGE" ColumnName="AGE" />
+          <ScalarProperty Name="ΠΑΡΑΤΗΡΗΣΕΙΣ" ColumnName="ΠΑΡΑΤΗΡΗΣΕΙΣ" />
+          <ScalarProperty Name="ΕΝΕΡΓΟΣ" ColumnName="ΕΝΕΡΓΟΣ" />
+          <ScalarProperty Name="ΕΞΟΔΟΣ_ΗΜΝΙΑ" ColumnName="ΕΞΟΔΟΣ_ΗΜΝΙΑ" />
+          <ScalarProperty Name="ΕΙΣΟΔΟΣ_ΗΜΝΙΑ" ColumnName="ΕΙΣΟΔΟΣ_ΗΜΝΙΑ" />
+          <ScalarProperty Name="EMAIL" ColumnName="EMAIL" />
+          <ScalarProperty Name="ΤΗΛΕΦΩΝΑ" ColumnName="ΤΗΛΕΦΩΝΑ" />
+          <ScalarProperty Name="ΔΙΕΥΘΥΝΣΗ" ColumnName="ΔΙΕΥΘΥΝΣΗ" />
+          <ScalarProperty Name="ΜΗΤΡΩΝΥΜΟ" ColumnName="ΜΗΤΡΩΝΥΜΟ" />
+          <ScalarProperty Name="ΠΑΤΡΩΝΥΜΟ" ColumnName="ΠΑΤΡΩΝΥΜΟ" />
+          <ScalarProperty Name="ΑΦΜ" ColumnName="ΑΦΜ" />
+          <ScalarProperty Name="ΗΛΙΚΙΑ" ColumnName="ΗΛΙΚΙΑ" />
+          <ScalarProperty Name="ΗΜΝΙΑ_ΓΕΝΝΗΣΗ" ColumnName="ΗΜΝΙΑ_ΓΕΝΝΗΣΗ" />
+          <ScalarProperty Name="ΦΥΛΟ" ColumnName="ΦΥΛΟ" />
+          <ScalarProperty Name="ΟΝΟΜΑ" ColumnName="ΟΝΟΜΑ" />
+          <ScalarProperty Name="ΕΠΩΝΥΜΟ" ColumnName="ΕΠΩΝΥΜΟ" />
+          <ScalarProperty Name="ΑΜΚΑ" ColumnName="ΑΜΚΑ" />
+          <ScalarProperty Name="ΑΜ" ColumnName="ΑΜ" />
+          <ScalarProperty Name="ΒΝΣ" ColumnName="ΒΝΣ" />
+          <ScalarProperty Name="CHILD_ID" ColumnName="CHILD_ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="sqlCHILDREN_INFO">
+      <EntityTypeMapping TypeName="AbacusDBModel.sqlCHILDREN_INFO">
+        <MappingFragment StoreEntitySet="sqlCHILDREN_INFO">
+          <ScalarProperty Name="ΕΝΕΡΓΟΣ" ColumnName="ΕΝΕΡΓΟΣ" />
+          <ScalarProperty Name="ΣΤΑΘΜΟΣ_ΚΩΔ" ColumnName="ΣΤΑΘΜΟΣ_ΚΩΔ" />
+          <ScalarProperty Name="ΠΕΡΙΦΕΡΕΙΑΚΗ" ColumnName="ΠΕΡΙΦΕΡΕΙΑΚΗ" />
+          <ScalarProperty Name="EMAIL" ColumnName="EMAIL" />
+          <ScalarProperty Name="ΤΗΛΕΦΩΝΑ" ColumnName="ΤΗΛΕΦΩΝΑ" />
+          <ScalarProperty Name="ΔΙΕΥΘΥΝΣΗ" ColumnName="ΔΙΕΥΘΥΝΣΗ" />
+          <ScalarProperty Name="ΜΗΤΡΩΝΥΜΟ" ColumnName="ΜΗΤΡΩΝΥΜΟ" />
+          <ScalarProperty Name="ΠΑΤΡΩΝΥΜΟ" ColumnName="ΠΑΤΡΩΝΥΜΟ" />
+          <ScalarProperty Name="ΗΛΙΚΙΑ" ColumnName="ΗΛΙΚΙΑ" />
+          <ScalarProperty Name="ΗΜΝΙΑ_ΓΕΝΝΗΣΗ" ColumnName="ΗΜΝΙΑ_ΓΕΝΝΗΣΗ" />
+          <ScalarProperty Name="ΦΥΛΟ" ColumnName="ΦΥΛΟ" />
+          <ScalarProperty Name="ΟΝΟΜΑΤΕΠΩΝΥΜΟ" ColumnName="ΟΝΟΜΑΤΕΠΩΝΥΜΟ" />
+          <ScalarProperty Name="ΑΜ" ColumnName="ΑΜ" />
+          <ScalarProperty Name="ΒΝΣ" ColumnName="ΒΝΣ" />
+          <ScalarProperty Name="CHILD_ID" ColumnName="CHILD_ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="sqlEGRAFES_INFO">
+      <EntityTypeMapping TypeName="AbacusDBModel.sqlEGRAFES_INFO">
+        <MappingFragment StoreEntitySet="sqlEGRAFES_INFO">
+          <ScalarProperty Name="ΗΜΝΙΑ_ΠΕΡΑΣ" ColumnName="ΗΜΝΙΑ_ΠΕΡΑΣ" />
+          <ScalarProperty Name="ΗΜΝΙΑ_ΕΓΓΡΑΦΗ" ColumnName="ΗΜΝΙΑ_ΕΓΓΡΑΦΗ" />
+          <ScalarProperty Name="ΤΜΗΜΑ_ΟΝΟΜΑ" ColumnName="ΤΜΗΜΑ_ΟΝΟΜΑ" />
+          <ScalarProperty Name="ΒΝΣ" ColumnName="ΒΝΣ" />
+          <ScalarProperty Name="ΠΑΙΔΙ_ΚΩΔ" ColumnName="ΠΑΙΔΙ_ΚΩΔ" />
+          <ScalarProperty Name="ΕΓΓΡΑΦΗ_ΚΩΔ" ColumnName="ΕΓΓΡΑΦΗ_ΚΩΔ" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="sqlPERSONNEL_INFO">
+      <EntityTypeMapping TypeName="AbacusDBModel.sqlPERSONNEL_INFO">
+        <MappingFragment StoreEntitySet="sqlPERSONNEL_INFO">
+          <ScalarProperty Name="ΑΠΟΧΩΡΗΣΕ" ColumnName="ΑΠΟΧΩΡΗΣΕ" />
+          <ScalarProperty Name="ΠΕΡΙΦΕΡΕΙΑΚΗ" ColumnName="ΠΕΡΙΦΕΡΕΙΑΚΗ" />
+          <ScalarProperty Name="PROSOPIKO_TEXT" ColumnName="PROSOPIKO_TEXT" />
+          <ScalarProperty Name="EIDIKOTITA_TEXT" ColumnName="EIDIKOTITA_TEXT" />
+          <ScalarProperty Name="EIDIKOTITA_CODE" ColumnName="EIDIKOTITA_CODE" />
+          <ScalarProperty Name="EMAIL" ColumnName="EMAIL" />
+          <ScalarProperty Name="ΤΗΛΕΦΩΝΑ" ColumnName="ΤΗΛΕΦΩΝΑ" />
+          <ScalarProperty Name="ΔΙΕΥΘΥΝΣΗ" ColumnName="ΔΙΕΥΘΥΝΣΗ" />
+          <ScalarProperty Name="ΗΛΙΚΙΑ" ColumnName="ΗΛΙΚΙΑ" />
+          <ScalarProperty Name="ΕΤΟΣ_ΓΕΝΝΗΣΗ" ColumnName="ΕΤΟΣ_ΓΕΝΝΗΣΗ" />
+          <ScalarProperty Name="ΦΥΛΟ" ColumnName="ΦΥΛΟ" />
+          <ScalarProperty Name="ΜΗΤΡΩΝΥΜΟ" ColumnName="ΜΗΤΡΩΝΥΜΟ" />
+          <ScalarProperty Name="ΠΑΤΡΩΝΥΜΟ" ColumnName="ΠΑΤΡΩΝΥΜΟ" />
+          <ScalarProperty Name="ΟΝΟΜΑΤΕΠΩΝΥΜΟ" ColumnName="ΟΝΟΜΑΤΕΠΩΝΥΜΟ" />
+          <ScalarProperty Name="ΑΦΜ" ColumnName="ΑΦΜ" />
+          <ScalarProperty Name="ΜΗΤΡΩΟ" ColumnName="ΜΗΤΡΩΟ" />
+          <ScalarProperty Name="ΒΝΣ_ΕΠΩΝΥΜΙΑ" ColumnName="ΒΝΣ_ΕΠΩΝΥΜΙΑ" />
+          <ScalarProperty Name="ΣΤΑΘΜΟΣ_ΚΩΔ" ColumnName="ΣΤΑΘΜΟΣ_ΚΩΔ" />
+          <ScalarProperty Name="PERSONNEL_ID" ColumnName="PERSONNEL_ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="sqlEDUCATOR_TMIMA_INFO">
+      <EntityTypeMapping TypeName="AbacusDBModel.sqlEDUCATOR_TMIMA_INFO">
+        <MappingFragment StoreEntitySet="sqlEDUCATOR_TMIMA_INFO">
+          <ScalarProperty Name="ΤΜΗΜΑ_ΟΝΟΜΑ" ColumnName="ΤΜΗΜΑ_ΟΝΟΜΑ" />
+          <ScalarProperty Name="ΣΧΟΛΙΚΟ_ΕΤΟΣ" ColumnName="ΣΧΟΛΙΚΟ_ΕΤΟΣ" />
+          <ScalarProperty Name="ΠΑΙΔΑΓΩΓΟΣ_ΚΩΔ" ColumnName="ΠΑΙΔΑΓΩΓΟΣ_ΚΩΔ" />
+          <ScalarProperty Name="ΒΝΣ" ColumnName="ΒΝΣ" />
+          <ScalarProperty Name="RECORD_ID" ColumnName="RECORD_ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="sqlTMIMATA_INFO">
+      <EntityTypeMapping TypeName="AbacusDBModel.sqlTMIMATA_INFO">
+        <MappingFragment StoreEntitySet="sqlTMIMATA_INFO">
+          <ScalarProperty Name="ΠΕΡΙΦΕΡΕΙΑΚΗ" ColumnName="ΠΕΡΙΦΕΡΕΙΑΚΗ" />
+          <ScalarProperty Name="ΒΝΣ_ΟΝΟΜΑ" ColumnName="ΒΝΣ_ΟΝΟΜΑ" />
+          <ScalarProperty Name="ΤΜΗΜΑ_ΟΝΟΜΑ" ColumnName="ΤΜΗΜΑ_ΟΝΟΜΑ" />
+          <ScalarProperty Name="ΣΧΟΛΙΚΟ_ΕΤΟΣ" ColumnName="ΣΧΟΛΙΚΟ_ΕΤΟΣ" />
+          <ScalarProperty Name="ΒΝΣ" ColumnName="ΒΝΣ" />
+          <ScalarProperty Name="SCHOOLYEAR_ID" ColumnName="SCHOOLYEAR_ID" />
+          <ScalarProperty Name="ΤΜΗΜΑ_ΚΩΔ" ColumnName="ΤΜΗΜΑ_ΚΩΔ" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="sqlPERSONNEL_SELECTOR">
+      <EntityTypeMapping TypeName="AbacusDBModel.sqlPERSONNEL_SELECTOR">
+        <MappingFragment StoreEntitySet="sqlPERSONNEL_SELECTOR">
+          <ScalarProperty Name="ΒΝΣ" ColumnName="ΒΝΣ" />
+          <ScalarProperty Name="ΠΡΟΣΩΠΙΚΟ_ΕΙΔΟΣ" ColumnName="ΠΡΟΣΩΠΙΚΟ_ΕΙΔΟΣ" />
+          <ScalarProperty Name="ΟΝΟΜΑΤΕΠΩΝΥΜΟ" ColumnName="ΟΝΟΜΑΤΕΠΩΝΥΜΟ" />
+          <ScalarProperty Name="PERSONNEL_ID" ColumnName="PERSONNEL_ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ΠΡΟΓΡΑΜΜΑ_ΗΜΕΡΑ">
+      <EntityTypeMapping TypeName="AbacusDBModel.ΠΡΟΓΡΑΜΜΑ_ΗΜΕΡΑ">
+        <MappingFragment StoreEntitySet="ΠΡΟΓΡΑΜΜΑ_ΗΜΕΡΑ">
+          <ScalarProperty Name="SCHOOLYEARID" ColumnName="SCHOOLYEARID" />
+          <ScalarProperty Name="PROGRAMMA_MONTH" ColumnName="PROGRAMMA_MONTH" />
+          <ScalarProperty Name="STATION_ID" ColumnName="STATION_ID" />
+          <ScalarProperty Name="PERSON_ID" ColumnName="PERSON_ID" />
+          <ScalarProperty Name="HOUR_END" ColumnName="HOUR_END" />
+          <ScalarProperty Name="HOUR_START" ColumnName="HOUR_START" />
+          <ScalarProperty Name="PROGRAMMA_DATE" ColumnName="PROGRAMMA_DATE" />
+          <ScalarProperty Name="PROGRAMMA_ID" ColumnName="PROGRAMMA_ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="sqlTMIMA_CHILDREN">
+      <EntityTypeMapping TypeName="AbacusDBModel.sqlTMIMA_CHILDREN">
+        <MappingFragment StoreEntitySet="sqlTMIMA_CHILDREN">
+          <ScalarProperty Name="ΗΜΝΙΑ_ΕΓΓΡΑΦΗ" ColumnName="ΗΜΝΙΑ_ΕΓΓΡΑΦΗ" />
+          <ScalarProperty Name="ΠΑΤΡΩΝΥΜΟ" ColumnName="ΠΑΤΡΩΝΥΜΟ" />
+          <ScalarProperty Name="ΗΛΙΚΙΑ" ColumnName="ΗΛΙΚΙΑ" />
+          <ScalarProperty Name="ΦΥΛΟ" ColumnName="ΦΥΛΟ" />
+          <ScalarProperty Name="ΟΝΟΜΑΤΕΠΩΝΥΜΟ" ColumnName="ΟΝΟΜΑΤΕΠΩΝΥΜΟ" />
+          <ScalarProperty Name="ΑΜ" ColumnName="ΑΜ" />
+          <ScalarProperty Name="ΒΝΣ" ColumnName="ΒΝΣ" />
+          <ScalarProperty Name="ΤΜΗΜΑ" ColumnName="ΤΜΗΜΑ" />
+          <ScalarProperty Name="CHILD_ID" ColumnName="CHILD_ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ΠΑΙΔΙΑ_ΠΑΡΟΥΣΙΕΣ">
+      <EntityTypeMapping TypeName="AbacusDBModel.ΠΑΙΔΙΑ_ΠΑΡΟΥΣΙΕΣ">
+        <MappingFragment StoreEntitySet="ΠΑΙΔΙΑ_ΠΑΡΟΥΣΙΕΣ">
+          <ScalarProperty Name="PRESENCE" ColumnName="PRESENCE" />
+          <ScalarProperty Name="PAROUSIA_DATE" ColumnName="PAROUSIA_DATE" />
+          <ScalarProperty Name="PAROUSIA_MONTH" ColumnName="PAROUSIA_MONTH" />
+          <ScalarProperty Name="TMIMA_ID" ColumnName="TMIMA_ID" />
+          <ScalarProperty Name="SCHOOLYEARID" ColumnName="SCHOOLYEARID" />
+          <ScalarProperty Name="STATION_ID" ColumnName="STATION_ID" />
+          <ScalarProperty Name="CHILD_ID" ColumnName="CHILD_ID" />
+          <ScalarProperty Name="PAROUSIA_ID" ColumnName="PAROUSIA_ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="sqlCHILD_SELECTOR">
+      <EntityTypeMapping TypeName="AbacusDBModel.sqlCHILD_SELECTOR">
+        <MappingFragment StoreEntitySet="sqlCHILD_SELECTOR">
+          <ScalarProperty Name="ΟΝΟΜΑΤΕΠΩΝΥΜΟ" ColumnName="ΟΝΟΜΑΤΕΠΩΝΥΜΟ" />
+          <ScalarProperty Name="CHILD_ID" ColumnName="CHILD_ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="sqlCHILD_TMIMA_SELECTOR">
+      <EntityTypeMapping TypeName="AbacusDBModel.sqlCHILD_TMIMA_SELECTOR">
+        <MappingFragment StoreEntitySet="sqlCHILD_TMIMA_SELECTOR">
+          <ScalarProperty Name="ΤΜΗΜΑ" ColumnName="ΤΜΗΜΑ" />
+          <ScalarProperty Name="ΟΝΟΜΑΤΕΠΩΝΥΜΟ" ColumnName="ΟΝΟΜΑΤΕΠΩΝΥΜΟ" />
+          <ScalarProperty Name="ΒΝΣ" ColumnName="ΒΝΣ" />
+          <ScalarProperty Name="CHILD_ID" ColumnName="CHILD_ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="repΠΑΡΟΥΣΙΕΣ_ΜΗΝΑΣ">
+      <EntityTypeMapping TypeName="AbacusDBModel.repΠΑΡΟΥΣΙΕΣ_ΜΗΝΑΣ">
+        <MappingFragment StoreEntitySet="repΠΑΡΟΥΣΙΕΣ_ΜΗΝΑΣ">
+          <ScalarProperty Name="ΠΑΤΡΩΝΥΜΟ" ColumnName="ΠΑΤΡΩΝΥΜΟ" />
+          <ScalarProperty Name="ΣΧΟΛΙΚΟ_ΕΤΟΣ" ColumnName="ΣΧΟΛΙΚΟ_ΕΤΟΣ" />
+          <ScalarProperty Name="SCHOOLYEAR_ID" ColumnName="SCHOOLYEAR_ID" />
+          <ScalarProperty Name="PAROUSIA_MONTH" ColumnName="PAROUSIA_MONTH" />
+          <ScalarProperty Name="ΠΛΗΘΟΣ" ColumnName="ΠΛΗΘΟΣ" />
+          <ScalarProperty Name="ΟΝΟΜΑΤΕΠΩΝΥΜΟ" ColumnName="ΟΝΟΜΑΤΕΠΩΝΥΜΟ" />
+          <ScalarProperty Name="ΑΜ" ColumnName="ΑΜ" />
+          <ScalarProperty Name="ΤΜΗΜΑ_ΟΝΟΜΑ" ColumnName="ΤΜΗΜΑ_ΟΝΟΜΑ" />
+          <ScalarProperty Name="TMIMA_ID" ColumnName="TMIMA_ID" />
+          <ScalarProperty Name="ΒΝΣ" ColumnName="ΒΝΣ" />
+          <ScalarProperty Name="CHILD_ID" ColumnName="CHILD_ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ΠΑΡΟΥΣΙΕΣ_ΜΗΝΕΣ">
+      <EntityTypeMapping TypeName="AbacusDBModel.ΠΑΡΟΥΣΙΕΣ_ΜΗΝΕΣ">
+        <MappingFragment StoreEntitySet="ΠΑΡΟΥΣΙΕΣ_ΜΗΝΕΣ">
+          <ScalarProperty Name="ΠΑΡΑΤΗΡΗΣΕΙΣ" ColumnName="ΠΑΡΑΤΗΡΗΣΕΙΣ" />
+          <ScalarProperty Name="ΣΧΟΛΙΚΟ_ΕΤΟΣ" ColumnName="ΣΧΟΛΙΚΟ_ΕΤΟΣ" />
+          <ScalarProperty Name="SCHOOLYEAR_ID" ColumnName="SCHOOLYEAR_ID" />
+          <ScalarProperty Name="PAROUSIA_MONTH" ColumnName="PAROUSIA_MONTH" />
+          <ScalarProperty Name="ΠΛΗΘΟΣ" ColumnName="ΠΛΗΘΟΣ" />
+          <ScalarProperty Name="ΟΝΟΜΑΤΕΠΩΝΥΜΟ" ColumnName="ΟΝΟΜΑΤΕΠΩΝΥΜΟ" />
+          <ScalarProperty Name="ΑΜ" ColumnName="ΑΜ" />
+          <ScalarProperty Name="ΤΜΗΜΑ_ΟΝΟΜΑ" ColumnName="ΤΜΗΜΑ_ΟΝΟΜΑ" />
+          <ScalarProperty Name="TMIMA_ID" ColumnName="TMIMA_ID" />
+          <ScalarProperty Name="ΒΝΣ" ColumnName="ΒΝΣ" />
+          <ScalarProperty Name="CHILD_ID" ColumnName="CHILD_ID" />
+          <ScalarProperty Name="ROW_ID" ColumnName="ROW_ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="sqlCHILD_APOUSIES_DETAIL">
+      <EntityTypeMapping TypeName="AbacusDBModel.sqlCHILD_APOUSIES_DETAIL">
+        <MappingFragment StoreEntitySet="sqlCHILD_APOUSIES_DETAIL">
+          <ScalarProperty Name="ΣΧΟΛΙΚΟ_ΕΤΟΣ" ColumnName="ΣΧΟΛΙΚΟ_ΕΤΟΣ" />
+          <ScalarProperty Name="SCHOOLYEAR_ID" ColumnName="SCHOOLYEAR_ID" />
+          <ScalarProperty Name="ΤΜΗΜΑ_ΟΝΟΜΑ" ColumnName="ΤΜΗΜΑ_ΟΝΟΜΑ" />
+          <ScalarProperty Name="ΟΝΟΜΑΤΕΠΩΝΥΜΟ" ColumnName="ΟΝΟΜΑΤΕΠΩΝΥΜΟ" />
+          <ScalarProperty Name="PAROUSIA_DATE" ColumnName="PAROUSIA_DATE" />
+          <ScalarProperty Name="ΜΗΝΑΣ" ColumnName="ΜΗΝΑΣ" />
+          <ScalarProperty Name="PAROUSIA_MONTH" ColumnName="PAROUSIA_MONTH" />
+          <ScalarProperty Name="TMIMA_ID" ColumnName="TMIMA_ID" />
+          <ScalarProperty Name="STATION_ID" ColumnName="STATION_ID" />
+          <ScalarProperty Name="CHILD_ID" ColumnName="CHILD_ID" />
+          <ScalarProperty Name="PAROUSIA_ID" ColumnName="PAROUSIA_ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="sqlCHILD_APOUSIES_SUM">
+      <EntityTypeMapping TypeName="AbacusDBModel.sqlCHILD_APOUSIES_SUM">
+        <MappingFragment StoreEntitySet="sqlCHILD_APOUSIES_SUM">
+          <ScalarProperty Name="ΣΧΟΛΙΚΟ_ΕΤΟΣ" ColumnName="ΣΧΟΛΙΚΟ_ΕΤΟΣ" />
+          <ScalarProperty Name="SCHOOLYEAR_ID" ColumnName="SCHOOLYEAR_ID" />
+          <ScalarProperty Name="ΤΜΗΜΑ_ΟΝΟΜΑ" ColumnName="ΤΜΗΜΑ_ΟΝΟΜΑ" />
+          <ScalarProperty Name="ΟΝΟΜΑΤΕΠΩΝΥΜΟ" ColumnName="ΟΝΟΜΑΤΕΠΩΝΥΜΟ" />
+          <ScalarProperty Name="ΑPOUSIES" ColumnName="ΑPOUSIES" />
+          <ScalarProperty Name="ΜΗΝΑΣ" ColumnName="ΜΗΝΑΣ" />
+          <ScalarProperty Name="PAROUSIA_MONTH" ColumnName="PAROUSIA_MONTH" />
+          <ScalarProperty Name="TMIMA_ID" ColumnName="TMIMA_ID" />
+          <ScalarProperty Name="STATION_ID" ColumnName="STATION_ID" />
+          <ScalarProperty Name="CHILD_ID" ColumnName="CHILD_ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ΣΥΣ_ΜΕΤΑΒΟΛΕΣ">
+      <EntityTypeMapping TypeName="AbacusDBModel.ΣΥΣ_ΜΕΤΑΒΟΛΕΣ">
+        <MappingFragment StoreEntitySet="ΣΥΣ_ΜΕΤΑΒΟΛΕΣ">
+          <ScalarProperty Name="METABOLI_TEXT" ColumnName="METABOLI_TEXT" />
+          <ScalarProperty Name="METABOLI_ID" ColumnName="METABOLI_ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ΠΡΟΣΩΠΙΚΟ_ΜΕΤΑΒΟΛΕΣ">
+      <EntityTypeMapping TypeName="AbacusDBModel.ΠΡΟΣΩΠΙΚΟ_ΜΕΤΑΒΟΛΕΣ">
+        <MappingFragment StoreEntitySet="ΠΡΟΣΩΠΙΚΟ_ΜΕΤΑΒΟΛΕΣ">
+          <ScalarProperty Name="ΜΕΤΑΒΟΛΗ_ΕΙΔΟΣ" ColumnName="ΜΕΤΑΒΟΛΗ_ΕΙΔΟΣ" />
+          <ScalarProperty Name="ΜΕΤΑΒΟΛΗ_ΜΗΝΑΣ" ColumnName="ΜΕΤΑΒΟΛΗ_ΜΗΝΑΣ" />
+          <ScalarProperty Name="ΣΧΟΛΙΚΟ_ΕΤΟΣ" ColumnName="ΣΧΟΛΙΚΟ_ΕΤΟΣ" />
+          <ScalarProperty Name="ΗΜΕΡΕΣ" ColumnName="ΗΜΕΡΕΣ" />
+          <ScalarProperty Name="ΗΜΝΙΑ_ΕΩΣ" ColumnName="ΗΜΝΙΑ_ΕΩΣ" />
+          <ScalarProperty Name="ΗΜΝΙΑ_ΑΠΟ" ColumnName="ΗΜΝΙΑ_ΑΠΟ" />
+          <ScalarProperty Name="ΥΠΑΛΛΗΛΟΣ_ΚΩΔ" ColumnName="ΥΠΑΛΛΗΛΟΣ_ΚΩΔ" />
+          <ScalarProperty Name="ΒΝΣ" ColumnName="ΒΝΣ" />
+          <ScalarProperty Name="ΜΕΤΑΒΟΛΗ_ΚΩΔ" ColumnName="ΜΕΤΑΒΟΛΗ_ΚΩΔ" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="METABOLES_REPORT">
+      <EntityTypeMapping TypeName="AbacusDBModel.METABOLES_REPORT">
+        <MappingFragment StoreEntitySet="METABOLES_REPORT">
+          <ScalarProperty Name="METABOLI_DAYS" ColumnName="METABOLI_DAYS" />
+          <ScalarProperty Name="METABOLI_YEAR" ColumnName="METABOLI_YEAR" />
+          <ScalarProperty Name="METABOLI_TEXT" ColumnName="METABOLI_TEXT" />
+          <ScalarProperty Name="METABOLI_MONTH" ColumnName="METABOLI_MONTH" />
+          <ScalarProperty Name="SCHOOL_YEAR" ColumnName="SCHOOL_YEAR" />
+          <ScalarProperty Name="EMPLOYEE_ID" ColumnName="EMPLOYEE_ID" />
+          <ScalarProperty Name="BNS" ColumnName="BNS" />
+          <ScalarProperty Name="RECORD_ID" ColumnName="RECORD_ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ΣΥΣ_ΒΑΘΜΟΙ">
+      <EntityTypeMapping TypeName="AbacusDBModel.ΣΥΣ_ΒΑΘΜΟΙ">
+        <MappingFragment StoreEntitySet="ΣΥΣ_ΒΑΘΜΟΙ">
+          <ScalarProperty Name="ΒΑΘΜΟΣ_ΛΕΚΤΙΚΟ" ColumnName="ΒΑΘΜΟΣ_ΛΕΚΤΙΚΟ" />
+          <ScalarProperty Name="ΒΑΘΜΟΣ_ΚΩΔ" ColumnName="ΒΑΘΜΟΣ_ΚΩΔ" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="srcMETABOLES_REPORT">
+      <EntityTypeMapping TypeName="AbacusDBModel.srcMETABOLES_REPORT">
+        <MappingFragment StoreEntitySet="srcMETABOLES_REPORT">
+          <ScalarProperty Name="ΕΤΟΣ" ColumnName="ΕΤΟΣ" />
+          <ScalarProperty Name="METABOLI_TEXT" ColumnName="METABOLI_TEXT" />
+          <ScalarProperty Name="ΜΕΤΑΒΟΛΗ_ΜΗΝΑΣ" ColumnName="ΜΕΤΑΒΟΛΗ_ΜΗΝΑΣ" />
+          <ScalarProperty Name="ΣΧΟΛΙΚΟ_ΕΤΟΣ" ColumnName="ΣΧΟΛΙΚΟ_ΕΤΟΣ" />
+          <ScalarProperty Name="ΗΜΕΡΕΣ" ColumnName="ΗΜΕΡΕΣ" />
+          <ScalarProperty Name="ΗΜΝΙΑ_ΕΩΣ" ColumnName="ΗΜΝΙΑ_ΕΩΣ" />
+          <ScalarProperty Name="ΗΜΝΙΑ_ΑΠΟ" ColumnName="ΗΜΝΙΑ_ΑΠΟ" />
+          <ScalarProperty Name="ΥΠΑΛΛΗΛΟΣ_ΚΩΔ" ColumnName="ΥΠΑΛΛΗΛΟΣ_ΚΩΔ" />
+          <ScalarProperty Name="ΒΝΣ" ColumnName="ΒΝΣ" />
+          <ScalarProperty Name="ΜΕΤΑΒΟΛΗ_ΚΩΔ" ColumnName="ΜΕΤΑΒΟΛΗ_ΚΩΔ" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="srcPERSONNEL_DATA">
+      <EntityTypeMapping TypeName="AbacusDBModel.srcPERSONNEL_DATA">
+        <MappingFragment StoreEntitySet="srcPERSONNEL_DATA">
+          <ScalarProperty Name="ΑΠΟΦΑΣΗ_ΦΕΚ" ColumnName="ΑΠΟΦΑΣΗ_ΦΕΚ" />
+          <ScalarProperty Name="ΒΑΘΜΟΣ_ΛΕΚΤΙΚΟ" ColumnName="ΒΑΘΜΟΣ_ΛΕΚΤΙΚΟ" />
+          <ScalarProperty Name="ΚΛΑΔΟΣ_ΚΩΔΙΚΟΣ" ColumnName="ΚΛΑΔΟΣ_ΚΩΔΙΚΟΣ" />
+          <ScalarProperty Name="ΟΝΟΜΑΤΕΠΩΝΥΜΟ" ColumnName="ΟΝΟΜΑΤΕΠΩΝΥΜΟ" />
+          <ScalarProperty Name="ΜΗΤΡΩΟ" ColumnName="ΜΗΤΡΩΟ" />
+          <ScalarProperty Name="ΒΝΣ_ΕΠΩΝΥΜΙΑ" ColumnName="ΒΝΣ_ΕΠΩΝΥΜΙΑ" />
+          <ScalarProperty Name="ΒΝΣ" ColumnName="ΒΝΣ" />
+          <ScalarProperty Name="PERSONNEL_ID" ColumnName="PERSONNEL_ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ΣΥΣ_ΕΤΗ">
+      <EntityTypeMapping TypeName="AbacusDBModel.ΣΥΣ_ΕΤΗ">
+        <MappingFragment StoreEntitySet="ΣΥΣ_ΕΤΗ">
+          <ScalarProperty Name="ΕΤΟΣ" ColumnName="ΕΤΟΣ" />
+          <ScalarProperty Name="ΕΤΟΣ_ΚΩΔ" ColumnName="ΕΤΟΣ_ΚΩΔ" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Δ_ΑΝΤΙΠΡΟΕΔΡΟΙ">
+      <EntityTypeMapping TypeName="AbacusDBModel.Δ_ΑΝΤΙΠΡΟΕΔΡΟΙ">
+        <MappingFragment StoreEntitySet="Δ_ΑΝΤΙΠΡΟΕΔΡΟΙ">
+          <ScalarProperty Name="ΒΑΘΜΟΣ" ColumnName="ΒΑΘΜΟΣ" />
+          <ScalarProperty Name="ΦΥΛΟ" ColumnName="ΦΥΛΟ" />
+          <ScalarProperty Name="ΑΝΤΙΠΡΟΕΔΡΟΣ" ColumnName="ΑΝΤΙΠΡΟΕΔΡΟΣ" />
+          <ScalarProperty Name="ΣΧΟΛΙΚΟ_ΕΤΟΣ" ColumnName="ΣΧΟΛΙΚΟ_ΕΤΟΣ" />
+          <ScalarProperty Name="ΑΝΤΙΠΡΟΕΔΡΟΣ_ΚΩΔ" ColumnName="ΑΝΤΙΠΡΟΕΔΡΟΣ_ΚΩΔ" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Δ_ΔΙΑΧΕΙΡΙΣΤΕΣ">
+      <EntityTypeMapping TypeName="AbacusDBModel.Δ_ΔΙΑΧΕΙΡΙΣΤΕΣ">
+        <MappingFragment StoreEntitySet="Δ_ΔΙΑΧΕΙΡΙΣΤΕΣ">
+          <ScalarProperty Name="ΦΥΛΟ" ColumnName="ΦΥΛΟ" />
+          <ScalarProperty Name="ΦΑΞ" ColumnName="ΦΑΞ" />
+          <ScalarProperty Name="ΤΗΛΕΦΩΝΟ" ColumnName="ΤΗΛΕΦΩΝΟ" />
+          <ScalarProperty Name="ΟΝΟΜΑΤΕΠΩΝΥΜΟ_ΠΛΗΡΕΣ" ColumnName="ΟΝΟΜΑΤΕΠΩΝΥΜΟ_ΠΛΗΡΕΣ" />
+          <ScalarProperty Name="ΟΝΟΜΑΤΕΠΩΝΥΜΟ" ColumnName="ΟΝΟΜΑΤΕΠΩΝΥΜΟ" />
+          <ScalarProperty Name="ΔΙΑΧΕΙΡΙΣΤΗΣ_ΚΩΔ" ColumnName="ΔΙΑΧΕΙΡΙΣΤΗΣ_ΚΩΔ" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Δ_ΔΙΕΥΘΥΝΤΕΣ">
+      <EntityTypeMapping TypeName="AbacusDBModel.Δ_ΔΙΕΥΘΥΝΤΕΣ">
+        <MappingFragment StoreEntitySet="Δ_ΔΙΕΥΘΥΝΤΕΣ">
+          <ScalarProperty Name="ΦΥΛΟ" ColumnName="ΦΥΛΟ" />
+          <ScalarProperty Name="ΔΙΕΥΘΥΝΤΗΣ" ColumnName="ΔΙΕΥΘΥΝΤΗΣ" />
+          <ScalarProperty Name="ΣΧΟΛΙΚΟ_ΕΤΟΣ" ColumnName="ΣΧΟΛΙΚΟ_ΕΤΟΣ" />
+          <ScalarProperty Name="ΔΙΕΥΘΥΝΤΗΣ_ΚΩΔ" ColumnName="ΔΙΕΥΘΥΝΤΗΣ_ΚΩΔ" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Δ_ΔΙΕΥΘΥΝΤΕΣ_ΓΕΝΙΚΟΙ">
+      <EntityTypeMapping TypeName="AbacusDBModel.Δ_ΔΙΕΥΘΥΝΤΕΣ_ΓΕΝΙΚΟΙ">
+        <MappingFragment StoreEntitySet="Δ_ΔΙΕΥΘΥΝΤΕΣ_ΓΕΝΙΚΟΙ">
+          <ScalarProperty Name="ΦΥΛΟ" ColumnName="ΦΥΛΟ" />
+          <ScalarProperty Name="ΓΕΝΙΚΟΣ" ColumnName="ΓΕΝΙΚΟΣ" />
+          <ScalarProperty Name="ΣΧΟΛΙΚΟ_ΕΤΟΣ" ColumnName="ΣΧΟΛΙΚΟ_ΕΤΟΣ" />
+          <ScalarProperty Name="ΓΕΝΙΚΟΣ_ΚΩΔ" ColumnName="ΓΕΝΙΚΟΣ_ΚΩΔ" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Δ_ΔΙΟΙΚΗΤΕΣ">
+      <EntityTypeMapping TypeName="AbacusDBModel.Δ_ΔΙΟΙΚΗΤΕΣ">
+        <MappingFragment StoreEntitySet="Δ_ΔΙΟΙΚΗΤΕΣ">
+          <ScalarProperty Name="ΦΥΛΟ" ColumnName="ΦΥΛΟ" />
+          <ScalarProperty Name="ΔΙΟΙΚΗΤΗΣ" ColumnName="ΔΙΟΙΚΗΤΗΣ" />
+          <ScalarProperty Name="ΣΧΟΛΙΚΟ_ΕΤΟΣ" ColumnName="ΣΧΟΛΙΚΟ_ΕΤΟΣ" />
+          <ScalarProperty Name="ΔΙΟΙΚΗΤΗΣ_ΚΩΔ" ColumnName="ΔΙΟΙΚΗΤΗΣ_ΚΩΔ" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Δ_ΠΡΟΙΣΤΑΜΕΝΟΙ">
+      <EntityTypeMapping TypeName="AbacusDBModel.Δ_ΠΡΟΙΣΤΑΜΕΝΟΙ">
+        <MappingFragment StoreEntitySet="Δ_ΠΡΟΙΣΤΑΜΕΝΟΙ">
+          <ScalarProperty Name="ΦΥΛΟ" ColumnName="ΦΥΛΟ" />
+          <ScalarProperty Name="ΠΡΟΙΣΤΑΜΕΝΟΣ" ColumnName="ΠΡΟΙΣΤΑΜΕΝΟΣ" />
+          <ScalarProperty Name="ΣΧΟΛΙΚΟ_ΕΤΟΣ" ColumnName="ΣΧΟΛΙΚΟ_ΕΤΟΣ" />
+          <ScalarProperty Name="ΠΡΟΙΣΤΑΜΕΝΟΣ_ΚΩΔ" ColumnName="ΠΡΟΙΣΤΑΜΕΝΟΣ_ΚΩΔ" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ΕΓΓΡΑΦΟ_ΔΙΑΧΕΙΡΙΣΤΗΣ">
+      <EntityTypeMapping TypeName="AbacusDBModel.ΕΓΓΡΑΦΟ_ΔΙΑΧΕΙΡΙΣΤΗΣ">
+        <MappingFragment StoreEntitySet="ΕΓΓΡΑΦΟ_ΔΙΑΧΕΙΡΙΣΤΗΣ">
+          <ScalarProperty Name="DOCADMIN_NAME" ColumnName="DOCADMIN_NAME" />
+          <ScalarProperty Name="DOCSTATION_ID" ColumnName="DOCSTATION_ID" />
+          <ScalarProperty Name="DOCADMIN_ID" ColumnName="DOCADMIN_ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ΕΓΓΡΑΦΟ_ΜΕΤΑΒΟΛΕΣ">
+      <EntityTypeMapping TypeName="AbacusDBModel.ΕΓΓΡΑΦΟ_ΜΕΤΑΒΟΛΕΣ">
+        <MappingFragment StoreEntitySet="ΕΓΓΡΑΦΟ_ΜΕΤΑΒΟΛΕΣ">
+          <ScalarProperty Name="DOC_SXETIKA" ColumnName="DOC_SXETIKA" />
+          <ScalarProperty Name="CORRECTION_DATE" ColumnName="CORRECTION_DATE" />
+          <ScalarProperty Name="CORRECTION" ColumnName="CORRECTION" />
+          <ScalarProperty Name="DOC_PROTOCOL" ColumnName="DOC_PROTOCOL" />
+          <ScalarProperty Name="DOC_DATE" ColumnName="DOC_DATE" />
+          <ScalarProperty Name="DOC_YEAR" ColumnName="DOC_YEAR" />
+          <ScalarProperty Name="DOC_MONTH" ColumnName="DOC_MONTH" />
+          <ScalarProperty Name="ADMIN_ID" ColumnName="ADMIN_ID" />
+          <ScalarProperty Name="PERIFERIAKI_ID" ColumnName="PERIFERIAKI_ID" />
+          <ScalarProperty Name="STATION_ID" ColumnName="STATION_ID" />
+          <ScalarProperty Name="SCHOOLYEAR_ID" ColumnName="SCHOOLYEAR_ID" />
+          <ScalarProperty Name="DOC_ID" ColumnName="DOC_ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ΕΓΓΡΑΦΟ_ΠΡΟΓΡΑΜΜΑ">
+      <EntityTypeMapping TypeName="AbacusDBModel.ΕΓΓΡΑΦΟ_ΠΡΟΓΡΑΜΜΑ">
+        <MappingFragment StoreEntitySet="ΕΓΓΡΑΦΟ_ΠΡΟΓΡΑΜΜΑ">
+          <ScalarProperty Name="DOC_SXETIKA" ColumnName="DOC_SXETIKA" />
+          <ScalarProperty Name="CORRECTION_DATE" ColumnName="CORRECTION_DATE" />
+          <ScalarProperty Name="CORRECTION" ColumnName="CORRECTION" />
+          <ScalarProperty Name="DOC_PROTOCOL" ColumnName="DOC_PROTOCOL" />
+          <ScalarProperty Name="DOC_DATE" ColumnName="DOC_DATE" />
+          <ScalarProperty Name="DOC_YEAR" ColumnName="DOC_YEAR" />
+          <ScalarProperty Name="DOC_MONTH" ColumnName="DOC_MONTH" />
+          <ScalarProperty Name="ADMIN_ID" ColumnName="ADMIN_ID" />
+          <ScalarProperty Name="PERIFERIAKI_ID" ColumnName="PERIFERIAKI_ID" />
+          <ScalarProperty Name="STATION_ID" ColumnName="STATION_ID" />
+          <ScalarProperty Name="SCHOOLYEAR_ID" ColumnName="SCHOOLYEAR_ID" />
+          <ScalarProperty Name="DOC_ID" ColumnName="DOC_ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ΣΥΣ_ΕΝΤΥΠΑ">
+      <EntityTypeMapping TypeName="AbacusDBModel.ΣΥΣ_ΕΝΤΥΠΑ">
+        <MappingFragment StoreEntitySet="ΣΥΣ_ΕΝΤΥΠΑ">
+          <ScalarProperty Name="DOC_CLASS" ColumnName="DOC_CLASS" />
+          <ScalarProperty Name="DOC_DESCRIPTION" ColumnName="DOC_DESCRIPTION" />
+          <ScalarProperty Name="DOC_NAME" ColumnName="DOC_NAME" />
+          <ScalarProperty Name="DOC_ID" ColumnName="DOC_ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ΣΥΣ_ΑΠΟΧΩΡΗΣΕΙΣ">
+      <EntityTypeMapping TypeName="AbacusDBModel.ΣΥΣ_ΑΠΟΧΩΡΗΣΕΙΣ">
+        <MappingFragment StoreEntitySet="ΣΥΣ_ΑΠΟΧΩΡΗΣΕΙΣ">
+          <ScalarProperty Name="ΑΠΟΧΩΡΗΣΗ_ΛΕΚΤΙΚΟ" ColumnName="ΑΠΟΧΩΡΗΣΗ_ΛΕΚΤΙΚΟ" />
+          <ScalarProperty Name="ΑΠΟΧΩΡΗΣΗ_ΚΩΔ" ColumnName="ΑΠΟΧΩΡΗΣΗ_ΚΩΔ" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ΠΡΟΙΟΝ_ΚΑΤΗΓΟΡΙΑ">
+      <EntityTypeMapping TypeName="AbacusDBModel.ΠΡΟΙΟΝ_ΚΑΤΗΓΟΡΙΑ">
+        <MappingFragment StoreEntitySet="ΠΡΟΙΟΝ_ΚΑΤΗΓΟΡΙΑ">
+          <ScalarProperty Name="ΔΑΠΑΝΗ_ΚΩΔ" ColumnName="ΔΑΠΑΝΗ_ΚΩΔ" />
+          <ScalarProperty Name="ΚΑΤΗΓΟΡΙΑ" ColumnName="ΚΑΤΗΓΟΡΙΑ" />
+          <ScalarProperty Name="ΚΑΤΗΓΟΡΙΑ_ΚΩΔ" ColumnName="ΚΑΤΗΓΟΡΙΑ_ΚΩΔ" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ΠΡΟΙΟΝ_ΜΟΝΑΔΕΣ">
+      <EntityTypeMapping TypeName="AbacusDBModel.ΠΡΟΙΟΝ_ΜΟΝΑΔΕΣ">
+        <MappingFragment StoreEntitySet="ΠΡΟΙΟΝ_ΜΟΝΑΔΕΣ">
+          <ScalarProperty Name="ΜΟΝΑΔΑ" ColumnName="ΜΟΝΑΔΑ" />
+          <ScalarProperty Name="ΜΟΝΑΔΑ_ΚΩΔ" ColumnName="ΜΟΝΑΔΑ_ΚΩΔ" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="sqlPRODUCT_LIST">
+      <EntityTypeMapping TypeName="AbacusDBModel.sqlPRODUCT_LIST">
+        <MappingFragment StoreEntitySet="sqlPRODUCT_LIST">
+          <ScalarProperty Name="ΒΝΣ" ColumnName="ΒΝΣ" />
+          <ScalarProperty Name="FPA_VALUE" ColumnName="FPA_VALUE" />
+          <ScalarProperty Name="ΠΡΟΙΟΝ_ΦΠΑ" ColumnName="ΠΡΟΙΟΝ_ΦΠΑ" />
+          <ScalarProperty Name="ΕΙΔΟΣ_ΛΕΚΤΙΚΟ" ColumnName="ΕΙΔΟΣ_ΛΕΚΤΙΚΟ" />
+          <ScalarProperty Name="ΔΑΠΑΝΗ_ΚΩΔ" ColumnName="ΔΑΠΑΝΗ_ΚΩΔ" />
+          <ScalarProperty Name="ΚΑΤΗΓΟΡΙΑ_ΚΩΔ" ColumnName="ΚΑΤΗΓΟΡΙΑ_ΚΩΔ" />
+          <ScalarProperty Name="ΜΟΝΑΔΑ_ΚΩΔ" ColumnName="ΜΟΝΑΔΑ_ΚΩΔ" />
+          <ScalarProperty Name="ΜΟΝΑΔΑ" ColumnName="ΜΟΝΑΔΑ" />
+          <ScalarProperty Name="ΠΡΟΙΟΝ_ΛΕΚΤΙΚΟ" ColumnName="ΠΡΟΙΟΝ_ΛΕΚΤΙΚΟ" />
+          <ScalarProperty Name="ΚΑΤΗΓΟΡΙΑ" ColumnName="ΚΑΤΗΓΟΡΙΑ" />
+          <ScalarProperty Name="ΠΡΟΙΟΝ_ΚΩΔ" ColumnName="ΠΡΟΙΟΝ_ΚΩΔ" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="sqlPRODUCT_SELECTOR">
+      <EntityTypeMapping TypeName="AbacusDBModel.sqlPRODUCT_SELECTOR">
+        <MappingFragment StoreEntitySet="sqlPRODUCT_SELECTOR">
+          <ScalarProperty Name="STATION_ID" ColumnName="STATION_ID" />
+          <ScalarProperty Name="ΚΑΤΗΓΟΡΙΑ_ΚΩΔ" ColumnName="ΚΑΤΗΓΟΡΙΑ_ΚΩΔ" />
+          <ScalarProperty Name="ΠΡΟΙΟΝ_ΜΟΝΑΔΑ" ColumnName="ΠΡΟΙΟΝ_ΜΟΝΑΔΑ" />
+          <ScalarProperty Name="ΠΡΟΙΟΝ_ΚΩΔ" ColumnName="ΠΡΟΙΟΝ_ΚΩΔ" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ΤΡΟΦΕΙΟ_ΑΤΟΜΟ">
+      <EntityTypeMapping TypeName="AbacusDBModel.ΤΡΟΦΕΙΟ_ΑΤΟΜΟ">
+        <MappingFragment StoreEntitySet="ΤΡΟΦΕΙΟ_ΑΤΟΜΟ">
+          <ScalarProperty Name="COST_PERSON" ColumnName="COST_PERSON" />
+          <ScalarProperty Name="SCHOOLYEARID" ColumnName="SCHOOLYEARID" />
+          <ScalarProperty Name="STATION_ID" ColumnName="STATION_ID" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ΔΑΠΑΝΕΣ_ΕΙΔΗ">
+      <EntityTypeMapping TypeName="AbacusDBModel.ΔΑΠΑΝΕΣ_ΕΙΔΗ">
+        <MappingFragment StoreEntitySet="ΔΑΠΑΝΕΣ_ΕΙΔΗ">
+          <ScalarProperty Name="ΕΙΔΟΣ_ΛΕΚΤΙΚΟ" ColumnName="ΕΙΔΟΣ_ΛΕΚΤΙΚΟ" />
+          <ScalarProperty Name="ΕΙΔΟΣ_ΚΩΔ" ColumnName="ΕΙΔΟΣ_ΚΩΔ" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ΔΑΠΑΝΗ_ΓΕΝΙΚΗ">
+      <EntityTypeMapping TypeName="AbacusDBModel.ΔΑΠΑΝΗ_ΓΕΝΙΚΗ">
+        <MappingFragment StoreEntitySet="ΔΑΠΑΝΗ_ΓΕΝΙΚΗ">
+          <ScalarProperty Name="ΚΑΤΗΓΟΡΙΑ" ColumnName="ΚΑΤΗΓΟΡΙΑ" />
+          <ScalarProperty Name="ΣΥΝΟΛΟ" ColumnName="ΣΥΝΟΛΟ" />
+          <ScalarProperty Name="ΠΕΡΙΓΡΑΦΗ" ColumnName="ΠΕΡΙΓΡΑΦΗ" />
+          <ScalarProperty Name="ΗΜΕΡΟΜΗΝΙΑ" ColumnName="ΗΜΕΡΟΜΗΝΙΑ" />
+          <ScalarProperty Name="ΣΧΟΛ_ΕΤΟΣ" ColumnName="ΣΧΟΛ_ΕΤΟΣ" />
+          <ScalarProperty Name="ΒΝΣ" ColumnName="ΒΝΣ" />
+          <ScalarProperty Name="ΚΩΔΙΚΟΣ" ColumnName="ΚΩΔΙΚΟΣ" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ΕΞΤΡΑ_ΚΑΤΗΓΟΡΙΑ">
+      <EntityTypeMapping TypeName="AbacusDBModel.ΕΞΤΡΑ_ΚΑΤΗΓΟΡΙΑ">
+        <MappingFragment StoreEntitySet="ΕΞΤΡΑ_ΚΑΤΗΓΟΡΙΑ">
+          <ScalarProperty Name="ΔΑΠΑΝΗ_ΚΩΔ" ColumnName="ΔΑΠΑΝΗ_ΚΩΔ" />
+          <ScalarProperty Name="ΚΑΤΗΓΟΡΙΑ" ColumnName="ΚΑΤΗΓΟΡΙΑ" />
+          <ScalarProperty Name="ΚΑΤΗΓΟΡΙΑ_ΚΩΔ" ColumnName="ΚΑΤΗΓΟΡΙΑ_ΚΩΔ" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="sqlΣΥΝΟΛΟ_ΑΤΟΜΑ_ΤΡΟΦΕΙΟ">
+      <EntityTypeMapping TypeName="AbacusDBModel.sqlΣΥΝΟΛΟ_ΑΤΟΜΑ_ΤΡΟΦΕΙΟ">
+        <MappingFragment StoreEntitySet="sqlΣΥΝΟΛΟ_ΑΤΟΜΑ_ΤΡΟΦΕΙΟ">
+          <ScalarProperty Name="ΜΗΝΑΣ" ColumnName="ΜΗΝΑΣ" />
+          <ScalarProperty Name="ΥΠΟΛΟΙΠΟ" ColumnName="ΥΠΟΛΟΙΠΟ" />
+          <ScalarProperty Name="ΔΑΠΑΝΗ_ΗΜΕΡΑ" ColumnName="ΔΑΠΑΝΗ_ΗΜΕΡΑ" />
+          <ScalarProperty Name="ΚΟΣΤΟΣ_ΗΜΕΡΑ" ColumnName="ΚΟΣΤΟΣ_ΗΜΕΡΑ" />
+          <ScalarProperty Name="ΑΤΟΜΑ" ColumnName="ΑΤΟΜΑ" />
+          <ScalarProperty Name="ΠΡΟΣΩΠΙΚΟ" ColumnName="ΠΡΟΣΩΠΙΚΟ" />
+          <ScalarProperty Name="ΠΑΙΔΙΑ" ColumnName="ΠΑΙΔΙΑ" />
+          <ScalarProperty Name="ΗΜΕΡΟΜΗΝΙΑ" ColumnName="ΗΜΕΡΟΜΗΝΙΑ" />
+          <ScalarProperty Name="SCHOOLYEARID" ColumnName="SCHOOLYEARID" />
+          <ScalarProperty Name="ΕΠΩΝΥΜΙΑ" ColumnName="ΕΠΩΝΥΜΙΑ" />
+          <ScalarProperty Name="STATION_ID" ColumnName="STATION_ID" />
+          <ScalarProperty Name="ROWID" ColumnName="ROWID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="sqlΔΑΠΑΝΗ_ΓΕΝΙΚΗ">
+      <EntityTypeMapping TypeName="AbacusDBModel.sqlΔΑΠΑΝΗ_ΓΕΝΙΚΗ">
+        <MappingFragment StoreEntitySet="sqlΔΑΠΑΝΗ_ΓΕΝΙΚΗ">
+          <ScalarProperty Name="ΣΧΟΛ_ΕΤΟΣ" ColumnName="ΣΧΟΛ_ΕΤΟΣ" />
+          <ScalarProperty Name="ΣΥΝΟΛΟ" ColumnName="ΣΥΝΟΛΟ" />
+          <ScalarProperty Name="ΤΙΜΗ_ΜΟΝΑΔΑ" ColumnName="ΤΙΜΗ_ΜΟΝΑΔΑ" />
+          <ScalarProperty Name="ΠΟΣΟΤΗΤΑ" ColumnName="ΠΟΣΟΤΗΤΑ" />
+          <ScalarProperty Name="ΠΕΡΙΓΡΑΦΗ" ColumnName="ΠΕΡΙΓΡΑΦΗ" />
+          <ScalarProperty Name="ΚΑΤΗΓΟΡΙΑ" ColumnName="ΚΑΤΗΓΟΡΙΑ" />
+          <ScalarProperty Name="ΗΜΕΡΟΜΗΝΙΑ" ColumnName="ΗΜΕΡΟΜΗΝΙΑ" />
+          <ScalarProperty Name="ΕΠΩΝΥΜΙΑ" ColumnName="ΕΠΩΝΥΜΙΑ" />
+          <ScalarProperty Name="ΒΝΣ" ColumnName="ΒΝΣ" />
+          <ScalarProperty Name="ΚΩΔΙΚΟΣ" ColumnName="ΚΩΔΙΚΟΣ" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="BUDGET_DATA">
+      <EntityTypeMapping TypeName="AbacusDBModel.BUDGET_DATA">
+        <MappingFragment StoreEntitySet="BUDGET_DATA">
+          <ScalarProperty Name="PERSONNEL_NUM" ColumnName="PERSONNEL_NUM" />
+          <ScalarProperty Name="CHILDREN_NUM" ColumnName="CHILDREN_NUM" />
+          <ScalarProperty Name="BUDGET_OTHER" ColumnName="BUDGET_OTHER" />
+          <ScalarProperty Name="BUDGET_CLEAN" ColumnName="BUDGET_CLEAN" />
+          <ScalarProperty Name="BUDGET_FOOD" ColumnName="BUDGET_FOOD" />
+          <ScalarProperty Name="BUDGET_MONTH" ColumnName="BUDGET_MONTH" />
+          <ScalarProperty Name="SCHOOLYEAR_ID" ColumnName="SCHOOLYEAR_ID" />
+          <ScalarProperty Name="STATION_ID" ColumnName="STATION_ID" />
+          <ScalarProperty Name="BUDGET_ID" ColumnName="BUDGET_ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="sqlΣΥΝΟΛΟ_ΓΕΝΙΚΗ_ΗΜΕΡΑ">
+      <EntityTypeMapping TypeName="AbacusDBModel.sqlΣΥΝΟΛΟ_ΓΕΝΙΚΗ_ΗΜΕΡΑ">
+        <MappingFragment StoreEntitySet="sqlΣΥΝΟΛΟ_ΓΕΝΙΚΗ_ΗΜΕΡΑ">
+          <ScalarProperty Name="ΜΗΝΑΣ_ΑΡΙΘΜΟΣ" ColumnName="ΜΗΝΑΣ_ΑΡΙΘΜΟΣ" />
+          <ScalarProperty Name="TOTAL_DAY" ColumnName="TOTAL_DAY" />
+          <ScalarProperty Name="ΜΗΝΑΣ" ColumnName="ΜΗΝΑΣ" />
+          <ScalarProperty Name="ΗΜΕΡΟΜΗΝΙΑ" ColumnName="ΗΜΕΡΟΜΗΝΙΑ" />
+          <ScalarProperty Name="ΕΠΩΝΥΜΙΑ" ColumnName="ΕΠΩΝΥΜΙΑ" />
+          <ScalarProperty Name="ΣΧΟΛ_ΕΤΟΣ" ColumnName="ΣΧΟΛ_ΕΤΟΣ" />
+          <ScalarProperty Name="ΒΝΣ" ColumnName="ΒΝΣ" />
+          <ScalarProperty Name="ROWID" ColumnName="ROWID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="sqlΣΥΝΟΛΟ_ΕΞΤΡΑ_ΗΜΕΡΑ">
+      <EntityTypeMapping TypeName="AbacusDBModel.sqlΣΥΝΟΛΟ_ΕΞΤΡΑ_ΗΜΕΡΑ">
+        <MappingFragment StoreEntitySet="sqlΣΥΝΟΛΟ_ΕΞΤΡΑ_ΗΜΕΡΑ">
+          <ScalarProperty Name="ΜΗΝΑΣ_ΑΡΙΘΜΟΣ" ColumnName="ΜΗΝΑΣ_ΑΡΙΘΜΟΣ" />
+          <ScalarProperty Name="TOTAL_DAY" ColumnName="TOTAL_DAY" />
+          <ScalarProperty Name="ΜΗΝΑΣ" ColumnName="ΜΗΝΑΣ" />
+          <ScalarProperty Name="ΗΜΕΡΟΜΗΝΙΑ" ColumnName="ΗΜΕΡΟΜΗΝΙΑ" />
+          <ScalarProperty Name="ΕΠΩΝΥΜΙΑ" ColumnName="ΕΠΩΝΥΜΙΑ" />
+          <ScalarProperty Name="ΣΧΟΛ_ΕΤΟΣ" ColumnName="ΣΧΟΛ_ΕΤΟΣ" />
+          <ScalarProperty Name="ΒΝΣ" ColumnName="ΒΝΣ" />
+          <ScalarProperty Name="ROWID" ColumnName="ROWID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="sqlΣΥΝΟΛΟ_ΚΑΘΑΡΙΟΤΗΤΑ_ΗΜΕΡΑ">
+      <EntityTypeMapping TypeName="AbacusDBModel.sqlΣΥΝΟΛΟ_ΚΑΘΑΡΙΟΤΗΤΑ_ΗΜΕΡΑ">
+        <MappingFragment StoreEntitySet="sqlΣΥΝΟΛΟ_ΚΑΘΑΡΙΟΤΗΤΑ_ΗΜΕΡΑ">
+          <ScalarProperty Name="ΜΗΝΑΣ_ΑΡΙΘΜΟΣ" ColumnName="ΜΗΝΑΣ_ΑΡΙΘΜΟΣ" />
+          <ScalarProperty Name="TOTAL_DAY" ColumnName="TOTAL_DAY" />
+          <ScalarProperty Name="ΜΗΝΑΣ" ColumnName="ΜΗΝΑΣ" />
+          <ScalarProperty Name="ΗΜΕΡΟΜΗΝΙΑ" ColumnName="ΗΜΕΡΟΜΗΝΙΑ" />
+          <ScalarProperty Name="ΕΠΩΝΥΜΙΑ" ColumnName="ΕΠΩΝΥΜΙΑ" />
+          <ScalarProperty Name="ΣΧΟΛ_ΕΤΟΣ" ColumnName="ΣΧΟΛ_ΕΤΟΣ" />
+          <ScalarProperty Name="ΒΝΣ" ColumnName="ΒΝΣ" />
+          <ScalarProperty Name="ROWID" ColumnName="ROWID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ΦΠΑ_ΤΙΜΕΣ">
+      <EntityTypeMapping TypeName="AbacusDBModel.ΦΠΑ_ΤΙΜΕΣ">
+        <MappingFragment StoreEntitySet="ΦΠΑ_ΤΙΜΕΣ">
+          <ScalarProperty Name="FPA_VALUE" ColumnName="FPA_VALUE" />
+          <ScalarProperty Name="FPA_ID" ColumnName="FPA_ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ΙΣΟΖΥΓΙΟ_ΜΗΝΑΣ">
+      <EntityTypeMapping TypeName="AbacusDBModel.ΙΣΟΖΥΓΙΟ_ΜΗΝΑΣ">
+        <MappingFragment StoreEntitySet="ΙΣΟΖΥΓΙΟ_ΜΗΝΑΣ">
+          <ScalarProperty Name="BALANCE_TOTAL" ColumnName="BALANCE_TOTAL" />
+          <ScalarProperty Name="EXPENSE_TOTAL" ColumnName="EXPENSE_TOTAL" />
+          <ScalarProperty Name="COST_TOTAL" ColumnName="COST_TOTAL" />
+          <ScalarProperty Name="BALANCE_OTHER" ColumnName="BALANCE_OTHER" />
+          <ScalarProperty Name="BALANCE_CLEAN" ColumnName="BALANCE_CLEAN" />
+          <ScalarProperty Name="BALANCE_FEED" ColumnName="BALANCE_FEED" />
+          <ScalarProperty Name="EXPENSE_OTHER" ColumnName="EXPENSE_OTHER" />
+          <ScalarProperty Name="EXPENSE_CLEAN" ColumnName="EXPENSE_CLEAN" />
+          <ScalarProperty Name="EXPENSE_FEED" ColumnName="EXPENSE_FEED" />
+          <ScalarProperty Name="COST_OTHER" ColumnName="COST_OTHER" />
+          <ScalarProperty Name="COST_CLEAN" ColumnName="COST_CLEAN" />
+          <ScalarProperty Name="COST_FEED" ColumnName="COST_FEED" />
+          <ScalarProperty Name="PERSONS_NUMBER" ColumnName="PERSONS_NUMBER" />
+          <ScalarProperty Name="PERSONNEL_NUMBER" ColumnName="PERSONNEL_NUMBER" />
+          <ScalarProperty Name="CHILDREN_NUMBER" ColumnName="CHILDREN_NUMBER" />
+          <ScalarProperty Name="MONTH_ID" ColumnName="MONTH_ID" />
+          <ScalarProperty Name="SCHOOLYEAR_ID" ColumnName="SCHOOLYEAR_ID" />
+          <ScalarProperty Name="STATION_ID" ColumnName="STATION_ID" />
+          <ScalarProperty Name="BALANCE_ID" ColumnName="BALANCE_ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="sum_STATION_PERSONS_ALL">
+      <EntityTypeMapping TypeName="AbacusDBModel.sum_STATION_PERSONS_ALL">
+        <MappingFragment StoreEntitySet="sum_STATION_PERSONS_ALL">
+          <ScalarProperty Name="ΠΛΗΘΟΣ_ΑΤΟΜΑ" ColumnName="ΠΛΗΘΟΣ_ΑΤΟΜΑ" />
+          <ScalarProperty Name="ΠΡΟΣΩΠΙΚΟ_ΔΥΝΑΜΗ" ColumnName="ΠΡΟΣΩΠΙΚΟ_ΔΥΝΑΜΗ" />
+          <ScalarProperty Name="ΠΑΙΔΙΑ_ΔΥΝΑΜΗ" ColumnName="ΠΑΙΔΙΑ_ΔΥΝΑΜΗ" />
+          <ScalarProperty Name="ΣΧΟΛΙΚΟ_ΕΤΟΣ" ColumnName="ΣΧΟΛΙΚΟ_ΕΤΟΣ" />
+          <ScalarProperty Name="ΒΝΣ" ColumnName="ΒΝΣ" />
+          <ScalarProperty Name="ROWID" ColumnName="ROWID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="sumEXPENSE_MONTH_CLEAN">
+      <EntityTypeMapping TypeName="AbacusDBModel.sumEXPENSE_MONTH_CLEAN">
+        <MappingFragment StoreEntitySet="sumEXPENSE_MONTH_CLEAN">
+          <ScalarProperty Name="ΔΑΠΑΝΗ_ΚΑΘΑΡΙΟΤΗΤΑ" ColumnName="ΔΑΠΑΝΗ_ΚΑΘΑΡΙΟΤΗΤΑ" />
+          <ScalarProperty Name="ΜΗΝΑΣ_ΑΡΙΘΜΟΣ" ColumnName="ΜΗΝΑΣ_ΑΡΙΘΜΟΣ" />
+          <ScalarProperty Name="ΜΗΝΑΣ" ColumnName="ΜΗΝΑΣ" />
+          <ScalarProperty Name="ΕΠΩΝΥΜΙΑ" ColumnName="ΕΠΩΝΥΜΙΑ" />
+          <ScalarProperty Name="ΣΧΟΛ_ΕΤΟΣ" ColumnName="ΣΧΟΛ_ΕΤΟΣ" />
+          <ScalarProperty Name="ΒΝΣ" ColumnName="ΒΝΣ" />
+          <ScalarProperty Name="ROWID" ColumnName="ROWID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="sumEXPENSE_MONTH_FEED">
+      <EntityTypeMapping TypeName="AbacusDBModel.sumEXPENSE_MONTH_FEED">
+        <MappingFragment StoreEntitySet="sumEXPENSE_MONTH_FEED">
+          <ScalarProperty Name="ΔΑΠΑΝΗ_ΤΡΟΦΕΙΟ" ColumnName="ΔΑΠΑΝΗ_ΤΡΟΦΕΙΟ" />
+          <ScalarProperty Name="ΜΗΝΑΣ_ΑΡΙΘΜΟΣ" ColumnName="ΜΗΝΑΣ_ΑΡΙΘΜΟΣ" />
+          <ScalarProperty Name="ΜΗΝΑΣ" ColumnName="ΜΗΝΑΣ" />
+          <ScalarProperty Name="ΕΠΩΝΥΜΙΑ" ColumnName="ΕΠΩΝΥΜΙΑ" />
+          <ScalarProperty Name="ΣΧΟΛ_ΕΤΟΣ" ColumnName="ΣΧΟΛ_ΕΤΟΣ" />
+          <ScalarProperty Name="ΒΝΣ" ColumnName="ΒΝΣ" />
+          <ScalarProperty Name="ROWID" ColumnName="ROWID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="sumEXPENSE_MONTH_MISC">
+      <EntityTypeMapping TypeName="AbacusDBModel.sumEXPENSE_MONTH_MISC">
+        <MappingFragment StoreEntitySet="sumEXPENSE_MONTH_MISC">
+          <ScalarProperty Name="ΔΑΠΑΝΗ_ΓΕΝΙΚΕΣ" ColumnName="ΔΑΠΑΝΗ_ΓΕΝΙΚΕΣ" />
+          <ScalarProperty Name="ΜΗΝΑΣ_ΑΡΙΘΜΟΣ" ColumnName="ΜΗΝΑΣ_ΑΡΙΘΜΟΣ" />
+          <ScalarProperty Name="ΜΗΝΑΣ" ColumnName="ΜΗΝΑΣ" />
+          <ScalarProperty Name="ΕΠΩΝΥΜΙΑ" ColumnName="ΕΠΩΝΥΜΙΑ" />
+          <ScalarProperty Name="ΣΧΟΛ_ΕΤΟΣ" ColumnName="ΣΧΟΛ_ΕΤΟΣ" />
+          <ScalarProperty Name="ΒΝΣ" ColumnName="ΒΝΣ" />
+          <ScalarProperty Name="ROWID" ColumnName="ROWID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ΔΑΠΑΝΗ_ΑΛΛΗ">
+      <EntityTypeMapping TypeName="AbacusDBModel.ΔΑΠΑΝΗ_ΑΛΛΗ">
+        <MappingFragment StoreEntitySet="ΔΑΠΑΝΗ_ΑΛΛΗ">
+          <ScalarProperty Name="ΣΥΝΟΛΟ" ColumnName="ΣΥΝΟΛΟ" />
+          <ScalarProperty Name="ΤΙΜΗ_ΜΟΝΑΔΑ" ColumnName="ΤΙΜΗ_ΜΟΝΑΔΑ" />
+          <ScalarProperty Name="ΠΟΣΟΤΗΤΑ" ColumnName="ΠΟΣΟΤΗΤΑ" />
+          <ScalarProperty Name="ΠΡΟΙΟΝ" ColumnName="ΠΡΟΙΟΝ" />
+          <ScalarProperty Name="ΚΑΤΗΓΟΡΙΑ" ColumnName="ΚΑΤΗΓΟΡΙΑ" />
+          <ScalarProperty Name="ΗΜΕΡΟΜΗΝΙΑ" ColumnName="ΗΜΕΡΟΜΗΝΙΑ" />
+          <ScalarProperty Name="ΣΧΟΛ_ΕΤΟΣ" ColumnName="ΣΧΟΛ_ΕΤΟΣ" />
+          <ScalarProperty Name="ΒΝΣ" ColumnName="ΒΝΣ" />
+          <ScalarProperty Name="ΚΩΔΙΚΟΣ" ColumnName="ΚΩΔΙΚΟΣ" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ΔΑΠΑΝΗ_ΚΑΘΑΡΙΟΤΗΤΑ">
+      <EntityTypeMapping TypeName="AbacusDBModel.ΔΑΠΑΝΗ_ΚΑΘΑΡΙΟΤΗΤΑ">
+        <MappingFragment StoreEntitySet="ΔΑΠΑΝΗ_ΚΑΘΑΡΙΟΤΗΤΑ">
+          <ScalarProperty Name="ΣΥΝΟΛΟ" ColumnName="ΣΥΝΟΛΟ" />
+          <ScalarProperty Name="ΤΙΜΗ_ΜΟΝΑΔΑ" ColumnName="ΤΙΜΗ_ΜΟΝΑΔΑ" />
+          <ScalarProperty Name="ΠΟΣΟΤΗΤΑ" ColumnName="ΠΟΣΟΤΗΤΑ" />
+          <ScalarProperty Name="ΠΡΟΙΟΝ" ColumnName="ΠΡΟΙΟΝ" />
+          <ScalarProperty Name="ΚΑΤΗΓΟΡΙΑ" ColumnName="ΚΑΤΗΓΟΡΙΑ" />
+          <ScalarProperty Name="ΗΜΕΡΟΜΗΝΙΑ" ColumnName="ΗΜΕΡΟΜΗΝΙΑ" />
+          <ScalarProperty Name="ΣΧΟΛ_ΕΤΟΣ" ColumnName="ΣΧΟΛ_ΕΤΟΣ" />
+          <ScalarProperty Name="ΒΝΣ" ColumnName="ΒΝΣ" />
+          <ScalarProperty Name="ΚΩΔΙΚΟΣ" ColumnName="ΚΩΔΙΚΟΣ" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ΔΑΠΑΝΗ_ΤΡΟΦΗ">
+      <EntityTypeMapping TypeName="AbacusDBModel.ΔΑΠΑΝΗ_ΤΡΟΦΗ">
+        <MappingFragment StoreEntitySet="ΔΑΠΑΝΗ_ΤΡΟΦΗ">
+          <ScalarProperty Name="ΣΥΝΟΛΟ" ColumnName="ΣΥΝΟΛΟ" />
+          <ScalarProperty Name="ΤΙΜΗ_ΜΟΝΑΔΑ" ColumnName="ΤΙΜΗ_ΜΟΝΑΔΑ" />
+          <ScalarProperty Name="ΠΟΣΟΤΗΤΑ" ColumnName="ΠΟΣΟΤΗΤΑ" />
+          <ScalarProperty Name="ΠΡΟΙΟΝ" ColumnName="ΠΡΟΙΟΝ" />
+          <ScalarProperty Name="ΚΑΤΗΓΟΡΙΑ" ColumnName="ΚΑΤΗΓΟΡΙΑ" />
+          <ScalarProperty Name="ΗΜΕΡΟΜΗΝΙΑ" ColumnName="ΗΜΕΡΟΜΗΝΙΑ" />
+          <ScalarProperty Name="ΣΧΟΛ_ΕΤΟΣ" ColumnName="ΣΧΟΛ_ΕΤΟΣ" />
+          <ScalarProperty Name="ΒΝΣ" ColumnName="ΒΝΣ" />
+          <ScalarProperty Name="ΚΩΔΙΚΟΣ" ColumnName="ΚΩΔΙΚΟΣ" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="sqlΔΑΠΑΝΗ_ΑΛΛΗ">
+      <EntityTypeMapping TypeName="AbacusDBModel.sqlΔΑΠΑΝΗ_ΑΛΛΗ">
+        <MappingFragment StoreEntitySet="sqlΔΑΠΑΝΗ_ΑΛΛΗ">
+          <ScalarProperty Name="ΣΧΟΛ_ΕΤΟΣ" ColumnName="ΣΧΟΛ_ΕΤΟΣ" />
+          <ScalarProperty Name="ΣΥΝΟΛΟ" ColumnName="ΣΥΝΟΛΟ" />
+          <ScalarProperty Name="ΤΙΜΗ_ΜΟΝΑΔΑ" ColumnName="ΤΙΜΗ_ΜΟΝΑΔΑ" />
+          <ScalarProperty Name="ΠΟΣΟΤΗΤΑ" ColumnName="ΠΟΣΟΤΗΤΑ" />
+          <ScalarProperty Name="ΠΡΟΙΟΝ_ΜΟΝΑΔΑ" ColumnName="ΠΡΟΙΟΝ_ΜΟΝΑΔΑ" />
+          <ScalarProperty Name="ΚΑΤΗΓΟΡΙΑ" ColumnName="ΚΑΤΗΓΟΡΙΑ" />
+          <ScalarProperty Name="ΗΜΕΡΟΜΗΝΙΑ" ColumnName="ΗΜΕΡΟΜΗΝΙΑ" />
+          <ScalarProperty Name="ΕΠΩΝΥΜΙΑ" ColumnName="ΕΠΩΝΥΜΙΑ" />
+          <ScalarProperty Name="ΒΝΣ" ColumnName="ΒΝΣ" />
+          <ScalarProperty Name="ΚΩΔΙΚΟΣ" ColumnName="ΚΩΔΙΚΟΣ" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="sqlΔΑΠΑΝΗ_ΚΑΘΑΡΙΟΤΗΤΑ">
+      <EntityTypeMapping TypeName="AbacusDBModel.sqlΔΑΠΑΝΗ_ΚΑΘΑΡΙΟΤΗΤΑ">
+        <MappingFragment StoreEntitySet="sqlΔΑΠΑΝΗ_ΚΑΘΑΡΙΟΤΗΤΑ">
+          <ScalarProperty Name="ΣΥΝΟΛΟ" ColumnName="ΣΥΝΟΛΟ" />
+          <ScalarProperty Name="ΤΙΜΗ_ΜΟΝΑΔΑ" ColumnName="ΤΙΜΗ_ΜΟΝΑΔΑ" />
+          <ScalarProperty Name="ΠΟΣΟΤΗΤΑ" ColumnName="ΠΟΣΟΤΗΤΑ" />
+          <ScalarProperty Name="ΠΡΟΙΟΝ_ΜΟΝΑΔΑ" ColumnName="ΠΡΟΙΟΝ_ΜΟΝΑΔΑ" />
+          <ScalarProperty Name="ΚΑΤΗΓΟΡΙΑ" ColumnName="ΚΑΤΗΓΟΡΙΑ" />
+          <ScalarProperty Name="ΗΜΕΡΟΜΗΝΙΑ" ColumnName="ΗΜΕΡΟΜΗΝΙΑ" />
+          <ScalarProperty Name="ΕΠΩΝΥΜΙΑ" ColumnName="ΕΠΩΝΥΜΙΑ" />
+          <ScalarProperty Name="ΒΝΣ" ColumnName="ΒΝΣ" />
+          <ScalarProperty Name="ΚΩΔΙΚΟΣ" ColumnName="ΚΩΔΙΚΟΣ" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="sqlΔΑΠΑΝΗ_ΤΡΟΦΕΙΟ">
+      <EntityTypeMapping TypeName="AbacusDBModel.sqlΔΑΠΑΝΗ_ΤΡΟΦΕΙΟ">
+        <MappingFragment StoreEntitySet="sqlΔΑΠΑΝΗ_ΤΡΟΦΕΙΟ">
+          <ScalarProperty Name="ΣΥΝΟΛΟ" ColumnName="ΣΥΝΟΛΟ" />
+          <ScalarProperty Name="ΤΙΜΗ_ΜΟΝΑΔΑ" ColumnName="ΤΙΜΗ_ΜΟΝΑΔΑ" />
+          <ScalarProperty Name="ΠΟΣΟΤΗΤΑ" ColumnName="ΠΟΣΟΤΗΤΑ" />
+          <ScalarProperty Name="ΠΡΟΙΟΝ_ΜΟΝΑΔΑ" ColumnName="ΠΡΟΙΟΝ_ΜΟΝΑΔΑ" />
+          <ScalarProperty Name="ΚΑΤΗΓΟΡΙΑ" ColumnName="ΚΑΤΗΓΟΡΙΑ" />
+          <ScalarProperty Name="ΗΜΕΡΟΜΗΝΙΑ" ColumnName="ΗΜΕΡΟΜΗΝΙΑ" />
+          <ScalarProperty Name="ΕΠΩΝΥΜΙΑ" ColumnName="ΕΠΩΝΥΜΙΑ" />
+          <ScalarProperty Name="ΒΝΣ" ColumnName="ΒΝΣ" />
+          <ScalarProperty Name="ΚΩΔΙΚΟΣ" ColumnName="ΚΩΔΙΚΟΣ" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="sqlΔΑΠΑΝΗ_ΓΕΝΙΚΗ_ΟΛΕΣ">
+      <EntityTypeMapping TypeName="AbacusDBModel.sqlΔΑΠΑΝΗ_ΓΕΝΙΚΗ_ΟΛΕΣ">
+        <MappingFragment StoreEntitySet="sqlΔΑΠΑΝΗ_ΓΕΝΙΚΗ_ΟΛΕΣ">
+          <ScalarProperty Name="ΜΗΝΑΣ_ΑΡΙΘΜΟΣ" ColumnName="ΜΗΝΑΣ_ΑΡΙΘΜΟΣ" />
+          <ScalarProperty Name="ΣΧΟΛ_ΕΤΟΣ" ColumnName="ΣΧΟΛ_ΕΤΟΣ" />
+          <ScalarProperty Name="ΕΙΔΟΣ" ColumnName="ΕΙΔΟΣ" />
+          <ScalarProperty Name="ΣΥΝΟΛΟ" ColumnName="ΣΥΝΟΛΟ" />
+          <ScalarProperty Name="ΠΕΡΙΓΡΑΦΗ" ColumnName="ΠΕΡΙΓΡΑΦΗ" />
+          <ScalarProperty Name="ΚΑΤΗΓΟΡΙΑ" ColumnName="ΚΑΤΗΓΟΡΙΑ" />
+          <ScalarProperty Name="ΗΜΕΡΟΜΗΝΙΑ" ColumnName="ΗΜΕΡΟΜΗΝΙΑ" />
+          <ScalarProperty Name="ΕΠΩΝΥΜΙΑ" ColumnName="ΕΠΩΝΥΜΙΑ" />
+          <ScalarProperty Name="ΒΝΣ" ColumnName="ΒΝΣ" />
+          <ScalarProperty Name="ROWID" ColumnName="ROWID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="sqlΣΥΝΟΛΟ_ΑΛΛΕΣ_ΗΜΕΡΑ">
+      <EntityTypeMapping TypeName="AbacusDBModel.sqlΣΥΝΟΛΟ_ΑΛΛΕΣ_ΗΜΕΡΑ">
+        <MappingFragment StoreEntitySet="sqlΣΥΝΟΛΟ_ΑΛΛΕΣ_ΗΜΕΡΑ">
+          <ScalarProperty Name="ΣΧΟΛ_ΕΤΟΣ" ColumnName="ΣΧΟΛ_ΕΤΟΣ" />
+          <ScalarProperty Name="ΕΙΔΟΣ" ColumnName="ΕΙΔΟΣ" />
+          <ScalarProperty Name="TOTAL_DAY" ColumnName="TOTAL_DAY" />
+          <ScalarProperty Name="ΜΗΝΑΣ" ColumnName="ΜΗΝΑΣ" />
+          <ScalarProperty Name="ΜΗΝΑΣ_ΑΡΙΘΜΟΣ" ColumnName="ΜΗΝΑΣ_ΑΡΙΘΜΟΣ" />
+          <ScalarProperty Name="ΗΜΕΡΟΜΗΝΙΑ" ColumnName="ΗΜΕΡΟΜΗΝΙΑ" />
+          <ScalarProperty Name="ΕΠΩΝΥΜΙΑ" ColumnName="ΕΠΩΝΥΜΙΑ" />
+          <ScalarProperty Name="ΒΝΣ" ColumnName="ΒΝΣ" />
+          <ScalarProperty Name="ROWID" ColumnName="ROWID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="expSTATION_BALANCE_MONTH">
+      <EntityTypeMapping TypeName="AbacusDBModel.expSTATION_BALANCE_MONTH">
+        <MappingFragment StoreEntitySet="expSTATION_BALANCE_MONTH">
+          <ScalarProperty Name="ΥΠΟΛΟΙΠΟ_ΣΥΝΟΛΟ" ColumnName="ΥΠΟΛΟΙΠΟ_ΣΥΝΟΛΟ" />
+          <ScalarProperty Name="ΔΑΠΑΝΗ_ΣΥΝΟΛΟ" ColumnName="ΔΑΠΑΝΗ_ΣΥΝΟΛΟ" />
+          <ScalarProperty Name="ΚΟΣΤΟΣ_ΣΥΝΟΛΟ" ColumnName="ΚΟΣΤΟΣ_ΣΥΝΟΛΟ" />
+          <ScalarProperty Name="ΥΠΟΛΟΙΠΟ_ΓΕΝΙΚΕΣ" ColumnName="ΥΠΟΛΟΙΠΟ_ΓΕΝΙΚΕΣ" />
+          <ScalarProperty Name="ΥΠΟΛΟΙΠΟ_ΚΑΘΑΡΙΟΤΗΤΑ" ColumnName="ΥΠΟΛΟΙΠΟ_ΚΑΘΑΡΙΟΤΗΤΑ" />
+          <ScalarProperty Name="ΥΠΟΛΟΙΠΟ_ΤΡΟΦΕΙΟ" ColumnName="ΥΠΟΛΟΙΠΟ_ΤΡΟΦΕΙΟ" />
+          <ScalarProperty Name="ΔΑΠΑΝΗ_ΓΕΝΙΚΕΣ" ColumnName="ΔΑΠΑΝΗ_ΓΕΝΙΚΕΣ" />
+          <ScalarProperty Name="ΔΑΠΑΝΗ_ΚΑΘΑΡΙΟΤΗΤΑ" ColumnName="ΔΑΠΑΝΗ_ΚΑΘΑΡΙΟΤΗΤΑ" />
+          <ScalarProperty Name="ΔΑΠΑΝΗ_ΤΡΟΦΕΙΟ" ColumnName="ΔΑΠΑΝΗ_ΤΡΟΦΕΙΟ" />
+          <ScalarProperty Name="ΚΟΣΤΟΣ_ΓΕΝΙΚΕΣ" ColumnName="ΚΟΣΤΟΣ_ΓΕΝΙΚΕΣ" />
+          <ScalarProperty Name="ΚΟΣΤΟΣ_ΚΑΘΑΡΙΟΤΗΤΑ" ColumnName="ΚΟΣΤΟΣ_ΚΑΘΑΡΙΟΤΗΤΑ" />
+          <ScalarProperty Name="ΚΟΣΤΟΣ_ΤΡΟΦΕΙΟ" ColumnName="ΚΟΣΤΟΣ_ΤΡΟΦΕΙΟ" />
+          <ScalarProperty Name="ΠΛΗΘΟΣ_ΑΤΟΜΑ" ColumnName="ΠΛΗΘΟΣ_ΑΤΟΜΑ" />
+          <ScalarProperty Name="ΠΡΟΣΩΠΙΚΟ_ΔΥΝΑΜΗ" ColumnName="ΠΡΟΣΩΠΙΚΟ_ΔΥΝΑΜΗ" />
+          <ScalarProperty Name="ΠΑΙΔΙΑ_ΔΥΝΑΜΗ" ColumnName="ΠΑΙΔΙΑ_ΔΥΝΑΜΗ" />
+          <ScalarProperty Name="ΜΗΝΑΣ" ColumnName="ΜΗΝΑΣ" />
+          <ScalarProperty Name="ΜΗΝΑΣ_ΑΡΙΘΜΟΣ" ColumnName="ΜΗΝΑΣ_ΑΡΙΘΜΟΣ" />
+          <ScalarProperty Name="ΣΧΟΛ_ΕΤΟΣ" ColumnName="ΣΧΟΛ_ΕΤΟΣ" />
+          <ScalarProperty Name="ΕΠΩΝΥΜΙΑ" ColumnName="ΕΠΩΝΥΜΙΑ" />
+          <ScalarProperty Name="ΒΝΣ" ColumnName="ΒΝΣ" />
+          <ScalarProperty Name="ROWID" ColumnName="ROWID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ΠΡΟΙΟΝΤΑ">
+      <EntityTypeMapping TypeName="AbacusDBModel.ΠΡΟΙΟΝΤΑ">
+        <MappingFragment StoreEntitySet="ΠΡΟΙΟΝΤΑ">
+          <ScalarProperty Name="ΠΡΟΙΟΝ_ΦΠΑ" ColumnName="ΠΡΟΙΟΝ_ΦΠΑ" />
+          <ScalarProperty Name="ΠΡΟΙΟΝ_ΚΑΤΗΓΟΡΙΑ" ColumnName="ΠΡΟΙΟΝ_ΚΑΤΗΓΟΡΙΑ" />
+          <ScalarProperty Name="ΠΡΟΙΟΝ_ΜΟΝΑΔΑ" ColumnName="ΠΡΟΙΟΝ_ΜΟΝΑΔΑ" />
+          <ScalarProperty Name="ΠΡΟΙΟΝ_ΛΕΚΤΙΚΟ" ColumnName="ΠΡΟΙΟΝ_ΛΕΚΤΙΚΟ" />
+          <ScalarProperty Name="ΠΡΟΙΟΝ_ΚΩΔ" ColumnName="ΠΡΟΙΟΝ_ΚΩΔ" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ΠΡΟΙΟΝΤΑ_ΒΝΣ">
+      <EntityTypeMapping TypeName="AbacusDBModel.ΠΡΟΙΟΝΤΑ_ΒΝΣ">
+        <MappingFragment StoreEntitySet="ΠΡΟΙΟΝΤΑ_ΒΝΣ">
+          <ScalarProperty Name="ΒΝΣ" ColumnName="ΒΝΣ" />
+          <ScalarProperty Name="ΠΡΟΙΟΝ_ΦΠΑ" ColumnName="ΠΡΟΙΟΝ_ΦΠΑ" />
+          <ScalarProperty Name="ΠΡΟΙΟΝ_ΚΑΤΗΓΟΡΙΑ" ColumnName="ΠΡΟΙΟΝ_ΚΑΤΗΓΟΡΙΑ" />
+          <ScalarProperty Name="ΠΡΟΙΟΝ_ΜΟΝΑΔΑ" ColumnName="ΠΡΟΙΟΝ_ΜΟΝΑΔΑ" />
+          <ScalarProperty Name="ΠΡΟΙΟΝ_ΛΕΚΤΙΚΟ" ColumnName="ΠΡΟΙΟΝ_ΛΕΚΤΙΚΟ" />
+          <ScalarProperty Name="ΠΡΟΙΟΝ_ΚΩΔ" ColumnName="ΠΡΟΙΟΝ_ΚΩΔ" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ΔΙΑΙΤΟΛΟΓΙΟ_ΗΜΕΡΑ">
+      <EntityTypeMapping TypeName="AbacusDBModel.ΔΙΑΙΤΟΛΟΓΙΟ_ΗΜΕΡΑ">
+        <MappingFragment StoreEntitySet="ΔΙΑΙΤΟΛΟΓΙΟ_ΗΜΕΡΑ">
+          <ScalarProperty Name="ΔΑΠΑΝΗ" ColumnName="ΔΑΠΑΝΗ" />
+          <ScalarProperty Name="ΚΟΣΤΟΣ" ColumnName="ΚΟΣΤΟΣ" />
+          <ScalarProperty Name="ΠΛΗΘΟΣ" ColumnName="ΠΛΗΘΟΣ" />
+          <ScalarProperty Name="ΠΡΟΣΩΠΙΚΟ" ColumnName="ΠΡΟΣΩΠΙΚΟ" />
+          <ScalarProperty Name="ΤΡΟΦΙΜΟΙ" ColumnName="ΤΡΟΦΙΜΟΙ" />
+          <ScalarProperty Name="ΓΕΥΜΑ_ΒΡΕΦΗ" ColumnName="ΓΕΥΜΑ_ΒΡΕΦΗ" />
+          <ScalarProperty Name="ΓΕΥΜΑ_ΜΕΣΗΜΕΡΙ" ColumnName="ΓΕΥΜΑ_ΜΕΣΗΜΕΡΙ" />
+          <ScalarProperty Name="ΓΕΥΜΑ_ΠΡΩΙ" ColumnName="ΓΕΥΜΑ_ΠΡΩΙ" />
+          <ScalarProperty Name="ΗΜΕΡΟΜΗΝΙΑ" ColumnName="ΗΜΕΡΟΜΗΝΙΑ" />
+          <ScalarProperty Name="ΣΤΑΘΜΟΣ_ΚΩΔ" ColumnName="ΣΤΑΘΜΟΣ_ΚΩΔ" />
+          <ScalarProperty Name="ΔΙΑΙΤΟΛΟΓΙΟ_ΚΩΔ" ColumnName="ΔΙΑΙΤΟΛΟΓΙΟ_ΚΩΔ" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ΓΕΥΜΑΤΑ_ΒΡΕΦΗ">
+      <EntityTypeMapping TypeName="AbacusDBModel.ΓΕΥΜΑΤΑ_ΒΡΕΦΗ">
+        <MappingFragment StoreEntitySet="ΓΕΥΜΑΤΑ_ΒΡΕΦΗ">
+          <ScalarProperty Name="ΒΝΣ" ColumnName="ΒΝΣ" />
+          <ScalarProperty Name="ΣΧΟΛΙΟ" ColumnName="ΣΧΟΛΙΟ" />
+          <ScalarProperty Name="ΒΡΕΦΙΚΟ" ColumnName="ΒΡΕΦΙΚΟ" />
+          <ScalarProperty Name="ΒΡΕΦΙΚΟ_ΚΩΔ" ColumnName="ΒΡΕΦΙΚΟ_ΚΩΔ" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ΓΕΥΜΑΤΑ_ΜΕΣΗΜΕΡΙ">
+      <EntityTypeMapping TypeName="AbacusDBModel.ΓΕΥΜΑΤΑ_ΜΕΣΗΜΕΡΙ">
+        <MappingFragment StoreEntitySet="ΓΕΥΜΑΤΑ_ΜΕΣΗΜΕΡΙ">
+          <ScalarProperty Name="ΒΝΣ" ColumnName="ΒΝΣ" />
+          <ScalarProperty Name="ΣΧΟΛΙΟ" ColumnName="ΣΧΟΛΙΟ" />
+          <ScalarProperty Name="ΜΕΣΗΜΕΡΙΑΝΟ" ColumnName="ΜΕΣΗΜΕΡΙΑΝΟ" />
+          <ScalarProperty Name="ΜΕΣΗΜΕΡΙΑΝΟ_ΚΩΔ" ColumnName="ΜΕΣΗΜΕΡΙΑΝΟ_ΚΩΔ" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ΓΕΥΜΑΤΑ_ΠΡΩΙ">
+      <EntityTypeMapping TypeName="AbacusDBModel.ΓΕΥΜΑΤΑ_ΠΡΩΙ">
+        <MappingFragment StoreEntitySet="ΓΕΥΜΑΤΑ_ΠΡΩΙ">
+          <ScalarProperty Name="ΒΝΣ" ColumnName="ΒΝΣ" />
+          <ScalarProperty Name="ΣΧΟΛΙΟ" ColumnName="ΣΧΟΛΙΟ" />
+          <ScalarProperty Name="ΠΡΩΙΝΟ" ColumnName="ΠΡΩΙΝΟ" />
+          <ScalarProperty Name="ΠΡΩΙΝΟ_ΚΩΔ" ColumnName="ΠΡΩΙΝΟ_ΚΩΔ" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="sqlΔΙΑΙΤΟΛΟΓΙΟ_ΗΜΕΡΑ">
+      <EntityTypeMapping TypeName="AbacusDBModel.sqlΔΙΑΙΤΟΛΟΓΙΟ_ΗΜΕΡΑ">
+        <MappingFragment StoreEntitySet="sqlΔΙΑΙΤΟΛΟΓΙΟ_ΗΜΕΡΑ">
+          <ScalarProperty Name="ΔΑΠΑΝΗ" ColumnName="ΔΑΠΑΝΗ" />
+          <ScalarProperty Name="ΚΟΣΤΟΣ" ColumnName="ΚΟΣΤΟΣ" />
+          <ScalarProperty Name="ΠΛΗΘΟΣ" ColumnName="ΠΛΗΘΟΣ" />
+          <ScalarProperty Name="ΠΡΟΣΩΠΙΚΟ" ColumnName="ΠΡΟΣΩΠΙΚΟ" />
+          <ScalarProperty Name="ΤΡΟΦΙΜΟΙ" ColumnName="ΤΡΟΦΙΜΟΙ" />
+          <ScalarProperty Name="ΒΡΕΦΙΚΟ" ColumnName="ΒΡΕΦΙΚΟ" />
+          <ScalarProperty Name="ΜΕΣΗΜΕΡΙΑΝΟ" ColumnName="ΜΕΣΗΜΕΡΙΑΝΟ" />
+          <ScalarProperty Name="ΠΡΩΙΝΟ" ColumnName="ΠΡΩΙΝΟ" />
+          <ScalarProperty Name="DAY_NUM" ColumnName="DAY_NUM" />
+          <ScalarProperty Name="ΗΜΕΡΟΜΗΝΙΑ" ColumnName="ΗΜΕΡΟΜΗΝΙΑ" />
+          <ScalarProperty Name="ΣΤΑΘΜΟΣ_ΚΩΔ" ColumnName="ΣΤΑΘΜΟΣ_ΚΩΔ" />
+          <ScalarProperty Name="ΔΙΑΙΤΟΛΟΓΙΟ_ΚΩΔ" ColumnName="ΔΙΑΙΤΟΛΟΓΙΟ_ΚΩΔ" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="sqlADMIN_LOGINS">
+      <EntityTypeMapping TypeName="AbacusDBModel.sqlADMIN_LOGINS">
+        <MappingFragment StoreEntitySet="sqlADMIN_LOGINS">
+          <ScalarProperty Name="LOGIN_DATETIME" ColumnName="LOGIN_DATETIME" />
+          <ScalarProperty Name="ADMIN_NAME" ColumnName="ADMIN_NAME" />
+          <ScalarProperty Name="LOGIN_ID" ColumnName="LOGIN_ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ADMIN_LOGINS">
+      <EntityTypeMapping TypeName="AbacusDBModel.ADMIN_LOGINS">
+        <MappingFragment StoreEntitySet="ADMIN_LOGINS">
+          <ScalarProperty Name="LOGIN_DATETIME" ColumnName="LOGIN_DATETIME" />
+          <ScalarProperty Name="LOGIN_USERNAME" ColumnName="LOGIN_USERNAME" />
+          <ScalarProperty Name="LOGIN_ID" ColumnName="LOGIN_ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="srcABSENCE_DAYS">
+      <EntityTypeMapping TypeName="AbacusDBModel.srcABSENCE_DAYS">
+        <MappingFragment StoreEntitySet="srcABSENCE_DAYS">
+          <ScalarProperty Name="ΜΕΡΕΣ_ΑΠΟΥΣΙΑ" ColumnName="ΜΕΡΕΣ_ΑΠΟΥΣΙΑ" />
+          <ScalarProperty Name="ΜΕΤΑΒΟΛΗ_ΜΗΝΑΣ" ColumnName="ΜΕΤΑΒΟΛΗ_ΜΗΝΑΣ" />
+          <ScalarProperty Name="ΣΧΟΛΙΚΟ_ΕΤΟΣ" ColumnName="ΣΧΟΛΙΚΟ_ΕΤΟΣ" />
+          <ScalarProperty Name="ΥΠΑΛΛΗΛΟΣ_ΚΩΔ" ColumnName="ΥΠΑΛΛΗΛΟΣ_ΚΩΔ" />
+          <ScalarProperty Name="ΒΝΣ" ColumnName="ΒΝΣ" />
+          <ScalarProperty Name="ROWID" ColumnName="ROWID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="DOCUPLOADS">
+      <EntityTypeMapping TypeName="AbacusDBModel.DOCUPLOADS">
+        <MappingFragment StoreEntitySet="DOCUPLOADS">
+          <ScalarProperty Name="UPLOAD_SUMMARY" ColumnName="UPLOAD_SUMMARY" />
+          <ScalarProperty Name="UPLOAD_NAME" ColumnName="UPLOAD_NAME" />
+          <ScalarProperty Name="UPLOAD_DATE" ColumnName="UPLOAD_DATE" />
+          <ScalarProperty Name="SCHOOLYEAR_ID" ColumnName="SCHOOLYEAR_ID" />
+          <ScalarProperty Name="STATION_ID" ColumnName="STATION_ID" />
+          <ScalarProperty Name="UPLOAD_ID" ColumnName="UPLOAD_ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="DOCUPLOADS_FILES">
+      <EntityTypeMapping TypeName="AbacusDBModel.DOCUPLOADS_FILES">
+        <MappingFragment StoreEntitySet="DOCUPLOADS_FILES">
+          <ScalarProperty Name="UPLOAD_ID" ColumnName="UPLOAD_ID" />
+          <ScalarProperty Name="EXTENSION" ColumnName="EXTENSION" />
+          <ScalarProperty Name="FILENAME" ColumnName="FILENAME" />
+          <ScalarProperty Name="SCHOOLYEAR_TEXT" ColumnName="SCHOOLYEAR_TEXT" />
+          <ScalarProperty Name="STATION_USER" ColumnName="STATION_USER" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ACTIVE_SELECTOR">
+      <EntityTypeMapping TypeName="AbacusDBModel.ACTIVE_SELECTOR">
+        <MappingFragment StoreEntitySet="ACTIVE_SELECTOR">
+          <ScalarProperty Name="ACTIVE_TEXT" ColumnName="ACTIVE_TEXT" />
+          <ScalarProperty Name="ACTIVE_ID" ColumnName="ACTIVE_ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

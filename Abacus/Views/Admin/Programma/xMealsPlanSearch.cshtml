@@ -1,0 +1,223 @@
+﻿@using Abacus.DAL;
+@using Abacus.Models;
+
+@{
+    ViewBag.Title = "Διαιτολόγια";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+@Html.AntiForgeryToken()
+<div class="page-header" style="margin:5px 30px 5px 30px">
+        <span style="margin:5px 30px 5px 0px;font-family:'Segoe UI';font-size:large;text-shadow:1px 1px #000000">
+            <font style="color:#494949;font-family:'Segoe UI'">Ευρετήριο διαιτολόγιων</font>
+        </span>
+        <span style="margin:5px 10px 5px 5px;float:right;font-family:'Segoe UI';font-size:14px">@Html.ActionLink("Επιστροφή", "Index", "Admin", null, new { @class = "btn btn-warning", style = "font-size:14px" })</span>
+        <button class="btn btn-info" style="margin:5px 5px 5px 5px;float:right;font-family:'Segoe UI';font-size:14px" onclick="RefreshGrid()">Ανανέωση</button>
+    </div>
+
+<div class="body-content" style="margin:5px 30px 5px 30px;background-color:dimgray;padding:4px 4px 4px 4px;min-height:38px">
+    <label style="margin-left:5px;font-size:13px;font-weight:bold;color:white">ΒΝΣ : </label>
+    @(Html.Kendo().DropDownList()
+        .Name("ddlstation")
+        .DataTextField("ΕΠΩΝΥΜΙΑ")
+        .DataValueField("ΣΤΑΘΜΟΣ_ΚΩΔ")
+        .HtmlAttributes(new { style = "width:300px;font-size:13px;font-weight:bold" })
+        .OptionLabel("Επιλογή σταθμού...")
+        .AutoBind(true)
+        .Enable(true)
+        .DataSource(source => { source.Read(read => { read.Action("GetStations", "Admin"); }).ServerFiltering(true); })
+        .Events(e =>
+        {
+            e.Select("ddlselect");
+        })
+    )
+    <label style="margin-left:10px;font-size:13px;font-weight:bold;color:white">Από ημερομηνία : </label>
+    @(Html.Kendo().DatePicker()
+        .Name("datepicker1")
+        .Value(DateTime.Today)
+        .Enable(true)
+        .HtmlAttributes(new { style = "width:120px;font-size:13px;font-weight:bold", type = "text" })
+        .Events(e =>
+        {
+            e.Change("dpchange1");
+        })
+    )
+    <label style="margin-left:10px;font-size:13px;font-weight:bold;color:white">Έως ημερομηνία : </label>
+    @(Html.Kendo().DatePicker()
+        .Name("datepicker2")
+        .Value(DateTime.Today)
+        .Enable(true)
+        .HtmlAttributes(new { style = "width:120px;font-size:13px;font-weight:bold", type = "text" })
+        .Events(e =>
+        {
+            e.Change("dpchange2");
+        })
+    )
+    <span style="margin:0px 0px 0px 10px;float:right;font-family:'Segoe UI'">
+        <button class="btn btn-default" style="margin:0px 5px 0px 5px;float:right;font-family:'Segoe UI';font-size:13px" onclick="printMealPlan()">Εκτύπωση διαιτολόγιου</button>
+    </span>
+</div>
+
+<div class="body-content" style="margin:10px 20px 5px 20px">
+        @(Html.Kendo().Grid<sqlMealPlanViewModel>()
+        .Name("Grid")
+        .Columns(columns =>
+        {
+            columns.Bound(c => c.ΗΜΕΡΟΜΗΝΙΑ).Width(20).Groupable(false).Filterable(false);
+            columns.Bound(c => c.ΠΡΩΙΝΟ).Width(40)
+                .ClientFooterTemplate("Ολικό πλήθος: #=count#")
+                .ClientGroupFooterTemplate("Πλήθος: #=count#");
+            ;
+            columns.Bound(c => c.ΜΕΣΗΜΕΡΙΑΝΟ).Width(80);
+            columns.Bound(c => c.ΒΡΕΦΙΚΟ).Width(40);
+        })
+        .HtmlAttributes(new { style = "font-size:11px" })
+        .Filterable()
+        .Groupable()
+        .Sortable(sortable => sortable.AllowUnsort(true).SortMode(GridSortMode.MultipleColumn))
+        .Scrollable(scr => scr.Height(400))
+        .Pageable(pageable => pageable
+        .Refresh(true)
+        .PageSizes(true)
+        .ButtonCount(10))
+        .DataSource(datasource => datasource
+        .Ajax()
+        .PageSize(60)
+        .ServerOperation(false)
+        .Model(model =>
+        {
+            model.Id(p => p.ΔΙΑΙΤΟΛΟΓΙΟ_ΚΩΔ);
+        })
+        .Read(read => read.Action("MealPlanSearch_Read", "Admin").Data("data"))
+        .Events(events => events.Error("error_handler"))
+        .Aggregates(a =>
+        {
+            a.Add(p => p.ΠΡΩΙΝΟ).Count();
+        })
+        ) @* datasource*@
+        )
+</div>
+
+
+<script type="text/javascript">
+
+    function printMealPlan() {
+        var stationID = $("#ddlstation").data("kendoDropDownList").value();
+        var datepicker1 = $("#datepicker1").data("kendoDatePicker");
+        var datepicker2 = $("#datepicker2").data("kendoDatePicker");
+
+        var Date1 = datepicker1.value();
+        var Date2 = datepicker2.value();
+
+        if (stationID && Date1 && Date2) {
+            window.open('@Url.Action("xMealPlanPrint", "Admin")?stationId=' + stationID + '&theDate1=' + kendo.toString(Date1, 'dd/MM/yyyy') + '&theDate2=' + kendo.toString(Date2, 'dd/MM/yyyy'));
+        }
+        else {
+            MessageBoxAlert("Για να γίνει η εκτύπωση πρέπει να επιλέξετε σταθμό και ένα διαιτολόγιο ημέρας από το πλέγμα.");
+        }
+    }
+
+    function ddlselect(e) {
+        var stationID = 0;
+        var dataItem = this.dataItem(e.item.index());
+        if (dataItem) {
+            stationID = dataItem.ΣΤΑΘΜΟΣ_ΚΩΔ;
+        }
+        var datepicker1 = $("#datepicker1").data("kendoDatePicker");
+        var datepicker2 = $("#datepicker2").data("kendoDatePicker");
+        var Date1 = datepicker1.value();
+        var Date2 = datepicker2.value();
+
+        if (stationID && Date1 && Date2) {
+            $("#Grid").data("kendoGrid").dataSource.read({ stationId: stationID, theDate1: Date1, theDate2: Date2 });
+        }
+        else {
+            MessageBoxAlert("Πρέπει να επιλέξετε σταθμό και ημερομηνίες για προβολή των διαιτολογίων.")
+        }
+    };
+
+    function dpchange1() {
+        var datepicker1 = $("#datepicker1").data("kendoDatePicker");
+        var datepicker2 = $("#datepicker2").data("kendoDatePicker");
+        var Date1 = this.value();
+        var Date2 = datepicker2.value();
+        var stationID = $("#ddlstation").data("kendoDropDownList").value();
+
+        if (stationID && Date1 && Date2) {
+            if (Date1 <= Date2) {
+                $("#Grid").data("kendoGrid").dataSource.read({ stationId: stationID, theDate1: Date1, theDate2: Date2 });
+            }
+            else {
+                MessageBoxAlert("Η αρχική ημερομηνία πρέπει να είναι μικρότερη της τελικής.")
+            }
+        }
+        else {
+            MessageBoxAlert("Πρέπει να επιλέξετε σταθμό και ημερομηνίες για προβολή του προγράμματος.")
+        }
+    }
+
+    function dpchange2() {
+        var datepicker1 = $("#datepicker1").data("kendoDatePicker");
+        var datepicker2 = $("#datepicker2").data("kendoDatePicker");
+        var Date2 = this.value();
+        var Date1 = datepicker1.value();
+        var stationID = $("#ddlstation").data("kendoDropDownList").value();
+
+        if (stationID && Date1 && Date2) {
+            if (Date1 <= Date2) {
+                $("#Grid").data("kendoGrid").dataSource.read({ stationId: stationID, theDate1: Date1, theDate2: Date2 });
+            }
+            else {
+                MessageBoxAlert("Η αρχική ημερομηνία πρέπει να είναι μικρότερη της τελικής.")
+            }
+        }
+        else {
+            MessageBoxAlert("Πρέπει να επιλέξετε σταθμό και ημερομηνίες για προβολή του διαιτολόγιου.")
+        }
+    }
+
+    function data() {
+        var datepicker1 = $("#datepicker1").data("kendoDatePicker");
+        var datepicker2 = $("#datepicker2").data("kendoDatePicker");
+        var stationID = $("#ddlstation").data("kendoDropDownList").value();
+
+        var Date1 = datepicker1.value();
+        var Date2 = datepicker2.value();
+
+        if (stationID && Date1 && Date2) {
+            return {
+                stationId: stationID,
+                theDate1: Date1,
+                theDate2: Date2
+            }
+        }
+        else {
+            return {
+                stationId: 0,
+                theDate1: null,
+                theDate2: null
+            }
+        }
+    }
+
+    function RefreshGrid(e) {
+        var grid = $("#Grid").data("kendoGrid");
+        grid.dataSource.read();
+    }
+
+    function error_handler(e) {
+        if (e.errors) {
+            var message = "";
+            $.each(e.errors, function (key, value) {
+                if ('errors' in value) {
+                    $.each(value.errors, function () {
+                        message += this + "<br/>";
+                    });
+                }
+            });
+            MessageBoxAlert(message, "Σφάλμα");
+        }
+        $("#Grid").data("kendoGrid").dataSource.read();
+    }
+
+</script>

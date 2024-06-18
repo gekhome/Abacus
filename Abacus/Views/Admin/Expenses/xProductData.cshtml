@@ -1,0 +1,177 @@
+﻿@using Abacus.DAL;
+@using Abacus.Models;
+
+@{
+    ViewBag.Title = "Κατηγορίες, προϊόντα";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<style>
+    .k-grid {
+        font-size: 12px;
+    }
+</style>
+
+
+@Html.AntiForgeryToken()
+<div class="page-header" style="margin:5px 30px 5px 30px">
+    <span style="margin:5px 30px 5px 30px;font-family:'Segoe UI';font-size:large;text-shadow:1px 1px #000000">
+        <font style="color:#494949;float:left;font-family:'Segoe UI'">Καταχώρηση προϊόντων διατροφής και λοιπών ειδών</font>
+    </span>
+    <span style="margin:5px 5px 5px 5px;float:right;font-family:'Segoe UI';font-size:14px">@Html.ActionLink("Επιστροφή", "Index", "Admin", null, new { @class = "btn btn-warning", style = "font-size:14px" })</span>
+    <button class="btn btn-info" style="margin:5px 5px 5px 5px;float:right;font-family:'Segoe UI';font-size:14px" onclick="RefreshGrid()">Ανανέωση</button>
+    <span style="margin:5px 5px 5px 10px;float:right;font-family:'Segoe UI';font-size:14px">@Html.ActionLink("Εκτύπωση", "xProductsPrint", "Admin", new { @class = "btn btn-primary", style = "font-size:14px", target = "_blank" })</span>
+</div>
+
+<div class="body-content" style="margin:10px 30px 5px 30px;font-size:small">
+        @(Html.Kendo().Grid<ProductCategoryViewModel>()
+        .Name("Master")
+        .Columns(columns =>
+        {
+            columns.Bound(c => c.ΚΑΤΗΓΟΡΙΑ).Width(120).Groupable(false);
+            columns.ForeignKey(f => f.ΔΑΠΑΝΗ_ΚΩΔ, (IEnumerable<ΔΑΠΑΝΕΣ_ΕΙΔΗ>)ViewData["expense_types"], "ΕΙΔΟΣ_ΚΩΔ", "ΕΙΔΟΣ_ΛΕΚΤΙΚΟ").Width(30);
+            columns.Command(command => { command.Edit(); command.Destroy(); }).Width(34);
+        })
+        .ToolBar(toolBar =>
+        {
+            toolBar.Create();
+        })
+        .Editable(editable => editable.Mode(GridEditMode.InLine))
+        .Navigatable()
+        .Pageable(pageable => pageable
+        .Refresh(true)
+        .PageSizes(true)
+        .ButtonCount(5))
+        .Selectable()
+        .Filterable()
+        .HtmlAttributes(new { style = "display: block;font-size:13px" })
+        .Sortable(sortable => sortable.AllowUnsort(true).SortMode(GridSortMode.MultipleColumn))
+        .Scrollable(scr => scr.Height(180))
+        .DataSource(dataSource => dataSource
+        .Ajax()
+        .PageSize(40)
+        .ServerOperation(false)
+        .Model(model =>
+        {
+            model.Id(p => p.ΚΑΤΗΓΟΡΙΑ_ΚΩΔ);
+            model.Field(p => p.ΔΑΠΑΝΗ_ΚΩΔ).DefaultValue(1);
+        })
+        .Create(create => create.Action("Category_Create", "Admin"))
+        .Read(read => read.Action("Category_Read", "Admin"))
+        .Update(update => update.Action("Category_Update", "Admin"))
+        .Destroy(destroy => destroy.Action("Category_Destroy", "Admin"))
+        .Events(events => events.Error("error_handler1"))
+        )
+        .Events(events => events.Change("change"))
+        )
+    </div>
+
+<div class="body-content" style="margin:10px 30px 5px 30px;font-size:small">
+
+        @(Html.Kendo().Grid<ProductViewModel>()
+        .Name("Child")
+        .AutoBind(false)
+        .HtmlAttributes(new { style = "display: block;font-size:13px" })
+        .Navigatable()
+        .Groupable()
+        .Filterable()
+        .Editable(editable => editable.Mode(GridEditMode.InLine).CreateAt(GridInsertRowPosition.Top))
+        .Sortable(sortable => sortable.AllowUnsort(true).SortMode(GridSortMode.MultipleColumn))
+        .Pageable(pageable => pageable
+        .Refresh(true)
+        .PageSizes(true)
+        .ButtonCount(10))
+        .Scrollable(scr => scr.Height(320))
+        .Columns(columns =>
+        {
+            columns.Bound(c => c.ΠΡΟΙΟΝ_ΛΕΚΤΙΚΟ).Width(120).Groupable(false);
+            columns.ForeignKey(f => f.ΠΡΟΙΟΝ_ΜΟΝΑΔΑ, (IEnumerable<ΠΡΟΙΟΝ_ΜΟΝΑΔΕΣ>)ViewData["units"], "ΜΟΝΑΔΑ_ΚΩΔ", "ΜΟΝΑΔΑ").Width(25);
+            columns.ForeignKey(f => f.ΠΡΟΙΟΝ_ΦΠΑ, (IEnumerable<ΦΠΑ_ΤΙΜΕΣ>)ViewData["vat_values"], "FPA_ID", "FPA_VALUE").Width(20);
+            columns.Command(command => { command.Edit(); command.Destroy(); }).Width(38);
+        })
+        .ToolBar(toolBar =>
+        {
+            toolBar.Create();
+        })
+        .DataSource(ds => ds
+            .Ajax()
+            .Batch(false)
+            .PageSize(60)
+            .ServerOperation(false)
+            .Model(model =>
+            {
+                model.Id(p => p.ΠΡΟΙΟΝ_ΚΩΔ);
+                model.Field(p => p.ΠΡΟΙΟΝ_ΜΟΝΑΔΑ).DefaultValue(1);
+                model.Field(p => p.ΠΡΟΙΟΝ_ΦΠΑ).DefaultValue(1);
+            })
+            .Create(create => create.Action("Product_Create", "Admin").Data("data"))
+            .Read(read => read.Action("Product_Read", "Admin").Data("data"))
+            .Update(update => update.Action("Product_Update", "Admin").Data("data"))
+            .Destroy(destroy => destroy.Action("Product_Destroy", "Admin"))
+            .Events(events => events.Error("error_handler2"))
+        )
+        )
+
+</div>
+
+<script type="text/javascript">
+
+    var options = null;
+
+    function RefreshGrid(e) {
+        var grid = $("#Master").data("kendoGrid");
+        grid.dataSource.read();
+    }
+
+    function change(e) {
+        var dataItem = this.dataItem(this.select());
+        var categoryID = dataItem.ΚΑΤΗΓΟΡΙΑ_ΚΩΔ;
+
+        $("#Child").data("kendoGrid").dataSource.read({ categoryId: categoryID });
+        $("#Child").css("display", "block");
+    }
+
+    function data() {
+        var masterGrid = $("#Master").data("kendoGrid");
+        // get data item for selected row
+        var dataItem = masterGrid.dataItem(masterGrid.select());
+        if (dataItem) {
+            return { categoryId: dataItem.ΚΑΤΗΓΟΡΙΑ_ΚΩΔ };
+        }
+        else {
+            return { categoryId: 0 };
+        }
+    }
+
+    function error_handler1(e) {
+        if (e.errors) {
+            var message = "";
+            $.each(e.errors, function (key, value) {
+                if ('errors' in value) {
+                    $.each(value.errors, function () {
+                        message += this + "<br/>";
+                    });
+                }
+            });
+            MessageBoxAlert(message, "Σφάλμα");
+        }
+        $("#Master").data("kendoGrid").dataSource.read();
+    }
+
+    function error_handler2(e) {
+        if (e.errors) {
+            var message = "";
+            $.each(e.errors, function (key, value) {
+                if ('errors' in value) {
+                    $.each(value.errors, function () {
+                        message += this + "<br/>";
+                    });
+                }
+            });
+            MessageBoxAlert(message, "Σφάλμα");
+        }
+        $("#Child").data("kendoGrid").dataSource.read();
+    }
+
+</script>
+

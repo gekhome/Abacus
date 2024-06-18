@@ -1,0 +1,233 @@
+﻿@using Abacus.DAL;
+@using Abacus.Models;
+
+
+@{
+    ViewBag.Title = "Καταχώρηση γευμάτων";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+@Html.AntiForgeryToken()
+
+<div class="page-header" style="margin:5px 30px 5px 30px">
+    <span style="margin:5px 30px 5px 30px;font-family:'Segoe UI';font-size:large;text-shadow:1px 1px #000000">
+        <font style="color:#494949;float:left;font-family:'Segoe UI'">Καταχώρηση γευμάτων σταθμού</font>
+    </span>
+    <span style="margin:5px 10px 5px 5px;float:right;font-family:'Segoe UI';font-size:14px">@Html.ActionLink("Επιστροφή", "Index", "Admin", null, new { @class = "btn btn-warning", style = "font-size:14px" })</span>
+</div>
+
+<div class="body-content" style="margin:5px 30px 5px 30px;background-color:dimgray;padding:4px 4px 4px 4px;min-height:38px">
+    <label style="margin-left:5px;font-size:13px;font-weight:bold;color:white">ΒΝΣ : </label>
+    @(Html.Kendo().DropDownList()
+        .Name("ddlstation")
+        .DataTextField("ΕΠΩΝΥΜΙΑ")
+        .DataValueField("ΣΤΑΘΜΟΣ_ΚΩΔ")
+        .HtmlAttributes(new { style = "width:300px;font-size:13px;font-weight:bold" })
+        .OptionLabel("Επιλογή σταθμού...")
+        .AutoBind(true)
+        .Enable(true)
+        .DataSource(source => { source.Read(read => { read.Action("GetStations", "Admin"); }).ServerFiltering(true); })
+        .Events(e =>
+        {
+            e.Select("ddlselect");
+        })
+    )
+    <span style="margin:0px 0px 0px 10px;float:right;font-family:'Segoe UI'">
+        <button class="btn btn-default" style="margin:0px 5px 0px 5px;float:right;font-family:'Segoe UI';font-size:13px" onclick="printMeals()">Εκτύπωση καταλόγου γευμάτων</button>
+    </span>
+</div>
+
+<div class="body-content" style="margin:10px 30px 5px 30px">
+
+    @Html.Kendo().PanelBar().Name("Panel").Items(items =>
+    {
+     items.Add().Text("Πρωινά γεύματα").Selected(true).Expanded(true)
+        .Content(@<text>
+        @(Html.Kendo().Grid<MealMorningViewModel>()
+        .Name("grid1")
+        .Columns(columns =>
+        {
+            columns.Bound(c => c.ΠΡΩΙΝΟ).Width(100);
+            columns.Bound(c => c.ΣΧΟΛΙΟ).Width(60);
+            columns.Command(command => { command.Edit(); command.Destroy(); }).Width(40);
+        })
+        .ToolBar(toolBar =>
+        {
+            toolBar.Create();
+        })
+        .Editable(editable => editable.Mode(GridEditMode.InLine))
+        .HtmlAttributes(new { style = "font-size:12px" })
+        .Navigatable()
+        .Pageable()
+        .Filterable()
+        .Scrollable(scr => scr.Height(320))
+        .Pageable(pageable => pageable
+        .Refresh(true)
+        .PageSizes(true)
+        .ButtonCount(5))
+        .DataSource(dataSource => dataSource
+            .Ajax()
+            .PageSize(40)
+            .ServerOperation(false)
+            .Model(model =>
+            {
+                model.Id(p => p.ΠΡΩΙΝΟ_ΚΩΔ);
+            })
+            .Create(create => create.Action("MealMorning_Create", "Admin").Data("data"))
+            .Read(read => read.Action("MealMorning_Read", "Admin").Data("data"))
+            .Update(update => update.Action("MealMorning_Update", "Admin").Data("data"))
+            .Destroy(destroy => destroy.Action("MealMorning_Destroy", "Admin"))
+            .Events(events => events.Error("error_handler"))
+        )
+        )
+    </text>);
+    items.Add().Text("Μεσημεριανά γεύματα").Selected(false).Expanded(false)
+        .Content(@<text>
+        @(Html.Kendo().Grid<MealNoonViewModel>()
+        .Name("grid2")
+        .Columns(columns =>
+        {
+            columns.Bound(c => c.ΜΕΣΗΜΕΡΙΑΝΟ).Width(100);
+            columns.Bound(c => c.ΣΧΟΛΙΟ).Width(60);
+            columns.Command(command => { command.Edit(); command.Destroy(); }).Width(40);
+        })
+        .ToolBar(toolBar =>
+        {
+            toolBar.Create();
+        })
+        .Editable(editable => editable.Mode(GridEditMode.InLine))
+        .HtmlAttributes(new { style = "font-size:12px" })
+        .Navigatable()
+        .Pageable()
+        .Filterable()
+        .Scrollable(scr => scr.Height(320))
+        .Pageable(pageable => pageable
+        .Refresh(true)
+        .PageSizes(true)
+        .ButtonCount(5))
+        .DataSource(dataSource => dataSource
+            .Ajax()
+            .PageSize(40)
+            .ServerOperation(false)
+            .Model(model =>
+            {
+                model.Id(p => p.ΜΕΣΗΜΕΡΙΑΝΟ_ΚΩΔ);
+            })
+            .Create(create => create.Action("MealNoon_Create", "Admin").Data("data"))
+            .Read(read => read.Action("MealNoon_Read", "Admin").Data("data"))
+            .Update(update => update.Action("MealNoon_Update", "Admin").Data("data"))
+            .Destroy(destroy => destroy.Action("MealNoon_Destroy", "Admin"))
+            .Events(events => events.Error("error_handler"))
+        )
+        )
+    </text>);
+    items.Add().Text("Βρεφικά γεύματα").Selected(false).Expanded(false)
+        .Content(@<text>
+        @(Html.Kendo().Grid<MealBabyViewModel>()
+        .Name("grid3")
+        .Columns(columns =>
+        {
+            columns.Bound(c => c.ΒΡΕΦΙΚΟ).Width(100);
+            columns.Bound(c => c.ΣΧΟΛΙΟ).Width(60);
+            columns.Command(command => { command.Edit(); command.Destroy(); }).Width(40);
+        })
+        .ToolBar(toolBar =>
+        {
+            toolBar.Create();
+        })
+        .Editable(editable => editable.Mode(GridEditMode.InLine))
+        .HtmlAttributes(new { style = "font-size:12px" })
+        .Navigatable()
+        .Pageable()
+        .Filterable()
+        .Scrollable(scr => scr.Height(320))
+        .Pageable(pageable => pageable
+        .Refresh(true)
+        .PageSizes(true)
+        .ButtonCount(5))
+        .DataSource(dataSource => dataSource
+            .Ajax()
+            .PageSize(40)
+            .ServerOperation(false)
+            .Model(model =>
+            {
+                model.Id(p => p.ΒΡΕΦΙΚΟ_ΚΩΔ);
+            })
+            .Create(create => create.Action("MealBaby_Create", "Admin").Data("data"))
+            .Read(read => read.Action("MealBaby_Read", "Admin").Data("data"))
+            .Update(update => update.Action("MealBaby_Update", "Admin").Data("data"))
+            .Destroy(destroy => destroy.Action("MealBaby_Destroy", "Admin"))
+            .Events(events => events.Error("error_handler"))            
+        )
+        )
+    </text>);
+    }).ExpandMode(PanelBarExpandMode.Multiple)
+
+</div>
+
+<script type="text/javascript">
+
+    function printMeals() {
+        var stationID = $("#ddlstation").data("kendoDropDownList").value();
+
+        if (stationID) {
+            window.open('@Url.Action("xMealsPrint", "Admin")?stationId=' + stationID);
+        }
+        else {
+            MessageBoxAlert("Για να γίνει η εκτύπωση πρέπει πρώτα να επιλέξετε σταθμό.");
+        }
+    }
+
+    function ddlselect(e) {
+        var stationID = 0;
+        var dataItem = this.dataItem(e.item.index());
+        if (dataItem) {
+            stationID = dataItem.ΣΤΑΘΜΟΣ_ΚΩΔ;
+        }
+
+        if (stationID) {
+            $("#grid1").data("kendoGrid").dataSource.read({ stationId: stationID });
+            $("#grid2").data("kendoGrid").dataSource.read({ stationId: stationID });
+            $("#grid3").data("kendoGrid").dataSource.read({ stationId: stationID });
+        }
+        else {
+            MessageBoxAlert("Πρέπει να επιλέξετε σταθμό για επεξεργασία των γευμάτων.")
+        }
+    };
+
+    function data() {
+        var stationID = $("#ddlstation").data("kendoDropDownList").value();
+
+        if (stationID) {
+            return { stationId: stationID }
+        }
+        else {
+            return { stationId: 0 }
+        }
+    }
+
+    function error_handler(e) {
+        if (e.errors) {
+            var message = "";
+            $.each(e.errors, function (key, value) {
+                if ('errors' in value) {
+                    $.each(value.errors, function () {
+                        message += this + "<br/>";
+                    });
+                }
+            });
+            MessageBoxAlert(message, "Σφάλμα");
+            RefreshGrids(e);
+        }
+    }
+
+    function RefreshGrids(e) {
+        var grid1 = $("#grid1").data("kendoGrid");
+        grid1.dataSource.read();
+        var grid2 = $("#grid2").data("kendoGrid");
+        grid2.dataSource.read();
+        var grid3 = $("#grid3").data("kendoGrid");
+        grid3.dataSource.read();
+    }
+
+</script>
